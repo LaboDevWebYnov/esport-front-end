@@ -1,0 +1,42 @@
+nav ul#menu{
+  padding: 0px;
+  background-color: black;
+  text-align: center;
+  margin-top: 0px;
+  float: right;
+  width: 100%;
+}
+
+nav li{
+  display: inline-block;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  line-height: 40px;
+  float: right;
+}
+nav li.menu_letter {
+  font-size: x-large;
+  margin-right: 0.3em;
+}
+
+nav li.menu_icon {
+   width: 20px;
+   margin-top: 2px;
+}
+
+nav li.menu_icon.right_side_menu {
+  margin-right: 10%;
+}
+
+
+nav li a{
+  text-decoration: none;
+  color: white;
+  font-family: Rhanoll;
+  text-transform: uppercase;
+}
+
+
+

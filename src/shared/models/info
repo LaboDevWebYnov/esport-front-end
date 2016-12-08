@@ -1,0 +1,4 @@
+Ajouter les models en séparant les models utlitaires des modeles physique
+ex:
+models : USERS --> modele physique
+         ChangePasswordObject --> modele utilitaire

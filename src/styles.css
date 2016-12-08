@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #3E3E3D;
+  margin: 0 !important;
+}
+ app-menu {
+   top: 0px;
+   position: fixed;
+   width: 100%;
+ }
