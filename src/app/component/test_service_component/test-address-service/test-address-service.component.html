@@ -2,69 +2,75 @@
   test-address-service works!
 </p>
 
-<form>
-  <h2>Get All Address :</h2>
-  <button type="button" (click)="getAllItemsAddress()">Get all !</button>
-</form>
+<ul class="games">
+  <li *ngFor="let address of addressApiJson" (click)="onSelectAddress(address._id)">
+    <span class="item" *ngIf="address.active == true">{{address._id}}</span>{{address.postCode}},{{address.city}},{{address.country}},{{address.line}}
+  </li>
+</ul>
 
-<form>
+<form  class="form" (submit)="getItemAddressById(idUser.value)">
   <h2>Get Address by ID :</h2>
-  User ID :
-  <br>
-  <input type="text" #idUser>
-  <input type="submit" (click)="getItemAddressById(idUser.value)">
+  <label>User ID: </label>
+  <input type="text" id="idUser" value="{{idUser}}"/>
+  <input type="submit">
 </form>
 
-<form>
+<form  class="form" (submit)="getItemAddressByIdAddress()">
   <h2>Get Address by ID Address:</h2>
-  Address ID :
-  <br>
-  <input type="text" #idAddress>
-  <input type="submit" (click)="getItemAddressByIdAddress(idAddress.value)">
-</form>
-
-<form (ngSubmit)="addAddress(idUser.value)">
-  <h2>Add address:</h2>
-  User ID :
-  <br>
-  <input type="text" #idUser>
+  <label>Address ID :</label>
+  <input type="text" id="idAddress" value="{{idAddress}}"/>
   <input type="submit">
 </form>
 
-<form (ngSubmit)="ChangeAddressById(idUser.value,idAddress.value)">
+<h2>Add address:</h2>
+<form  class="form"(ngSubmit)="addAddress()">
+  <label>idUser: </label>
+  <input type="text" id="UserID" value="{{UserID}}"/>
 
-  <!--(click)="onSelect(user)"-->
-  <!--[class.selected]="user === selectedUser"-->
+  <label>PostCode:</label>
+  <input type="number" id="postCode" value="{{postCode}}" />
 
-  <h2>Update Address:</h2>
-  User ID :
-  <br>
-  <input type="text" #idUser>
-  <br>
-  Address ID :
-  <br>
-  <input type="text" #idAddress>
+  <label>City:</label>
+  <input type="text" id="city" value="{{city}}" />
 
-  <!--<label for="postCode">PostCode</label>-->
-  <!--<input id="postCode" type="text" #postCode>-->
+  <label>Country:</label>
+  <input type="text" id="country" value="{{country}}" />
 
-  <!--<label for="city">City</label>-->
-  <!--<input id="city" type="text" #city>-->
+  <label>Line:</label>
+  <input type="text" id="line" value="{{line}}" />
 
-  <!--<label for="country">Country</label>-->
-  <!--<input id="country" type="text" #country>-->
-
-  <!--<label for="line">Line</label>-->
-  <!--<input id="line" type="text" #line>-->
-
-  <input type="submit">
+  <button type="submit">Submit</button>
 </form>
 
-<form>
+<h2>Change address:</h2>
+<form  class="form" (submit)="ChangeAddressById()">
+  <div>
+    <label>idUser: </label>
+    <input type="text" id="idUserChange" value="{{idUserChange}}"/>
+
+    <label>idAddress: </label>
+    <input type="text" id="idAddressChange" value="{{idAddressChange}}"/>
+
+    <label>postCode: </label>
+    <input type="number" id="postCodeChange" value="{{postCodeChange}}"/>
+
+    <label>city:</label>
+    <input type="text" id="cityChange" value="{{cityChange}}" />
+
+    <label>country:</label>
+    <input type="text" id="countryChange" value="{{countryChange}}"/>
+
+    <label>line:</label>
+    <input type="text" id="lineChange" value={{lineChange}} />
+
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<form  class="form" (submit)="DisableAddressByIdAddress()">
   <h2>Disable Address:</h2>
-  Address ID :
-  <br>
-  <input type="text" #idAddress>
-  <input type="submit" (click)="getItemAddressByIdAddress(idAddress.value)">
+  <label>idAddress: </label>
+  <input type="text" id="idAddressDis" value="{{idAddressDis}}"/>
+  <input type="submit">
 </form>
 
