@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
-import { Address } from '../models/address';
+import {Address, DisableAddress} from '../models/address';
 
 @Injectable()
 export class AddressService {
@@ -47,7 +47,7 @@ export class AddressService {
     return this._http.put(this.actionUrl + "addresses/" + id + "/updateAddress/" + addressId,JsonBody,{ headers: this.headers });
   };
 
-  public DisableAddressByAddressId = (id:string,Variable:Address): Observable<Response> => {
+  public DisableAddressByAddressId = (id:string,Variable:DisableAddress): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.put(this.actionUrl + "addresses/" + id + "/deactivateAddress",JsonBody,{ headers: this.headers });
   };

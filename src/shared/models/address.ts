@@ -4,4 +4,7 @@ export class Address {
   country: string;
   line: string;
 }
+export class DisableAddress{
+  active: boolean;
+}
 

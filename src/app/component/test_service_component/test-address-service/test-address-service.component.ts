@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AddressService } from "../../../../shared/services/address.service";
 import { Address } from "../../../../shared/models/address";
+import { DisableAddress } from "../../../../shared/models/address";
 import { Configuration } from '../../../../shared/app.constants';
 import { FormBuilder, Validators } from '@angular/forms';
 import {stringDistance} from "codelyzer/util/utils";
@@ -21,13 +22,19 @@ export class TestAddressServiceComponent implements OnInit {
   response: Object;
 
   Address1: Address={
-    postCode: 15,
-    city: "toto",
-    country: "tata",
-    line: "titi"
+    postCode: 0,
+    city: "",
+    country: "",
+    line: ""
   };
 
-  constructor(private addressServiceInstance: AddressService) { }
+  disableAddress: DisableAddress={
+    active: false
+  }
+
+  constructor(private addressServiceInstance: AddressService) {
+
+  }
 
   private getAllItemsAddress(): void{
     this.addressServiceInstance
@@ -39,9 +46,9 @@ export class TestAddressServiceComponent implements OnInit {
       );
   }
 
-  private getItemAddressById(id: string): void{
+  private getItemAddressById(idUser: string): void{
     this.addressServiceInstance
-      .GetUserAddressById(id)/*583a9d3b95ecb33490f49896*/
+      .GetUserAddressById(idUser)/*583a9d3b95ecb33490f49896*/
       .subscribe(
         data => this.addressGetByID = data,
         error => console.log(error),
@@ -49,7 +56,9 @@ export class TestAddressServiceComponent implements OnInit {
       );
   }
 
-  private getItemAddressByIdAddress(idAddress: string): void {
+  private getItemAddressByIdAddress(): void {
+    var idAddress = (<HTMLInputElement>document.getElementById('idAddress')).value;
+
     this.addressServiceInstance
       .GetAddressByIdAddress(idAddress)/*5729cc0b8613b6dc11b1fdd0*/
       .subscribe(
@@ -60,6 +69,12 @@ export class TestAddressServiceComponent implements OnInit {
   }
 
   private addAddress(idUser:string): void {
+    var idUser = (<HTMLInputElement>document.getElementById('UserID')).value;
+    this.Address1.postCode = parseInt((<HTMLInputElement>document.getElementById('postCode')).value);
+    this.Address1.city = (<HTMLInputElement>document.getElementById('city')).value;
+    this.Address1.country = (<HTMLInputElement>document.getElementById('country')).value;
+    this.Address1.line = (<HTMLInputElement>document.getElementById('line')).value;
+
     console.log(JSON.stringify(this.Address1));
     this.addressServiceInstance
       .AddAddress(idUser,this.Address1)
@@ -70,11 +85,13 @@ export class TestAddressServiceComponent implements OnInit {
       );
   }
 
-  private ChangeAddressById(idUser: string, idAddress: string): void {
-    // this.Address1.postCode = item.posteCode;
-    // this.Address1.city = item.city;
-    // this.Address1.country = item.country;
-    // this.Address1.line = item.line;
+  private ChangeAddressById(): void {
+    var idUser = (<HTMLInputElement>document.getElementById('idUserChange')).value;
+    var idAddress = (<HTMLInputElement>document.getElementById('idAddressChange')).value;
+    this.Address1.postCode = parseInt((<HTMLInputElement>document.getElementById('postCodeChange')).value);
+    this.Address1.city = (<HTMLInputElement>document.getElementById('cityChange')).value;
+    this.Address1.country = (<HTMLInputElement>document.getElementById('countryChange')).value;
+    this.Address1.line = (<HTMLInputElement>document.getElementById('lineChange')).value;
 
     this.addressServiceInstance
       .UpdateAddressById(idUser, idAddress,this.Address1)
@@ -85,9 +102,11 @@ export class TestAddressServiceComponent implements OnInit {
       );
   }
 
-  private DisableAddressByIdAddress(idAddress:string): void {
+  private DisableAddressByIdAddress(): void {
+    var idAddress = (<HTMLInputElement>document.getElementById('idAddressDis')).value;
+
     this.addressServiceInstance
-      .DisableAddressByAddressId(idAddress,this.Address1)
+      .DisableAddressByAddressId(idAddress,this.disableAddress)
       .subscribe(
         data => this.response = data,
         error => console.log(error),
@@ -96,11 +115,16 @@ export class TestAddressServiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getAllItemsAddress();
+    this.getAllItemsAddress();
     //this.getItemAddressById();
     //this.getItemAddressByIdAddress();
     //this.addAddress();
     //this.ChangeAddressById();
     //this.DisableAddressByIdAddress();
+  }
+
+  public onSelectAddress(id : string):void{
+    console.log("Id " +id);
+    this.getItemAddressById(id);
   }
 }
