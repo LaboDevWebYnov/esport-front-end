@@ -20,16 +20,16 @@ export class SecurityService {
     this.headers.append('Accept', 'application/json');
   }
 
-  //test a faire
+  //Good
   public verifyEmail = (email: string): Observable<String> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'user/verify/' + email)
       .map(response => response.json())
   };
 
-  //test a faire
+  //Good
   public auth = (authObject: AuthObject): Observable<Response> => {
-    let JsonBody = JSON.stringify({authObject});
+    let JsonBody = JSON.stringify(authObject);
     return this._http.post(this.actionUrl + "auth", JsonBody, {headers: this.headers})
       .map((response => response.json()))
   };
