@@ -1,5 +1,6 @@
 import { GameService } from '../../../../shared/services/game.service';
 import { Component, OnInit } from '@angular/core';
+import { Http, Response, Headers} from '@angular/Http';
 import {Configuration} from "../../../../shared/app.constants";
 import {Game} from "../../../../shared/models/game";
 
@@ -16,11 +17,19 @@ export class TestGameServiceComponent implements OnInit {
   gameGetByName: Object;
   response: Object;
 
+  name: 'PES 2017';
+  releaseDate: '12-12-2016';
+  multiPlayer: true;
+  editor: 'KONAMI';
+  description: 'Jeu de foot';
+  created_at: '2016-12-12';
+  str : '';
+
   addNewGame: Game = {
-    name: "Fifa 17",
+    name: "PES 2017",
     releaseDate: new Date(2016,11,30),
     multiPlayer: true,
-    editor: "EA Sport",
+    editor: "KONAMI",
     description: "Jeu de foot",
     created_at: new Date(),
     updated_at: new Date()
@@ -36,7 +45,16 @@ export class TestGameServiceComponent implements OnInit {
     updated_at: new Date()
   };
 
-  constructor(private gameServiceInstance: GameService) { }
+  constructor(private gameServiceInstance: GameService) {
+    this.str = '';
+    this.name= 'PES 2017';
+    this.releaseDate= '12-12-2016';
+    this.multiPlayer= true;
+    this.editor = 'KONAMI';
+    this.description= 'Jeu de foot';
+    this.created_at= '2016-12-12';
+
+  }
 
   private getAllItemsGame(): void {
     this.gameServiceInstance.GetAllGames()
@@ -47,9 +65,9 @@ export class TestGameServiceComponent implements OnInit {
       );
   }
 
-  private getItemGameById(): void {
+  private getItemGameById(id : string): void {
     this.gameServiceInstance
-      .GetGameById("569104a0417130681bcf1586")
+      .GetGameById(id)
       .subscribe(
         data => this.gameGetById = data,
         error => console.log(error),
@@ -76,10 +94,10 @@ export class TestGameServiceComponent implements OnInit {
       );
   }
 
-  private ChangeGameInfo(): void {
+  private ChangeGameInfo(id: string, updatedGame: Game): void {
     console.log(JSON.stringify(this.updateGame));
     this.gameServiceInstance
-      .ChangeGameInformation("583edfa220fd3811ecdcdf0d",this.updateGame)
+      .ChangeGameInformation(id,updatedGame)
       .subscribe(
         data => this.response = data,
         error => console.log(error),
@@ -88,21 +106,45 @@ export class TestGameServiceComponent implements OnInit {
   }
 
 
-  private deleteGame(): void {
-    this.gameServiceInstance.DeleteGame("583edfa220fd3811ecdcdf0d")
+  private deleteGame(codeJeu : string): void {
+    this.gameServiceInstance.DeleteGame(codeJeu)
       .subscribe(
         data => this.response = data,
         error => console.log(error),
-        () => console.log('Delete Game complete', this.response)
+        () => console.log('Delete Game' + codeJeu +' complete', this.response)
       );
   }
   ngOnInit() {
     this.getAllItemsGame();
-    this.getItemGameById();
-    this.getItemGameByName();
-    this.addGameItem();
-    this.deleteGame();
-    this.ChangeGameInfo();
+    //this.getItemGameById();
+    //this.getItemGameByName();
+    //this.addGameItem();
+    //this.deleteGame();
+    //this.ChangeGameInfo();
+  }
+
+
+  public onSelectGame(id : string):void{
+    console.log("Id " +id);
+    this.getItemGameById(id);
+  }
+
+  public submitUpdateForm():void{
+    var updatedGame: Game = {
+      name: (<HTMLInputElement>document.getElementById('gameName')).value,
+      releaseDate:  new Date(),//(<HTMLInputElement>document.getElementById('created_at')).value,//new Date(2016,11,30),
+      multiPlayer: true,
+      editor: (<HTMLInputElement>document.getElementById('editor')).value,
+      description: (<HTMLInputElement>document.getElementById('description')).value,
+      created_at: new Date(),
+      updated_at: new Date()
+    };
+    this.ChangeGameInfo((<HTMLInputElement>document.getElementById('gameId')).value,updatedGame);
+    console.log('test update');
+  }
+
+  public submitAddForm():void{
+    console.log('test add',(<HTMLInputElement>document.getElementById('gameName')).value);
   }
 
 }

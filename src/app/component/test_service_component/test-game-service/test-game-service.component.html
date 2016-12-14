@@ -1,3 +1,60 @@
-<p>
-  test-game-service works!
-</p>
+<br xmlns:date="http://www.w3.org/1999/xhtml">
+<br>
+<br>
+<br>
+<h1>Ajout d'un jeu</h1>
+
+<ul class="games">
+  <li *ngFor="let game of gamesApiJson" (click)="onSelectGame(game._id)">
+    <span class="item" *ngIf="game.active == true">{{game._id}}</span>{{game.name}}
+  </li>
+</ul>
+
+
+<form class="form" *ngIf="gameGetById" (submit)="submitUpdateForm()">
+  <div>
+    <input type="hidden" id="gameId" value="{{gameGetById._id}}">
+    <label>Nom du jeu: </label>
+    <input type="text" id="gameName" value="{{gameGetById.name}}"/>
+
+    <label>Editeur:</label>
+    <input type="text" id="editor" value="{{gameGetById.editor}}" />
+
+    <label>Description:</label>
+    <input type="text" id="description" value="{{gameGetById.description}}"/>
+
+    <label>Créé le:</label>
+    <input type="date" id="created_at" value={{gameGetById.created_at}} />
+
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<br><br>
+
+
+<div *ngIf="gameGetById">
+  <h1>Suppression d'un jeu</h1>
+  <label>Nom du jeu: {{gameGetById.name}}</label>
+  <button (click)="deleteGame(gameGetById._id)">Submit</button>
+</div>
+
+
+<h1>Ajout d'un jeu</h1>
+<form class="form" (submit)="submitAddForm()">
+  <div>
+    <input type="hidden" value="{{_id}}">
+    <label>Nom du jeu: </label>
+    <input type="text" id="name" value="{{name}}"/>
+
+    <label>Editeur:</label>
+    <input type="text" id="edit" value="{{editor}}" />
+
+    <label>Description:</label>
+    <input type="text" id="descript" value="{{description}}"/>
+
+    <label>Créé le:</label>
+    <input type="date" id="created" value={{created_at}} />
+
+    <button type="submit">Submit</button>
+  </div>
+</form>
