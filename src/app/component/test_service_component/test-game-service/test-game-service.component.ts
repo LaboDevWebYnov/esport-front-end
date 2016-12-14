@@ -84,9 +84,9 @@ export class TestGameServiceComponent implements OnInit {
       );
   }
 
-  private addGameItem(): void {
-    console.log(JSON.stringify(this.addNewGame));
-    this.gameServiceInstance.AddGame(this.addNewGame)
+  private addGameItem(gameName : Game): void {
+    console.log(JSON.stringify(gameName));
+    this.gameServiceInstance.AddGame(gameName)
       .subscribe(
         data => this.response = data,
         error => console.log(error,this.response),
@@ -144,7 +144,18 @@ export class TestGameServiceComponent implements OnInit {
   }
 
   public submitAddForm():void{
-    console.log('test add',(<HTMLInputElement>document.getElementById('gameName')).value);
+    console.log('test add',(<HTMLInputElement>document.getElementById('gameNameAdd')).value);
+    var addedGame: Game = {
+      name: (<HTMLInputElement>document.getElementById('gameNameAdd')).value,
+      releaseDate:  new Date(),//(<HTMLInputElement>document.getElementById('created_at')).value,//new Date(2016,11,30),
+      multiPlayer: true,
+      editor: (<HTMLInputElement>document.getElementById('editorAdd')).value,
+      description: (<HTMLInputElement>document.getElementById('descriptAdd')).value,
+      created_at: new Date(),
+      updated_at: new Date()
+    };
+    this.addGameItem(addedGame);
+    console.log('test add');
   }
 
 }

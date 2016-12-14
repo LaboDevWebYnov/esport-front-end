@@ -13,6 +13,7 @@
 
 <form class="form" *ngIf="gameGetById" (submit)="submitUpdateForm()">
   <div>
+    <h1>Modification d'un jeu</h1>
     <input type="hidden" id="gameId" value="{{gameGetById._id}}">
     <label>Nom du jeu: </label>
     <input type="text" id="gameName" value="{{gameGetById.name}}"/>
@@ -42,18 +43,17 @@
 <h1>Ajout d'un jeu</h1>
 <form class="form" (submit)="submitAddForm()">
   <div>
-    <input type="hidden" value="{{_id}}">
     <label>Nom du jeu: </label>
-    <input type="text" id="name" value="{{name}}"/>
+    <input type="text" id="gameNameAdd" value="{{name}}"/>
 
     <label>Editeur:</label>
-    <input type="text" id="edit" value="{{editor}}" />
+    <input type="text" id="editorAdd" value="{{editor}}" />
 
     <label>Description:</label>
-    <input type="text" id="descript" value="{{description}}"/>
+    <input type="text" id="descriptAdd" value="{{description}}"/>
 
     <label>Créé le:</label>
-    <input type="date" id="created" value={{created_at}} />
+    <input type="date" id="createdAdd" value={{created_at}} />
 
     <button type="submit">Submit</button>
   </div>

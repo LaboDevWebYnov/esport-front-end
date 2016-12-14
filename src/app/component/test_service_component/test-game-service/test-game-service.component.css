@@ -1,4 +1,3 @@
-
 .selected {
   background-color: #CFD8DC !important;
   color: white;
@@ -19,7 +18,6 @@ h2 {
   /*width: 15em;*/
 
 }
-
 .games li {
   cursor: pointer;
   position: relative;
