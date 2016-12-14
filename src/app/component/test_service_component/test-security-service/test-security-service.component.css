@@ -1,7 +1,7 @@
 .window
 {
   background-color: #1C1C1B;
-  position: absolute;
+  position: fixed;
   right: 0%;
   top: 0%;
   left: 0%;
@@ -22,11 +22,11 @@
   padding: 5%;
   border-left: solid white 1px;
   border-right: solid white 1px;
-  margin-top: 0.70%;
+  margin-top: 0.50%;
 }
 .blueLine
 {
-  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   display: block;
   position: absolute;
   height: 2%;
@@ -37,8 +37,8 @@
 {
   position: absolute;
   top:13%;
-  left: 25%;
-  right: 25%;
+  left: 15%;
+  right: 15%;
 }
 .titleConnect
 {
@@ -55,8 +55,12 @@
 }
 .connectWindow
 {
-  text-align: right;
-
+  position: absolute;
+  top: 25%;
+  right: 0%;
+  width: 25%;
+  padding: 5%;
+  text-align: center;
 }
 
 @font-face
