@@ -23,13 +23,7 @@ export class TestPlayerAccountServiceComponent implements OnInit {
   playerAccountGetByLogin: Object;
   response: Object;
 
-  AddPlayerAccount : AddNewPlayerAccount={
 
-    login: "HelloWorld",
-    gameId: "569104a0417130681bcf1586",
-    userId: "569000574367285c00961282"
-
-  };
 
   constructor(private playerAccountServiceInstance: PlayerAccountService) {}
 
@@ -69,10 +63,10 @@ export class TestPlayerAccountServiceComponent implements OnInit {
         () => console.log('get One Player Account by Login',this.playerAccountGetByLogin)//console.log('get All Items complete')
       );
   }
-  private addPlayerAccount(): void {
-    console.log(JSON.stringify(this.AddPlayerAccount));
+  private addPlayerAccount(addPlayerAccount : AddNewPlayerAccount, userid : string, gameid : string): void {
+
     this.playerAccountServiceInstance
-      .AddPlayerAccount(this.AddPlayerAccount)
+      .AddPlayerAccount(addPlayerAccount, userid, gameid)
       .subscribe(
         data => this.response = data,
         error => console.log(error,this.response),
@@ -95,6 +89,21 @@ export class TestPlayerAccountServiceComponent implements OnInit {
     //this.getItemPlayerAccountByLogin();
     //this.addPlayerAccount();
     //this.deletePlayerAccount();
+  }
+  public submitAddForm():void{
+    var addPlayerAccount: AddNewPlayerAccount = {
+      login: (<HTMLInputElement>document.getElementById('login')).value,
+
+
+    };
+    var userId:string = (<HTMLInputElement>document.getElementById('userid')).value;
+    var gameId:string = (<HTMLInputElement>document.getElementById('gameid')).value;
+    this.addPlayerAccount(addPlayerAccount,userId,gameId);
+    console.log('test add');
+  }
+  public onSelectPlayerAccount(id : string):void{
+    console.log("Id " +id);
+    this.getItemPlayerAccountById(id);
   }
 
 }

@@ -4,15 +4,42 @@
 <form>
 
   <button type="button" (click)="getAllItemsPlayerAccount()">Get all</button>
-  <input type="search" name="query" [(ngModel)]="getbyid" (keyup.enter)="getItemPlayerAccountById(getbyid)">
+  <input type="search" name="getbyid" [(ngModel)]="getbyid" (keyup.enter)="getItemPlayerAccountById(getbyid)">
   <button type="button" (click)="getItemPlayerAccountById(getbyid)">Get 1 by ID</button>
-  <input type="search" name="lol" [(ngModel)]="getbyusername" (keyup.enter)="getAllItemsPlayerAccount(getbyusername)">
+  <input type="search" name="getbyusername" [(ngModel)]="getbyusername" (keyup.enter)="getAllItemsPlayerAccount(getbyusername)">
   <button type="button" (click)="getAllItemsPlayerAccount(getbyusername)">Get 1 by username</button>
-  <input type="search" name="lol" [(ngModel)]="getbyuserid" (keyup.enter)="getItemPlayerAccountByUserId(getbyuserid)">
+  <input type="search" name="getbyuserid" [(ngModel)]="getbyuserid" (keyup.enter)="getItemPlayerAccountByUserId(getbyuserid)">
   <button type="button" (click)="getItemPlayerAccountByUserId(getbyuserid)">Get 1 by user idS</button>
-  <input type="search" name="lol" [(ngModel)]="deletebyid" (keyup.enter)="deletePlayerAccount(deletebyid)">
+  <input type="search" name="deletebyid" [(ngModel)]="deletebyid" (keyup.enter)="deletePlayerAccount(deletebyid)" value="">
   <button type="button" (click)="deletePlayerAccount(deletebyid)">Delete by id</button>
+  <br><br>
+
 </form>
+<br>
+<h2>Add player-account</h2>
+<form class="form" (submit)="submitAddForm()">
+
+
+    <label>Login: </label>
+    <input type="text" id="login" value=""/>
+
+    <label>User ID: 569000574367285c00961282</label>
+    <input type="text" id="userid" value="" />
+
+    <label>Game ID: 569104a0417130681bcf1586</label>
+    <input type="text" id="gameid" value=""/>
+
+
+
+    <button type="submit">Submit</button>
+
+</form>
+<ul class="pa">
+  <li *ngFor="let pa of playerAccountApiJson" (click)="onSelectPlayerAccount(pa._id)">
+    <span class="item" *ngIf="pa.active == true">{{pa._id}}</span>{{pa.login}}
+    <button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button>
+  </li>
+</ul>
 <table *ngIf="playerAccountApiJson">
   <thead>
   <tr>
