@@ -13,13 +13,15 @@ import { PlayerAccount } from '../../../../shared/models/player-account';
   styleUrls: ['./test-player-account-service.component.css'],
   providers: [PlayerAccountService,Configuration]
 })
+// sample data we would get back from an api
+
 export class TestPlayerAccountServiceComponent implements OnInit {
 
-   playerAccountApiJson: Object;
-   playerAccountGetById: Object;
-   playerAccountGetByUserId: Object;
-   playerAccountGetByLogin: Object;
-   response: Object;
+  playerAccountApiJson: Object;
+  playerAccountGetById: Object;
+  playerAccountGetByUserId: Object;
+  playerAccountGetByLogin: Object;
+  response: Object;
 
   AddPlayerAccount : AddNewPlayerAccount={
 
@@ -31,36 +33,36 @@ export class TestPlayerAccountServiceComponent implements OnInit {
 
   constructor(private playerAccountServiceInstance: PlayerAccountService) {}
 
-   private getAllItemsPlayerAccount(): void {
-     this.playerAccountServiceInstance
-       .GetAllPlayerAccount()
-       .subscribe(
-        data => this.playerAccountApiJson = data,
-         error => console.log(error),
-         () => console.log('get All Items complete', this.playerAccountApiJson)
-       );
-   }
-  private getItemPlayerAccountById(): void {
+  private getAllItemsPlayerAccount(): void {
     this.playerAccountServiceInstance
-      .GetSinglePlayerAccountById("5729cd638613b6dc11b1fdd1")
+      .GetAllPlayerAccount()
+      .subscribe(
+        data => this.playerAccountApiJson = data,
+        error => console.log(error),
+        () => console.log('get All Items complete', this.playerAccountApiJson)
+      );
+  }
+  private getItemPlayerAccountById(query : string): void {
+    this.playerAccountServiceInstance
+      .GetSinglePlayerAccountById(query)
       .subscribe(
         data => this.playerAccountGetById = data,
         error => console.log(error),
         () => console.log('get One Player Account by Id',this.playerAccountGetById)//console.log('get All Items complete')
       );
   }
-  private getItemPlayerAccountByUserId(): void {
+  private getItemPlayerAccountByUserId(query : string): void {
     this.playerAccountServiceInstance
-      .GetSinglePlayerAccountByUserId("569000574367285c00961282")
+      .GetSinglePlayerAccountByUserId(query)
       .subscribe(
         data => this.playerAccountGetByUserId = data,
         error => console.log(error),
         () => console.log('get One Player Account by userId',this.playerAccountGetByUserId)//console.log('get All Items complete')
       );
   }
-  private getItemPlayerAccountByLogin(): void {
+  private getItemPlayerAccountByLogin(query : string): void {
     this.playerAccountServiceInstance
-      .GetSinglePlayerAccountByLogin("leamonsqueezy")
+      .GetSinglePlayerAccountByLogin(query)
       .subscribe(
         data => this.playerAccountGetByLogin = data,
         error => console.log(error),
@@ -77,9 +79,9 @@ export class TestPlayerAccountServiceComponent implements OnInit {
         () => console.log('Add User complete', this.response)
       );
   }
-  private deletePlayerAccount(): void {
+  private deletePlayerAccount(query : string): void {
     this.playerAccountServiceInstance
-      .DeletePlayerAccount("583ee5e74820682bc8c372e4")
+      .DeletePlayerAccount(query)
       .subscribe(
         data => this.response = data,
         error => console.log(error),
@@ -92,7 +94,7 @@ export class TestPlayerAccountServiceComponent implements OnInit {
     //this.getItemPlayerAccountByUserId();
     //this.getItemPlayerAccountByLogin();
     //this.addPlayerAccount();
-    this.deletePlayerAccount();
+    //this.deletePlayerAccount();
   }
 
 }
