@@ -1,3 +1,70 @@
 <p>
   test-address-service works!
 </p>
+
+<form>
+  <h2>Get All Address :</h2>
+  <button type="button" (click)="getAllItemsAddress()">Get all !</button>
+</form>
+
+<form>
+  <h2>Get Address by ID :</h2>
+  User ID :
+  <br>
+  <input type="text" #idUser>
+  <input type="submit" (click)="getItemAddressById(idUser.value)">
+</form>
+
+<form>
+  <h2>Get Address by ID Address:</h2>
+  Address ID :
+  <br>
+  <input type="text" #idAddress>
+  <input type="submit" (click)="getItemAddressByIdAddress(idAddress.value)">
+</form>
+
+<form (ngSubmit)="addAddress(idUser.value)">
+  <h2>Add address:</h2>
+  User ID :
+  <br>
+  <input type="text" #idUser>
+  <input type="submit">
+</form>
+
+<form (ngSubmit)="ChangeAddressById(idUser.value,idAddress.value)">
+
+  <!--(click)="onSelect(user)"-->
+  <!--[class.selected]="user === selectedUser"-->
+
+  <h2>Update Address:</h2>
+  User ID :
+  <br>
+  <input type="text" #idUser>
+  <br>
+  Address ID :
+  <br>
+  <input type="text" #idAddress>
+
+  <!--<label for="postCode">PostCode</label>-->
+  <!--<input id="postCode" type="text" #postCode>-->
+
+  <!--<label for="city">City</label>-->
+  <!--<input id="city" type="text" #city>-->
+
+  <!--<label for="country">Country</label>-->
+  <!--<input id="country" type="text" #country>-->
+
+  <!--<label for="line">Line</label>-->
+  <!--<input id="line" type="text" #line>-->
+
+  <input type="submit">
+</form>
+
+<form>
+  <h2>Disable Address:</h2>
+  Address ID :
+  <br>
+  <input type="text" #idAddress>
+  <input type="submit" (click)="getItemAddressByIdAddress(idAddress.value)">
+</form>
+
