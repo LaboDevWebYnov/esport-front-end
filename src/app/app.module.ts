@@ -17,6 +17,13 @@ import { NewsComponent } from './component/news/news/news.component';
 import { HomeComponent } from './component/home/home/home.component';
 import { EventsComponent } from './component/events/events/events.component';
 import { StreamingsComponent } from './component/streamings/streamings/streamings.component';
+import { ProfileUserComponent } from './component/profile-user/profile-user.component';
+import { UserBannerComponent } from './component/profile-user/user-banner/user-banner.component';
+import { UserSocialComponent } from './component/profile-user/user-social/user-social.component';
+import { UserGamesComponent } from './component/profile-user/user-games/user-games.component';
+import { UserResultsComponent } from './component/profile-user/user-results/user-results.component';
+import { UserHistoricComponent } from './component/profile-user/user-historic/user-historic.component';
+import { UserNewsComponent } from './component/profile-user/user-news/user-news.component';
 
 
 @NgModule({
@@ -33,7 +40,14 @@ import { StreamingsComponent } from './component/streamings/streamings/streaming
     NewsComponent,
     HomeComponent,
     EventsComponent,
-    StreamingsComponent
+    StreamingsComponent,
+    ProfileUserComponent,
+    UserBannerComponent,
+    UserSocialComponent,
+    UserGamesComponent,
+    UserResultsComponent,
+    UserHistoricComponent,
+    UserNewsComponent
   ],
   imports: [
     BrowserModule,
