@@ -43,9 +43,9 @@ export class PlayerAccountService {
     return this._http.get(this.actionUrl + "playerAccount/" + Login + "/getPlayerAccountByLogin")
       .map(response =>response.json());
   };
-  public AddPlayerAccount = (Variable:AddNewPlayerAccount): Observable<Response> => {
+  public AddPlayerAccount = (Variable:AddNewPlayerAccount, userid : string, gameid : string): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"playerAccount/"+ Variable.userId+"/addPlayerAccount/"+Variable.gameId, JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl+"playerAccount/"+ userid+"/addPlayerAccount/"+gameid, JsonBody, { headers: this.headers })
       .map((response => response.json()));
   };
   public DeletePlayerAccount = (id: string): Observable<Response> => {
