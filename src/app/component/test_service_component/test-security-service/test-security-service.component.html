@@ -1,11 +1,67 @@
+<div class="window"></div>
 
-<form (click)="onSelect()">
+<div class="menuWindow"></div>
 
-  <input type="text">
-  <input type="text">
+<div class="mainWindow">
 
-  <button></button>
+  <div class="blueLine"></div>
 
-</form>
-<!--[class.selected]="user === selectedUser"-->
-<!--(click)="onSelect(this.value)"-->
+  <div class="contentWindow">
+
+    <div class="titleConnect">
+      Lorem ipsum dolor dit amet
+    </div>
+
+    <div class="subtitleConnect">
+      Lorem ipsum dolor dit amet
+    </div>
+
+    <div>
+      inscription 100% gratuite
+    </div>
+    <div class="connectWindow">
+      <div>
+        Lorem ipsum dolor dit amet,
+      </div>
+
+      <div>
+        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt utt laoreet doloremagna aliquam erat vo
+      </div>
+
+      <div>
+        <button>S'inscrire</button>
+        <button>Se</button>
+      </div>
+
+      <div>
+        <form (submit)="checkAuth()">
+          <input id="emailAuth" type="text" placeholder="Email Adress/Username">
+          <input id="pwdAuth" type="password" placeholder="Mot de passe">
+
+          <button>SE CONNECTER ET JOUER</button>
+        </form>
+      </div>
+
+      <div>
+        <button>
+          Se connecter avec <img src="">
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="blueLine"></div>
+
+</div>
+
+
+
+<!--<form (submit)="checkAuth()">-->
+
+  <!--<label>Login : </label><input id="emailAuth" type="text">-->
+  <!--<label>PWD : </label><input id="pwdAuth" type="text">-->
+
+  <!--<button>Valider</button>-->
+
+<!--</form>-->

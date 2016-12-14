@@ -15,8 +15,8 @@ export class TestSecurityServiceComponent implements OnInit {
   verifyAuthJson:Object;//retour serv
 
   authJson:AuthObject={
-    login: "yolo@gmail.com",
-    password: "string"
+    login: "",
+    password: ""
   };
 
 
@@ -44,13 +44,20 @@ export class TestSecurityServiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.verifyEmail("leamonsqueezy@ynov.com");
-    this.verifyAuth(this.authJson);
   }
 
-  public onSelect(email:string)
-  {
-    console.log("call");
+  public checkAuth(): void {
+
+    var email = (<HTMLInputElement>document.getElementById("emailAuth")).value;
+    var pwd = (<HTMLInputElement>document.getElementById("pwdAuth")).value;
+
+    this.authJson={
+      login: email,
+      password: pwd
+    };
+
+    this.verifyEmail(email);
+    // this.verifyAuth(this.authJson);
   }
 
 }

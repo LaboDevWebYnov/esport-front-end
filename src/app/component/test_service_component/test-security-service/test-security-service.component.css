@@ -1,5 +1,66 @@
-form
+.window
+{
+  background-color: #1C1C1B;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+}
+.menuWindow
+{
+  background-color: black;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  bottom: 87%;
+}
+.contentWindow
+{
+  background-color: #232323;
+  padding: 5%;
+  border-left: solid white 1px;
+  border-right: solid white 1px;
+  margin-top: 0.70%;
+}
+.blueLine
+{
+  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%);
+  display: block;
+  position: absolute;
+  height: 2%;
+  left: -50%;
+  right: -50%;
+}
+.mainWindow
 {
   position: absolute;
-  top:25%;
+  top:13%;
+  left: 25%;
+  right: 25%;
+}
+.titleConnect
+{
+  font-family: "Rhanoll";
+  font-size: 3em;
+  color: white;
+}
+.subtitleConnect
+{
+  font-family: "Rhanoll";
+  font-size: 2em;
+  color: royalblue;
+  padding: 0;
+}
+.connectWindow
+{
+  text-align: right;
+  
+}
+
+@font-face
+{
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
 }
