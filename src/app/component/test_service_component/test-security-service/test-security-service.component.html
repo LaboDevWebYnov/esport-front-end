@@ -31,8 +31,8 @@
       <div class="menuLogIn">
 
         <ul class="tab">
-          <li><a href="javascript:void(0)" class="tablinks" onclick="authLiClick(event, 'signUp')">S'inscrire</a></li>
-          <li><a href="javascript:void(0)" class="tablinks active" onclick="authLiClick(event, 'logIn')">Se Connecter</a></li>
+          <li><a href="javascript:void(0)" class="tablinks" (click)="authLiClick($event, 'signUp')">S'inscrire</a></li>
+          <li><a href="javascript:void(0)" class="tablinks active" (click)="authLiClick($event, 'logIn')">Se Connecter</a></li>
           <li class="liEnd"></li>
         </ul>
 

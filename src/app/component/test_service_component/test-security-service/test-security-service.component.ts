@@ -43,8 +43,7 @@ export class TestSecurityServiceComponent implements OnInit {
       );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public checkAuth(): void {
 
@@ -58,6 +57,24 @@ export class TestSecurityServiceComponent implements OnInit {
 
     this.verifyEmail(email);
     // this.verifyAuth(this.authJson);
+  }
+
+  public authLiClick(evnt,option): void
+  {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("formStyle");
+    for (i = 0; i < tabcontent.length; i++) {
+      (<HTMLInputElement>tabcontent[i]).style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      (<HTMLInputElement>tablinks[i]).className = tablinks[i].className.replace(" active", "");
+    }
+
+    (<HTMLInputElement>document.getElementById(option)).style.display = "block";
+    evnt.currentTarget.className += " active";
   }
 
 }
