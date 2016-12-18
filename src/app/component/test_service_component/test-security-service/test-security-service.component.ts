@@ -59,22 +59,114 @@ export class TestSecurityServiceComponent implements OnInit {
     // this.verifyAuth(this.authJson);
   }
 
-  public authLiClick(evnt,option): void
+  public authLiClick(event,option): void
   {
-    var i, tabcontent, tablinks;
+    var i, tabContent, tabLinks;
 
-    tabcontent = document.getElementsByClassName("formStyle");
-    for (i = 0; i < tabcontent.length; i++) {
-      (<HTMLInputElement>tabcontent[i]).style.display = "none";
+    tabContent = document.getElementsByClassName("formStyle");
+    for (i = 0; i < tabContent.length; i++) {
+      (<HTMLInputElement>tabContent[i]).style.display = "none";
     }
 
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      (<HTMLInputElement>tablinks[i]).className = tablinks[i].className.replace(" active", "");
+    tabLinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tabLinks.length; i++) {
+      (<HTMLInputElement>tabLinks[i]).className = tabLinks[i].className.replace(" active", "");
     }
 
     (<HTMLInputElement>document.getElementById(option)).style.display = "block";
-    evnt.currentTarget.className += " active";
+    event.currentTarget.className += " active";
+  }
+
+  public entryVerification(event,typeOfVerification): void
+  {
+
+    var entryContent = event.srcElement.value;
+    var isAnEmail = false,isAnUsername = false,isAnPassword=false;
+
+    if(typeOfVerification==="password") {
+
+        var entryContentContainsUpperCase = false, entryContentContainsLowerCase = false, entryContentContainsNumeric = false;
+
+        if (/[A-Z]/.test(entryContent)) {
+          entryContentContainsUpperCase = true;
+        }
+
+        if (/[a-z]/.test(entryContent)) {
+          entryContentContainsLowerCase = true;
+        }
+
+        if (/[1-9]/.test(entryContent)) {
+          entryContentContainsNumeric = true;
+        }
+
+        console.log(entryContentContainsUpperCase + " | " + entryContentContainsLowerCase + " | " + entryContentContainsNumeric);
+
+        if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
+          event.srcElement.style.borderColor = "green";
+          isAnPassword = true;
+        }
+        else {
+          event.srcElement.style.borderColor = "red";
+        }
+    }
+    if((typeOfVerification==="email") || (typeOfVerification==="login")) {
+      var entryContentContainsAt = false, entryContentContainsLowerCase = false,entryContentContainsPointAfterAt=false;
+
+      if (/[a-z]/.test(entryContent)) {
+        entryContentContainsLowerCase = true;
+      }
+
+      if( entryContent.indexOf('@') != -1 ){
+        entryContentContainsAt = true;
+      }
+
+      if( entryContent.indexOf('@') < entryContent.lastIndexOf('.') ){
+        entryContentContainsPointAfterAt = true;
+      }
+
+      if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') !=  entryContent.length-1)) {
+        event.srcElement.style.borderColor = "green";
+        isAnEmail = true;
+      }
+      else {
+        event.srcElement.style.borderColor = "red";
+      }
+
+    }
+    if((typeOfVerification==="username") || (typeOfVerification==="login")) {
+
+      var entryContentContainsUpperCase = false, entryContentContainsLowerCase = false;
+
+      if (/[A-Z]/.test(entryContent)) {
+        entryContentContainsUpperCase = true;
+      }
+
+      if (/[a-z]/.test(entryContent)) {
+        entryContentContainsLowerCase = true;
+      }
+
+      if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true))
+      {
+        event.srcElement.style.borderColor = "green";
+        isAnUsername = true;
+      }
+      else {
+        event.srcElement.style.borderColor = "red";
+      }
+    }
+
+    if(typeOfVerification==="login")
+    {
+      if( (isAnEmail===true) || (isAnUsername===true))
+      {
+        event.srcElement.style.borderColor = "green";
+      }
+      else {
+        event.srcElement.style.borderColor = "red";
+      }
+    }
+
+
   }
 
 }

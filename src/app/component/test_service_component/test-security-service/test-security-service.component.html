@@ -40,8 +40,8 @@
 
       <div id="logIn" class="formStyle">
         <form (submit)="checkAuth()">
-          <input class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username">
-          <input class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe">
+          <input (keyup)="entryVerification($event,'login')" class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username">
+          <input (keyup)="entryVerification($event,'password')" class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe">
 
           <button class="connectButton">SE CONNECTER ET JOUER</button>
         </form>
@@ -56,12 +56,15 @@
 
       <div id="signUp" class="formStyle">
         <form (submit)="checkAuth()">
-          <input class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username">
+          <input (keyup)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username">
 
           <button class="connectButton">S'inscrire avec addresse mail</button>
-        </form>
 
-        <button class="connectButton"> S'inscrire avec Facebook</button>
+          <p>ou</p>
+
+          <button class="connectButton"> S'inscrire avec Facebook</button>
+
+        </form>
 
       </div>
 

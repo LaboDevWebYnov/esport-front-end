@@ -53,7 +53,7 @@
 }
 .inputGray
 {
-  background-color: #666666;
+  background-color: #555555;
   border: solid 1px #8C8C8C;
   font-family: "Rhanoll";
   font-size: 1.5em;
@@ -102,16 +102,20 @@
 }
 .formStyle
 {
-  /*border-bottom: solid white 1px;*/
-  /*border-right: solid white 1px;*/
-  /*border-left: solid white 1px;*/
   border-bottom-left-radius: 3%;
   border-bottom-right-radius: 3%;
   border-top-right-radius: 1.5%;
   padding: 5%;
   background-color: #333333;
+  animation-name: anim;
+  animation-duration: 4s;
 }
 
+
+input:focus {
+  outline:  none;
+  background-color: #777777;
+}
 
 ul.tab {
   list-style-type: none;
@@ -132,9 +136,6 @@ ul.tab li a {
   padding: 14px 16px;
   text-decoration: none;
   transition: 0.3s;
-  /*border-top: solid white 1px;*/
-  /*border-right: solid white 1px;*/
-  /*border-left: solid white 1px;*/
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
   color: white;
@@ -152,9 +153,6 @@ ul.tab li a:focus, .active
   background-color: #333333;
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
-  /*border-top: solid white 1px;*/
-  /*border-right: solid white 1px;*/
-  /*border-left: solid white 1px;*/
 }
 
 .connectButton
@@ -192,6 +190,10 @@ ul.tab li a:focus, .active
 }
 
 
+p
+{
+  color: white;
+}
 img
 {
   vertical-align: middle;
@@ -200,4 +202,8 @@ img
 {
   font-family: "Rhanoll";
   src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+@keyframes anim {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
