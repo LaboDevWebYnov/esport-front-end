@@ -12,41 +12,59 @@
       Lorem ipsum dolor dit amet
     </div>
 
-    <div class="subtitleConnect">
+    <div class="subtitleBlue">
       Lorem ipsum dolor dit amet
     </div>
 
-    <div>
+    <div class="subtitleGray">
       inscription 100% gratuite
     </div>
     <div class="connectWindow">
-      <div>
+      <div class="titleWhite">
         Lorem ipsum dolor dit amet,
       </div>
 
-      <div>
+      <div class="subtitleWhite">
         consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt utt laoreet doloremagna aliquam erat vo
       </div>
 
-      <div>
-        <button>S'inscrire</button>
-        <button>Se</button>
+      <div class="menuLogIn">
+
+        <ul class="tab">
+          <li><a href="javascript:void(0)" class="tablinks" onclick="authLiClick(event, 'signUp')">S'inscrire</a></li>
+          <li><a href="javascript:void(0)" class="tablinks active" onclick="authLiClick(event, 'logIn')">Se Connecter</a></li>
+          <li class="liEnd"></li>
+        </ul>
+
       </div>
 
-      <div>
+      <div id="logIn" class="formStyle">
         <form (submit)="checkAuth()">
-          <input id="emailAuth" type="text" placeholder="Email Adress/Username">
-          <input id="pwdAuth" type="password" placeholder="Mot de passe">
+          <input class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username">
+          <input class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe">
 
-          <button>SE CONNECTER ET JOUER</button>
+          <button class="connectButton">SE CONNECTER ET JOUER</button>
         </form>
+
+        <div class="facebookButton">
+          <button class="buttonFacebook">
+            Se connecter avec <img src="../../../../assets/images/facebook.png">
+          </button>
+        </div>
+
       </div>
 
-      <div>
-        <button>
-          Se connecter avec <img src="">
-        </button>
+      <div id="signUp" class="formStyle">
+        <form (submit)="checkAuth()">
+          <input class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username">
+
+          <button class="connectButton">S'inscrire avec addresse mail</button>
+        </form>
+
+        <button class="connectButton"> S'inscrire avec Facebook</button>
+
       </div>
+
     </div>
 
   </div>
@@ -54,8 +72,6 @@
   <div class="blueLine"></div>
 
 </div>
-
-
 
 <!--<form (submit)="checkAuth()">-->
 
