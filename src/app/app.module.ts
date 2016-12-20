@@ -17,6 +17,15 @@ import { NewsComponent } from './component/news/news/news.component';
 import { HomeComponent } from './component/home/home/home.component';
 import { EventsComponent } from './component/events/events/events.component';
 import { StreamingsComponent } from './component/streamings/streamings/streamings.component';
+import { WizardComponent } from './component/sign_up/wizard/wizard.component';
+import { Step0Component } from './component/sign_up/wizard/step0/step0.component';
+import { Step1Component } from './component/sign_up/wizard/step1/step1.component';
+import { Step2Component } from './component/sign_up/wizard/step2/step2.component';
+import { Step3Component } from './component/sign_up/wizard/step3/step3.component';
+import { Step4Component } from './component/sign_up/wizard/step4/step4.component';
+import { Step5Component } from './component/sign_up/wizard/step5/step5.component';
+import { Step6Component } from './component/sign_up/wizard/step6/step6.component';
+import { Step7Component } from './component/sign_up/wizard/step7/step7.component';
 
 
 @NgModule({
@@ -33,7 +42,16 @@ import { StreamingsComponent } from './component/streamings/streamings/streaming
     NewsComponent,
     HomeComponent,
     EventsComponent,
-    StreamingsComponent
+    StreamingsComponent,
+    WizardComponent,
+    Step0Component,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component,
+    Step6Component,
+    Step7Component
   ],
   imports: [
     BrowserModule,
@@ -66,6 +84,46 @@ import { StreamingsComponent } from './component/streamings/streamings/streaming
       {
         path: 'users',
         component: TestUserServiceComponent
+      },
+      {
+        path: 'signup',
+        component: WizardComponent
+      },
+      {
+        path: 'signup/step0',
+        component: Step0Component
+      },
+      {
+        path: 'signup/step1',
+        component: Step1Component
+      },
+      {
+        path: 'signup/step2',
+        component: Step2Component
+      },
+      {
+        path: 'signup/step3',
+        component: Step3Component
+      },
+      {
+        path: 'signup/step4',
+        component: Step4Component
+      },
+      {
+        path: 'signup/step4',
+        component: Step4Component
+      },
+      {
+        path: 'signup/step5',
+        component: Step5Component
+      },
+      {
+        path: 'signup/step6',
+        component: Step6Component
+      },
+      {
+        path: 'signup/step7',
+        component: Step7Component
       },
       {
         path: 'teams',
