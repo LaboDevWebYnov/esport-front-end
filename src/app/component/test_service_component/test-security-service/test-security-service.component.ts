@@ -55,9 +55,19 @@ export class TestSecurityServiceComponent implements OnInit {
       password: pwd
     };
 
-    this.verifyEmail(email);
-    // this.verifyAuth(this.authJson);
+    var test1 = this.verifyEmail(email);
+    var test2 = this.verifyAuth(this.authJson);
+
+    console.log(test1 + " | " + test2);
+
+    setTimeout(function () {
+      console.log(test1 + " | " + test2)
+    },5000)
   }
+
+
+
+
 
   public authLiClick(event,option): void
   {
@@ -77,53 +87,37 @@ export class TestSecurityServiceComponent implements OnInit {
     event.currentTarget.className += " active";
   }
 
+
+
+
   public entryVerification(event,typeOfVerification): void
   {
-
     var entryContent = event.srcElement.value;
     var isAnEmail = false,isAnUsername = false,isAnPassword=false;
-
     if(typeOfVerification==="password") {
 
-        var entryContentContainsUpperCase = false, entryContentContainsLowerCase = false, entryContentContainsNumeric = false;
+      var entryContentContainsUpperCase = this.CheckIfThereIsAUppercaseCharacterInAString(entryContent);
+      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
+      var entryContentContainsNumeric = this.CheckIfThereIsANumberCharacterInAString(entryContent);
 
-        if (/[A-Z]/.test(entryContent)) {
-          entryContentContainsUpperCase = true;
-        }
-
-        if (/[a-z]/.test(entryContent)) {
-          entryContentContainsLowerCase = true;
-        }
-
-        if (/[1-9]/.test(entryContent)) {
-          entryContentContainsNumeric = true;
-        }
-
-        console.log(entryContentContainsUpperCase + " | " + entryContentContainsLowerCase + " | " + entryContentContainsNumeric);
-
-        if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
-          event.srcElement.style.borderColor = "green";
-          isAnPassword = true;
-        }
-        else {
-          event.srcElement.style.borderColor = "red";
-        }
+      if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
+        event.srcElement.style.borderColor = "green";
+        isAnPassword = true;
+      }
+      else {
+        event.srcElement.style.borderColor = "red";
+      }
     }
     if((typeOfVerification==="email") || (typeOfVerification==="login")) {
-      var entryContentContainsAt = false, entryContentContainsLowerCase = false,entryContentContainsPointAfterAt=false;
-
-      if (/[a-z]/.test(entryContent)) {
-        entryContentContainsLowerCase = true;
-      }
+      var entryContentContainsAt = false,entryContentContainsPointAfterAt=false;
+      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
 
       if( entryContent.indexOf('@') != -1 ){
         entryContentContainsAt = true;
       }
-
       if( entryContent.indexOf('@') < entryContent.lastIndexOf('.') ){
         entryContentContainsPointAfterAt = true;
       }
-
       if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') !=  entryContent.length-1)) {
         event.srcElement.style.borderColor = "green";
         isAnEmail = true;
@@ -131,20 +125,10 @@ export class TestSecurityServiceComponent implements OnInit {
       else {
         event.srcElement.style.borderColor = "red";
       }
-
     }
     if((typeOfVerification==="username") || (typeOfVerification==="login")) {
-
-      var entryContentContainsUpperCase = false, entryContentContainsLowerCase = false;
-
-      if (/[A-Z]/.test(entryContent)) {
-        entryContentContainsUpperCase = true;
-      }
-
-      if (/[a-z]/.test(entryContent)) {
-        entryContentContainsLowerCase = true;
-      }
-
+      var entryContentContainsUpperCase = this.CheckIfThereIsAUppercaseCharacterInAString(entryContent);
+      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
       if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true))
       {
         event.srcElement.style.borderColor = "green";
@@ -154,7 +138,6 @@ export class TestSecurityServiceComponent implements OnInit {
         event.srcElement.style.borderColor = "red";
       }
     }
-
     if(typeOfVerification==="login")
     {
       if( (isAnEmail===true) || (isAnUsername===true))
@@ -165,8 +148,37 @@ export class TestSecurityServiceComponent implements OnInit {
         event.srcElement.style.borderColor = "red";
       }
     }
+  }
 
-
+  public CheckIfThereIsAUppercaseCharacterInAString(string): boolean
+  {
+    if (/[A-Z]/.test(string)) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  public CheckIfThereIsALowercaseCharacterInAString(string): boolean
+  {
+    if (/[a-z]/.test(string)) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  public CheckIfThereIsANumberCharacterInAString(string): boolean
+  {
+    if (/[1-9]/.test(string)) {
+        return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
 }
