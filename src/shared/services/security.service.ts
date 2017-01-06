@@ -21,9 +21,15 @@ export class SecurityService {
   }
 
   //Good
-  public verifyEmail = (email: string): Observable<String> => {
-    console.log(this.actionUrl);
-    return this._http.get(this.actionUrl + 'user/verify/' + email)
+  public verifyEmail = (email: string, token: string): Observable<String> => {
+    //console.log(this.actionUrl);
+    return this._http.get(this.actionUrl + 'user/verify/' + email+'?t='+token)
+      .map(response => response.json())
+  };
+
+  public isVerified = (email: string, token: string): Observable<String> => {
+    //console.log(this.actionUrl);
+    return this._http.get(this.actionUrl + 'user/isVerified/' + email + '?t=' + token)
       .map(response => response.json())
   };
 

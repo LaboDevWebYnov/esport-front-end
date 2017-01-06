@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/Http';
 import {RouterModule}   from '@angular/router';
 
@@ -57,6 +57,7 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -87,42 +88,38 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
       },
       {
         path: 'signup',
-        component: WizardComponent
+        component: Step0Component//WizardComponent
       },
       {
         path: 'signup/step0',
         component: Step0Component
       },
       {
-        path: 'signup/step1',
+        path: 'signup/step1/:email',
         component: Step1Component
       },
       {
-        path: 'signup/step2',
-        component: Step2Component
+        path: 'signup/step2/:token',
+        component: Step2Component,
       },
       {
-        path: 'signup/step3',
+        path: 'signup/step3/:token',
         component: Step3Component
       },
       {
-        path: 'signup/step4',
+        path: 'signup/step4/:token',
         component: Step4Component
       },
       {
-        path: 'signup/step4',
-        component: Step4Component
-      },
-      {
-        path: 'signup/step5',
+        path: 'signup/step5/:token',
         component: Step5Component
       },
       {
-        path: 'signup/step6',
+        path: 'signup/step6/:token',
         component: Step6Component
       },
       {
-        path: 'signup/step7',
+        path: 'signup/step7/:token',
         component: Step7Component
       },
       {

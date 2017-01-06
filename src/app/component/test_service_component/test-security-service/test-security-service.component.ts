@@ -23,9 +23,9 @@ export class TestSecurityServiceComponent implements OnInit {
   constructor(private securityServiceInstance: SecurityService) {
   }
 
-  private verifyEmail(email: string): void {
+  private verifyEmail(email: string, token: string): void {
     this.securityServiceInstance
-      .verifyEmail(email)
+      .verifyEmail(email, token)
       .subscribe(
         data => this.verifyEmailJson = data,
         error => console.log(error),
@@ -56,7 +56,7 @@ export class TestSecurityServiceComponent implements OnInit {
       password: pwd
     };
 
-    this.verifyEmail(email);
+    this.verifyEmail(email,'');
     // this.verifyAuth(this.authJson);
   }
 
