@@ -39,11 +39,14 @@
       </div>
 
       <div id="logIn" class="formStyle">
+        <div *ngIf="status==401" id="errorMessage">
+          <strong>{{error.errorMessage}}</strong>
+        </div>
         <form (submit)="checkAuth()">
           <input (keyup)="entryVerification($event,'login')" class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
           <input (keyup)="entryVerification($event,'password')" class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
 
-          <button class="connectButton">SE CONNECTER ET JOUER</button>
+          <button id="logInSubmitButton" class="connectButton" disabled>SE CONNECTER ET JOUER</button>
         </form>
 
         <div class="facebookButton">

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {SecurityService} from '../../../../shared/services/security.service';
 import {Configuration} from '../../../../shared/app.constants';
 import {AuthObject} from '../../../../shared/models/utils/auth-object';
+import {Router} from '@angular/router';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-test-security-service',
@@ -11,66 +13,88 @@ import {AuthObject} from '../../../../shared/models/utils/auth-object';
 })
 export class TestSecurityServiceComponent implements OnInit {
 
-  verifyEmailJson: Object;//retour serv
-  verifyAuthJson:Object;//retour serv
+  verifyEmailJson: any;//retour serv                     A Supp lors du transfert
+  verifyAuthJson: any;//retour serv
 
-  authJson:AuthObject={
+  status: number = null;
+  error: any;
+
+  authJson: AuthObject = {
     login: "",
     password: ""
   };
 
 
-  constructor(private securityServiceInstance: SecurityService) {
+  constructor(private securityServiceInstance: SecurityService, private router: Router) {
   }
 
-  private verifyEmail(email: string): void {
+  //Non utilisé a supprimer lors du transfert
+  private verifyEmail(email: string, callback): any {
     this.securityServiceInstance
       .verifyEmail(email)
       .subscribe(
         data => this.verifyEmailJson = data,
-        error => console.log(error),
-        () => console.log('get One Item complete', this.verifyEmailJson)//console.log('get All Items complete')
+        error => {
+          console.log(error);
+          callback(401, JSON.parse(error._body).error, null)
+        },
+        () => {
+          console.log('get One Item complete', this.verifyEmailJson);
+          callback(200, null,  this.verifyEmailJson);
+          //console.log('get All Items complete')
+        }
       );
   }
 
-  private verifyAuth(sendAuthJson: AuthObject): void {
+  private verifyAuth(sendAuthJson: AuthObject, callback): any {
     this.securityServiceInstance
       .auth(sendAuthJson)
       .subscribe(
         data => this.verifyAuthJson = data,
-        error => console.log(error),
-        () => console.log('get One Item complete', this.verifyAuthJson)//console.log('get All Items complete')
+        error => {
+          console.log(error);
+          callback(401, JSON.parse(error._body).error, null)
+        },//this.router.redirectTo(['/home'])} ,
+        () => {
+          callback(200, null, this.verifyAuthJson);
+        }
       );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   public checkAuth(): void {
 
-    var email = (<HTMLInputElement>document.getElementById("emailAuth")).value;
-    var pwd = (<HTMLInputElement>document.getElementById("pwdAuth")).value;
+    const email = (<HTMLInputElement>document.getElementById("emailAuth")).value;
+    const pwd = (<HTMLInputElement>document.getElementById("pwdAuth")).value;
 
-    this.authJson={
+    this.authJson = {
       login: email,
       password: pwd
     };
 
-    var test1 = this.verifyEmail(email);
-    var test2 = this.verifyAuth(this.authJson);
-
-    console.log(test1 + " | " + test2);
-
-    setTimeout(function () {
-      console.log(test1 + " | " + test2)
-    },5000)
+    this.verifyAuth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
+      //si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige
+      if (status == 200 && !_.isEmpty(verifyAuthJson)) {
+        this.router.navigate(['./home']);
+      }
+      //sinon 401, bad credentials, message d'erreur sur la page, l'user doit recommencer
+      else if (status == 401 && error) {
+      // && _.includes(verifyAuthJson, 'error')
+        console.log('Auth error: ' + JSON.stringify(error));
+        this.status = status;
+        this.error = error;
+        (<HTMLInputElement>document.getElementById("emailAuth")).value = "";
+        (<HTMLInputElement>document.getElementById("pwdAuth")).value = "";
+        (<HTMLInputElement>document.getElementById("emailAuth")).style.borderColor = "#8C8C8C";
+        (<HTMLInputElement>document.getElementById("pwdAuth")).style.borderColor = "#8C8C8C";
+      }
+    });
   }
 
 
-
-
-
-  public authLiClick(event,option): void
-  {
+  public authLiClick(event, option): void {
     var i, tabContent, tabLinks;
 
     tabContent = document.getElementsByClassName("formStyle");
@@ -88,97 +112,80 @@ export class TestSecurityServiceComponent implements OnInit {
   }
 
 
-
-
-  public entryVerification(event,typeOfVerification): void
-  {
+  public entryVerification(event, typeOfVerification): void {
     var entryContent = event.srcElement.value;
-    var isAnEmail = false,isAnUsername = false,isAnPassword=false;
-    if(typeOfVerification==="password") {
+    var isAnEmail = false, isAnUsername = false, isAnPassword = false;
+    var logInSubmitButton = (<HTMLInputElement>document.getElementById("logInSubmitButton"));
 
-      var entryContentContainsUpperCase = this.CheckIfThereIsAUppercaseCharacterInAString(entryContent);
-      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
-      var entryContentContainsNumeric = this.CheckIfThereIsANumberCharacterInAString(entryContent);
+    if (typeOfVerification === "password") {
+
+      var entryContentContainsUpperCase = TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent);
+      var entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
+      var entryContentContainsNumeric = TestSecurityServiceComponent.checkIfThereIsANumberCharacterInAString(entryContent);
 
       if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
         event.srcElement.style.borderColor = "green";
         isAnPassword = true;
+        logInSubmitButton.removeAttribute('disabled');
       }
       else {
         event.srcElement.style.borderColor = "red";
+        logInSubmitButton.setAttribute("disabled","true");
       }
     }
-    if((typeOfVerification==="email") || (typeOfVerification==="login")) {
-      var entryContentContainsAt = false,entryContentContainsPointAfterAt=false;
-      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
 
-      if( entryContent.indexOf('@') != -1 ){
+    if ((typeOfVerification === "email") || (typeOfVerification === "login")) {
+      let entryContentContainsAt = false, entryContentContainsPointAfterAt = false;
+      const entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
+
+      if (entryContent.indexOf('@') != -1) {
         entryContentContainsAt = true;
       }
-      if( entryContent.indexOf('@') < entryContent.lastIndexOf('.') ){
+      if (entryContent.indexOf('@') < entryContent.lastIndexOf('.')) {
         entryContentContainsPointAfterAt = true;
       }
-      if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') !=  entryContent.length-1)) {
+      if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') != entryContent.length - 1)) {
         event.srcElement.style.borderColor = "green";
+        logInSubmitButton.removeAttribute('disabled');
         isAnEmail = true;
       }
       else {
         event.srcElement.style.borderColor = "red";
+        logInSubmitButton.setAttribute("disabled", "true");
       }
     }
-    if((typeOfVerification==="username") || (typeOfVerification==="login")) {
-      var entryContentContainsUpperCase = this.CheckIfThereIsAUppercaseCharacterInAString(entryContent);
-      var entryContentContainsLowerCase = this.CheckIfThereIsALowercaseCharacterInAString(entryContent);
-      if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true))
-      {
+    if ((typeOfVerification === "username") || (typeOfVerification === "login")) {
+      if (TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent) && TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent)) {
         event.srcElement.style.borderColor = "green";
+        logInSubmitButton.removeAttribute('disabled');
         isAnUsername = true;
       }
       else {
         event.srcElement.style.borderColor = "red";
+        logInSubmitButton.setAttribute("disabled", "true");
       }
     }
-    if(typeOfVerification==="login")
-    {
-      if( (isAnEmail===true) || (isAnUsername===true))
-      {
+    if (typeOfVerification === "login") {
+      if ((isAnEmail === true) || (isAnUsername === true)) {
         event.srcElement.style.borderColor = "green";
+        logInSubmitButton.removeAttribute('disabled');
       }
       else {
         event.srcElement.style.borderColor = "red";
+        logInSubmitButton.setAttribute("disabled", "true");
       }
     }
   }
 
-  public CheckIfThereIsAUppercaseCharacterInAString(string): boolean
-  {
-    if (/[A-Z]/.test(string)) {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-  public CheckIfThereIsALowercaseCharacterInAString(string): boolean
-  {
-    if (/[a-z]/.test(string)) {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-  public CheckIfThereIsANumberCharacterInAString(string): boolean
-  {
-    if (/[1-9]/.test(string)) {
-        return true;
-    }
-    else
-    {
-      return false;
-    }
+  private static checkIfThereIsAUppercaseCharacterInAString(string): boolean {
+    return /[A-Z]/.test(string);
   }
 
+  private static checkIfThereIsALowercaseCharacterInAString(string): boolean {
+    return /[a-z]/.test(string);
+  }
+
+  private static checkIfThereIsANumberCharacterInAString(string): boolean {
+    return /[1-9]/.test(string);
+  }
 }

@@ -4,6 +4,7 @@ body{
   margin: 0 !important;
 }
  app-menu {
+   z-index: 10;
    top: 0px;
    position: fixed;
    width: 100%;
