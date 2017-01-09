@@ -1,0 +1,32 @@
+#global{
+  background :black;
+  padding:15%;
+  padding-bottom: 65px;
+  padding-top:25px;
+}
+
+#separation{
+  margin-top:-5px;
+  margin-bottom: -11px;
+}
+
+#firstSection{
+  width:60%;
+  padding-right:30px;
+  padding-left:30px;
+  display: inline-block;
+}
+
+#secondSection{
+  width:30%;
+  padding-right:30px;
+  padding-left:30px;
+  display: inline-block;
+}
+
+.content-section{
+  width:100%;
+  height:230px;
+  background:white;
+  margin-top:-10px;
+}

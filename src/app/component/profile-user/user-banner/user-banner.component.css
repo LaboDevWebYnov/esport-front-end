@@ -1,0 +1,38 @@
+#global{
+  background :#1b1b1b;
+  padding-top:100px;
+}
+
+#separation{
+  margin-top:-5px;
+  margin-bottom: -11px;
+}
+
+#background{
+  background:url(http://static8.depositphotos.com/1001094/900/i/950/depositphotos_9000923-stock-photo-old-style-batik-background.jpg);
+  height:400px;
+  width:100%;
+}
+
+#gestionCompte img{
+  height:50px;
+}
+
+#gestionCompte a {
+  text-decoration: none;
+  color: white;
+}
+
+#gestionCompte td{
+  width:170px;
+  text-align: center;
+  font-size:18px;
+}
+
+#titleTable a{
+  font-size:24px;
+}
+#titleTable{
+  padding-top:-5px;
+  padding-bottom:-5px;
+}

@@ -82,6 +82,10 @@ import { UserNewsComponent } from './component/profile-user/user-news/user-news.
         component: TestUserServiceComponent
       },
       {
+        path: 'profil',
+        component: ProfileUserComponent
+      },
+      {
         path: 'teams',
         component: TestTeamServiceComponent
       },

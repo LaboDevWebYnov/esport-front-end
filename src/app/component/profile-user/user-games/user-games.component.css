@@ -1,0 +1,11 @@
+#global{
+  background :black;
+  padding:15%;
+  padding-bottom: 45px;
+  padding-top:25px;
+}
+
+#separation{
+  margin-top:-5px;
+  margin-bottom: -11px;
+}
