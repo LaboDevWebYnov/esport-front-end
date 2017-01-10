@@ -20,6 +20,10 @@
 .content-section{
   max-width:100%;
   height:230px;
-  background:white;
+  background: #1F1F1D;
+  background: -webkit-linear-gradient(#1F1F1D, #3E3E3D);
+  background: -o-linear-gradient(#1F1F1D, #3E3E3D);
+  background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
+  background: linear-gradient(#1F1F1D, #3E3E3D);
   margin-top:-10px;
 }
