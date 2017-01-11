@@ -27,6 +27,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   private verifyAuth(sendAuthJson: AuthObject, callback): any {
