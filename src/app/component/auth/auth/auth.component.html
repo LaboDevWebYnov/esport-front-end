@@ -1,0 +1,89 @@
+<div class="window"></div>
+
+<div class="menuWindow"></div>
+
+<div class="mainWindow">
+
+  <div class="blueLine"></div>
+
+  <div class="contentWindow">
+
+    <div class="titleConnect">
+      Lorem ipsum dolor dit amet
+    </div>
+
+    <div class="subtitleBlue">
+      Lorem ipsum dolor dit amet
+    </div>
+
+    <div class="subtitleGray">
+      inscription 100% gratuite
+    </div>
+    <div class="connectWindow">
+      <div class="titleWhite">
+        Lorem ipsum dolor dit amet,
+      </div>
+
+      <div class="subtitleWhite">
+        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt utt laoreet doloremagna aliquam erat vo
+      </div>
+
+      <div class="menuLogIn">
+
+        <ul class="tab">
+          <li><a href="javascript:void(0)" class="tablinks" (click)="authLiClick($event, 'signUp')">S'inscrire</a></li>
+          <li><a href="javascript:void(0)" class="tablinks active" (click)="authLiClick($event, 'logIn')">Se Connecter</a></li>
+          <li class="liEnd"></li>
+        </ul>
+
+      </div>
+
+      <div id="logIn" class="formStyle">
+        <div *ngIf="status==401" id="errorMessage">
+          <strong>{{error.errorMessage}}</strong>
+        </div>
+        <form (submit)="checkAuth()">
+          <input (keyup)="entryVerification($event,'login')" class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
+          <input (keyup)="entryVerification($event,'password')" class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
+
+          <button id="logInSubmitButton" class="connectButton" disabled>SE CONNECTER ET JOUER</button>
+        </form>
+
+        <div class="facebookButton">
+          <button class="buttonFacebook">
+            Se connecter avec <img src="../../../../assets/images/facebook.png">
+          </button>
+        </div>
+
+      </div>
+
+      <div id="signUp" class="formStyle">
+        <form (submit)="checkAuth()">
+          <input (keyup)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
+
+          <button class="connectButton">S'inscrire avec addresse mail</button>
+
+          <p>ou</p>
+
+          <button class="connectButton"> S'inscrire avec Facebook</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="blueLine"></div>
+
+</div>
+
+<!--<form (submit)="checkAuth()">-->
+
+<!--<label>Login : </label><input id="emailAuth" type="text">-->
+<!--<label>PWD : </label><input id="pwdAuth" type="text">-->
+
+<!--<button>Valider</button>-->
+
+<!--</form>-->

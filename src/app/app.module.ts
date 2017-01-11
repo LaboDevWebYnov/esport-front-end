@@ -17,6 +17,7 @@ import { NewsComponent } from './component/news/news/news.component';
 import { HomeComponent } from './component/home/home/home.component';
 import { EventsComponent } from './component/events/events/events.component';
 import { StreamingsComponent } from './component/streamings/streamings/streamings.component';
+import { AuthComponent } from './component/auth/auth/auth.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { StreamingsComponent } from './component/streamings/streamings/streaming
     NewsComponent,
     HomeComponent,
     EventsComponent,
-    StreamingsComponent
+    StreamingsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,7 @@ import { StreamingsComponent } from './component/streamings/streamings/streaming
       },
       {
         path: 'auth',
-        component: TestSecurityServiceComponent
+        component: AuthComponent
       },
       {
         path: 'player-account',

@@ -1,0 +1,223 @@
+body,html
+{
+  padding: 0;
+  margin: 0;
+}
+.window
+{
+  background-color: #1C1C1B;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+}
+.menuWindow
+{
+  background-color: black;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  bottom: 87%;
+}
+.contentWindow
+{
+  background-color: #232323;
+  padding: 5%;
+  border-left: solid white 1px;
+  border-right: solid white 1px;
+  margin-top: 0.50%;
+  height: 100%;
+  z-index: 10;
+}
+.blueLine
+{
+  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: block;
+  position: absolute;
+  height: 2%;
+  left: -50%;
+  right: -50%;
+}
+.mainWindow
+{
+  position: absolute;
+  top:13%;
+  left: 15%;
+  right: 15%;
+  height: 50%;
+  z-index: 12;
+}
+.connectWindow
+{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 25%;
+  padding: 5%;
+  text-align: center;
+}
+.inputGray
+{
+  background-color: #555555;
+  border: solid 1px #8C8C8C;
+  font-family: "Rhanoll";
+  font-size: 1.5em;
+  color: white;
+  margin: 1%;
+  border-radius: 5%;
+  padding: 1%;
+  width: 95%;
+}
+.titleConnect
+{
+  font-family: "Rhanoll";
+  font-size: 3em;
+  color: white;
+}
+.subtitleBlue
+{
+  font-family: "Rhanoll";
+  font-size: 2em;
+  color: royalblue;
+}
+.subtitleGray
+{
+  font-family: "Rhanoll";
+  font-size: 1em;
+  color: #909090;
+  text-align: center;
+}
+.titleWhite
+{
+  font-family: "Rhanoll";
+  font-size: 3em;
+  color: #ffffff;
+  text-align: center;
+}
+.menuLogIn
+{
+  text-align: left;
+}
+.subtitleWhite
+{
+  font-family: "Rhanoll";
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+}
+.formStyle
+{
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+  border-top-right-radius: 1.5%;
+  padding: 5%;
+  background-color: #333333;
+  animation-name: anim;
+  animation-duration: 2s;
+}
+
+
+input:focus {
+  outline:  none;
+  background-color: #777777;
+}
+
+ul.tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ul.tab li
+{
+  float: left;
+  background-color: #4D4D4D;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+ul.tab li a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  color: white;
+  font-family: Rhanoll;
+  font-size: 1em;
+}
+ul.tab li a:hover
+{
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  background-color: #ddd;
+}
+ul.tab li a:focus, .active
+{
+  background-color: #333333;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
+.connectButton
+{
+  background-color: #0071BC;
+  color: white;
+  border: solid white 1px;
+  font-size: 1.5em;
+  font-family: Rhanoll;
+  width: 85%;
+  border-radius: 5%;
+  margin: 1%;
+}
+#facebookButton
+{
+  text-align: right;
+  display: inline;
+}
+.buttonFacebook
+{
+  background-color: #2E3192;
+  color: white;
+  border: solid white 1px;
+  font-size: 1.5em;
+  font-family: Rhanoll;
+  width: 50%;
+  border-radius: 5%;
+  margin: 1%;
+  text-align: right;
+  right: 5%;
+}
+#signUp
+{
+  display: none;
+}
+#errorMessage
+{
+  color: red;
+  background-color: #FFECEC;
+  border:solid 2px #F7B3AF;
+  border-radius: 5%;
+  margin: 1%;
+}
+
+p
+{
+  color: white;
+}
+img
+{
+  vertical-align: middle;
+}
+@font-face
+{
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+@keyframes anim {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
