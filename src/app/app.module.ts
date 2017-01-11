@@ -24,8 +24,6 @@ import {UserGamesComponent} from './component/profile-user/user-games/user-games
 import {UserResultsComponent} from './component/profile-user/user-results/user-results.component';
 import {UserHistoricComponent} from './component/profile-user/user-historic/user-historic.component';
 import {UserNewsComponent} from './component/profile-user/user-news/user-news.component';
-import {ModalProfilModificationComponent} from './component/profile-user/modal-profil-modification/modal-profil-modification.component';
-
 
 @NgModule({
   declarations: [
@@ -48,8 +46,7 @@ import {ModalProfilModificationComponent} from './component/profile-user/modal-p
     UserGamesComponent,
     UserResultsComponent,
     UserHistoricComponent,
-    UserNewsComponent,
-    ModalProfilModificationComponent
+    UserNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,10 +83,6 @@ import {ModalProfilModificationComponent} from './component/profile-user/modal-p
       {
         path: 'profile',
         component: ProfileUserComponent
-      },
-      {
-        path: 'modal',
-        component: ModalProfilModificationComponent
       },
       {
         path: 'teams',
