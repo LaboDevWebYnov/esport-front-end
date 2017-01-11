@@ -20,8 +20,10 @@ angular.module('app-wizard', ['ngAnimate', 'ui.router'])
       // each of these sections will have their own view
       // url will be nested (/form/profile)
       .state('step1', {
-        url: '/step1',
-        templateUrl: 'app/component/sign_up/wizard/step1/step1.component.html'
+        /*url: '/step1/:email?t=:token',
+        templateUrl: 'app/component/sign_up/wizard/step1/step1.component.html',*/
+        path: 'signup/step1/:email',
+        component: step1
       })
 
       // url will be /form/interests
@@ -38,7 +40,7 @@ angular.module('app-wizard', ['ngAnimate', 'ui.router'])
 
     // catch all route
     // send users to the form page
-    $urlRouterProvider.otherwise('/signup#/step1');
+    $urlRouterProvider.otherwise('/home');
   })
 
   // our controller for the form
