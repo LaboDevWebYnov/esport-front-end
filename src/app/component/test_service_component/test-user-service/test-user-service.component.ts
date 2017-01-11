@@ -41,6 +41,7 @@ export class TestUserServiceComponent implements OnInit {
   friends: User[];
 
   UpdateUser: User = {
+    id: "",
     firstname: "ya",
     lastname: "yo",
     username: "changeUserInfo",
@@ -54,11 +55,13 @@ export class TestUserServiceComponent implements OnInit {
     friends: this.friends,
     interests: null,
     active: true,
+    verified: true,
     created_at: new Date(),
     updated_at: new Date()
   };
 
   AddNewUser: User = {
+    id: "",
     firstname: "ya",
     lastname: "yo",
     username: "yu",
@@ -72,6 +75,7 @@ export class TestUserServiceComponent implements OnInit {
     friends: this.friends,
     interests: null,
     active: true,
+    verified: true,
     created_at: new Date(),
     updated_at: new Date()
   };

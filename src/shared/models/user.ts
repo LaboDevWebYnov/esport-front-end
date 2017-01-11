@@ -1,6 +1,7 @@
 import { Address } from './address'
 export class User {
 
+  id: string;
   firstname: string;
   lastname: string;
   username: string;
@@ -14,6 +15,7 @@ export class User {
   friends : User[];
   interests: string;
   active: boolean;
+  verified: boolean;
   created_at: Date;
   updated_at:Date;
 }

@@ -1,32 +1,41 @@
-<p>
-  step2 works!
-</p>
-<label>What's Your Console of Choice?</label>
-<div class="form-group">
-  <div class="radio">
-    <label>
-      <input type="radio" ng-model="formData.type" value="xbox" checked>
-      I like XBOX
-    </label>
+
+<div *ngIf="userGetById" class="container signupRoad">
+
+  <h1>BIENVENUE {{userGetById.username}}</h1>
+
+  <!--Check IF the user is verified to continue signup-->
+  <div *ngIf="status">
+    <div *ngIf="status == 200" class="alert alert-success infoMessage">
+      <strong>Success!</strong> {{infoMessage}}
+    </div>
+    <div *ngIf="status == 401" class="alert alert-danger errorMessage">
+      <strong>Error!</strong> {{errorMessage}}
+      <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
+    </div>
   </div>
-  <div class="radio">
-    <label>
-      <input type="radio" ng-model="formData.type" value="ps">
-      I like PS4
-    </label>
+
+  <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
+    <h3>Selectionnez vos jeux favoris</h3>
+    <h4>Selectionnez les jeux que vous possédez</h4>
+    <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
+
+      <div *ngIf="games" class="form-group row">
+          <li *ngFor="let game of games">
+            <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}"> {{game.name}}
+          </li>
+        </div>
+
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-default submitButton">Confirmer</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 
-<div class="form-group row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.payment" class="btn btn-block btn-info">
-      Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
-    </a>
-  </div>
-  <br><br>
-  <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="step1" class="btn btn-block btn-info">
-      Previous <span class="glyphicon glyphicon-circle-arrow-right"></span>
-    </a>
-  </div>
-</div>
+
+
