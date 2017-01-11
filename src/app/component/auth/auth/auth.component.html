@@ -58,9 +58,17 @@
       </div>
 
       <div id="signUp" class="formStyle">
-        <form (submit)="checkAuth()">
+        <form (ngSubmit)="onSubmit($event)">
           <input (keyup)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
 
+          <div [hidden]="!submitted">
+            <div *ngIf="infoMessage" class="alert alert-success infoMessage">
+              <strong>Success!</strong> {{infoMessage}}
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
+              <strong>Error!</strong> {{errorMessage}}
+            </div>
+          </div>
           <button class="connectButton">S'inscrire avec addresse mail</button>
 
           <p>ou</p>

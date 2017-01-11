@@ -114,10 +114,6 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
         component: WizardComponent
       },
       {
-        path: 'signup/step0',
-        component: Step0Component
-      },
-      {
         path: 'signup/step1/:email',
         component: Step1Component
       },
