@@ -123,7 +123,7 @@ export class TestSecurityServiceComponent implements OnInit {
       const entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
       const entryContentContainsNumeric = TestSecurityServiceComponent.checkIfThereIsANumberCharacterInAString(entryContent);
 
-      if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
+      if ((entryContentContainsUpperCase === true) || (entryContentContainsLowerCase === true) || (entryContentContainsNumeric === true)) {
         event.srcElement.style.borderColor = "green";
       }
       else {
