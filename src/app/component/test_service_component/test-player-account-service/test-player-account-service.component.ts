@@ -24,7 +24,6 @@ export class TestPlayerAccountServiceComponent implements OnInit {
   response: Object;
 
 
-
   constructor(private playerAccountServiceInstance: PlayerAccountService) {}
 
   private getAllItemsPlayerAccount(): void {
@@ -70,7 +69,7 @@ export class TestPlayerAccountServiceComponent implements OnInit {
       .subscribe(
         data => this.response = data,
         error => console.log(error,this.response),
-        () => console.log('Add User complete', this.response)
+        () => console.log('Add player account complete', this.response)
       );
   }
   private deletePlayerAccount(query : string): void {
@@ -79,11 +78,11 @@ export class TestPlayerAccountServiceComponent implements OnInit {
       .subscribe(
         data => this.response = data,
         error => console.log(error),
-        () => console.log('Delete User complete', this.response)
+        () => console.log('Delete player account complete', this.response)
       );
   }
   ngOnInit() {
-    //this.getAllItemsPlayerAccount();
+    this.getAllItemsPlayerAccount();
     //this.getItemPlayerAccountById();
     //this.getItemPlayerAccountByUserId();
     //this.getItemPlayerAccountByLogin();
@@ -93,7 +92,6 @@ export class TestPlayerAccountServiceComponent implements OnInit {
   public submitAddForm():void{
     var addPlayerAccount: AddNewPlayerAccount = {
       login: (<HTMLInputElement>document.getElementById('login')).value,
-
 
     };
     var userId:string = (<HTMLInputElement>document.getElementById('userid')).value;

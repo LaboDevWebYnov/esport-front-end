@@ -1,39 +1,103 @@
+
 <br><br><br><br><br><br><br>
 
 <h2>Search</h2>
-<form>
 
-  <button type="button" (click)="getAllItemsPlayerAccount()">Get all</button>
+<div class="form">
+
+  <div class="tab-content">
+    <div id="signup">
+      <h1>Création d'un player account</h1>
+
+      <form method="post" (submit)="submitAddForm()">
+
+        <div class="field-wrap">
+          <input type="search" id="login" placeholder="Nom du player account" required autocomplete="off"/>
+        </div>
+
+        <div class="field-wrap">
+          <input type="search" id="userid" placeholder="Identifiant du joueur" required autocomplete="off"/>
+        </div>
+
+        <div class="field-wrap">
+          <input type="search" id="gameid" placeholder="Identifiant du jeu" required autocomplete="off"/>
+        </div>
+
+        <input class = "button button-block" type = "submit" value="Valider" name="Valider"/>
+
+      </form>
+
+    </div>
+
+    <div id="login1">
+
+    </div>
+
+  </div><!-- tab-content -->
+
+</div> <!-- /form -->
+
+
+
+<div class="form">
+
+  <div class="tab-content">
+    <div id="display">
+      <h1>Affichage des payer accounts en fonction du jeu</h1>
+
+      <div id="list8">
+        <ul *ngFor="let pa of playerAccountApiJson">
+          <li  (click)="onSelectPlayerAccount(pa._id)" *ngIf="pa.active == true">
+            <a ><span class="item" >{{pa.login+" "}}</span><button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button></a>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="login7">
+
+    </div>
+
+  </div><!-- tab-content -->
+
+</div> <!-- /form -->
+
+
+
+
+
+
+
+<form>
+  <!-- Avoir tous les items -->
+  <button type="button" (click)="getAllItemsPlayerAccount()">Get all</button>==> fontionne
+  <br>
+
+  <!-- Avoir le player account en tapant son id-->
   <input type="search" name="getbyid" [(ngModel)]="getbyid" (keyup.enter)="getItemPlayerAccountById(getbyid)">
-  <button type="button" (click)="getItemPlayerAccountById(getbyid)">Get 1 by ID</button>
-  <input type="search" name="getbyusername" [(ngModel)]="getbyusername" (keyup.enter)="getAllItemsPlayerAccount(getbyusername)">
-  <button type="button" (click)="getAllItemsPlayerAccount(getbyusername)">Get 1 by username</button>
+  <button type="button" (click)="getItemPlayerAccountById(getbyid)">Get 1 by ID</button>==> fonctionne
+  <br><br>
+
+  <!-- Avoir le player avec un username
+  <input type="search" name="getbyusername" [(ngModel)]="getbyusername" (keyup.enter)="getItemPlayerAccountByUserId(getbyusername)">
+  <button type="button" (click)="getItemPlayerAccountByUserId(getbyusername)">Get 1 by username</button>
+  <br><br>-->
+
+  <!-- Avoir les player accounts d'un user pour un jeu (grâce à l'id du jeu) -->
   <input type="search" name="getbyuserid" [(ngModel)]="getbyuserid" (keyup.enter)="getItemPlayerAccountByUserId(getbyuserid)">
   <button type="button" (click)="getItemPlayerAccountByUserId(getbyuserid)">Get 1 by user idS</button>
+  <br><br>
+
+  <!-- -->
   <input type="search" name="deletebyid" [(ngModel)]="deletebyid" (keyup.enter)="deletePlayerAccount(deletebyid)" value="">
-  <button type="button" (click)="deletePlayerAccount(deletebyid)">Delete by id</button>
+  <button type="button" (click)="deletePlayerAccount(deletebyid)">Delete by id</button> ==> fonctionne
   <br><br>
 
 </form>
-<br>
-<h2>Add player-account</h2>
-<form class="form" (submit)="submitAddForm()">
 
 
-    <label>Login: </label>
-    <input type="text" id="login" value=""/>
-
-    <label>User ID: 569000574367285c00961282</label>
-    <input type="text" id="userid" value="" />
-
-    <label>Game ID: 569104a0417130681bcf1586</label>
-    <input type="text" id="gameid" value=""/>
-
-
-
-    <button type="submit">Submit</button>
-
-</form>
 <ul class="pa">
   <li *ngFor="let pa of playerAccountApiJson" (click)="onSelectPlayerAccount(pa._id)">
     <span class="item" *ngIf="pa.active == true">{{pa._id}}</span>{{pa.login}}
@@ -68,7 +132,6 @@
 
   <td>{{login}}</td>
   <td>{{gameId}}</td>
-
 
   </tbody>
 </table>
