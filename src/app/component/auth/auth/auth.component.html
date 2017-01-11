@@ -8,56 +8,73 @@
 
   <div class="contentWindow">
 
-    <div class="titleConnect">
-      Lorem ipsum dolor dit amet
-    </div>
+    <h1>Bienvenue Sur NoName Gaming</h1>
 
-    <div class="subtitleBlue">
-      Lorem ipsum dolor dit amet
-    </div>
-
-    <div class="subtitleGray">
-      inscription 100% gratuite
-    </div>
-    <div class="connectWindow">
-      <div class="titleWhite">
-        Lorem ipsum dolor dit amet,
-      </div>
-
-      <div class="subtitleWhite">
-        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt utt laoreet doloremagna aliquam erat vo
-      </div>
+    <div class="contentCenter">
 
       <div class="menuLogIn">
+
         <ul class="tab">
+
           <li><a href="javascript:void(0)" class="tablinks" (click)="authLiClick($event, 'signUp')">S'inscrire</a></li>
           <li><a href="javascript:void(0)" class="tablinks active" (click)="authLiClick($event, 'logIn')">Se Connecter</a></li>
           <li class="liEnd"></li>
+
         </ul>
+
       </div>
 
       <div id="logIn" class="formStyle">
+
         <div *ngIf="status==401" id="errorMessage">
+
           <strong>{{error.errorMessage}}</strong>
+
         </div>
+
+
         <form (submit)="checkAuth()">
+
           <input (keyup)="entryVerification($event,'login')" class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
           <input (keyup)="entryVerification($event,'password')" class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
-
           <button id="logInSubmitButton" class="connectButton" disabled>SE CONNECTER ET JOUER</button>
+
         </form>
 
         <div class="facebookButton">
+
           <button class="buttonFacebook" disabled>
+
             Se connecter avec <img src="../../../../assets/images/facebook.png">
+
           </button>
+
         </div>
 
       </div>
 
       <div id="signUp" class="formStyle">
-        <form (submit)="checkAuth()">
-          <input (keyup)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress" required>
+
+        <form (ngSubmit)="onSubmit($event)">
+
+          <input (keyup)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
+
+          <div [hidden]="!submitted">
+
+            <div *ngIf="infoMessage" class="alert alert-success infoMessage">
+
+              <strong>Success!</strong> {{infoMessage}}
+
+            </div>
+
+
+            <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
+
+              <strong>Error!</strong> {{errorMessage}}
+
+            </div>
+
+          </div>
 
           <button class="connectButton">S'inscrire avec addresse mail</button>
 

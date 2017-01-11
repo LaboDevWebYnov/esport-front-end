@@ -3,13 +3,16 @@ import {SecurityService} from '../../../../shared/services/security.service';
 import {Configuration} from '../../../../shared/app.constants';
 import {AuthObject} from '../../../../shared/models/utils/auth-object';
 import {Router} from '@angular/router';
+import { RegistrationService } from '../../../../shared/services/registration.service';
+import { SignupUser } from '../../../../shared/models/utils/signup-user';
 import * as _ from 'lodash';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  providers: [SecurityService, Configuration]
+  providers: [SecurityService, RegistrationService, Configuration]
+
 })
 export class AuthComponent implements OnInit {
   verifyAuthJson: any;//retour serv
@@ -22,8 +25,16 @@ export class AuthComponent implements OnInit {
     password: ""
   };
 
+  private response: Object;
+  private errorMessage: string;
+  private infoMessage: string;
+  private signupUser: SignupUser;
+  submitted = false;
 
-  constructor(private securityServiceInstance: SecurityService, private router: Router) {
+
+  constructor(private securityServiceInstance: SecurityService,
+              private router: Router,
+              private registrationServiceInstance: RegistrationService) {
   }
 
   ngOnInit() {
@@ -160,6 +171,33 @@ export class AuthComponent implements OnInit {
       logInSubmitButton.removeAttribute('disabled');
     }
   }
+
+  onSubmit(event) {
+    this.submitted = true;
+    this.signupUser = new SignupUser();
+    this.signupUser.email = event.target[0].value;
+    this.SignupUser();
+  }
+
+  //consome l'api pour singup le user
+  private SignupUser(): void {
+    this.registrationServiceInstance
+      .registerUser(this.signupUser)
+      .subscribe(
+        data => this.response = data,
+        error => {
+          //console.log(JSON.parse(error._body).error),
+          this.errorMessage = JSON.parse(error._body).error;
+          this.infoMessage = null;
+        },
+        () => {
+          //console.log('signup User complete', this.response),
+          this.infoMessage = "Check Now your Email to signup ...";
+          this.errorMessage = null
+        }
+      );
+  }
+
 
   private static checkIfThereIsAUppercaseCharacterInAString(string): boolean {
     return /[A-Z]/.test(string);
