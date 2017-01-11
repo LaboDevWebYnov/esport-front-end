@@ -172,4 +172,8 @@ export class AuthComponent implements OnInit {
     return /[1-9]/.test(string);
   }
 
+  private static checkIfTheStringIsAnEmail(string): boolean {
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/ig.test(string);
+  }
+
 }
