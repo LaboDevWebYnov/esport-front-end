@@ -3,7 +3,7 @@ import {SecurityService} from '../../../../shared/services/security.service';
 import {Configuration} from '../../../../shared/app.constants';
 import {AuthObject} from '../../../../shared/models/utils/auth-object';
 import {Router} from '@angular/router';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-auth',

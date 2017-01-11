@@ -3,7 +3,7 @@ import {SecurityService} from '../../../../shared/services/security.service';
 import {Configuration} from '../../../../shared/app.constants';
 import {AuthObject} from '../../../../shared/models/utils/auth-object';
 import {Router} from '@angular/router';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-test-security-service',
@@ -27,7 +27,6 @@ export class TestSecurityServiceComponent implements OnInit {
 
   constructor(private securityServiceInstance: SecurityService, private router: Router) {
   }
-
   //Non utilisé a supprimer lors du transfert
   // private verifyEmail(email: string, callback): any {
   //   this.securityServiceInstance
@@ -45,6 +44,7 @@ export class TestSecurityServiceComponent implements OnInit {
   //       }
   //     );
   // }
+
 
   private verifyAuth(sendAuthJson: AuthObject, callback): any {
     this.securityServiceInstance

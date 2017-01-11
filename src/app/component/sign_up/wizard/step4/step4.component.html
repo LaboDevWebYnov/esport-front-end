@@ -1,0 +1,38 @@
+<div *ngIf="userGetById" class="container signupRoad">
+
+  <h1>BIENVENUE {{userGetById.username}}</h1>
+
+  <!--Check IF the user is verified to continue signup-->
+  <div *ngIf="status">
+    <div *ngIf="status == 200" class="alert alert-success infoMessage">
+      <strong>Success!</strong> {{infoMessage}}
+    </div>
+    <div *ngIf="status == 401" class="alert alert-danger errorMessage">
+      <strong>Error!</strong> {{errorMessage}}
+      <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
+    </div>
+  </div>
+
+  <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
+    <h3>Trouvez vos amis et créer une équipe</h3>
+    <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
+
+      <div *ngIf="games" class="form-group row">
+        <li *ngFor="let game of games">
+          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}"> {{game.name}}
+        </li>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-default submitButton">Confirmer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
