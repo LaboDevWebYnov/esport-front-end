@@ -125,24 +125,16 @@ export class AuthComponent implements OnInit {
     }
 
     if ((typeOfVerification === "email") || (typeOfVerification === "login")) {
-      let entryContentContainsAt = false, entryContentContainsPointAfterAt = false;
-      const entryContentContainsLowerCase = AuthComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
 
-      if (entryContent.indexOf('@') != -1) {
-        entryContentContainsAt = true;
-      }
-      if (entryContent.indexOf('@') < entryContent.lastIndexOf('.')) {
-        entryContentContainsPointAfterAt = true;
-      }
-      if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') != entryContent.length - 1)) {
+      if (AuthComponent.checkIfTheStringIsAnEmail(entryContent) == true) {
         event.srcElement.style.borderColor = "green";
         isAnEmail = true;
       }
       else {
-        event.srcElement.style.borderColor = "red";
         logInSubmitButton.setAttribute("disabled", "true");
       }
     }
+
     if ((typeOfVerification === "username") || (typeOfVerification === "login")) {
       if (AuthComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent) && AuthComponent.checkIfThereIsALowercaseCharacterInAString(entryContent)) {
         event.srcElement.style.borderColor = "green";
@@ -153,6 +145,7 @@ export class AuthComponent implements OnInit {
         logInSubmitButton.setAttribute("disabled", "true");
       }
     }
+
     if (typeOfVerification === "login") {
       if ((isAnEmail === true) || (isAnUsername === true)) {
         event.srcElement.style.borderColor = "green";

@@ -3,89 +3,6 @@ body,html
   padding: 0;
   margin: 0;
 }
-.window
-{
-  background-color: #1C1C1B;
-  position: fixed;
-  right: 0%;
-  top: 0%;
-  left: 0%;
-  bottom: 0%;
-}
-.menuWindow
-{
-  background-color: black;
-  position: absolute;
-  right: 0%;
-  left: 0%;
-  top: 0%;
-  bottom: 87%;
-}
-.contentWindow
-{
-  background-color: #232323;
-  padding: 5%;
-  border-left: solid white 1px;
-  border-right: solid white 1px;
-  margin-top: 0.50%;
-  height: 100%;
-  z-index: 10;
-}
-.blueLine
-{
-  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  display: block;
-  position: absolute;
-  height: 2%;
-  left: -50%;
-  right: -50%;
-}
-.mainWindow
-{
-  position: absolute;
-  top:13%;
-  left: 15%;
-  right: 15%;
-  height: 50%;
-  z-index: 12;
-}
-
-.inputGray
-{
-  background-color: #555555;
-  border: solid 1px #8C8C8C;
-  font-family: "Rhanoll";
-  font-size: 1.5em;
-  color: white;
-  margin: 1%;
-  border-radius: 2%;
-  width: 95%;
-}
-
-.menuLogIn
-{
-  text-align: left;
-}
-.subtitleWhite
-{
-  font-family: "Rhanoll";
-  font-size: 2em;
-  color: #ffffff;
-  text-align: center;
-}
-.formStyle
-{
-  border-bottom-left-radius: 3%;
-  border-bottom-right-radius: 3%;
-  border-top-right-radius: 1.5%;
-  padding: 1%;
-  background-color: #333333;
-  animation-name: anim;
-  animation-duration: 2s;
-  text-align: center;
-}
-
-
 input:focus {
   outline:  none;
   background-color: #777777;
@@ -95,7 +12,6 @@ h1
   text-align: center;
   font-family: Rhanoll;
 }
-
 ul.tab {
   list-style-type: none;
   margin: 0;
@@ -134,6 +50,8 @@ ul.tab li a:focus, .active
   border-top-right-radius: 10%;
 }
 
+
+
 .connectButton
 {
   background-color: #0071BC;
@@ -144,12 +62,6 @@ ul.tab li a:focus, .active
   width: 85%;
   border-radius: 5%;
   margin: 1%;
-}
-.contentCenter
-{
-  position: absolute;
-  left: 30%;
-  width: 40%;
 }
 .buttonFacebook
 {
@@ -165,6 +77,88 @@ ul.tab li a:focus, .active
   right: 5%;
   text-align: center;
 }
+.window
+{
+  background-color: #1C1C1B;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+}
+.menuWindow
+{
+  background-color: black;
+  position: fixed;
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  bottom: 87%;
+}
+.blueLine
+{
+  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 45%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: block;
+  position: fixed;
+  height: 1.5%;
+  left: -50%;
+  right: -50%;
+}
+.mainWindow
+{
+  position: absolute;
+  top:13%;
+  left: 15%;
+  right: 15%;
+  height: 50%;
+  z-index: 12;
+}
+.row
+{
+
+  border-left: solid white 1px;
+  border-right: solid white 1px;
+  margin-top: 1%;
+  padding: 2%;
+}
+.inputGray
+{
+  background-color: #555555;
+  border: solid 1px #8C8C8C;
+  font-family: "Rhanoll";
+  font-size: 1.5em;
+  color: white;
+  margin: 1%;
+  border-radius: 2%;
+  width: 95%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.menuLogIn
+{
+  text-align: left;
+}
+.subtitleWhite
+{
+  font-family: "Rhanoll";
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+}
+.formStyle
+{
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+  border-top-right-radius: 1.5%;
+  padding: 2%;
+  background-color: #333333;
+  animation-name: anim;
+  animation-duration: 2s;
+  text-align: center;
+}
+
+
+
 #facebookButton
 {
   text-align: right;
