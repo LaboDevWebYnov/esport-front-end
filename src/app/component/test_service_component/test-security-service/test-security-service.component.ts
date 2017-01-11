@@ -13,7 +13,7 @@ import _ from 'lodash';
 })
 export class TestSecurityServiceComponent implements OnInit {
 
-  verifyEmailJson: any;//retour serv                     A Supp lors du transfert
+  // verifyEmailJson: any;//retour serv                     A Supp lors du transfert
   verifyAuthJson: any;//retour serv
 
   status: number = null;
@@ -29,22 +29,22 @@ export class TestSecurityServiceComponent implements OnInit {
   }
 
   //Non utilisé a supprimer lors du transfert
-  private verifyEmail(email: string, callback): any {
-    this.securityServiceInstance
-      .verifyEmail(email)
-      .subscribe(
-        data => this.verifyEmailJson = data,
-        error => {
-          console.log(error);
-          callback(401, JSON.parse(error._body).error, null)
-        },
-        () => {
-          console.log('get One Item complete', this.verifyEmailJson);
-          callback(200, null,  this.verifyEmailJson);
-          //console.log('get All Items complete')
-        }
-      );
-  }
+  // private verifyEmail(email: string, callback): any {
+  //   this.securityServiceInstance
+  //     .verifyEmail(email)
+  //     .subscribe(
+  //       data => this.verifyEmailJson = data,
+  //       error => {
+  //         console.log(error);
+  //         callback(401, JSON.parse(error._body).error, null)
+  //       },
+  //       () => {
+  //         console.log('get One Item complete', this.verifyEmailJson);
+  //         callback(200, null,  this.verifyEmailJson);
+  //         //console.log('get All Items complete')
+  //       }
+  //     );
+  // }
 
   private verifyAuth(sendAuthJson: AuthObject, callback): any {
     this.securityServiceInstance
@@ -95,7 +95,7 @@ export class TestSecurityServiceComponent implements OnInit {
 
 
   public authLiClick(event, option): void {
-    var i, tabContent, tabLinks;
+    let i, tabContent, tabLinks;
 
     tabContent = document.getElementsByClassName("formStyle");
     for (i = 0; i < tabContent.length; i++) {
@@ -113,20 +113,18 @@ export class TestSecurityServiceComponent implements OnInit {
 
 
   public entryVerification(event, typeOfVerification): void {
-    var entryContent = event.srcElement.value;
-    var isAnEmail = false, isAnUsername = false, isAnPassword = false;
-    var logInSubmitButton = (<HTMLInputElement>document.getElementById("logInSubmitButton"));
+    const entryContent = event.srcElement.value;
+    let isAnEmail = false, isAnUsername = false;
+    const logInSubmitButton = (<HTMLInputElement>document.getElementById("logInSubmitButton"));
 
     if (typeOfVerification === "password") {
 
-      var entryContentContainsUpperCase = TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent);
-      var entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
-      var entryContentContainsNumeric = TestSecurityServiceComponent.checkIfThereIsANumberCharacterInAString(entryContent);
+      const entryContentContainsUpperCase = TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent);
+      const entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
+      const entryContentContainsNumeric = TestSecurityServiceComponent.checkIfThereIsANumberCharacterInAString(entryContent);
 
       if ((entryContentContainsUpperCase === true) && (entryContentContainsLowerCase === true) && (entryContentContainsNumeric === true)) {
         event.srcElement.style.borderColor = "green";
-        isAnPassword = true;
-        logInSubmitButton.removeAttribute('disabled');
       }
       else {
         event.srcElement.style.borderColor = "red";
@@ -146,7 +144,6 @@ export class TestSecurityServiceComponent implements OnInit {
       }
       if ((entryContentContainsLowerCase === true) && (entryContentContainsAt === true) && (entryContentContainsPointAfterAt === true) && (entryContent.lastIndexOf('.') != entryContent.length - 1)) {
         event.srcElement.style.borderColor = "green";
-        logInSubmitButton.removeAttribute('disabled');
         isAnEmail = true;
       }
       else {
@@ -157,7 +154,6 @@ export class TestSecurityServiceComponent implements OnInit {
     if ((typeOfVerification === "username") || (typeOfVerification === "login")) {
       if (TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent) && TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent)) {
         event.srcElement.style.borderColor = "green";
-        logInSubmitButton.removeAttribute('disabled');
         isAnUsername = true;
       }
       else {
@@ -168,12 +164,19 @@ export class TestSecurityServiceComponent implements OnInit {
     if (typeOfVerification === "login") {
       if ((isAnEmail === true) || (isAnUsername === true)) {
         event.srcElement.style.borderColor = "green";
-        logInSubmitButton.removeAttribute('disabled');
+
       }
       else {
         event.srcElement.style.borderColor = "red";
         logInSubmitButton.setAttribute("disabled", "true");
       }
+    }
+
+    const checkInput1 = (<HTMLInputElement>document.getElementById("emailAuth"));
+    const checkInput2 = (<HTMLInputElement>document.getElementById("pwdAuth"));
+    if((checkInput1.style.borderColor == "green") && (checkInput2.style.borderColor == "green"))
+    {
+      logInSubmitButton.removeAttribute('disabled');
     }
   }
 
