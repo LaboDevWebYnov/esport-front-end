@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import {Router} from '@angular/router';
 
-
-import { UserService } from '../../../../../shared/services/user.service';
+import { RegistrationService } from '../../../../../shared/services/registration.service';
 import { SignupUser } from '../../../../../shared/models/utils/signup-user';
 import { Configuration } from '../../../../../shared/app.constants';
 
@@ -12,27 +10,23 @@ import { Configuration } from '../../../../../shared/app.constants';
   selector: 'app-step0',
   templateUrl: './step0.component.html',
   styleUrls: ['./step0.component.css'],
-  providers:[UserService,Configuration]
+  providers:[RegistrationService,Configuration]
 })
 export class Step0Component implements OnInit {
 
-  public response: Object;
-  public errorMessage: string;
-  public infoMessage: string;
-  public signupUser: SignupUser;
+  private response: Object;
+  private errorMessage: string;
+  private infoMessage: string;
+  private signupUser: SignupUser;
+  submitted = false;
 
-  constructor(private userServiceInstance: UserService,
-              private router: Router) {
+  constructor(private registrationServiceInstance: RegistrationService) {
   }
 
   ngOnInit() {
   }
 
-  submitted = false;
-
   onSubmit(event) {
-    //console.log(event);
-    //console.log(event.target[0].value);
     this.submitted = true;
     this.signupUser = new SignupUser();
     this.signupUser.email = event.target[0].value;
@@ -41,9 +35,8 @@ export class Step0Component implements OnInit {
 
   //consome l'api pour singup le user
   private SignupUser(): void {
-    console.log(JSON.stringify(this.signupUser));
-    this.userServiceInstance
-      .SignupUser(this.signupUser)
+    this.registrationServiceInstance
+      .registerUser(this.signupUser)
       .subscribe(
         data => this.response = data,
         error => {

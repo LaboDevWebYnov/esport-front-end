@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SecurityService} from '../../../../../shared/services/security.service';
-import {UserService} from '../../../../../shared/services/user.service';
+import {RegistrationService} from '../../../../../shared/services/registration.service';
 import {Configuration} from '../../../../../shared/app.constants';
 import {User} from '../../../../../shared/models/user';
 import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-verified-request-object'
@@ -10,7 +9,7 @@ import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-ver
   selector: 'app-step1',
   templateUrl: './step1.component.html',
   styleUrls: ['./step1.component.css'],
-  providers: [UserService, SecurityService, Configuration]
+  providers: [RegistrationService, Configuration]
 })
 
 export class Step1Component implements OnInit {
@@ -29,20 +28,16 @@ export class Step1Component implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private securityServiceInstance: SecurityService,
-              private userServiceInstance: UserService) {
+              private registrationServiceInstance: RegistrationService) {
   }
 
   ngOnInit() {
     //get the url path&query params
     this.email = this.route.snapshot.params['email'];
     this.token = this.route.snapshot.queryParams['t'];
-
     //check if the user is already verified
     this.isVerifiedUser(this.email, this.token, (verifiedCode: string, userId: string) => {
-      //console.log(verifiedCode);
       if (verifiedCode === 'E_NOT_VERIFIED') {
-        //console.log('user is not verified');
         //verify the user
         this.verifyUser(this.email, this.token, (status: number, errorMessage: string, infoMessage: string) => {
           this.status = status;
@@ -51,7 +46,7 @@ export class Step1Component implements OnInit {
           this.userId = userId;
         });
       }
-      else if (verifiedCode === 'VERIFIED') {
+      else {
         if (verifiedCode === 'E_BAD_TOKEN') {
           this.status = 401;
           this.errorMessage = 'Demande de création de compte invalide ! Merci de bien vouloir vour réinscrire. ';
@@ -63,6 +58,7 @@ export class Step1Component implements OnInit {
             this.errorMessage = 'Demande de création de compte expirée ! Merci de bien vouloir vour réinscrire.';
             this.infoMessage = null;
           }
+          //verifiedCode === 'VERIFIED'
           else
           {
             this.status = 200;
@@ -73,9 +69,6 @@ export class Step1Component implements OnInit {
         }
       }
     });
-  }
-
-  ngOnDestroy() {
   }
 
   //Triggered when the form is submited
@@ -119,8 +112,8 @@ export class Step1Component implements OnInit {
   };
 
   //verify user mail
-  private verifyUser(email: string, token: string, callback): void {
-    this.securityServiceInstance
+  private verifyUser(email: string, token: string, callback): any {
+    this.registrationServiceInstance
       .verifyEmail(email, token)
       .subscribe(
         data => this.response = data,
@@ -138,7 +131,7 @@ export class Step1Component implements OnInit {
 
   //check if the user is already verified and the token is available
   private isVerifiedUser = (email: string, token: string, callback): any => {
-    this.securityServiceInstance
+    this.registrationServiceInstance
       .isVerified(email, token)
       .subscribe(
         data => {
@@ -157,8 +150,8 @@ export class Step1Component implements OnInit {
 
   //register the user's main info
   private registerUser(id: string, user: User, callback): any {
-    this.userServiceInstance
-      .registerUser(id, user)
+    this.registrationServiceInstance
+      .registerUserMainInfo(id, user)
       .subscribe(
         data => this.response = data,
         error => {

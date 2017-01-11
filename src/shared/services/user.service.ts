@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
 import { ChangePasswordObject } from '../models/utils/change-password-object';
 import { ChangeEmailObject } from '../models/utils/change-email-object';
-import { SignupUser } from '../models/utils/signup-user';
 import { User } from '../models/user';
 
 @Injectable()
@@ -71,21 +70,9 @@ export class UserService {
   };
 
   //Fonctionne
-  public registerUser = (id:string,Variable:User): Observable<Response> => {
-    let JsonBody = JSON.stringify(Variable);
-    return this._http.put(this.actionUrl + "register/" + id + "/step1",JsonBody,{ headers: this.headers });
-  };
-
-  //Fonctionne
   public AddUser = (Variable:User): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl+"users/addUser", JsonBody, { headers: this.headers })
-      .map((response => response.json()));
-  };
-
-  public SignupUser = (Variable:SignupUser): Observable<Response> => {
-    let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"users/signUp", JsonBody, { headers: this.headers })
       .map((response => response.json()));
   };
 

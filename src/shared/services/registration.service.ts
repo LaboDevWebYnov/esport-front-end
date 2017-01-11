@@ -4,10 +4,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import {Configuration} from '../app.constants';
-import {AuthObject} from '../models/utils/auth-object';
+import { User } from '../models/user';
+import { SignupUser } from '../models/utils/signup-user';
+
+
 
 @Injectable()
-export class SecurityService {
+export class RegistrationService {
 
   private actionUrl: string;
   private headers: Headers;
@@ -20,21 +23,25 @@ export class SecurityService {
     this.headers.append('Accept', 'application/json');
   }
 
-  //Good
+  public registerUser = (Variable:SignupUser): Observable<Response> => {
+    let JsonBody = JSON.stringify(Variable);
+    return this._http.post(this.actionUrl+"register/", JsonBody, { headers: this.headers })
+      .map((response => response.json()));
+  };
+
+  public registerUserMainInfo = (id:string,Variable:User): Observable<Response> => {
+    let JsonBody = JSON.stringify(Variable);
+    return this._http.put(this.actionUrl + "register/" + id + "/step1",JsonBody,{ headers: this.headers });
+  };
+
   public verifyEmail = (email: string, token: string): Observable<String> => {
-    return this._http.get(this.actionUrl + 'user/verify/' + email+'?t='+token)
+    return this._http.get(this.actionUrl + 'register/' + email+'/step0?t='+token)
       .map(response => response.json())
   };
 
   public isVerified = (email: string, token: string): Observable<String> => {
-    return this._http.get(this.actionUrl + 'user/isVerified/' + email)// + '?t=' + token)
+    return this._http.get(this.actionUrl + 'register/'+email+'/isVerified?t=' + token)
       .map(response => response.json())
   };
 
-  //Good
-  public auth = (authObject: AuthObject): Observable<Response> => {
-    let JsonBody = JSON.stringify(authObject);
-    return this._http.post(this.actionUrl + "auth", JsonBody, {headers: this.headers})
-      .map((response => response.json()))
-  };
 }
