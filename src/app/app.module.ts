@@ -24,7 +24,6 @@ import {UserGamesComponent} from './component/profile-user/user-games/user-games
 import {UserResultsComponent} from './component/profile-user/user-results/user-results.component';
 import {UserHistoricComponent} from './component/profile-user/user-historic/user-historic.component';
 import {UserNewsComponent} from './component/profile-user/user-news/user-news.component';
-import {ModalProfilModificationComponent} from './component/profile-user/modal-profil-modification/modal-profil-modification.component';
 import { AuthComponent } from './component/auth/auth/auth.component';
 
 
@@ -50,8 +49,8 @@ import { AuthComponent } from './component/auth/auth/auth.component';
     UserResultsComponent,
     UserHistoricComponent,
     UserNewsComponent,
-    ModalProfilModificationComponent,
-    AuthComponent
+    AuthComponent,
+    UserNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -88,10 +87,6 @@ import { AuthComponent } from './component/auth/auth/auth.component';
       {
         path: 'profile',
         component: ProfileUserComponent
-      },
-      {
-        path: 'modal',
-        component: ModalProfilModificationComponent
       },
       {
         path: 'teams',
