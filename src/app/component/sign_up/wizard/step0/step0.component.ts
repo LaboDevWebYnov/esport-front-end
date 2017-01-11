@@ -41,12 +41,12 @@ export class Step0Component implements OnInit {
         data => this.response = data,
         error => {
                     //console.log(JSON.parse(error._body).error),
-                      this.errorMessage = JSON.parse(error._body).error,
+                      this.errorMessage = JSON.parse(error._body).error;
                       this.infoMessage = null;
         },
         () => {
                     //console.log('signup User complete', this.response),
-                      this.infoMessage = "Check Now your Email to signup ...",
+                      this.infoMessage = "Check Now your Email to signup ...";
                       this.errorMessage = null
         }
       );

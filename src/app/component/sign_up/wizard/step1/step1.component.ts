@@ -81,7 +81,7 @@ export class Step1Component implements OnInit {
     this.user = new User();
 
     //check if it's the same password
-    if(event.target[2].value === event.target[4].value) {
+    if (event.target[2].value === event.target[4].value) {
       //username
       this.user.username = event.target[0].value;
       //firstname
@@ -94,15 +94,13 @@ export class Step1Component implements OnInit {
       this.user.password = event.target[2].value;
       //register user
       this.registerUser(this.userId, this.user, (status: number, errorMessage: string, infoMessage: string) => {
-        if(status == 200)
-        {
+        if (status == 200) {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
-          this.router.navigate(['signup/step2/'+this.token, { id: this.userId , status: status } ]);
+          this.router.navigate(['signup/step2/' + this.token, {id: this.userId, status: status}]);
         }
-        else
-        {
+        else {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
@@ -119,12 +117,11 @@ export class Step1Component implements OnInit {
         data => this.response = data,
         error => {
           //console.log(error);
-          callback(401,JSON.parse(error._body).error)
+          callback(401, JSON.parse(error._body).error)
         },
         () => {
           //console.log('verify user complete', (<User>this.response));
-          callback(200,null,'L\'adresse ' + this.email + ' a été vérifiée. Vous pouvez continuer l\'inscription ...'
-            )
+          callback(200, null, 'L\'adresse ' + this.email + ' a été vérifiée. Vous pouvez continuer l\'inscription ...')
         }
       );
   };
@@ -143,7 +140,7 @@ export class Step1Component implements OnInit {
         () => {
           //console.log(this.response);
           callback((<IsVerifiedRequestObject>this.response).verifiedCode,
-                   (<IsVerifiedRequestObject>this.response).userId);
+            (<IsVerifiedRequestObject>this.response).userId);
         }
       );
   };
@@ -156,12 +153,12 @@ export class Step1Component implements OnInit {
         data => this.response = data,
         error => {
           //console.log(error);
-          callback(401,JSON.parse(error._body).error,null);
+          callback(401, JSON.parse(error._body).error, null);
 
         },
         () => {
           //console.log('register user complete', this.response);
-          callback(200,null,'user registered !');
+          callback(200, null, 'user registered !');
         }
       );
   }
