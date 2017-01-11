@@ -6,14 +6,12 @@ import {Router} from '@angular/router';
 import _ from 'lodash';
 
 @Component({
-  selector: 'app-test-security-service',
-  templateUrl: './test-security-service.component.html',
-  styleUrls: ['./test-security-service.component.css'],
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css'],
   providers: [SecurityService, Configuration]
 })
-export class TestSecurityServiceComponent implements OnInit {
-
-  // verifyEmailJson: any;//retour serv                     A Supp lors du transfert
+export class AuthComponent implements OnInit {
   verifyAuthJson: any;//retour serv
 
   status: number = null;
@@ -28,23 +26,8 @@ export class TestSecurityServiceComponent implements OnInit {
   constructor(private securityServiceInstance: SecurityService, private router: Router) {
   }
 
-  //Non utilisé a supprimer lors du transfert
-  // private verifyEmail(email: string, callback): any {
-  //   this.securityServiceInstance
-  //     .verifyEmail(email)
-  //     .subscribe(
-  //       data => this.verifyEmailJson = data,
-  //       error => {
-  //         console.log(error);
-  //         callback(401, JSON.parse(error._body).error, null)
-  //       },
-  //       () => {
-  //         console.log('get One Item complete', this.verifyEmailJson);
-  //         callback(200, null,  this.verifyEmailJson);
-  //         //console.log('get All Items complete')
-  //       }
-  //     );
-  // }
+  ngOnInit() {
+  }
 
   private verifyAuth(sendAuthJson: AuthObject, callback): any {
     this.securityServiceInstance
@@ -59,9 +42,6 @@ export class TestSecurityServiceComponent implements OnInit {
           callback(200, null, this.verifyAuthJson);
         }
       );
-  }
-
-  ngOnInit() {
   }
 
   public checkAuth(): void {
@@ -81,7 +61,7 @@ export class TestSecurityServiceComponent implements OnInit {
       }
       //sinon 401, bad credentials, message d'erreur sur la page, l'user doit recommencer
       else if (status == 401 && error) {
-      // && _.includes(verifyAuthJson, 'error')
+        // && _.includes(verifyAuthJson, 'error')
         console.log('Auth error: ' + JSON.stringify(error));
         this.status = status;
         this.error = error;
@@ -119,9 +99,9 @@ export class TestSecurityServiceComponent implements OnInit {
 
     if (typeOfVerification === "password") {
 
-      const entryContentContainsUpperCase = TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent);
-      const entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
-      const entryContentContainsNumeric = TestSecurityServiceComponent.checkIfThereIsANumberCharacterInAString(entryContent);
+      const entryContentContainsUpperCase = AuthComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent);
+      const entryContentContainsLowerCase = AuthComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
+      const entryContentContainsNumeric = AuthComponent.checkIfThereIsANumberCharacterInAString(entryContent);
 
       if ((entryContentContainsUpperCase === true) || (entryContentContainsLowerCase === true) || (entryContentContainsNumeric === true)) {
         event.srcElement.style.borderColor = "green";
@@ -134,7 +114,7 @@ export class TestSecurityServiceComponent implements OnInit {
 
     if ((typeOfVerification === "email") || (typeOfVerification === "login")) {
       let entryContentContainsAt = false, entryContentContainsPointAfterAt = false;
-      const entryContentContainsLowerCase = TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
+      const entryContentContainsLowerCase = AuthComponent.checkIfThereIsALowercaseCharacterInAString(entryContent);
 
       if (entryContent.indexOf('@') != -1) {
         entryContentContainsAt = true;
@@ -152,7 +132,7 @@ export class TestSecurityServiceComponent implements OnInit {
       }
     }
     if ((typeOfVerification === "username") || (typeOfVerification === "login")) {
-      if (TestSecurityServiceComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent) && TestSecurityServiceComponent.checkIfThereIsALowercaseCharacterInAString(entryContent)) {
+      if (AuthComponent.checkIfThereIsAUppercaseCharacterInAString(entryContent) && AuthComponent.checkIfThereIsALowercaseCharacterInAString(entryContent)) {
         event.srcElement.style.borderColor = "green";
         isAnUsername = true;
       }
@@ -191,4 +171,9 @@ export class TestSecurityServiceComponent implements OnInit {
   private static checkIfThereIsANumberCharacterInAString(string): boolean {
     return /[1-9]/.test(string);
   }
+
+  private static checkIfTheStringIsAnEmail(string): boolean {
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/ig.test(string);
+  }
+
 }

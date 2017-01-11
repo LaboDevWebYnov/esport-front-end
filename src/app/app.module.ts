@@ -25,6 +25,7 @@ import {UserResultsComponent} from './component/profile-user/user-results/user-r
 import {UserHistoricComponent} from './component/profile-user/user-historic/user-historic.component';
 import {UserNewsComponent} from './component/profile-user/user-news/user-news.component';
 import {ModalProfilModificationComponent} from './component/profile-user/modal-profil-modification/modal-profil-modification.component';
+import { AuthComponent } from './component/auth/auth/auth.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {ModalProfilModificationComponent} from './component/profile-user/modal-p
     UserResultsComponent,
     UserHistoricComponent,
     UserNewsComponent,
-    ModalProfilModificationComponent
+    ModalProfilModificationComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,7 @@ import {ModalProfilModificationComponent} from './component/profile-user/modal-p
       },
       {
         path: 'auth',
-        component: TestSecurityServiceComponent
+        component: AuthComponent
       },
       {
         path: 'player-account',
