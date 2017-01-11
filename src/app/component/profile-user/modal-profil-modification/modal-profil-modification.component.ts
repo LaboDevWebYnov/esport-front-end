@@ -11,5 +11,4 @@ export class ModalProfilModificationComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

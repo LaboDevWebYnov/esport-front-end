@@ -31,7 +31,9 @@
 #flag, #pen{
   height:50px;
 }
-
+a{
+  cursor: pointer;
+}
 h1 {
   font-size:80px;
   margin-bottom: 0px;
@@ -146,12 +148,14 @@ h3{
 .size2{
   display: inline-block;
   width:247px;
-
 }
 .size2 input{
   width:244px;
 }
 .size3 select{
+  width:163px;
+}
+.size3alone{
   width:163px;
 }
 
@@ -168,7 +172,7 @@ h3{
 
 
 .modal {
-  /*display: none;*/
+  display: none;
   color:black;
   font-size: 20px;
   position: fixed; /* Stay in place */

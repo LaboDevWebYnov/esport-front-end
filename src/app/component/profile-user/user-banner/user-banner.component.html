@@ -29,12 +29,12 @@
 
   <table id="gestionCompte">
     <tr>
-      <td><a href=""><img src="../../../../assets/images/logo-profil1.png"/></a></td>
+      <td><a (click)="modifProfil()"><img src="../../../../assets/images/logo-profil1.png"/></a></td>
       <td><a href=""><img src="../../../../assets/images/logo-profil2.png"/></a></td>
       <td><a href=""><img src="../../../../assets/images/logo-profil3.png"/></a></td>
     </tr>
     <tr id="titleTable">
-      <td><a href="">MODIFIER PROFIL</a></td>
+      <td><a (click)="modifProfil()">MODIFIER PROFIL</a></td>
       <td><a href="">GERER ABONNELENT</a></td>
       <td><a href="">CREER TEAM</a></td>
     </tr>
@@ -48,13 +48,13 @@
 
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" (click)="closeModal()">&times;</span>
     <h1>Profil</h1>
     <form>
       <h2>Gestion de compte</h2>
       <div class="size2">
         Nom d'utilisateur
-        <input type="text">
+        <input type="text" value="">
       </div>
 
       <div>
@@ -226,10 +226,14 @@
           Pays
           <input type="text">
         </div>
+        <div class="size3alone">
+          PostCode
+          <input type="text">
+        </div>
       </div>
       <div id="content-button">
         <button class="myButton">SOUMETTRE</button>
-        <button class="myButton">ANNULER</button>
+        <button class="myButton" (click)="closeModal()">ANNULER</button>
       </div>
     </form>
   </div>
@@ -241,22 +245,27 @@
   </svg>
 </div>
 
-<script>
-  var modal = document.getElementById('myModal');
-  var btn = document.getElementById("myBtn");
-  var span = document.getElementsByClassName("close")[0];
+<!--<script>-->
+  <!--var modal = document.getElementById('myModal');-->
+  <!--var btn1 = document.getElementById("modifProfil1");-->
+  <!--var btn2 = document.getElementById("modifProfil2");-->
+  <!--var span = document.getElementsByClassName("close")[0];-->
 
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
+  <!--btn1.onclick = function() {-->
+    <!--modal.style.display = "block";-->
+  <!--}-->
 
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+  <!--btn2.onclick = function() {-->
+    <!--modal.style.display = "block";-->
+  <!--}-->
 
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
+  <!--span.onclick = function() {-->
+    <!--modal.style.display = "none";-->
+  <!--}-->
+
+  <!--window.onclick = function(event) {-->
+    <!--if (event.target == modal) {-->
+      <!--modal.style.display = "none";-->
+    <!--}-->
+  <!--}-->
+<!--</script>-->
