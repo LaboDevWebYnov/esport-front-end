@@ -22,33 +22,37 @@ export class PlayerAccountService {
 
   }
 
-
   public GetAllPlayerAccount = (): Observable<String> => {
     console.log(this.actionUrl);
-    return this._http.get(this.actionUrl + 'playerAccount/')
+    return this._http.get(this.actionUrl + 'playerAccounts/')
       .map(response => response.json());
   };
 
   public GetSinglePlayerAccountById = (id: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "playerAccount/" + id + "/getPlayerAccountById")
+    return this._http.get(this.actionUrl + "playerAccounts/" + id + "/getPlayerAccountById")
       .map(response =>response.json());
   };
 
   public GetSinglePlayerAccountByUserId = (UserId: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "playerAccount/" + UserId + "/getPlayerAccountByUserId")
+    return this._http.get(this.actionUrl + "playerAccounts/" + UserId + "/getPlayerAccountByUserId")
       .map(response =>response.json());
   };
 
   public GetSinglePlayerAccountByLogin = (Login: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "playerAccount/" + Login + "/getPlayerAccountByLogin")
+    return this._http.get(this.actionUrl + "playerAccounts/" + Login + "/getPlayerAccountByLogin")
       .map(response =>response.json());
   };
   public AddPlayerAccount = (Variable:AddNewPlayerAccount, userid : string, gameid : string): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"playerAccount/"+ userid+"/addPlayerAccount/"+gameid, JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl+"playerAccounts/"+ userid+"/addPlayerAccount/"+gameid, JsonBody, { headers: this.headers })
       .map((response => response.json()));
   };
   public DeletePlayerAccount = (id: string): Observable<Response> => {
-    return this._http.put(this.actionUrl + "playerAccount/" + id + "/deletePlayerAccount","");
+    return this._http.put(this.actionUrl + "playerAccounts/" + id + "/deletePlayerAccount","");
+  };
+
+  public UpdatePlayerAccount = (id: string, Variable:AddNewPlayerAccount): Observable<Response> => {
+    let JsonBody = JSON.stringify(Variable);
+    return this._http.put(this.actionUrl + "playerAccounts/" + id + "/updatePlayerAccount",JsonBody,{ headers: this.headers });
   };
 }
