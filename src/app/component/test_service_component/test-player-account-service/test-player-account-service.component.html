@@ -52,9 +52,10 @@
       <div id="list8">
         <ul *ngFor="let pa of playerAccountApiJson">
           <li  (click)="onSelectPlayerAccount(pa._id)" *ngIf="pa.active == true">
-            <a><span class="item" >{{pa.login+" "}}</span>
-              <button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button></a>
-
+            <a>
+              <span class="item" >{{pa.login+" "}}</span>
+              <button style="background-color:rgba(19, 35, 47, 0.9)" type="button" (click)="deletePlayerAccount(pa._id)"><img src="./../../assets/images/delete-button.png"></button>
+            </a>
           </li>
         </ul>
       </div>
