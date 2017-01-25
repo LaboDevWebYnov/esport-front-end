@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import { RegistrationService } from '../../../../shared/services/registration.service';
 import { SignupUser } from '../../../../shared/models/utils/signup-user';
 import * as _ from 'lodash';
+import { CoolLocalStorage } from 'angular2-cool-storage';
+
 
 @Component({
   selector: 'app-auth',
@@ -15,6 +17,7 @@ import * as _ from 'lodash';
 
 })
 export class AuthComponent implements OnInit {
+  localStorage: CoolLocalStorage;
   verifyAuthJson: any;//retour serv
 
   status: number = null;
@@ -31,10 +34,15 @@ export class AuthComponent implements OnInit {
   private signupUser: SignupUser;
   submitted = false;
 
+  username: string;
+
 
   constructor(private securityServiceInstance: SecurityService,
               private router: Router,
-              private registrationServiceInstance: RegistrationService) {
+              private registrationServiceInstance: RegistrationService,
+              localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage;
+
   }
 
   ngOnInit() {
@@ -69,7 +77,14 @@ export class AuthComponent implements OnInit {
     this.verifyAuth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
       //si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige
       if (status == 200 && !_.isEmpty(verifyAuthJson)) {
-        this.router.navigate(['./home']);
+        console.log(verifyAuthJson)
+        this.localStorage.setItem('isConnected', 'true');
+        this.localStorage.setItem('userId', verifyAuthJson.userId);
+        this.localStorage.setItem('username', verifyAuthJson.username);
+        this.localStorage.setItem('firstname', verifyAuthJson.firstname);
+        this.localStorage.setItem('lastname', verifyAuthJson.lastname);
+        location.reload();
+        this.router.navigate(['/']);
       }
       //sinon 401, bad credentials, message d'erreur sur la page, l'user doit recommencer
       else if (status == 401 && error) {

@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {Configuration} from '../app.constants';
 import { User } from '../models/user';
 import { SignupUser } from '../models/utils/signup-user';
+import {RegisterUserObject} from '../models/utils/register-user-object';
 
 
 
@@ -29,9 +30,17 @@ export class RegistrationService {
       .map((response => response.json()));
   };
 
-  public registerUserMainInfo = (id:string,Variable:User): Observable<Response> => {
+  public registerUserMainInfo = (id:string, Variable:RegisterUserObject): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.put(this.actionUrl + "register/" + id + "/step1",JsonBody,{ headers: this.headers });
+  };
+
+  public completeRegistration = (id:string, token: string): Observable<Response> => {
+    return this._http.put(this.actionUrl + "register/" + id + "/completeRegistration?t="+token,null,{ headers: this.headers });
+  };
+
+  public cancelRegistration = (id:string, token: string): Observable<Response> => {
+    return this._http.delete(this.actionUrl + "register/" + id + "/cancelRegistration?t="+token);
   };
 
   public verifyEmail = (email: string, token: string): Observable<String> => {

@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
+  <div *ngIf="status == 200">
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
       <div *ngIf="games" class="form-group row">

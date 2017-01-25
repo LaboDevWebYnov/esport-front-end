@@ -1,3 +1,11 @@
+div {
+  font-family: Rhanoll;
+  font-size: larger !important;
+}
+h1, h3, h4, li{
+  color: white !important;
+}
+
 .form-control {
   width: 100%;
 }
@@ -9,4 +17,12 @@
 
 .submitButton {
   float: right;
+}
+
+.btn-default {
+  background-color: buttonface !important;
+}
+
+.info {
+  width: 70%;
 }

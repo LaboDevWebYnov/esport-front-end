@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/Http';
 import {RouterModule}   from '@angular/router';
+import { CoolStorageModule } from 'angular2-cool-storage';
+
 
 import {AppComponent} from './app.component';
 import {TestUserServiceComponent} from './component/test_service_component/test-user-service/test-user-service.component';
@@ -36,6 +38,7 @@ import { Step4Component } from './component/sign_up/wizard/step4/step4.component
 import { Step5Component } from './component/sign_up/wizard/step5/step5.component';
 import { Step6Component } from './component/sign_up/wizard/step6/step6.component';
 import { Step7Component } from './component/sign_up/wizard/step7/step7.component';
+import { LogoutComponent } from './component/auth/logout/logout.component';
 
 
 @NgModule({
@@ -70,13 +73,15 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
     Step4Component,
     Step5Component,
     Step6Component,
-    Step7Component
+    Step7Component,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    CoolStorageModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -148,6 +153,10 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
       {
         path: 'auth',
         component: AuthComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: 'player-account',

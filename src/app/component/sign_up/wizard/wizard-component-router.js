@@ -1,4 +1,3 @@
-
 // create our angular app and inject ngAnimate and ui-router
 // =============================================================================
 angular.module('app-wizard', ['ngAnimate', 'ui.router'])
@@ -20,10 +19,9 @@ angular.module('app-wizard', ['ngAnimate', 'ui.router'])
       // each of these sections will have their own view
       // url will be nested (/form/profile)
       .state('step1', {
-        url: '/step1/:email?t=:token',
-        templateUrl: 'app/component/sign_up/wizard/step1/step1.component.html'
-
-
+        url: '/step1/:email',
+        //templateUrl: 'app/component/sign_up/wizard/step1/step1.component.html',
+        component: Step1Component
       })
 
       // url will be /form/interests
@@ -40,7 +38,7 @@ angular.module('app-wizard', ['ngAnimate', 'ui.router'])
 
     // catch all route
     // send users to the form page
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
   })
 
   // our controller for the form

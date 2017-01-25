@@ -7,10 +7,15 @@ input:focus {
   outline:  none;
   background-color: #777777;
 }
+.state-message {
+  margin-top: 5px;
+}
+
 h1
 {
   text-align: center;
   font-family: Rhanoll;
+  color: white;
 }
 ul.tab {
   list-style-type: none;
@@ -50,6 +55,10 @@ ul.tab li a:focus, .active
   border-top-right-radius: 10%;
 }
 
+.fb_img {
+  margin-bottom: 4px;
+}
+
 
 
 .connectButton
@@ -70,7 +79,7 @@ ul.tab li a:focus, .active
   border: solid white 1px;
   font-size: 1.5em;
   font-family: Rhanoll;
-  width: 50%;
+  width: 85%;
   border-radius: 5%;
   margin: 1%;
   text-align: right;

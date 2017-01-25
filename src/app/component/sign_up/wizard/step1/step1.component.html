@@ -5,7 +5,7 @@
   <h1>BIENVENUE {{this.email}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
-  <div *ngIf="status">
+  <div class="info" *ngIf="status">
     <div *ngIf="status == 200" class="alert alert-success infoMessage">
       <strong>Success!</strong> {{infoMessage}}
     </div>
@@ -17,7 +17,7 @@
 
   <div *ngIf="status==200">
     <h3>Enregistrer ses informations personnelles</h3>
-    <h4>Nous avons confirmé votre email<br>Veuillez compléter les infos de votre compte</h4>
+    <h4>Nous avons confirmé votre email. Veuillez compléter les infos de votre compte.</h4>
 
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-inline">
       <div class="form-group row">

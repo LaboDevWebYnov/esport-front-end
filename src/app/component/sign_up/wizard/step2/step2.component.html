@@ -15,8 +15,7 @@
   </div>
 
   <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
-    <h3>Selectionnez vos jeux favoris</h3>
-    <h4>Selectionnez les jeux que vous possédez</h4>
+    <h3>Selectionnez vos jeux favoris. Selectionnez les jeux que vous possédez</h3>
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
       <div *ngIf="games" class="form-group row">

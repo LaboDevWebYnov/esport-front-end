@@ -3,7 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RegistrationService} from '../../../../../shared/services/registration.service';
 import {Configuration} from '../../../../../shared/app.constants';
 import {User} from '../../../../../shared/models/user';
-import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-verified-request-object'
+import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-verified-request-object';
+import {RegisterUserObject} from '../../../../../shared/models/utils/register-user-object';
 
 @Component({
   selector: 'app-step1',
@@ -19,6 +20,7 @@ export class Step1Component implements OnInit {
   //Received the data
   private response: Object;
   private user: User;
+  private userRegistered: RegisterUserObject;
   private userId: string;
   //form&http_query status
   status = null;
@@ -35,6 +37,7 @@ export class Step1Component implements OnInit {
     //get the url path&query params
     this.email = this.route.snapshot.params['email'];
     this.token = this.route.snapshot.queryParams['t'];
+    console.log(this.email, this.token);
     //check if the user is already verified
     this.isVerifiedUser(this.email, this.token, (verifiedCode: string, userId: string) => {
       if (verifiedCode === 'E_NOT_VERIFIED') {
@@ -79,21 +82,23 @@ export class Step1Component implements OnInit {
     //set when the form is submited
     this.submitted = true;
     this.user = new User();
+    this.userRegistered = new RegisterUserObject();
 
     //check if it's the same password
     if (event.target[2].value === event.target[4].value) {
       //username
-      this.user.username = event.target[0].value;
+      this.userRegistered.username = event.target[0].value;
       //firstname
-      this.user.firstname = event.target[1].value;
+      this.userRegistered.firstname = event.target[1].value;
       //lastname
-      this.user.lastname = event.target[3].value;
+      this.userRegistered.lastname = event.target[3].value;
       //birthdate
-      this.user.birthDate = event.target[5].value;
+      this.userRegistered.birthDate = event.target[5].value;
       //password
-      this.user.password = event.target[2].value;
+      this.userRegistered.password = event.target[2].value;
+      this.userRegistered.passwordConfirmation = event.target[4].value;
       //register user
-      this.registerUser(this.userId, this.user, (status: number, errorMessage: string, infoMessage: string) => {
+      this.registerUser(this.userId, this.userRegistered, (status: number, errorMessage: string, infoMessage: string) => {
         if (status == 200) {
           this.status = status;
           this.errorMessage = errorMessage;
@@ -146,7 +151,7 @@ export class Step1Component implements OnInit {
   };
 
   //register the user's main info
-  private registerUser(id: string, user: User, callback): any {
+  private registerUser(id: string, user: RegisterUserObject, callback): any {
     this.registrationServiceInstance
       .registerUserMainInfo(id, user)
       .subscribe(
