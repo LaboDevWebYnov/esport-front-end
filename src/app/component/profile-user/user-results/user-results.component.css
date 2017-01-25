@@ -1,8 +1,7 @@
 #global{
   background :#1b1b1b;
-  padding:15%;
-  padding-bottom: 45px;
-  padding-top:25px;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
 circle {
@@ -31,7 +30,11 @@ h2 a {
 
 .section{
   display: inline-block;
-  width:300px;
+  width:19.5%;
+}
+
+#allsection {
+  padding-left: 2.5%;
 }
 
 /*BUTTON*/
