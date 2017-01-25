@@ -44,7 +44,7 @@ export class Step3Component implements OnInit {
     this.status = this.route.snapshot.params['status'];
     this.token = this.route.snapshot.params['token'];
     this.selectedGame = this.route.snapshot.params['selectedGame'];
-    //console.log(this.idParam, this.token, this.status, this.selectedGame);
+    console.log(this.idParam, this.token, this.status, this.selectedGame);
 
     this.getUserById(this.idParam, (userGet: User) => {
       //check if the user is already verified
