@@ -39,6 +39,7 @@ import { Step5Component } from './component/sign_up/wizard/step5/step5.component
 import { Step6Component } from './component/sign_up/wizard/step6/step6.component';
 import { Step7Component } from './component/sign_up/wizard/step7/step7.component';
 import { LogoutComponent } from './component/auth/logout/logout.component';
+import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { LogoutComponent } from './component/auth/logout/logout.component';
     Step5Component,
     Step6Component,
     Step7Component,
-    LogoutComponent
+    LogoutComponent,
+    BlueSeparationBarComponent
   ],
   imports: [
     BrowserModule,

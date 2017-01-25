@@ -1,7 +1,12 @@
+<head>
+  <script>
+    var selectElmt = document.getElementById("playerAccountId");
+    var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
+    var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
+  </script>
+</head>
 
-<br><br><br><br><br><br><br>
-
-<h2>Search</h2>
+<body>
 
 <div class="form">
 
@@ -40,15 +45,15 @@
 
 
 <div class="form">
-
   <div class="tab-content">
     <div id="display">
-      <h1>Affichage des payer accounts en fonction du jeu</h1>
+      <h1>Affichage des Player Account Actif</h1>
 
       <div id="list8">
         <ul *ngFor="let pa of playerAccountApiJson">
           <li  (click)="onSelectPlayerAccount(pa._id)" *ngIf="pa.active == true">
-            <a ><span class="item" >{{pa.login+" "}}</span><button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button></a>
+            <a><span class="item" >{{pa.login+" "}}</span>
+              <button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button></a>
 
           </li>
         </ul>
@@ -64,74 +69,23 @@
 
 </div> <!-- /form -->
 
+<div class="form">
+      <h1>Modification d'un player Account</h1>
+      <h2>Sélectionner un Player Account</h2>
+      <select name="liste" id="playerAccountId">
+        <option *ngFor="let pa of playerAccountApiJson" value="{{pa._id}}">
+            {{pa.login}}
+          </option>
+      </select>
+        <form name="formulaire" (submit)="submitUpdateForm()">
+           <h2>Choisir un nouveau login</h2>
+          <input type="search" id="playerAccountLogin" placeholder="Entrez votre nouveau login" required autocomplete="off"/>
+          <br/>
+          <br/>
+          <input class = "button button-block" type = "submit" value="Modifier" name="Modifier"/>
+          <!--<button type="submit" value="Valider" name="Valider"> Submit </button>-->
+        </form>
 
+      </div>
+</body>
 
-
-
-
-
-<form>
-  <!-- Avoir tous les items -->
-  <button type="button" (click)="getAllItemsPlayerAccount()">Get all</button>==> fontionne
-  <br>
-
-  <!-- Avoir le player account en tapant son id-->
-  <input type="search" name="getbyid" [(ngModel)]="getbyid" (keyup.enter)="getItemPlayerAccountById(getbyid)">
-  <button type="button" (click)="getItemPlayerAccountById(getbyid)">Get 1 by ID</button>==> fonctionne
-  <br><br>
-
-  <!-- Avoir le player avec un username
-  <input type="search" name="getbyusername" [(ngModel)]="getbyusername" (keyup.enter)="getItemPlayerAccountByUserId(getbyusername)">
-  <button type="button" (click)="getItemPlayerAccountByUserId(getbyusername)">Get 1 by username</button>
-  <br><br>-->
-
-  <!-- Avoir les player accounts d'un user pour un jeu (grâce à l'id du jeu) -->
-  <input type="search" name="getbyuserid" [(ngModel)]="getbyuserid" (keyup.enter)="getItemPlayerAccountByUserId(getbyuserid)">
-  <button type="button" (click)="getItemPlayerAccountByUserId(getbyuserid)">Get 1 by user idS</button>
-  <br><br>
-
-  <!-- -->
-  <input type="search" name="deletebyid" [(ngModel)]="deletebyid" (keyup.enter)="deletePlayerAccount(deletebyid)" value="">
-  <button type="button" (click)="deletePlayerAccount(deletebyid)">Delete by id</button> ==> fonctionne
-  <br><br>
-
-</form>
-
-
-<ul class="pa">
-  <li *ngFor="let pa of playerAccountApiJson" (click)="onSelectPlayerAccount(pa._id)">
-    <span class="item" *ngIf="pa.active == true">{{pa._id}}</span>{{pa.login}}
-    <button type="button" (click)="deletePlayerAccount(pa._id)">Delete</button>
-  </li>
-</ul>
-<table *ngIf="playerAccountApiJson">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Address</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let person of playerAccountApiJson; let i=index">
-    <td>{{person.login}}</td>
-    <td>{{person.gameId}}</td>
-
-  </tr>
-  </tbody>
-</table>
-<table *ngIf="playerAccountGetById">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Address</th>
-  </tr>
-  </thead>
-  <tbody>
-
-  <td>{{login}}</td>
-  <td>{{gameId}}</td>
-
-  </tbody>
-</table>

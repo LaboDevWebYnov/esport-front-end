@@ -21,6 +21,7 @@ export class TestPlayerAccountServiceComponent implements OnInit {
   playerAccountGetById: Object;
   playerAccountGetByUserId: Object;
   playerAccountGetByLogin: Object;
+  updatedPlayerAccount:Object;
   response: Object;
 
 
@@ -81,6 +82,18 @@ export class TestPlayerAccountServiceComponent implements OnInit {
         () => console.log('Delete player account complete', this.response)
       );
   }
+
+  private updatePlayerAccount(playerAccountid : string, playerAccount: AddNewPlayerAccount): void {
+    this.playerAccountServiceInstance
+      .UpdatePlayerAccount(playerAccountid, playerAccount)
+      .subscribe(
+        data => this.response = data,
+        error => console.log(error),
+        () => console.log('Update player account complete', this.response)
+      );
+  }
+
+
   ngOnInit() {
     this.getAllItemsPlayerAccount();
     //this.getItemPlayerAccountById();
@@ -99,6 +112,17 @@ export class TestPlayerAccountServiceComponent implements OnInit {
     this.addPlayerAccount(addPlayerAccount,userId,gameId);
     console.log('test add');
   }
+
+  public submitUpdateForm():void{
+    var  id:string = (<HTMLInputElement>document.getElementById('playerAccountId')).value;
+    var  updatePlayerAccount:AddNewPlayerAccount = {
+      login:(<HTMLInputElement>document.getElementById('playerAccountLogin')).value
+    };
+    this.updatePlayerAccount(id, updatePlayerAccount);
+    console.log('test update');
+  }
+
+
   public onSelectPlayerAccount(id : string):void{
     console.log("Id " +id);
     this.getItemPlayerAccountById(id);
