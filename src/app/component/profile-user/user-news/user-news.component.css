@@ -1,13 +1,8 @@
-#global{
+.container-fluid{
   background :black;
   padding:15%;
-  padding-bottom: 65px;
+  padding-bottom: 45px;
   padding-top:25px;
-}
-
-#separation{
-  margin-top:-5px;
-  margin-bottom: -11px;
 }
 
 #firstSection{
@@ -32,5 +27,4 @@
   background: -o-linear-gradient(#1F1F1D, #3E3E3D);
   background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
   background: linear-gradient(#1F1F1D, #3E3E3D);
-  margin-top:-10px;
 }

@@ -1,22 +1,12 @@
-#global{
+.container-fluid{
   background :#1c1c1b;
   padding:15%;
   padding-bottom: 45px;
   padding-top:25px;
 }
 
-#separation{
-  margin-top:-5px;
-  margin-bottom: -11px;
-}
-
 h1{
   text-align: center;
-}
-
-.section{
-  display: inline-block;
-  width:33%;
 }
 
 .content-section{
@@ -27,7 +17,6 @@ h1{
   background: -o-linear-gradient(#1F1F1D, #3E3E3D);
   background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
   background: linear-gradient(#1F1F1D, #3E3E3D);
-  margin-top:-10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -51,7 +40,8 @@ h1{
   text-decoration:none;
   text-shadow:0px 1px 0px #21211f;
   margin-top: 15px;
-  width:95px;
+  width:155px;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -70,8 +60,4 @@ h1{
 .myButton:active {
   position:relative;
   top:1px;
-}
-
-#modal.active{
-
 }
