@@ -1,21 +1,25 @@
 
 <div *ngIf="userGetById" class="container signupRoad">
 
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
   <h1>BIENVENUE {{userGetById.username}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
   <div *ngIf="status">
-    <div *ngIf="status == 200" class="alert alert-success infoMessage">
-      <strong>Success!</strong> {{infoMessage}}
-    </div>
-    <div *ngIf="status == 401" class="alert alert-danger errorMessage">
+    <!--<div *ngIf="status == 200" class="alert alert-success infoMessage">-->
+      <!--<strong>Success!</strong> {{infoMessage}}-->
+    <!--</div>-->
+    <div *ngIf="status == 401" class="alert alert-danger errorMessage" style="font-size:x-large;color:black;">
       <strong>Error!</strong> {{errorMessage}}
       <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
     </div>
   </div>
 
   <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
-    <h3>Selectionnez vos jeux favoris. Selectionnez les jeux que vous possédez</h3>
+    <h2>Selectionnez vos <font style="color:#0071bc;">jeux favoris</font></h2>
+    <p>Les informations ont été enregistrées. <br>Veuillez sélectionner les jeux par lesquels vous êtes intéréssés.</p>
+
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
       <div *ngIf="games" class="form-group row">
