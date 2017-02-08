@@ -16,6 +16,7 @@ import { CoolLocalStorage } from 'angular2-cool-storage';
 
 export class Step1Component implements OnInit {
   //URL PARAMS
+  localStorage: CoolLocalStorage;
   private email: string;
   private token: string;
   //Received the data
@@ -28,13 +29,14 @@ export class Step1Component implements OnInit {
   submitted = false;
   public errorMessage: string;
   public infoMessage: string;
-  localStorage: CoolLocalStorage;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              localStorage: CoolLocalStorage,
-              private registrationServiceInstance: RegistrationService) {
-  }
+              private registrationServiceInstance: RegistrationService,
+              localStorage: CoolLocalStorage) {
+              this.localStorage = localStorage;
+              this.localStorage.clear();
+            }
 
   ngOnInit() {
     //get the url path&query params
@@ -106,6 +108,7 @@ export class Step1Component implements OnInit {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
+          this.localStorage.setItem('pwd', event.target[2].value);
           this.router.navigate(['signup/step2/' + this.token, {id: this.userId, status: status}]);
         }
         else {

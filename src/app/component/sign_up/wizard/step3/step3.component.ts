@@ -7,21 +7,21 @@ import {UserService} from '../../../../../shared/services/user.service';
 import {GameService} from '../../../../../shared/services/game.service';
 import {Configuration} from '../../../../../shared/app.constants';
 import {Game} from "../../../../../shared/models/game";
-
+import { PlayerAccountService } from '../../../../../shared/services/player-account.service';
+import { AddNewPlayerAccount } from '../../../../../shared/models/utils/create-player-account-object';
 
 
 @Component({
   selector: 'app-step3',
   templateUrl: './step3.component.html',
   styleUrls: ['./step3.component.css'],
-  providers: [UserService, GameService, RegistrationService, Configuration]
+  providers: [UserService, GameService, RegistrationService, Configuration, PlayerAccountService]
 
 })
 export class Step3Component implements OnInit {
   private idParam:string;
   private token: string;
   private userGetById: Object;
-  private games: Object;
   private selectedGame: string;
   private response: Object;
   private verifiedCodeTemp: string;
@@ -37,7 +37,8 @@ export class Step3Component implements OnInit {
               private router: Router,
               private userServiceInstance: UserService,
               private gameServiceInstance: GameService,
-              private registrationServiceInstance: RegistrationService) {
+              private registrationServiceInstance: RegistrationService,
+              private playerAccountServiceInstance: PlayerAccountService) {
 
 }
 
@@ -46,16 +47,17 @@ export class Step3Component implements OnInit {
       .subscribe(
         data => this.gamesApiJson = data,
         error => console.log(error),
-        () => console.log('get All Games complete', this.gamesApiJson)
+        () => {
+          this.displayForms();
+        }
       );
-    this.displayForms();
   }
 
   private formById(idGame:string,idNum:number){
     let gameName;
     let inputPlaceHolder;
-    console.log(this.gamesApiJson);
-    for(let x=0;x in this.gamesApiJson;x++){
+    let games = <Game>this.gamesApiJson;
+    for(let x=0;x in games;x++){
       let game : Game = <Game>this.gamesApiJson[x];
       if(game._id==idGame){
         gameName = game.name;
@@ -77,28 +79,42 @@ export class Step3Component implements OnInit {
         }
       }
     }
-    let form = "<form (ngSubmit)='createPlayerAccount('" + idGame + "','playerAccount" + idNum + "')>" +
-      "<p>" + gameName + " : </p>" +
-      "<input type='text' id=playerAccount'" + idNum + "' placeholder='" + inputPlaceHolder + "'>" +
-      "<button>Valider</button>" +
-      "</form>";
-
-    return form;
+    let response = {
+      placeHolder:inputPlaceHolder,
+      gameName:gameName,
+      gameId:idGame,
+      create:false,
+    };
+    return response;
   }
 
   private displayForms(): void {
     let gamesId = this.selectedGame.split(":");
-
-    console.log(this.divForms);
 
     for(let y=0;y<gamesId.length;y++){
       this.divForms[y] = this.formById(gamesId[y],y);
     }
   }
 
-  createPlayerAccount(gameId:string,inputId:string){
-    console.log(gameId);
-    console.log(inputId);
+  createPlayerAccount(inputId:string){
+    console.log("playerAccount"+inputId);
+    console.log((<HTMLInputElement>document.getElementById("playerAccount"+inputId)).value);
+
+    let playerAccount: AddNewPlayerAccount = {
+      login : (<HTMLInputElement>document.getElementById("playerAccount"+inputId)).value
+    };
+    let userid = this.idParam;
+    this.addPlayerAccount(playerAccount,userid,this.divForms[inputId].gameId);
+    this.divForms[inputId].create = true;
+    let isAllPayerAccountCreate = true;
+    for(let y=0;y < this.divForms.length;y++){
+      if(this.divForms[y].create == 'false'){
+        isAllPayerAccountCreate = false;
+      }
+    }
+    if(!isAllPayerAccountCreate){
+      (<HTMLElement>document.getElementById("submitButton")).removeAttribute('disabled')
+    }
   }
 
   ngOnInit() {
@@ -107,7 +123,6 @@ export class Step3Component implements OnInit {
     this.status = this.route.snapshot.params['status'];
     this.token = this.route.snapshot.params['token'];
     this.selectedGame = this.route.snapshot.params['selectedGame'];
-    console.log(this.idParam, this.token, this.status, this.selectedGame);
     this.getAllItemsGame();
 
 
@@ -146,9 +161,33 @@ export class Step3Component implements OnInit {
   onSubmit(event) {
     //set when the form is submited
     this.submitted = true;
+    var addPlayerAccount: AddNewPlayerAccount = {
+      login: (<HTMLInputElement>document.getElementById('login')).value,
 
-        this.router.navigate(['signup/step4/'+this.token, { id: this.idParam , status: this.status } ]);
+    };
+    // var userid = this.idParam;
+    // var gameid = this.selectedGame;
+    //
+    // this.playerAccountServiceInstance.AddPlayerAccount(addPlayerAccount, userid, gameid)
+    //   .subscribe(
+    //     data => console.log("ok"),
+    //     error => console.log(error),
+    //     () => {console.log('get succes')}
+    //   );
+    //
+    //     this.router.navigate(['signup/step4/'+this.token, { id: this.idParam , status: this.status } ]);
   };
+
+  private addPlayerAccount(addPlayerAccount : AddNewPlayerAccount, userid : string, gameid : string): void {
+
+    this.playerAccountServiceInstance
+      .AddPlayerAccount(addPlayerAccount, userid, gameid)
+      .subscribe(
+        data => this.response = data,
+        error => console.log(error,this.response),
+        () => console.log('Add player account complete', this.response)
+      );
+  }
 
   private getUserById(id: string, callback): any {
     this.userServiceInstance
