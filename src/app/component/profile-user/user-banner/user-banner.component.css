@@ -210,17 +210,18 @@ form label{
 }
 
 /* The Close Button */
-.cross {
+.icons {
   color: #aaaaaa;
-  width:15px;
-  height:15px;
+  width:10px;
+  height:10px;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin: 10px;
 }
 
-.cross:hover,
-.cross:focus {
+.icons:hover,
+.icons:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
@@ -289,6 +290,9 @@ select{
   top:1px;
 }
 
+.displayNone {
+  display: none;
+}
 .user_username {
   padding-bottom: 0.3em;
 }
