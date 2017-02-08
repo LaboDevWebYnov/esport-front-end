@@ -51,29 +51,29 @@ export class UserGamesComponent implements OnInit {
     this.getUserGame(id, (userGames: Game[], errorMessage: string): any => {
             for(var i = 0; i<userGames.length; i++)
             {
-              switch (userGames[i]._id)
-              {
-                case '569104a0417130681bcf1586' :
-                  this.isCsAccount = true;
-                  console.log('csAccountOk');
-                  break;
-                case '586f56bfb9fde402faa33fdb' :
-                  this.isCsAccount = true;
-                  console.log('RLAccountOk');
-                  break;
-                case '586f56f5b9fde402faa33fdc' :
-                  this.isCsAccount = true;
-                  console.log('LolAccountOk');
-                  break;
-                case '586f56587c2b7302f311eaa5' :
-                  this.isCsAccount = true;
-                  console.log('DT2AccountOk');
-                  break;
-                case '583d85afe26ea010b06b801b' :
-                  this.isCsAccount = true;
-                  console.log('OWAccountOk');
-                  break;
-              }
+              // switch (userGames[i]._id)
+              // {
+              //   case '569104a0417130681bcf1586' :
+              //     this.isCsAccount = true;
+              //     console.log('csAccountOk');
+              //     break;
+              //   case '586f56bfb9fde402faa33fdb' :
+              //     this.isCsAccount = true;
+              //     console.log('RLAccountOk');
+              //     break;
+              //   case '586f56f5b9fde402faa33fdc' :
+              //     this.isCsAccount = true;
+              //     console.log('LolAccountOk');
+              //     break;
+              //   case '586f56587c2b7302f311eaa5' :
+              //     this.isCsAccount = true;
+              //     console.log('DT2AccountOk');
+              //     break;
+              //   case '583d85afe26ea010b06b801b' :
+              //     this.isCsAccount = true;
+              //     console.log('OWAccountOk');
+              //     break;
+              // }
             }
     });
 
