@@ -5,13 +5,14 @@ import { Configuration } from '../../../../shared/app.constants';
 import { AddressService } from "../../../../shared/services/address.service";
 import { UserService } from '../../../../shared/services/user.service';
 import {User} from "../../../../shared/models/user";
+import { GameService } from '../../../../shared/services/game.service';
 
 
 @Component({
   selector: 'app-user-banner',
   templateUrl: './user-banner.component.html',
   styleUrls: ['./user-banner.component.css'],
-  providers:[AddressService,UserService,Configuration]
+  providers:[AddressService,UserService,GameService,Configuration]
 
 })
 export class UserBannerComponent implements OnInit {
@@ -52,8 +53,9 @@ export class UserBannerComponent implements OnInit {
       .subscribe(
         data => this.userGetById = data,
         error => console.log(error),
-        () => console.log('get One Item complete', this.userGetById)//console.log('get All Items complete')
+        () => console.log('get user complete', this.userGetById)
       );
+
   }
 
   onSubmit(event) {
