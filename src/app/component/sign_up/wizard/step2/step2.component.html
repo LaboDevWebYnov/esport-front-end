@@ -76,11 +76,10 @@
 
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
-      <div *ngIf="games" class="form-group row">
-
+      <div *ngIf="games" class="form-group row ">
         <li *ngFor="let game of games">
-          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}" id="{{game.name}}"> {{game.name}}
-          <label for="{{game.name}}"></label>
+          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}" id="{{game._id}}">
+          <label for="{{game._id}}"><img src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" (click)="changeImage()"></label>
         </li>
       </div>
 

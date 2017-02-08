@@ -39,7 +39,19 @@ h2{
   font-size: xx-large;
   margin-bottom: 0px;
 }
-
+li{
+  list-style-type: none;
+  display: inline-block;
+}
+li img{
+  max-height: 150px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
+}
 .signupRoad{
   background: #1d1d1b;
 }

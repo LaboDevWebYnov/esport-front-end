@@ -8,7 +8,9 @@ p{
   line-height:18px;
 }
 
-
+body{
+  background-color: #0aa66e;
+}
 h1, h3, h4{
   color: white !important;
 }

@@ -88,16 +88,18 @@ ul.tab li a:focus, .active
 }
 .window
 {
-  background-color: #1C1C1B;
+
+  margin-top: 150px;
   position: fixed;
   right: 0%;
   top: 0%;
   left: 0%;
   bottom: 0%;
+
 }
 .menuWindow
 {
-  background-color: black;
+
   position: fixed;
   right: 0%;
   left: 0%;
@@ -116,17 +118,22 @@ ul.tab li a:focus, .active
 .mainWindow
 {
   position: absolute;
-  top:13%;
+  top:15%;
   left: 15%;
   right: 15%;
   height: 50%;
   z-index: 12;
+
+}
+#sign{
+  max-height: 500px;
+  margin-top: -40%;
+  margin-left: -15%;
 }
 .row
 {
 
-  border-left: solid white 1px;
-  border-right: solid white 1px;
+
   margin-top: 1%;
   padding: 2%;
 }
