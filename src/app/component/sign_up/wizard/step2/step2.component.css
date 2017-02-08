@@ -11,8 +11,24 @@ p{
   line-height:18px;
 }
 
-h1, h3, h4{
+p{
+  font-size: x-large;
+  color: #bdbdbd !important;
+  line-height:18px;
+}
+
+h1, h2, li{
+
   color: white !important;
+}
+h1{
+  font-size: 35px;
+  margin-bottom: 0px;
+}
+
+h2{
+  font-size: xx-large;
+  margin-bottom: 0px;
 }
 
 h1{
@@ -246,6 +262,7 @@ span.round-tabs.five{
   background: #045d98;
   font-family: Rhanoll;
 }
+
 .condition input{
   display: inline-block;
 }
@@ -256,8 +273,18 @@ span.round-tabs.five{
   font-size: large !important;
   max-width:80%;
 }
-.condition{
-  margin-top:5px;
-  max-width:90%;
+.condition {
+  margin-top: 5px;
+  max-width: 90%;
   float: right;
+
+}
+
+.signupRoad {
+  /*background: #1c1c1b;
+  background: -webkit-linear-gradient(left,#1c1c1b, #111110,#1c1c1b);
+  background: -o-linear-gradient(left,#1c1c1b, #111110,#1c1c1b);
+  background: -moz-linear-gradient(left,#1c1c1b, #111110,#1c1c1b);
+  background: linear-gradient(to right, #1c1c1b, #111110,#1c1c1b);*/
+
 }

@@ -1,6 +1,5 @@
 import { Address } from './address'
 export class User {
-
   id: string;
   firstname: string;
   lastname: string;

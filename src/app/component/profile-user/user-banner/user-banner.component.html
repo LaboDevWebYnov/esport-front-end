@@ -48,7 +48,7 @@
 
 <div id="myModal" class="modal" *ngIf="userGetById">
   <div class="modal-content">
-    <h1>Profil<span class="cross" (click)="closeModal()" title="Fermer">&times;</span></h1>
+    <h1>Profil<span class="icons" (click)="closeModal()" title="Fermer">&times;</span></h1>
     <form (ngSubmit)="onSubmit($event)">
       <div class="col-md-6">
         <h2>Gestion de compte</h2>
@@ -215,31 +215,42 @@
       </div>
 
       <div id="content-address">
-        <ul *ngFor="let address of addressApiJson" class="col-md-6">
-          <li>
-            <!--*ngIf="address.active == true"-->
-            <h2>Address 1<span class="cross" (click)="deleteAddress()" title="Supprimer cette adresse">&times;</span></h2>
-            <div class="size1">
-              <label>Rue :</label>
-              <input type="text" placeholder="{{address.line}}">
-            </div>
-            <div class="size2">
-              <label>Ville :</label>
-              <input type="text" placeholder="{{address.city}}">
-            </div>
-            <div class="size2">
-              <label>Pays :</label>
-              <input type="text" placeholder="{{address.country}}">
-            </div>
-            <div class="size3alone">
-              <label>PostCode :</label>
-              <input type="text" placeholder="{{address.postCode}}">
-            </div>
-          </li>
+        <ul *ngFor="let address of addressApiJson;let i = index;" class="col-md-6">
+
+            <li *ngIf="address.active" id="address{{i}}">
+
+              <h2>
+                Address {{i+1}}
+                <span class="icons" (click)="deleteAddress(address._id,i)" title="Supprimer cette adresse"><i class="fa fa-times icons" aria-hidden="true"></i></span>
+                <span class="icons" (click)="unlockAddress(i)" id="pencil{{i}}" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
+                <span class="icons displayNone" (click)="updateAddress(i,address._id)" id="check{{i}}" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
+              </h2>
+
+              <div class="size1" >
+                <label>Rue :</label>
+                <input type="text" value="{{address.line}}"  id="inputLine{{i}}" disabled>
+              </div>
+
+              <div class="size2" >
+                <label>Ville :</label>
+                <input type="text" value="{{address.city}}" id="inputCity{{i}}" disabled>
+              </div>
+
+              <div class="size2">
+                <label>Pays :</label>
+                <input type="text" value="{{address.country}}" id="inputCountry{{i}}" disabled>
+              </div>
+
+              <div class="size3alone">
+                <label>PostCode :</label>
+                <input type="text" value="{{address.postCode}}" id="inputPostCode{{i}}" disabled>
+              </div>
+
+            </li>
         </ul>
       </div>
       <div id="content-button">
-        <button class="myButton">SOUMETTRE</button>
+        <button class="myButton" (click)="updateProfile()">SOUMETTRE</button>
         <button class="myButton" (click)="closeModal()">ANNULER</button>
       </div>
     </form>
