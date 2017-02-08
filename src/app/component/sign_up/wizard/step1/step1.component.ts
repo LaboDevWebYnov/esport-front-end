@@ -5,6 +5,7 @@ import {Configuration} from '../../../../../shared/app.constants';
 import {User} from '../../../../../shared/models/user';
 import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-verified-request-object';
 import {RegisterUserObject} from '../../../../../shared/models/utils/register-user-object';
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 @Component({
   selector: 'app-step1',
@@ -15,6 +16,7 @@ import {RegisterUserObject} from '../../../../../shared/models/utils/register-us
 
 export class Step1Component implements OnInit {
   //URL PARAMS
+  localStorage: CoolLocalStorage;
   private email: string;
   private token: string;
   //Received the data
@@ -30,7 +32,12 @@ export class Step1Component implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private registrationServiceInstance: RegistrationService) {
+              private registrationServiceInstance: RegistrationService,
+              localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage;
+
+    this.localStorage.clear();
+
   }
 
   ngOnInit() {
@@ -103,6 +110,7 @@ export class Step1Component implements OnInit {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
+          this.localStorage.setItem('pwd', event.target[2].value);
           this.router.navigate(['signup/step2/' + this.token, {id: this.userId, status: status}]);
         }
         else {

@@ -6,14 +6,15 @@ import {User} from "../../../../../shared/models/user";
 import {UserService} from '../../../../../shared/services/user.service';
 import {GameService} from '../../../../../shared/services/game.service';
 import {Configuration} from '../../../../../shared/app.constants';
-
+import { PlayerAccountService } from '../../../../../shared/services/player-account.service';
+import { AddNewPlayerAccount } from '../../../../../shared/models/utils/create-player-account-object';
 
 
 @Component({
   selector: 'app-step3',
   templateUrl: './step3.component.html',
   styleUrls: ['./step3.component.css'],
-  providers: [UserService, GameService, RegistrationService, Configuration]
+  providers: [UserService, GameService, RegistrationService, Configuration, PlayerAccountService]
 
 })
 export class Step3Component implements OnInit {
@@ -34,7 +35,8 @@ export class Step3Component implements OnInit {
               private router: Router,
               private userServiceInstance: UserService,
               private gameServiceInstance: GameService,
-              private registrationServiceInstance: RegistrationService) {
+              private registrationServiceInstance: RegistrationService,
+              private playerAccountServiceInstance: PlayerAccountService) {
 
 }
 
@@ -81,6 +83,25 @@ export class Step3Component implements OnInit {
   onSubmit(event) {
     //set when the form is submited
     this.submitted = true;
+    var addPlayerAccount: AddNewPlayerAccount = {
+      login: (<HTMLInputElement>document.getElementById('login')).value,
+
+    };
+    var userid = this.idParam;
+    var gameid = this.selectedGame;
+
+    this.playerAccountServiceInstance.AddPlayerAccount(addPlayerAccount, userid, gameid)
+      .subscribe(
+        data => console.log("ok"),
+        error => console.log(error),
+        () => {console.log('get succes')}
+      );
+    ;
+
+
+
+
+
 
         this.router.navigate(['signup/step4/'+this.token, { id: this.idParam , status: this.status } ]);
   };
