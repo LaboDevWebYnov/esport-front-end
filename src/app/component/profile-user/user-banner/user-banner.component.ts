@@ -7,6 +7,7 @@ import {Address, DisableAddress} from '../../../../shared/models/address';
 import {User} from '../../../../shared/models/user';
 import { UserService } from '../../../../shared/services/user.service';
 import { GameService } from '../../../../shared/services/game.service';
+import {ChangePasswordObject} from "../../../../shared/models/utils/change-password-object";
 
 
 
@@ -26,6 +27,7 @@ export class UserBannerComponent implements OnInit {
   private disableAddress:DisableAddress;
   private user:User;
   private userToUpdate: User;
+  private userChangepwdObj: ChangePasswordObject;
 
   constructor(private addressServiceInstance: AddressService,
               private userServiceInstance: UserService,
@@ -34,13 +36,8 @@ export class UserBannerComponent implements OnInit {
               this.localStorage = localStorage;
               }
 
-  public modifProfil() :void{
-    (<HTMLElement>document.getElementById("myModal")).style.display = "block";
-  }
-  public closeModal() :void{
-    (<HTMLElement>document.getElementById("myModal")).style.display = "none";
-  }
 
+  // SERVICE
   private getItemAddressById(idUser: string): void{
     this.addressServiceInstance
       .GetUserAddressById(idUser)
@@ -60,6 +57,15 @@ export class UserBannerComponent implements OnInit {
         () => console.log('get user complete', this.userGetById)
       );
 
+  }
+
+  //UTILITAIRE
+  public openModal() :void{
+    (<HTMLElement>document.getElementById("myModal")).style.display = "block";
+  }
+
+  public closeModal() :void{
+    (<HTMLElement>document.getElementById("myModal")).style.display = "none";
   }
 
   private deleteAddress(addressid:string,liId:number): void {
@@ -134,48 +140,77 @@ export class UserBannerComponent implements OnInit {
 
   }
 
-  private updateProfile(id:string):void{
-    //userGetById
-    //userToUpdate
+   updateProfile(event):void{
 
-    this.userServiceInstance
-      .ChangeUserInformation(id,this.user)
+         console.log(
+           event.target[0].value, //username
+           event.target[1].value, //birthdate
+           event.target[2].value, //lastname
+           event.target[3].value, //firstname
+           event.target[4].value, //phonenumber
+           event.target[5].value, //email
+           );
+
+       this.userToUpdate = new User();
+       this.userToUpdate = <User>this.userGetById;
+       this.userToUpdate.firstname = event.target[3].value;
+       this.userToUpdate.lastname = event.target[2].value;
+       this.userToUpdate.email = event.target[5].value
+       this.userToUpdate.username = event.target[0].value;
+       this.userToUpdate.birthDate = new Date(event.target[1].value);
+       this.userToUpdate.phoneNumber = event.target[4].value;
+       console.log(this.userToUpdate);
+
+
+       this.userServiceInstance
+      .ChangeUserInformation(this.localStorage.getItem('userId'),this.userToUpdate)
       .subscribe(
-        data => this.userGetById = data,
+        data => this.reponse = data,
         error => console.log(error),
-        () => console.log('get One Item complete', this.userGetById)//console.log('get All Items complete')
+        () => {
+                console.log('update One user complete', this.reponse),
+                  this.getItemUserById(this.localStorage.getItem('userId'))
+          this.localStorage.setItem('username', this.userToUpdate.username),
+          this.localStorage.setItem('firstname', this.userToUpdate.firstname),
+          this.localStorage.setItem('lastname', this.userToUpdate.lastname)
+        }
       );
+   }
+
+  updatePwd(event):void {
+
+    console.log(
+      event.target[0].value, //username
+      event.target[1].value, //birthdate
+      event.target[2].value, //lastname
+    );
+
+    this.userChangepwdObj = new ChangePasswordObject();
+    this.userChangepwdObj.oldPassword = event.target[0].value;
+    this.userChangepwdObj.newPassword = event.target[1].value;
+    this.userChangepwdObj.newPasswordConfirmation = event.target[2].value;
+    console.log(this.userChangepwdObj);
+
+    if(this.userChangepwdObj.oldPassword !== ""
+      && this.userChangepwdObj.newPassword !== ""
+      && this.userChangepwdObj.newPasswordConfirmation !== ""
+      && (this.userChangepwdObj.newPassword === this.userChangepwdObj.newPasswordConfirmation))
+    {
+      this.userServiceInstance
+        .ChangeUserPassword(this.localStorage.getItem('userId'),this.userChangepwdObj)
+        .subscribe(
+          data => this.reponse = data,
+          error => console.log(error),
+          () => console.log('update pwd user complete', this.reponse)
+        );
+    }
   }
 
-  ngOnInit() {
+
+    ngOnInit() {
     let id = this.localStorage.getItem('userId');
     this.getItemAddressById(id);
     this.getItemUserById(id);
   }
 
 }
-
-
-  // ngOnInit() {
-  //   const id = this.localStorage.getItem('userId');
-  // onSubmit(event) {
-  //     console.log(event.target[0].value, //username
-  //       event.target[1].value, //pwd
-  //       event.target[2].value, //confirm pwd
-  //       event.target[3].value, //email
-  //       event.target[4].value, //firstname
-  //       event.target[5].value, //lastname
-  //       event.target[6].value, //phonenumber
-  //       event.target[7].value, //day
-  //       event.target[8].value, //month
-  //       event.target[9].value, //year
-  //       );
-  //   this.userToUpdate = new User();
-  //   this.userToUpdate = <User>this.userGetById;
-  //   this.userToUpdate.firstname = event.target[4].value;
-  //   this.userToUpdate.lastname = event.target[5].value;
-  //   this.userToUpdate.email = event.target[3].value
-  //   this.userToUpdate.username = event.target[0].value;
-  //   this.userToUpdate.phoneNumber = event.target[6].value;
-  //   this.userToUpdate.birthDate = new Date(parseInt(event.target[9].value),parseInt(event.target[8].value),parseInt(event.target[7].value));
-  // }

@@ -34,11 +34,9 @@ export class Step1Component implements OnInit {
               private router: Router,
               private registrationServiceInstance: RegistrationService,
               localStorage: CoolLocalStorage) {
-    this.localStorage = localStorage;
-
-    this.localStorage.clear();
-
-  }
+              this.localStorage = localStorage;
+              this.localStorage.clear();
+            }
 
   ngOnInit() {
     //get the url path&query params
@@ -117,6 +115,9 @@ export class Step1Component implements OnInit {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
+          console.log(this.status);
+          console.log(this.errorMessage);
+          console.log(this.infoMessage);
         }
       });
     }
