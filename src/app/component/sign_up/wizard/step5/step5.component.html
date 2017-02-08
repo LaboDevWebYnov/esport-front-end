@@ -1,5 +1,5 @@
 <div *ngIf="userGetById" class="container signupRoad">
-
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <h1>BIENVENUE {{userGetById.username}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
@@ -17,13 +17,6 @@
     <h4>Pour conclure l'inscription, vous devez d'abord accepter les conditions générales d'utilisations du site ainsi que la politique de confidentialitée</h4>
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
-      <div *ngIf="games" class="form-group row">
-        <li *ngFor="let game of games">
-          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}"> {{game.name}}
-        </li>
-      </div>
-
-
       <div class="form-group row">
         <div class="col-sm-7">
         </div>
@@ -36,6 +29,5 @@
       </div>
     </form>
   </div>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>
-
-

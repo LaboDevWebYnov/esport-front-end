@@ -26,6 +26,7 @@ export class TestGameServiceComponent implements OnInit {
   str : '';
 
   addNewGame: Game = {
+    _id:"",
     name: "PES 2017",
     releaseDate: new Date(2016,11,30),
     multiPlayer: true,
@@ -36,6 +37,7 @@ export class TestGameServiceComponent implements OnInit {
   };
 
   updateGame: Game = {
+    _id:"",
     name: "FIFA 18",
     releaseDate: new Date(2016,11,30),
     multiPlayer: true,
@@ -131,6 +133,7 @@ export class TestGameServiceComponent implements OnInit {
 
   public submitUpdateForm():void{
     var updatedGame: Game = {
+      _id:"",
       name: (<HTMLInputElement>document.getElementById('gameName')).value,
       releaseDate:  new Date(),//(<HTMLInputElement>document.getElementById('created_at')).value,//new Date(2016,11,30),
       multiPlayer: true,
@@ -146,6 +149,7 @@ export class TestGameServiceComponent implements OnInit {
   public submitAddForm():void{
     console.log('test add',(<HTMLInputElement>document.getElementById('gameNameAdd')).value);
     var addedGame: Game = {
+      _id:"",
       name: (<HTMLInputElement>document.getElementById('gameNameAdd')).value,
       releaseDate:  new Date(),//(<HTMLInputElement>document.getElementById('created_at')).value,//new Date(2016,11,30),
       multiPlayer: true,

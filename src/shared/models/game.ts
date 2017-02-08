@@ -1,5 +1,5 @@
 export class Game  {
-  // id: number;
+  _id: string;
   name: string;
   releaseDate: Date;
   multiPlayer: boolean;

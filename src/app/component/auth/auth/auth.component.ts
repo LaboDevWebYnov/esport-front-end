@@ -77,7 +77,7 @@ export class AuthComponent implements OnInit {
     this.verifyAuth(this.authJson, (status: number, error: any, verifyAuthJson: any) => {
       //si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige
       if (status == 200 && !_.isEmpty(verifyAuthJson)) {
-        console.log(verifyAuthJson)
+        console.log(verifyAuthJson);
         this.localStorage.setItem('isConnected', 'true');
         this.localStorage.setItem('userId', verifyAuthJson.userId);
         this.localStorage.setItem('username', verifyAuthJson.username);

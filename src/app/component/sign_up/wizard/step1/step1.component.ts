@@ -5,6 +5,7 @@ import {Configuration} from '../../../../../shared/app.constants';
 import {User} from '../../../../../shared/models/user';
 import {IsVerifiedRequestObject} from '../../../../../shared/models/utils/is-verified-request-object';
 import {RegisterUserObject} from '../../../../../shared/models/utils/register-user-object';
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 @Component({
   selector: 'app-step1',
@@ -27,9 +28,11 @@ export class Step1Component implements OnInit {
   submitted = false;
   public errorMessage: string;
   public infoMessage: string;
+  localStorage: CoolLocalStorage;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              localStorage: CoolLocalStorage,
               private registrationServiceInstance: RegistrationService) {
   }
 
@@ -109,6 +112,9 @@ export class Step1Component implements OnInit {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
+          console.log(this.status);
+          console.log(this.errorMessage);
+          console.log(this.infoMessage);
         }
       });
     }
