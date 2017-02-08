@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 import { Configuration } from '../../../../shared/app.constants';
 import { AddressService } from "../../../../shared/services/address.service";
@@ -6,7 +7,7 @@ import {Address, DisableAddress} from '../../../../shared/models/address';
 import {User} from '../../../../shared/models/user';
 import { UserService } from '../../../../shared/services/user.service';
 
-import { CoolLocalStorage } from 'angular2-cool-storage';
+
 
 @Component({
   selector: 'app-user-banner',
@@ -23,6 +24,7 @@ export class UserBannerComponent implements OnInit {
   private reponse:Object;
   private disableAddress:DisableAddress;
   private user:User;
+  private userToUpdate: User;
 
   constructor(private addressServiceInstance: AddressService,
               private userServiceInstance: UserService,
@@ -143,11 +145,35 @@ export class UserBannerComponent implements OnInit {
       );
   }
 
-
   ngOnInit() {
-    const id = this.localStorage.getItem('userId');
+    let id = this.localStorage.getItem('userId');
     this.getItemAddressById(id);
     this.getItemUserById(id);
   }
 
 }
+
+
+  // ngOnInit() {
+  //   const id = this.localStorage.getItem('userId');
+  // onSubmit(event) {
+  //     console.log(event.target[0].value, //username
+  //       event.target[1].value, //pwd
+  //       event.target[2].value, //confirm pwd
+  //       event.target[3].value, //email
+  //       event.target[4].value, //firstname
+  //       event.target[5].value, //lastname
+  //       event.target[6].value, //phonenumber
+  //       event.target[7].value, //day
+  //       event.target[8].value, //month
+  //       event.target[9].value, //year
+  //       );
+  //   this.userToUpdate = new User();
+  //   this.userToUpdate = <User>this.userGetById;
+  //   this.userToUpdate.firstname = event.target[4].value;
+  //   this.userToUpdate.lastname = event.target[5].value;
+  //   this.userToUpdate.email = event.target[3].value
+  //   this.userToUpdate.username = event.target[0].value;
+  //   this.userToUpdate.phoneNumber = event.target[6].value;
+  //   this.userToUpdate.birthDate = new Date(parseInt(event.target[9].value),parseInt(event.target[8].value),parseInt(event.target[7].value));
+  // }

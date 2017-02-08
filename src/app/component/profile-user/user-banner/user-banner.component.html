@@ -10,19 +10,19 @@
       </div>
     </div>
 
-    <div id="infoNameUser">
-      <h1>BRYANZZZ</h1>
+    <div *ngIf="userGetById" id="infoNameUser">
+      <h1 class="user_username">{{userGetById.username}}</h1>
       <div id="provenance">
-        <div>
+        <!--<div>
           <img src="../../../../assets/images/FrnchFlag.png" alt="FLAG" id="flag"/>
-        </div>
+        </div>-->
         <div>
-          <h2>CHAUMINE</h2>
-          <h3>Bryan</h3>
+          <h2>{{userGetById.lastname}}</h2>
+          <h3>{{userGetById.firstname}}</h3>
         </div>
-        <div>
+        <!--<div>
           <a href=""><img src="../../../../assets/images/pen.PNG" alt="PEN" id="pen"/></a>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
@@ -30,8 +30,8 @@
   <table id="gestionCompte">
     <tr>
       <td><a (click)="modifProfil()"><img src="../../../../assets/images/logo-profil1.png"/></a></td>
-      <td><a href=""><img src="../../../../assets/images/logo-profil2.png"/></a></td>
-      <td><a href=""><img src="../../../../assets/images/logo-profil3.png"/></a></td>
+      <td><a href="/profile"><img src="../../../../assets/images/logo-profil2.png"/></a></td>
+      <td><a href="/profile"><img src="../../../../assets/images/logo-profil3.png"/></a></td>
     </tr>
     <tr id="titleTable">
       <td><a (click)="modifProfil()">MODIFIER PROFIL</a></td>
@@ -49,12 +49,12 @@
 <div id="myModal" class="modal" *ngIf="userGetById">
   <div class="modal-content">
     <h1>Profil<span class="cross" (click)="closeModal()" title="Fermer">&times;</span></h1>
-    <form>
+    <form (ngSubmit)="onSubmit($event)">
       <div class="col-md-6">
         <h2>Gestion de compte</h2>
         <div class="size2">
           <label>Nom d'utilisateur :</label>
-          <input type="text" placeholder="{{userGetById.username}}">
+          <input type="text" value="{{userGetById.username}}">
         </div>
 
         <div>
@@ -70,7 +70,7 @@
 
         <div class="size1">
           <label>Email :</label>
-          <input type="email" placeholder="{{userGetById.email}}">
+          <input type="email" value="{{userGetById.email}}">
         </div>
       </div>
       <div class="col-md-6">
@@ -78,18 +78,23 @@
         <div>
           <div class="size2">
             <label>Nom :</label>
-            <input type="text" placeholder="{{userGetById.lastname}}">
+            <input type="text" value="{{userGetById.lastname}}">
           </div>
           <div class="size2">
             <label>Prénom :</label>
-            <input type="text" placeholder="{{userGetById.firstname}}">
+            <input type="text" value="{{userGetById.firstname}}">
           </div>
         </div>
 
-        <div class="size3">
+        <div class="size2">
+          <label>Numéro de téléphone :</label>
+          <input type="text"  value="{{userGetById.phoneNumber}}">
+        </div>
+
+      <div class="size3">
           <label>Date de naissance :</label>
           <div>
-            <select name="jour">
+            <select class="birthDateInput" name="jour" value="{{userGetById.birthDate | date: 'dd'}}">
               <option> - Jour - </option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -123,22 +128,22 @@
               <option value="30">30</option>
               <option value="31">31</option>
             </select>
-            <select name="mois">
+            <select class="birthDateInput" name="mois" value="{{userGetById.birthDate | date: 'MM'}}">
               <option> - Mois - </option>
-              <option value="Janvier">Janvier</option>
-              <option value="Février">Février</option>
-              <option value="Mars">Mars</option>
-              <option value="Avril">Avril</option>
-              <option value="Mai">Mai</option>
-              <option value="Juin">Juin</option>
-              <option value="Juillet">Juillet</option>
-              <option value="Août">Août</option>
-              <option value="Septembre">Septembre</option>
-              <option value="Octobre">October</option>
-              <option value="Novembre">Novembre</option>
-              <option value="Decembre">Decembre</option>
+              <option value="01">Janvier</option>
+              <option value="02">Février</option>
+              <option value="03">Mars</option>
+              <option value="04">Avril</option>
+              <option value="05">Mai</option>
+              <option value="06">Juin</option>
+              <option value="07">Juillet</option>
+              <option value="08">Août</option>
+              <option value="09">Septembre</option>
+              <option value="10">Octobre</option>
+              <option value="11">Novembre</option>
+              <option value="12">Decembre</option>
             </select>
-            <select name="annee">
+            <select class="birthDateInput" name="annee" value="{{userGetById.birthDate | date: 'yyyy'}}">
               <option> - Année - </option>
               <option value="2010">2010</option>
               <option value="2009">2009</option>
@@ -206,11 +211,6 @@
               <option value="1947">1947</option>
             </select>
           </div>
-        </div>
-
-        <div class="size2">
-          <label>Numéro de téléphone :</label>
-          <input type="text"  placeholder="{{userGetById.phoneNumber}}">
         </div>
       </div>
 

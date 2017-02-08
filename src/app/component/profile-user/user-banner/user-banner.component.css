@@ -1,7 +1,7 @@
 #global{
   background :#1b1b1b;
-  padding-right:15%;
-  padding-left:15%;
+  padding-right:8em;
+  padding-left:8em;
   height:180px;
 }
 .col-md-6{
@@ -9,15 +9,14 @@
 }
 
 #backgroundBanner{
-  background:url("https://www.justgeek.fr/wp-content/uploads/2016/05/battlefield1_jeux_video_fond_ecran_7.jpg");
+  /*background:url("https://www.justgeek.fr/wp-content/uploads/2016/05/battlefield1_jeux_video_fond_ecran_7.jpg");*/
   background-size: 100% auto;
-  height:400px;
   width:100%;
-  padding-top:100px;
+  padding-top: 18em;
 }
 #infoNameUser{
-  margin-left:400px;
-  margin-top:-200px;
+  margin-left:26.5em;;
+  margin-top:-13.5em;
 }
 #provenance{
   height:50px;
@@ -55,7 +54,7 @@ h3{
 /*HEXAGON*/
 #hexagon-content{
   position:absolute;
-  margin-top:-150px;
+  margin-top:-9.45em;
   margin-left:-30px;
 
 }
@@ -83,7 +82,8 @@ h3{
   height: 100%;
   background-repeat: no-repeat ;
   background-position: 50%;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b5/Baby.tux.sit-black-800x800.png);
+  background-color: black;
+  /*background-image: url("../../../../assets/images/LOGO_ESPORT_2.png");*/
   background-size:100%;
   visibility: visible;
   -webkit-transform: rotate(-60deg);
@@ -228,8 +228,8 @@ form label{
 }
 
 #content-address{
-  margin-top:290px;
-  height: 285px;
+  width: 100%;
+  height: 13em;
   background: #292929;
   border: 1px solid #5a5a5a;
   overflow: auto;
@@ -290,6 +290,13 @@ select{
   top:1px;
 }
 
-.displayNone{
+.displayNone {
   display: none;
+}
+.user_username {
+  padding-bottom: 0.3em;
+}
+
+.birthDateInput {
+  color: black;
 }
