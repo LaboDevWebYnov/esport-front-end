@@ -38,6 +38,12 @@ export class GameService {
   };
 
   //Fonctionne
+  public GetUserGames = (userId: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "games/" + userId + "/getUserGames")
+      .map(response =>response.json());
+  };
+
+  //Fonctionne
   public AddGame = (Variable:Game): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl+"games/addGame", JsonBody, { headers: this.headers })

@@ -169,3 +169,25 @@ h1{
   left:210%;
   margin-top:45px;
 }
+
+#hexaLeft2 .hexagon-in2 {
+  background-image:url("../../../../assets/images/slide_overwatch.png");
+  background-size: inherit;
+}
+
+#hexaRight2 .hexagon-in2 {
+  background-image:url("../../../../assets/images/slide_lol.png");
+  background-size: inherit;
+}
+#hexaRight1 .hexagon-in2 {
+  background-image:url("../../../../assets/images/slide_rocketleague.png");
+  background-size: inherit;
+}
+#hexaLeft1 .hexagon-in2 {
+  background-image:url("../../../../assets/images/slide_dota.png");
+  background-size: inherit;
+}
+#hexaCenter .hexagon-in2 {
+  background-image:url("../../../../assets/images/slide_cs.png");
+  background-size: inherit;
+}
