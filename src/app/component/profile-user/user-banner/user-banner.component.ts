@@ -133,9 +133,30 @@ export class UserBannerComponent implements OnInit {
   }
 
   private updateProfile(id:string):void{
-    // this.user = {
-    //
-    // };
+    //userGetById
+    //userToUpdate
+
+    this.userToUpdate = {
+      id: this.localStorage.getItem('userId'),
+      firstname: "",
+      lastname: "",
+      username: "",
+      birthDate: this.userGetById.birthDate,
+      email: "",
+      password: "",
+      avatar: "",
+      address: Address,
+      phoneNumber : "",
+      admin : "",
+      friends : User[],
+      interests: "",
+      active: "",
+      verified: "",
+      created_at: Date,
+      updated_at:Date,
+    };
+
+
     this.userServiceInstance
       .ChangeUserInformation(id,this.user)
       .subscribe(
