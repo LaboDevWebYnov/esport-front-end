@@ -1,12 +1,18 @@
 <div *ngIf="userGetById" class="container signupRoad">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
 
-  <h1>BIENVENUE {{userGetById.username}}</h1>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
+
+  <h1>BIENVENUE {{userGetById.username}},</h1>
 
   <!--Check IF the user is verified to continue signup-->
   <div *ngIf="status">
-    <div *ngIf="status == 200" class="alert alert-success infoMessage">
-      <strong>Success!</strong> {{infoMessage}}
-    </div>
+
     <div *ngIf="status == 401" class="alert alert-danger errorMessage">
       <strong>Error!</strong> {{errorMessage}}
       <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
@@ -14,16 +20,61 @@
   </div>
 
   <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
-    <h4>Pour conclure l'inscription, vous devez d'abord accepter les conditions générales d'utilisations du site ainsi que la politique de confidentialitée</h4>
+
+    <h2>Pour conclure l'inscription, vous devez d'abord accepter les <br> <font style="color:#0071bc;">conditions générales d'utilisations du site ainsi que la politique de confidentialitée</font></h2>
+    <div id="side">
+      <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+      <div class="col-md-12 board">
+        <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+
+        <div class="board-inner">
+          <ul class="nav nav-tabs" id="myTab">
+            <div class="liner">
+              <div id="blueText">
+                Etapes
+              </div>
+
+            </div>
+            <li >
+              <a href="#" aria-controls="home" role="tab" data-toggle="tab" title="Rentrer les infos personnelles">
+                      <span class="round-tabs one">
+                              <i class="icon icon-profile-male"></i>
+                      </span>
+              </a></li>
+
+            <li><a href="#" aria-controls="profile" role="tab" data-toggle="tab" title="Séléctionner les jeux">
+                     <span class="round-tabs two">
+                         <i class="icon icon-pencil"></i>
+                     </span>
+            </a>
+            </li>
+            <li><a href="#" aria-controls="prototyping" role="tab" data-toggle="tab" title="Enregistrer les jeux">
+                     <span class="round-tabs three">
+                          <i class="icon icon-layers"></i>
+                     </span> </a>
+            </li>
+
+            <li><a href="#" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
+                         <span class="round-tabs four">
+                              <i class="icon icon-aperture"></i>
+                         </span>
+            </a></li>
+
+            <li class="active"><a href="#" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
+                         <span class="round-tabs five">
+                              <i class="icon icon-tools-2"></i>
+                         </span> </a>
+            </li>
+
+          </ul></div>
+      </div>
+    </div>
+    <br><br>
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
-      <div *ngIf="games" class="form-group row">
-        <li *ngFor="let game of games">
-          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}"> {{game.name}}
-        </li>
-      </div>
 
 
+      <br><br><br><br>
       <div class="form-group row">
         <div class="col-sm-7">
         </div>
@@ -36,6 +87,8 @@
       </div>
     </form>
   </div>
+
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>
 
 

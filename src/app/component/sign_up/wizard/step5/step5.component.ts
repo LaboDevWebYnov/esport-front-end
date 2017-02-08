@@ -221,7 +221,8 @@ export class Step5Component implements OnInit {
   public checkAuth(userEmail: string, userPwd: string, callback): void {
 
     const email = userEmail;//(<HTMLInputElement>document.getElementById("emailAuth")).value;
-    const pwd = "test";//userPwd;//(<HTMLInputElement>document.getElementById("pwdAuth")).value;
+    const pwd = this.localStorage.getItem('pwd');
+
 
     this.authJson = {
       login: email,
@@ -232,6 +233,7 @@ export class Step5Component implements OnInit {
       //si le status de retour est à 200: OK, et que l'objet de retour n'est pas vide: on redirige
       if (status == 200 && !_.isEmpty(verifyAuthJson)) {
         console.log(verifyAuthJson)
+        this.localStorage.clear();
         this.localStorage.setItem('isConnected', 'true');
         this.localStorage.setItem('userId', verifyAuthJson.userId);
         this.localStorage.setItem('username', verifyAuthJson.username);

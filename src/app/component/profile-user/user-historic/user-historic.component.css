@@ -1,8 +1,7 @@
 .container-fluid{
   background :black;
-  padding:15%;
-  padding-bottom: 65px;
-  padding-top:25px;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
 .content-section{

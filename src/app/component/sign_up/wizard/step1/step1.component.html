@@ -1,26 +1,83 @@
-<div id="mod">
-<app-wizard>
 
-</app-wizard>
+<div class="container signupRoad">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
 
-  <div class="container signupRoad">
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
 
-    <h1>BIENVENUE {{this.email}}</h1>
+  <h1>BIENVENUE {{this.email}},</h1>
 
-    <!--Check IF the user is verified to continue signup-->
-    <div class="info" *ngIf="status">
-      <div *ngIf="status == 200" class="alert alert-success infoMessage">
-        <strong>Success!</strong> {{infoMessage}}
-      </div>
-      <div *ngIf="status == 401" class="alert alert-danger errorMessage">
-        <strong>Error!</strong> {{errorMessage}}
-        <button type="button"><a href="/signup/">Réinscription</a></button>
-      </div>
+  <!--Check IF the user is verified to continue signup-->
+  <div class="info" *ngIf="status">
+    <!--<div *ngIf="status == 200" class="alert alert-success infoMessage">-->
+      <!--<strong>Success!</strong> {{infoMessage}}-->
+    <!--</div>-->
+    <div *ngIf="status == 401" class="alert alert-danger errorMessage" style="font-size:x-large;color:black;">
+      <strong>Error!</strong> {{errorMessage}}
+      <br>
+      <button type="button"><a href="/signup/"style="color:black;">Réinscription</a></button>
+
     </div>
 
-    <div *ngIf="status==200">
-      <h3>Enregistrer ses informations personnelles</h3>
-      <h4>Nous avons confirmé votre email. Veuillez compléter les infos de votre compte.</h4>
+
+  <div *ngIf="status==200">
+    <h2>Enregistrer ses <font style="color:#0071bc;">informations personnelles</font></h2>
+    <p>Nous avons confirmé votre email. <br>Veuillez compléter les infos de votre compte.</p>
+
+    <div id="side">
+      <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+      <div class="col-md-12 board">
+        <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+
+        <div class="board-inner">
+          <ul class="nav nav-tabs" id="myTab">
+            <div class="liner">
+              <div id="blueText">
+                Etapes
+              </div>
+
+            </div>
+            <li class="active">
+              <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="Rentrer les infos personnelles">
+                      <span class="round-tabs one">
+                              <i class="icon icon-profile-male"></i>
+                      </span>
+              </a></li>
+
+            <li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Séléctionner les jeux">
+                     <span class="round-tabs two">
+                         <i class="icon icon-pencil"></i>
+                     </span>
+            </a>
+            </li>
+            <li><a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
+                     <span class="round-tabs three">
+                          <i class="icon icon-layers"></i>
+                     </span> </a>
+            </li>
+
+            <li><a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
+                         <span class="round-tabs four">
+                              <i class="icon icon-aperture"></i>
+                         </span>
+            </a></li>
+
+            <li><a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
+                         <span class="round-tabs five">
+                              <i class="icon icon-tools-2"></i>
+                         </span> </a>
+            </li>
+
+          </ul></div>
+    </div>
+    </div>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+
 
       <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-inline">
         <div class="form-group row">
@@ -56,17 +113,23 @@
           </div>
         </div>
 
+
         <div class="form-group row">
-          <div class="col-sm-10">
+          <div class="col-sm-6">
+
           </div>
+          <div class="col-sm-4"></div>
           <div class="col-sm-2">
-            <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">Confirmer</button>
-          </div>
+            <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">CONFIRMER</button>
+
+        </div>
         </div>
       </form>
     </div>
   </div>
 
+
+
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <p *ngIf="status==200">*Tous les champs sont obligatoires.</p>
 </div>
-
-

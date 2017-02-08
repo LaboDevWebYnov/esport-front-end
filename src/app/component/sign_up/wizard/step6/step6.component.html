@@ -1,12 +1,17 @@
 <div *ngIf="userGetById" class="container signupRoad">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
 
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
   <h1>BIENVENUE {{userGetById.username}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
   <div *ngIf="status">
-    <div *ngIf="status == 200" class="alert alert-success infoMessage">
-      <strong>Success!</strong> {{infoMessage}}
-    </div>
+
     <div *ngIf="status == 401" class="alert alert-danger errorMessage">
       <strong>Error!</strong> {{errorMessage}}
       <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
@@ -14,14 +19,12 @@
   </div>
 
   <div *ngIf="status == 200">
+    <h2>Félicitation votre inscriptions est maintenant finalisé <font style="color:#0071bc;">vous pouvez maintenant accédez au site !</font></h2>
+    <p>Vous pouvez modifier vos informations en cliquant sur profil ou commencer à<br> utiliser notre plateforme en cliquant sur accueil. Bon jeux !<br></p>
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
-      <div *ngIf="games" class="form-group row">
-        <li *ngFor="let game of games">
-          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}"> {{game.name}}
-        </li>
-      </div>
 
+      <br><br>
 
       <div class="form-group row">
         <div class="col-sm-7">
@@ -35,6 +38,7 @@
       </div>
     </form>
   </div>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>
 
 
