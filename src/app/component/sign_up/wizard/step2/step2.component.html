@@ -78,8 +78,11 @@
 
       <div *ngIf="games" class="form-group row ">
         <li *ngFor="let game of games">
-          <input type="checkbox" class="checkboxGame" name="{{game.name}}" value="{{game._id}}" id="{{game._id}}">
-          <label for="{{game._id}}"><img src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" (click)="changeImage()"></label>
+          <input #selector type="checkbox" class="checkboxGame" name="{{game.name}}" id="{{game._id}}" (change)="selector.checked"/>
+          <label for="{{game._id}}">
+            <img *ngIf="selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+            <img *ngIf="!selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          </label>
         </li>
       </div>
 
