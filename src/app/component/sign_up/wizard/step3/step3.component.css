@@ -270,3 +270,8 @@ form{
   margin-top: 20%;
   float: right;
 }
+
+#validPlayerAccount {
+  display: inline-table;
+  float: right;
+}

@@ -69,10 +69,10 @@ export class Step3Component implements OnInit {
           inputPlaceHolder="entrez votre Steam Id";
         }
         else if (gameName=='OverWatch'){
-          inputPlaceHolder="entrez votre pseudo Overwatch";
+          inputPlaceHolder="entrez votre battleTag";
         }
         else if (gameName=='DOTA2'){
-          inputPlaceHolder="entrez votre pseudo DOTA 2";
+          inputPlaceHolder="entrez votre steam Id";
         }
         else if (gameName=='Rocket League'){
           inputPlaceHolder="entrez votre steam Id";

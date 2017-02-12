@@ -85,11 +85,13 @@
               <button (click)='createPlayerAccount(i)' class="btn btn-default submitButton">Valider</button><br>
           </div>
         </div>
-        <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
+        <div class="col-sm-2" id="validPlayerAccount">
+          <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
             <div class="buttonSubmit">
               <button id="submitButton" type="submit" class="btn btn-default submitButton">Confirmer</button>
             </div>
-        </form>
+          </form>
+        </div>
       </div>
   </div>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
