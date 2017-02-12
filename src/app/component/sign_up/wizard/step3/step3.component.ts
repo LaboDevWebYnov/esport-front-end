@@ -161,21 +161,8 @@ export class Step3Component implements OnInit {
   onSubmit(event) {
     //set when the form is submited
     this.submitted = true;
-    var addPlayerAccount: AddNewPlayerAccount = {
-      login: (<HTMLInputElement>document.getElementById('login')).value,
 
-    };
-    // var userid = this.idParam;
-    // var gameid = this.selectedGame;
-    //
-    // this.playerAccountServiceInstance.AddPlayerAccount(addPlayerAccount, userid, gameid)
-    //   .subscribe(
-    //     data => console.log("ok"),
-    //     error => console.log(error),
-    //     () => {console.log('get succes')}
-    //   );
-    //
-    //     this.router.navigate(['signup/step4/'+this.token, { id: this.idParam , status: this.status } ]);
+    this.router.navigate(['signup/step4/'+this.token, { id: this.idParam , status: this.status } ]);
   };
 
   private addPlayerAccount(addPlayerAccount : AddNewPlayerAccount, userid : string, gameid : string): void {

@@ -127,11 +127,11 @@ export class Step2Component implements OnInit {
       {
         if(cpt == 0)
         {
-          selectedGame = event.target[i].value;
+          selectedGame = event.target[i].id;
         }
         else
         {
-          selectedGame += ':'+event.target[i].value;
+          selectedGame += ':'+event.target[i].id;
         }
         isChecked = true;
         cpt ++;
