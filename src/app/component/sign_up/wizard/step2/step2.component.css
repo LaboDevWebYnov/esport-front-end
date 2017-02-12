@@ -39,10 +39,16 @@ h2{
   font-size: xx-large;
   margin-bottom: 0px;
 }
+
 li{
   list-style-type: none;
   display: inline-block;
+  width:195px;
+  height:180px;
+  padding:15px 10px;
+  margin:0 auto;
 }
+
 li img{
   max-height: 150px;
 }
