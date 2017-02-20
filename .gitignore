@@ -1,5 +1,7 @@
 #node modules related
 node_modules
 
+dist
+
 #WebStorm related files
 .idea
