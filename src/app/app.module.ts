@@ -47,6 +47,7 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
 
 @NgModule({
   declarations: [
+    TeamComponent,
     AppComponent,
     TestUserServiceComponent,
     TestTeamServiceComponent,
@@ -100,6 +101,10 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'team',
+        component: TeamComponent
       },
       {
         path: 'news',
