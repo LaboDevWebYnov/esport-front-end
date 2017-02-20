@@ -41,6 +41,7 @@ import { Step7Component } from './component/sign_up/wizard/step7/step7.component
 import { LogoutComponent } from './component/auth/logout/logout.component';
 import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
+import { TeamComponent } from './component/team/team/team.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separa
     Step7Component,
     LogoutComponent,
     BlueSeparationBarComponent,
-    BlueSeparationBarSmallComponent
+    BlueSeparationBarSmallComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
