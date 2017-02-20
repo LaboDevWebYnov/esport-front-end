@@ -43,6 +43,7 @@ import { BlueSeparationBarComponent } from './component/profile-user/blue-separa
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
+import { SelectTeamComponent } from './select-team/select-team.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
     TeamComponent,
-    CreateTeamComponent
+    CreateTeamComponent,
+    SelectTeamComponent
   ],
   imports: [
     BrowserModule,
