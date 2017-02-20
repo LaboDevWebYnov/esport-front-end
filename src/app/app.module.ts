@@ -44,11 +44,13 @@ import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separa
 import { TeamComponent } from './component/team/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
 import { SelectTeamComponent } from './select-team/select-team.component';
+import { DetailsTeamComponent } from './component/team/details-team/details-team.component';
 
 
 @NgModule({
   declarations: [
     TeamComponent,
+    DetailsTeamComponent,
     AppComponent,
     TestUserServiceComponent,
     TestTeamServiceComponent,
@@ -85,7 +87,8 @@ import { SelectTeamComponent } from './select-team/select-team.component';
     BlueSeparationBarSmallComponent,
     TeamComponent,
     CreateTeamComponent,
-    SelectTeamComponent
+    SelectTeamComponent,
+    DetailsTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -180,6 +183,10 @@ import { SelectTeamComponent } from './select-team/select-team.component';
       {
         path: 'game',
         component: TestGameServiceComponent
+      },
+      {
+        path: 'details-team',
+        component: DetailsTeamComponent
       },
       {
         path: 'address',
