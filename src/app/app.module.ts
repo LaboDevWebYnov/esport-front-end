@@ -49,6 +49,7 @@ import { DetailsTeamComponent } from './component/team/details-team/details-team
 import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
 import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
 import { Step3TeamComponent } from './component/team/create-team/step3-team/step3-team.component';
+import { SearchTeamComponent } from './search-team/search-team.component';
 
 
 @NgModule({
@@ -104,7 +105,8 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
 
     CreateTeamComponent,
     SelectTeamComponent,
-    DetailsTeamComponent
+    DetailsTeamComponent,
+    SearchTeamComponent
 
   ],
   imports: [
