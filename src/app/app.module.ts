@@ -42,6 +42,7 @@ import { LogoutComponent } from './component/auth/logout/logout.component';
 import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
+import { ProfilePlayerAccountComponent } from './Component/profile-player-account/profile-player-account.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { TeamComponent } from './component/team/team/team.component';
     LogoutComponent,
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
-    TeamComponent
+    TeamComponent,
+    ProfilePlayerAccountComponent
   ],
   imports: [
     BrowserModule,

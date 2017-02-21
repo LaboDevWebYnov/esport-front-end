@@ -25,7 +25,8 @@ export class TestAddressServiceComponent implements OnInit {
     postCode: 0,
     city: "",
     country: "",
-    line: ""
+    line: "",
+    active: true
   };
 
   disableAddress: DisableAddress={

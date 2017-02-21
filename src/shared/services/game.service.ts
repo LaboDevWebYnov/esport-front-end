@@ -20,7 +20,6 @@ export class GameService {
 
   //Fonctionne
   public GetAllGames = (): Observable<String> => {
-    console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'games/')
       .map(response => response.json());
   };

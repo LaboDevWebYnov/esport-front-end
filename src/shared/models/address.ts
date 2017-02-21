@@ -3,6 +3,7 @@ export class Address {
   city: string;
   country: string;
   line: string;
+  active: boolean;
 }
 export class DisableAddress{
   active: boolean;

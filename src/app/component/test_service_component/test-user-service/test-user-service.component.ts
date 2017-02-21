@@ -35,7 +35,8 @@ export class TestUserServiceComponent implements OnInit {
     postCode: 0,
     city: "string",
     country: "string",
-    line: "string"
+    line: "string",
+    active: true
   };
 
   friends: User[];
