@@ -44,6 +44,10 @@ import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separa
 import { TeamComponent } from './component/team/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
 
+import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
+import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
+import { Step3TeamComponent } from './component/team/create-team/step3-team/step3-team.component';
+
 
 @NgModule({
   declarations: [
@@ -83,12 +87,22 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
     TeamComponent,
-    CreateTeamComponent
+
+    CreateTeamComponent,
+
+    Step1Component,
+
+    Step1TeamComponent,
+
+    Step2TeamComponent,
+
+    Step3TeamComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+
     ReactiveFormsModule,
     CoolStorageModule,
     RouterModule.forRoot([
@@ -106,6 +120,18 @@ import { CreateTeamComponent } from './component/team/create-team/create-team.co
         path: 'team',
         component: TeamComponent
       },
+
+      {
+        path: 'team/create-team',
+        component: CreateTeamComponent,
+        children: [
+          { path: '', redirectTo: 'step1-team', pathMatch: 'full' },
+          { path: 'step1-team', component: Step1TeamComponent },
+          { path: 'step2-team', component: Step2TeamComponent },
+          { path: 'step3-team', component: Step3TeamComponent },
+        ],
+      },
+
       {
         path: 'news',
         component: NewsComponent
