@@ -4,7 +4,8 @@
   src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
 }
 .global{
-  margin-top:50px;
+  margin-top:25px;
+  margin-bottom: 25px;
 }
 .infoTeam{
   margin-top: -190px;

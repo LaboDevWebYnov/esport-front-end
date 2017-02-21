@@ -131,6 +131,10 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
         path: 'team',
         component: TeamComponent
       },
+      {
+        path: 'team-search',
+        component: SearchTeamComponent
+      },
 
       {
         path: 'team/create-team',

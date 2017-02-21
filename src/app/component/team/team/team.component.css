@@ -1,0 +1,69 @@
+*{
+  color:white;
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+
+#searchBar{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+h1{
+  font-size: 35px;
+  padding-top: 10px;
+}
+#searchIcon{
+  position: absolute;
+  margin-left: 290px;
+  margin-top: 15px;
+  outline: none;
+}
+
+#searchIcon:active{
+  margin-top: 16px;
+}
+
+#insideBar{
+  background-color: #1d1d1b;
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  width: 650px;
+  border: 0px;
+  border-bottom: 1px solid grey;
+}
+
+.droparrow{
+  height: 35px;
+  position: relative;
+  float: right;
+  margin-top: -45px;
+}
+
+.droparrow:hover{
+  cursor: pointer;
+}
+
+#listTeam{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
+#listTeamSearch{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
