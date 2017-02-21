@@ -43,6 +43,8 @@ import { BlueSeparationBarComponent } from './component/profile-user/blue-separa
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
+import { SelectTeamComponent } from './component/team/select-team/select-team.component';
+import { DetailsTeamComponent } from './component/team/details-team/details-team.component';
 
 import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
 import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
@@ -52,6 +54,7 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
 @NgModule({
   declarations: [
     TeamComponent,
+    DetailsTeamComponent,
     AppComponent,
     TestUserServiceComponent,
     TestTeamServiceComponent,
@@ -88,6 +91,7 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
     BlueSeparationBarSmallComponent,
     TeamComponent,
 
+
     CreateTeamComponent,
 
     Step1Component,
@@ -96,7 +100,12 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
 
     Step2TeamComponent,
 
-    Step3TeamComponent
+    Step3TeamComponent,
+
+    CreateTeamComponent,
+    SelectTeamComponent,
+    DetailsTeamComponent
+
   ],
   imports: [
     BrowserModule,
@@ -204,6 +213,10 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
       {
         path: 'game',
         component: TestGameServiceComponent
+      },
+      {
+        path: 'details-team',
+        component: DetailsTeamComponent
       },
       {
         path: 'address',
