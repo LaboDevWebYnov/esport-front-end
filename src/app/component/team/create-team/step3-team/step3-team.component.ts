@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../../../shared/services/user.service";
 import {Configuration} from "../../../../../shared/app.constants";
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 @Component({
   selector: 'app-step3-team',
@@ -10,19 +11,16 @@ import {Configuration} from "../../../../../shared/app.constants";
 })
 export class Step3TeamComponent implements OnInit {
   private users: Object;
-  constructor(private userServiceInstance: UserService) { }
+  private userid: string;
+  localStorage: CoolLocalStorage;
+  constructor(private userServiceInstance: UserService, localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage
+  }
 
   ngOnInit() {
-    this.getUsers();
+    this.userid = this.localStorage.getItem('userId');
+
   }
-  private getUsers(): void {
-    this.userServiceInstance
-      .GetAllUsers()
-      .subscribe(
-        data => this.users = data,
-        error => console.log(error),
-        () => {console.log('get all users complete', this.users)}
-      );
-  }
+
 
 }

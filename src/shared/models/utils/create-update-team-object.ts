@@ -1,8 +1,12 @@
 import { PlayerAccount } from './../player-account';
+import {Game} from "../game";
 export class CreateTeamObject {
-  name: string;
-  tag: string;
-  country: string;
-  captain: PlayerAccount;
+  teamName: string;
+  teamTag: string;
+  teamCountry: string;
+  //captainPlayerAccountId: string;
+
+
+
 
 }

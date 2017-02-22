@@ -49,6 +49,8 @@ import { DetailsTeamComponent } from './component/team/details-team/details-team
 import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
 import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
 import { Step3TeamComponent } from './component/team/create-team/step3-team/step3-team.component';
+import { Step4TeamComponent } from './component/team/create-team/step4-team/step4-team.component';
+import { Step5TeamComponent } from './component/team/create-team/step5-team/step5-team.component';
 
 
 @NgModule({
@@ -104,7 +106,9 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
 
     CreateTeamComponent,
     SelectTeamComponent,
-    DetailsTeamComponent
+    DetailsTeamComponent,
+    Step4TeamComponent,
+    Step5TeamComponent
 
   ],
   imports: [
@@ -138,6 +142,8 @@ import { Step3TeamComponent } from './component/team/create-team/step3-team/step
           { path: 'step1-team', component: Step1TeamComponent },
           { path: 'step2-team', component: Step2TeamComponent },
           { path: 'step3-team', component: Step3TeamComponent },
+          { path: 'step4-team', component: Step4TeamComponent },
+          { path: 'step5-team', component: Step5TeamComponent },
         ],
       },
 

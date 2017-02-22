@@ -1,3 +1,4 @@
+<form (ngSubmit)="onSubmit($event)"   class="form-inline">
 <div class="form-group row">
   <div class="col-sm-6">
     <input type="text" class="form-control" id="name" required
@@ -11,13 +12,14 @@
 
 <div class="form-group row">
   <div class="col-sm-6">
-    <input type="text" class="form-control" id="rank" required
-           name="rank" placeholder="Rank de l'équipe">
-  </div>
-  <div class="col-sm-6">
     <input type="text" class="form-control" id="country" required
            name="country" placeholder="Pays">
   </div>
+  <div class="col-sm-6">
+    <input type="text" class="form-control" id="rank" required
+           name="rank" placeholder="Rank de l'équipe">
+  </div>
+
 </div>
 <div class="form-group row">
   <div class="col-sm-6">
@@ -25,8 +27,8 @@
   </div>
   <div class="col-sm-4"></div>
   <div class="col-sm-2">
-    <button class="btn btn-primary pull-right" (click)="onNext()">Next</button>
+    <button class="btn btn-primary pull-right" type="submit" >Next</button>
 
   </div>
 </div>
-
+</form>

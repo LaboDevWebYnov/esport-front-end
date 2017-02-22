@@ -24,22 +24,26 @@ export class TeamService {
   };
 
   public GetSingleTeamById = (id: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "team/" + id + "/getTeamById")
+    return this._http.get(this.actionUrl + "teams/" + id + "/getTeamById")
       .map(response =>response.json());
   };
 
   public GetSingleTeamByName = (Name: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "team/" + Name + "/getTeamByName")
+    return this._http.get(this.actionUrl + "teams/" + Name + "/getTeamByName")
       .map(response =>response.json());
   };
 
   public AddTeam = (Variable:CreateTeamObject, playerAccountId : string, gameid : string): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"team/"+ playerAccountId+"/addTeam/"+gameid, JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl+"/teams/"+ playerAccountId+"/addTeam/"+gameid, JsonBody, { headers: this.headers })
       .map((response => response.json()));
   };
   public DeleteTeam = (id: string): Observable<Response> => {
-    return this._http.put(this.actionUrl + "team/" + id + "/deleteTeam","");
+    return this._http.put(this.actionUrl + "teams/" + id + "/deleteTeam","");
+  };
+  public registerTeamMainInfo = (userId:string, Variable:CreateTeamObject, gameid : string): Observable<Response> => {
+    let JsonBody = JSON.stringify(Variable);
+    return this._http.post(this.actionUrl + "teams/" + userId + "/addTeam/"+gameid,JsonBody,{ headers: this.headers });
   };
 
 
