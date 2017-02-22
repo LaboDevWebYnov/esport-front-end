@@ -1,3 +1,51 @@
-<p>
-  team works!
-</p>
+<form id="searchBar">
+  <input id="insideBar" type="text" placeholder="Rechercher un équipe">
+  <input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+</form>
+<div>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8" (click)="display('listTeam')">
+      <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
+      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
+  <div id="listTeam">
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+  </div>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8" (click)="display('listTeamSearch')">
+      <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
+      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
+  <div id="listTeamSearch">
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+    <app-select-team></app-select-team>
+  </div>
+</div>
