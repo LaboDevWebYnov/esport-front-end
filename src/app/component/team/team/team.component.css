@@ -3,23 +3,42 @@
   font-family: "Rhanoll";
   src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
 }
-
+#search{
+  margin-top:50px;
+  margin-bottom:25px;
+}
+#search div{
+  display: inline-block;
+}
 #searchBar{
-  margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: nowrap;
 }
+#searchIcon{
+  outline: none;
+  margin-left:-75px;
+  margin-bottom: -9px;
+}
+#search img{
+  height: 40px;
+  margin-left:15px;
+}
+#createTeam{
+  margin-bottom: -25px;
+}
+#createTeam div{
+  display: block;
+  margin:0 auto;
+}
+#createTeam h2{
+  margin-bottom: 0px;
+}
+
 h1{
   font-size: 35px;
   padding-top: 10px;
-}
-#searchIcon{
-  position: absolute;
-  margin-left: 290px;
-  margin-top: 15px;
-  outline: none;
 }
 
 #searchIcon:active{
@@ -41,6 +60,12 @@ h1{
   position: relative;
   float: right;
   margin-top: -45px;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .droparrow:hover{

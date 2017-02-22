@@ -1,14 +1,30 @@
-<form id="searchBar">
-  <input id="insideBar" type="text" placeholder="Rechercher un équipe">
-  <input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">
-</form>
+<!--<form id="searchBar">-->
+  <!--<input id="insideBar" type="text" placeholder="Rechercher une équipe">-->
+  <!--<input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">-->
+<!--</form>-->
+
+<div id="search">
+  <div>
+    <form (ngSubmit)="onSubmit()" id="searchBar">
+      <input id="insideBar" type="text" placeholder="Rechercher une équipe">
+    </form>
+  </div>
+  <div>
+    <input (ngSubmit)="onSubmit()" id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+  </div>
+  <div id="createTeam">
+    <div><img src="../../../../assets/images/logo-profil3.png"/></div>
+    <div><h2>CREER TEAM</h2></div>
+  </div>
+</div>
+
 <div>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-8" (click)="display('listTeam')">
       <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
-      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      <img id="listTeamArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
     </div>
     <div class="col-xs-2"></div>
   </div>
@@ -24,14 +40,15 @@
     <app-select-team></app-select-team>
     <app-select-team></app-select-team>
     <app-select-team></app-select-team>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
-  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
 
   <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-8" (click)="display('listTeamSearch')">
       <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
-      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      <img id="listTeamSearchArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
     </div>
     <div class="col-xs-2"></div>
   </div>
@@ -42,10 +59,12 @@
     </div>
     <div class="col-xs-1"></div>
   </div>
-  <div id="listTeamSearch">
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
+  <!--<div id="listTeamSearch">-->
+  <div id="listTeamSearch" *ngIf="teams" class="form-group row ">
+    <li *ngFor="let team of teams">
+      <app-select-team></app-select-team>
+    </li>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
+  <!--</div>-->
 </div>
