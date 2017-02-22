@@ -43,8 +43,18 @@ import { BlueSeparationBarComponent } from './component/profile-user/blue-separa
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
-import { SelectTeamComponent } from './select-team/select-team.component';
+import { SelectTeamComponent } from './component/team/select-team/select-team.component';
 import { DetailsTeamComponent } from './component/team/details-team/details-team.component';
+
+import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
+import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
+import { Step3TeamComponent } from './component/team/create-team/step3-team/step3-team.component';
+
+import { Step4TeamComponent } from './component/team/create-team/step4-team/step4-team.component';
+import { Step5TeamComponent } from './component/team/create-team/step5-team/step5-team.component';
+
+import { SearchTeamComponent } from './component/team/search-team/search-team.component';
+
 
 
 @NgModule({
@@ -86,14 +96,34 @@ import { DetailsTeamComponent } from './component/team/details-team/details-team
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
     TeamComponent,
+
+
+    CreateTeamComponent,
+
+    Step1Component,
+
+    Step1TeamComponent,
+
+    Step2TeamComponent,
+
+    Step3TeamComponent,
+
     CreateTeamComponent,
     SelectTeamComponent,
-    DetailsTeamComponent
+    DetailsTeamComponent,
+
+    Step4TeamComponent,
+    Step5TeamComponent,
+
+    SearchTeamComponent
+
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+
     ReactiveFormsModule,
     CoolStorageModule,
     RouterModule.forRoot([
@@ -111,6 +141,24 @@ import { DetailsTeamComponent } from './component/team/details-team/details-team
         path: 'team',
         component: TeamComponent
       },
+      {
+        path: 'team-search',
+        component: SearchTeamComponent
+      },
+
+      {
+        path: 'team/create-team',
+        component: CreateTeamComponent,
+        children: [
+          { path: '', redirectTo: 'step1-team', pathMatch: 'full' },
+          { path: 'step1-team', component: Step1TeamComponent },
+          { path: 'step2-team', component: Step2TeamComponent },
+          { path: 'step3-team', component: Step3TeamComponent },
+          { path: 'step4-team', component: Step4TeamComponent },
+          { path: 'step5-team', component: Step5TeamComponent },
+        ],
+      },
+
       {
         path: 'news',
         component: NewsComponent
