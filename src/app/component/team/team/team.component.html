@@ -58,6 +58,10 @@
     <div class="col-xs-1"></div>
   </div>
 
+  <div *ngIf="status == 401" class="alert alert-danger errorMessage" style="font-size:x-large;color:black;">
+    <strong>Error!</strong> {{errorMessage}}
+  </div>
+
   <!--<div id="listTeamSearch">-->
   <div id="listTeamSearch" *ngIf="teams" class="form-group row ">
     <h2>Il y a quelque chose.</h2>
