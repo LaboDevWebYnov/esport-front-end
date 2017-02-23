@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../../../shared/services/team.service';
+import {Router}                  from '@angular/router';
 import { Configuration } from '../../../../shared/app.constants';
 import { Team } from "../../../../shared/models/team";
 
@@ -12,7 +13,7 @@ import { Team } from "../../../../shared/models/team";
 export class TeamComponent implements OnInit {
   private teams: Object;
 
-  constructor(private teamServiceInstance: TeamService,) { }
+  constructor(private teamServiceInstance: TeamService,private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,7 +40,9 @@ export class TeamComponent implements OnInit {
     // -o-transform: rotate(180deg);
     // -ms-transform: rotate(180deg);
   }
-
+  onCreate(){
+    this.router.navigate(['team/create-team' ]);
+  }
   onSubmit(event):void {
     console.log("Recherche : "+ event.target[0].value);
     this.searchTeams(event.target[0].value);
@@ -58,7 +61,7 @@ export class TeamComponent implements OnInit {
       .subscribe(
         data => this.teams = data,
         error => console.log(error),
-        () => {/*console.log('getSingleTeamByName', this.teams)*/}
+        () => {console.log('getSingleTeamByName', this.teams)}
       );
 
   }

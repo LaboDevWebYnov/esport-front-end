@@ -4,7 +4,7 @@ export class CreateTeamObject {
   teamName: string;
   teamTag: string;
   teamCountry: string;
-  //captainPlayerAccountId: string;
+  captainPlayerAccountId: string;
 
 
 

@@ -44,70 +44,65 @@ export class Step2TeamComponent implements OnInit {
   }
 
   onSubmit(event) {
-    //console.log(event);
+   // console.log(event);
 
-    this.gameId = event.target[0].id;
-
+    //this.gameId = event.target[0].id;
+    //console.log(this.gameId);
     //set when the form is submited
     this.submitted = true;
-    this.teamRegistered = new CreateTeamObject();
-
-    //name
-    this.teamRegistered.teamName = this.localStorage.getItem('teamName');
-    //tag
-    this.teamRegistered.teamTag = this.localStorage.getItem('teamTag');
-    //rank
-    // this.teamRegistered.rank = event.target[3].value;
-    //country
-    this.teamRegistered.teamCountry = this.localStorage.getItem('teamCountry');
-    //this.teamRegistered.captainPlayerAccountId = "58aaea1bd277c80fd4f21514";
-    //this.teamRegistered.captain = this.localStorage.getItem('userId');
-    this.playerAccountId = "58aab78a1fdbee1067a42a64";
-    //register user
 
 
 
-
-
-
-
-    this.registerTeam(this.playerAccountId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
-      if (status == 200) {
-        this.status = status;
-        this.errorMessage = errorMessage;
-        this.infoMessage = infoMessage;
-
-        this.router.navigate(['team/create-team/step3-team']);
+    this.isOneChecked(event, "checkboxGame", (isChecked: boolean, selectedGame: string) => {
+      if(!isChecked)
+      {
+        this.status = 401;
+        this.infoMessage = null;
+        this.errorMessage = "You must select one game to continue ...";
+        console.log('Y a pas de game');
       }
-      else {
-        this.status = status;
-        this.errorMessage = errorMessage;
-        this.infoMessage = infoMessage;
-        console.log(this.status);
-        console.log(this.errorMessage);
-        console.log(this.infoMessage);
+      else
+      {
+        this.status = 200;
+        this.infoMessage = null;
+        this.errorMessage = null;
+        console.log('Y a des game');
+        this.localStorage.setItem('gameId', selectedGame);
+        this.router.navigate(['team/create-team/step3-team' ]);
       }
     });
+    //this.router.navigate(['team/create-team/step3-team']);
+
+
+
+
 
   };
-  private registerTeam(playerAccountId: string, teamRegistered: CreateTeamObject,gameId: string, callback): any {
-    this.teamServiceInstance
-      .registerTeamMainInfo(playerAccountId,teamRegistered, gameId)
-      .subscribe(
-        data => this.response = data,
-        error => {
-          console.log(error);
 
-          callback(401, JSON.parse(error._body).error, null);
 
-        },
-        () => {
-          //console.log('register user complete', this.response);
-          callback(200, null, 'team registered !');
+  private isOneChecked(event: any, className: string, callback): any {
+    let selectedGame = "";
+    let cpt = 0;
+    let isChecked = false;
+    for(let i=0;i<document.getElementsByClassName(className).length;i++)
+    {
+      if(event.target[i].checked)
+      {
+        if(cpt == 0)
+        {
+          selectedGame = event.target[i].id;
         }
-      );
-  }
+        else
+        {
+          selectedGame += ':'+event.target[i].id;
+        }
+        isChecked = true;
+        cpt ++;
+      }
+    }
+    callback(isChecked,selectedGame);
 
+  }
 
 
 }
