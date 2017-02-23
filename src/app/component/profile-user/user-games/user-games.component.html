@@ -5,7 +5,7 @@
       <li *ngFor="let game of userGames">
         <input #selector type="checkbox" class="checkboxGame" name="{{game.name}}" id="{{game._id}}" (change)="selector.checked"/>
         <label for="{{game._id}}">
-          <img class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          <a href="/player-account/{{game._id}}"><img class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" ></a>
         </label>
       </li>
     </ul>

@@ -27,3 +27,7 @@
   background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
   background: linear-gradient(#1F1F1D, #3E3E3D);
 }
+
+h1 {
+  text-align: center;
+}

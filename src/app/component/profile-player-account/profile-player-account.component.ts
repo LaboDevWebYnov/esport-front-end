@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile-player-account',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-player-account.component.css']
 })
 export class ProfilePlayerAccountComponent implements OnInit {
+  gameId: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,) { }
 
   ngOnInit() {
+    this.gameId = this.route.snapshot.params['gameId'];
+    console.log(this.gameId);
+  }
+
+  public gotoProfile() : void {
+    this.router.navigate(['/profile']);
   }
 
 }

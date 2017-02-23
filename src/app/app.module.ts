@@ -4,6 +4,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/Http';
 import {RouterModule}   from '@angular/router';
 import { CoolStorageModule } from 'angular2-cool-storage';
+import { ChartsModule } from 'ng2-charts';
 
 
 import {AppComponent} from './app.component';
@@ -43,6 +44,9 @@ import { BlueSeparationBarComponent } from './component/profile-user/blue-separa
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { ProfilePlayerAccountComponent } from './Component/profile-player-account/profile-player-account.component';
+import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
+import { PlayerAccountDetailsComponent } from './component/profile-player-account/player-account-details/player-account-details.component';
+import { PlayerAccountHistoricComponent } from './component/profile-player-account/player-account-historic/player-account-historic.component';
 
 
 @NgModule({
@@ -82,7 +86,10 @@ import { ProfilePlayerAccountComponent } from './Component/profile-player-accoun
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
     TeamComponent,
-    ProfilePlayerAccountComponent
+    ProfilePlayerAccountComponent,
+    PlayerAccountBannerComponent,
+    PlayerAccountDetailsComponent,
+    PlayerAccountHistoricComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +97,7 @@ import { ProfilePlayerAccountComponent } from './Component/profile-player-accoun
     HttpModule,
     ReactiveFormsModule,
     CoolStorageModule,
+    ChartsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -112,11 +120,6 @@ import { ProfilePlayerAccountComponent } from './Component/profile-player-accoun
       {
         path: 'events',
         component: EventsComponent
-      },
-      /*ROUTE DE TEST POUR LES SERVICES*/
-      {
-        path: 'users',
-        component: TestUserServiceComponent
       },
       {
         path: 'profile',
@@ -167,16 +170,8 @@ import { ProfilePlayerAccountComponent } from './Component/profile-player-accoun
         component: LogoutComponent
       },
       {
-        path: 'player-account',
-        component: TestPlayerAccountServiceComponent
-      },
-      {
-        path: 'game',
-        component: TestGameServiceComponent
-      },
-      {
-        path: 'address',
-        component: TestAddressServiceComponent
+        path: 'player-account/:gameId',
+        component: ProfilePlayerAccountComponent
       }
     ])
   ],
