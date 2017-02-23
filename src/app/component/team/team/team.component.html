@@ -2,20 +2,20 @@
   <!--<input id="insideBar" type="text" placeholder="Rechercher une équipe">-->
   <!--<input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">-->
 <!--</form>-->
-
+<div id="globalSearch">
 <div id="search">
   <div>
-    <form (ngSubmit)="onSubmit()" id="searchBar">
+    <form (ngSubmit)="onSubmit($event)" id="searchBar">
       <input id="insideBar" type="text" placeholder="Rechercher une équipe">
     </form>
   </div>
   <div>
-    <input (ngSubmit)="onSubmit()" id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+    <input (ngSubmit)="onSubmit($event)" id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
   </div>
   <div id="createTeam">
-    <div><img src="../../../../assets/images/logo-profil3.png"/></div>
-    <div><h2>CREER TEAM</h2></div>
+    <img src="../../../../assets/images/picto_creer_team_sansdescrp.png"/>
   </div>
+</div>
 </div>
 
 <div>
@@ -36,22 +36,20 @@
     <div class="col-xs-1"></div>
   </div>
   <div id="listTeam">
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
 
-
   <div class="row">
     <div class="col-xs-2"></div>
+
     <div class="col-xs-8" (click)="display('listTeamSearch')">
       <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
       <img id="listTeamSearchArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
     </div>
+
     <div class="col-xs-2"></div>
   </div>
+
   <div class="row">
     <div class="col-xs-1"></div>
     <div class="col-xs-10">
@@ -59,11 +57,15 @@
     </div>
     <div class="col-xs-1"></div>
   </div>
+
   <!--<div id="listTeamSearch">-->
   <div id="listTeamSearch" *ngIf="teams" class="form-group row ">
+    <h2>Il y a quelque chose.</h2>
+    <ul>
     <li *ngFor="let team of teams">
       <app-select-team></app-select-team>
     </li>
+    </ul>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
   <!--</div>-->

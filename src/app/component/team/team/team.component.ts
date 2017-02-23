@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../../../shared/services/team.service';
 import { Configuration } from '../../../../shared/app.constants';
+import { Team } from "../../../../shared/models/team";
 
 @Component({
   selector: 'app-team',
@@ -18,7 +19,7 @@ export class TeamComponent implements OnInit {
 
   display(id:string):void {
     if (document.getElementById(id).style.maxHeight=="0px") {
-      document.getElementById(id).style.maxHeight="";
+      document.getElementById(id).style.maxHeight="5000px";
       id += "Arrow";
       var elmt = document.getElementById(id);
       elmt.style.webkitTransform="rotate(0deg)";
@@ -39,14 +40,21 @@ export class TeamComponent implements OnInit {
     // -ms-transform: rotate(180deg);
   }
 
-  onSubmit(event) {
+  onSubmit(event):void {
     console.log("Recherche : "+ event.target[0].value);
     this.searchTeams(event.target[0].value);
+
+    var id ="listTeam";
+    document.getElementById(id).style.maxHeight="0px";
+    id += "Arrow";
+    var elmt = document.getElementById(id);
+    elmt.style.webkitTransform="rotate(180deg)";
+    elmt.style.transform="rotate(180deg)";
   }
 
-  private searchTeams(team:string){
+  public searchTeams(name:string):void{
     this.teamServiceInstance
-      .GetSingleTeamByName(team)
+      .GetSingleTeamByName(name)
       .subscribe(
         data => this.teams = data,
         error => console.log(error),
