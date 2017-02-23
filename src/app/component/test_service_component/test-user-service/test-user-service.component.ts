@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
 import {UserService} from '../../../../shared/services/user.service';
-import {Http, HttpModule} from "@angular/Http";
 import {Configuration} from '../../../../shared/app.constants';
 import {ChangePasswordObject} from '../../../../shared/models/utils/change-password-object';
 import {ChangeEmailObject} from '../../../../shared/models/utils/change-email-object';
