@@ -43,7 +43,7 @@ import { LogoutComponent } from './component/auth/logout/logout.component';
 import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
-import { ProfilePlayerAccountComponent } from './Component/profile-player-account/profile-player-account.component';
+import { ProfilePlayerAccountComponent } from './component/profile-player-account/profile-player-account.component';
 import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
 import { PlayerAccountDetailsComponent } from './component/profile-player-account/player-account-details/player-account-details.component';
 import { PlayerAccountHistoricComponent } from './component/profile-player-account/player-account-historic/player-account-historic.component';
