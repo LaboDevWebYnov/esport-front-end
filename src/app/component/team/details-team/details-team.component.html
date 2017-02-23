@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 <head>
 
 </head>
@@ -8,6 +9,17 @@
 <div class="divTitle">
   <h1> Team OverWatched <img src="../../../../assets/images/FrnchFlag.png" alt="FLAG" id="flag" height="20" width="35"/></h1>
   <h3>OVERWATCH</h3>
+=======
+<header>
+
+</header>
+
+<body>
+
+<div class="divTitle" *ngIf="response">
+  <h1>{{response.name}}  {{response.tag}} <img src="../../../../assets/images/{{response.country}}.png" alt="FLAG" id="flag" height="20" width="35"/></h1>
+  <h3>{{response.game.name}}</h3>
+>>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
 </div>
 
 <img class="imageHeader" src="../../../assets/images/Overwatch.jpg">
@@ -33,6 +45,7 @@
       <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
     </form>
 
+<<<<<<< HEAD
     <form class="form">
       <h3 class="title"> MEMBRES 7/7 JOUEURS
         <p>3 Membres connectés</p></h3>
@@ -60,6 +73,14 @@
         </li>
         <li>
           Bryan
+=======
+    <form class="form" *ngIf="response">
+      <h3 class="title"> <p>MEMBRES {{response.players.length}} JOUEURS</p>
+        <p>{{response.players.length}} Membres connectés</p></h3>
+      <ul>
+        <li *ngIf="response.players">
+          {{ response.players.active }}
+>>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
         </li>
       </ul>
     </form>
@@ -73,6 +94,7 @@
     <li class="active"><a href="#home" role="tab" data-toggle="tab" class="onglet">GENERAL</a></li>
     <li><a href="#profile" role="tab" data-toggle="tab" class="onglet">TEAM STATS</a></li>
     <li><a href="#messages" role="tab" data-toggle="tab" class="onglet">RECRUTEMENT</a></li>
+<<<<<<< HEAD
     <li><a href="#settings" role="tab" data-toggle="tab" class="onglet">PARAMETRE TEAM</a></li>
 
   </ul>
@@ -106,11 +128,34 @@
       </div>
     </div>
 
+=======
+    <li><a href="#settings" role="tab" data-toggle="tab" class="onglet">PARAMETRES TEAM</a></li>
+
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="home"  *ngIf="response && playerById" >
+      <br/>
+      <div class="title">
+        GENERAL
+      </div>
+      <br>
+      <p>Capitaine d'équipe : {{response.captain._id}}</p><br>
+      <p>Membres de l'équipe : {{playerById.user.lastname}} {{playerById.user.firstname}}</p>
+    </div>
+    <div class="tab-pane" id="profile">
+      <br/>
+      <div class="title">
+        TEAM STATS
+      </div>  <br/><br/><br/><br/>
+    </div>
+>>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
     <div class="tab-pane" id="messages">
       <br/>
       <div class="title">
         RECRUTEMENT
       </div>
+<<<<<<< HEAD
     </div>
     <div class="tab-pane" id="settings">
       <br/>
@@ -122,6 +167,38 @@
 </div>
   <div class="clear"></div>
   <footer><br/><br/>©  ESPORT GAMING 2016. All Rights Reserve. By LOCALIZE<br/><br/></footer>
+=======
+      Nous recherchons un joueur d'un grand talent afin d'être à la hauteur des autres membres du groupe !
+      <br/><br/><br/><br/>
+    </div>
+    <div class="tab-pane" id="settings" *ngIf="playerById && response">
+      <br/>
+      <div class="title">
+        GESTION DES MEMBRES
+      </div><br>
+      <p>Capitaine d'équipe : {{response.captain._id}}</p>
+      <br><p>Membres de l'équipe : </p>
+      <p>{{playerById.user.lastname}} {{playerById.user.firstname}} <img src="../../../assets/images/delete.png" alt="exemple onclick"
+                                                         style="cursor:pointer;" onclick="alert('Suppression');" /> </p>
+
+      <h2>Ajouter un membre</h2><input type="text" id="nvMembre">
+      <button class="connectButton">Ajouter</button>
+      <br>
+      <br>
+
+      <div class="title">
+        MODIFICATION DE LA TEAM
+      </div>
+      <br>
+      <h2>Changer le nom</h2><input type="text" id="nvNom"><br><br>
+      <h2>Changer avatar</h2><input type="file" id="nvImage"><br>
+    </div>
+  </div>
+
+</div>
+<div class="clear"></div>
+<footer><br/><br/>FOOTER<br/><br/></footer>
+>>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
 
 </body>
 
