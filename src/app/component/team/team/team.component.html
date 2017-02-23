@@ -58,8 +58,9 @@
     <div class="col-xs-1"></div>
   </div>
 
-  <div *ngIf="status == 401" class="alert alert-danger errorMessage" style="font-size:x-large;color:black;">
-    <strong>Error!</strong> {{errorMessage}}
+  //Modif
+  <div *ngIf="status == 401" class="alert alert-danger notFound">
+    <strong id="notFound">Pas de Résultats</strong> {{errorMessage}}
   </div>
 
   <!--<div id="listTeamSearch">-->
