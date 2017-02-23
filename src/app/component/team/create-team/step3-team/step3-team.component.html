@@ -1,0 +1,49 @@
+<form #f="ngForm" (ngSubmit)="onSubmit($event)"   class="form-inline">
+<div class="form-group row">
+
+
+  <div class="col-sm-6">
+    <label for="checkboxCaptain"> Voulez vous être le capitaine de l'équipe?</label>
+    <input type="checkbox"  id="checkboxCaptain" class="checkboxGame" name="isActive"   [(ngModel)]="isActive" >
+  </div>
+  <div *ngIf="isActive">
+    <div class="col-sm-6">
+      <div *ngIf="playerAccount" class="form-group row ">
+        <input list="userDatalist" class="form-control" id="playerAccount" name="playerAccount" placeholder="Choississez votre player account" [(ngModel)]="PlayerAccount">
+        <datalist id="userDatalist">
+          <li *ngFor="let pl of playerAccount">
+            <option  value="{{pl._id}}">
+          </li>
+        </datalist>
+        <input type="submit">
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+      </div>
+
+
+
+  <pre>submitted value: <br>{{f.value | json}}</pre>
+
+
+
+
+
+<div class="form-group row">
+  <div class="col-sm-6">
+
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-2">
+    <button class="btn btn-primary pull-right" type="submit" >Next</button>
+
+  </div>
+</div>
+</form>

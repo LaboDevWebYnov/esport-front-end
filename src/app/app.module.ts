@@ -47,10 +47,24 @@ import { ProfilePlayerAccountComponent } from './component/profile-player-accoun
 import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
 import { PlayerAccountDetailsComponent } from './component/profile-player-account/player-account-details/player-account-details.component';
 import { PlayerAccountHistoricComponent } from './component/profile-player-account/player-account-historic/player-account-historic.component';
+import { CreateTeamComponent } from './component/team/create-team/create-team.component';
+import { SelectTeamComponent } from './component/team/select-team/select-team.component';
+import { DetailsTeamComponent } from './component/team/details-team/details-team.component';
+
+import { Step1TeamComponent } from './component/team/create-team/step1-team/step1-team.component';
+import { Step2TeamComponent } from './component/team/create-team/step2-team/step2-team.component';
+import { Step3TeamComponent } from './component/team/create-team/step3-team/step3-team.component';
+
+import { Step4TeamComponent } from './component/team/create-team/step4-team/step4-team.component';
+import { Step5TeamComponent } from './component/team/create-team/step5-team/step5-team.component';
+
+import { SearchTeamComponent } from './component/team/search-team/search-team.component';
 
 
 @NgModule({
   declarations: [
+    TeamComponent,
+    DetailsTeamComponent,
     AppComponent,
     TestUserServiceComponent,
     TestTeamServiceComponent,
@@ -89,12 +103,25 @@ import { PlayerAccountHistoricComponent } from './component/profile-player-accou
     ProfilePlayerAccountComponent,
     PlayerAccountBannerComponent,
     PlayerAccountDetailsComponent,
-    PlayerAccountHistoricComponent
+    PlayerAccountHistoricComponent,
+
+    CreateTeamComponent,
+    Step1Component,
+    Step1TeamComponent,
+    Step2TeamComponent,
+    Step3TeamComponent,
+    CreateTeamComponent,
+    SelectTeamComponent,
+    DetailsTeamComponent,
+    Step4TeamComponent,
+    Step5TeamComponent,
+    SearchTeamComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+
     ReactiveFormsModule,
     CoolStorageModule,
     ChartsModule,
@@ -109,6 +136,28 @@ import { PlayerAccountHistoricComponent } from './component/profile-player-accou
         path: 'home',
         component: HomeComponent
       },
+      {
+        path: 'team',
+        component: TeamComponent
+      },
+      {
+        path: 'team-search',
+        component: SearchTeamComponent
+      },
+
+      {
+        path: 'team/create-team',
+        component: CreateTeamComponent,
+        children: [
+          { path: '', redirectTo: 'step1-team', pathMatch: 'full' },
+          { path: 'step1-team', component: Step1TeamComponent },
+          { path: 'step2-team', component: Step2TeamComponent },
+          { path: 'step3-team', component: Step3TeamComponent },
+          { path: 'step4-team', component: Step4TeamComponent },
+          { path: 'step5-team', component: Step5TeamComponent },
+        ],
+      },
+
       {
         path: 'news',
         component: NewsComponent
@@ -172,6 +221,10 @@ import { PlayerAccountHistoricComponent } from './component/profile-player-accou
       {
         path: 'player-account/:gameId',
         component: ProfilePlayerAccountComponent
+      },
+      {
+        path: 'details-team',
+        component: DetailsTeamComponent
       }
     ])
   ],

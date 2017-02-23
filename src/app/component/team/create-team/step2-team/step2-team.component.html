@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit($event)"   class="form-inline">
+<div *ngIf="games" class="form-group row ">
+  <li *ngFor="let game of games">
+    <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="selector.checked"/>
+    <label for="{{game._id}}">
+      <img *ngIf="selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+      <img *ngIf="!selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+    </label>
+  </li>
+</div>
+<div class="form-group row">
+  <div class="col-sm-6">
+
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-2">
+    <button class="btn btn-primary pull-right" type="submit" >Next</button>
+
+  </div>
+</div>
+</form>
