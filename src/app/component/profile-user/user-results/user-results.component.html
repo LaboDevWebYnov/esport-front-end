@@ -4,16 +4,18 @@
   <div id="allsection">
     <div *ngIf="userGames" id="gameResult">
       <ul>
-        <li *ngFor="let game of userGames">
+        <li *ngFor="let game of userGames; let i = index;">
           <div style="display: block">
-            <canvas baseChart
-                    [data]="RatioData"
-                    [labels]="RatioLabels"
-                    [chartType]="RatioChartType"
-                    [legend]="false"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)">
-            </canvas>
+            <div *ngIf="isPropertyLoaded">
+              <canvas baseChart
+                      [data]="RatioData[i]"
+                      [labels]="RatioLabels[i]"
+                      [chartType]="RatioChartType"
+                      [legend]="false">
+                <!--(chartHover)="chartHovered($event)"-->
+                <!--(chartClick)="chartClicked($event)">-->
+              </canvas>
+            </div>
           </div>
           <h2><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
         </li>

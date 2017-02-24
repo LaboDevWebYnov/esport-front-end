@@ -26,37 +26,47 @@
       <td>
         Win %
         <div style="display: block">
-          <canvas baseChart
-                  [data]="RatioData"
-                  [labels]="RatioLabels"
-                  [chartType]="RatioChartType"
-                  [legend]="false"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
+          <div *ngIf="isPropertyRatioLoaded">
+            <canvas baseChart
+                    [data]="RatioData[0]"
+                    [labels]="RatioLabels[0]"
+                    [chartType]="RatioChartType"
+                    [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+
+            </canvas>
+          </div>
         </div>
       </td>
       <td>
         Nb kills
         <div style="display: block">
-          <canvas baseChart
-                  [data]="statsData"
-                  [labels]="statsLabels"
-                  [chartType]="statsChartType"
-                  [legend]="false"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
+          <div *ngIf="isPropertyStatsLoaded">
+            <canvas baseChart
+                    [data]="statsData[0]"
+                    [labels]="statsLabels[0]"
+                    [chartType]="statsChartType"
+                    [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+            </canvas>
+          </div>
         </div>
       </td>
       <td>
         Activités
         <div style="display: block">
-          <canvas baseChart
-                  [data]="activityData"
-                  [labels]="activityLabels"
-                  [chartType]="activityChartType"
-                  [legend]="false"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
+          <div *ngIf="isPropertyActivityLoaded">
+            <canvas baseChart
+                    [data]="activityData[0]"
+                    [labels]="activityLabels[0]"
+                    [chartType]="activityChartType"
+                    [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+            </canvas>
+          </div>
         </div>
       </td>
     </tr>
