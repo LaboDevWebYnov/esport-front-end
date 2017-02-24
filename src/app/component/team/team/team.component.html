@@ -48,7 +48,7 @@
         </div>
         <div>
           <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
-          <h1><a href=""> {{team.name}} - [{{team.tag}}]</a></h1>
+          <h1><a (click)="detailedTeam(team._id)"> {{team.name}} - [{{team.tag}}]</a></h1>
         </div>
         <div>
           <h2><font style="color:gray;font-size: 25px;">Capitaine : </font><a href="">{{team.captain.user.username}}</a></h2>
@@ -98,15 +98,17 @@
             <div class="nameGame">
               {{team.game.name}}
             </div>
+
             <div>
               <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
-              <h1><a href=""> {{team.name}} - [{{team.tag}}]</a></h1>
+
+              <h1> {{team.name}} - [{{team.tag}}]</h1>
             </div>
             <div>
               <h2><font style="color:gray;font-size: 25px;">Capitaine : </font><a href="">{{team.captain.user.username}}</a></h2>
             </div>
             <div>
-              <h2><font style="color:gray;font-size: 25px;">Rang : </font>{{team.rank}}<font style="color:gray;font-size: 25px;margin-left:100px;">Membres :</font> {{team.totalMembers}}</h2>
+              <h2><font style="color:gray;font-size: 25px;">Rang : </font>{{team.rank}}<font style="color:gray;font-size: 25px;margin-left:100px;">Membres :</font>  {{team.totalMembers}}</h2>
             </div>
           </div>
         </div>
