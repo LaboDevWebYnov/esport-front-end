@@ -1,4 +1,4 @@
-*{
+{
   font-family: Rhanoll;
   font-size: 16pt;
   color:white;
@@ -111,11 +111,10 @@ h2{
   float:left;
   width: 35%;
   height:100%;
-<<<<<<< HEAD
+
   min-height : 700px;
   background-color: #1A1A1A;
-=======
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+
 }
 
 .navGauche{
@@ -136,11 +135,10 @@ h2{
   float:left;
   width:65%;
   height: 100%;
-<<<<<<< HEAD
+
   min-height : 700px;
   background-color: #1A1A1A;
-=======
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+
 }
 
 .footer{
@@ -212,30 +210,29 @@ a.onglet.active{color: royalblue;
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background-color: royalblue;
-<<<<<<< HEAD
+
   color:white;
-=======
-  color: white;
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+
+
 }
 
 
 .tab-content{
   padding-left:30px;
-<<<<<<< HEAD
+
   background-color: #1A1A1A;
 }
 
 .tab-pane.active{
   background-color: #1A1A1A;
-=======
+
   background-color: #3E3E3D;
   min-height : 500px;
 }
 
 .tab-pane.active{
   background-color: #3E3E3D;
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+
 }
 
 footer{
@@ -250,8 +247,7 @@ footer{
 }
 
 .clear{clear:both}
-<<<<<<< HEAD
-=======
+
 
 .connectButton
 {
@@ -265,4 +261,4 @@ footer{
   border-radius: 5%;
   margin: 1%;
 }
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+

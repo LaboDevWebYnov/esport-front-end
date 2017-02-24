@@ -11,18 +11,14 @@ import {PlayerAccountService} from "../../../../shared/services/player-account.s
 })
 export class DetailsTeamComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor() {
 
-
-=======
   teamById: Object;
   teamByName: Object;
   playerById: Object;
   response: Object;
 
   constructor(private teamServiceInstance: TeamService, private playerAccountInstance : PlayerAccountService) {
->>>>>>> 9e86103404bd2d3dbca0ef784d2ea48370cf07fa
+
   }
 
   ngOnInit() {
