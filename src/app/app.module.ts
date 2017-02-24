@@ -223,7 +223,7 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
         component: ProfilePlayerAccountComponent
       },
       {
-        path: 'details-team',
+        path: 'team/:teamid',
         component: DetailsTeamComponent
       }
     ])

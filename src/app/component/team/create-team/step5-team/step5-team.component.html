@@ -1,3 +1,6 @@
-<p>
-  step5-team works!
-</p>
+<h3>La création de votre équipe est maintenant terminés :</h3>
+<form (ngSubmit)="onSubmit($event)">
+
+<button class="btn btn-primary pull-right" type="submit" >Cliquez ici pour consulter tout les teams</button>
+<button type="button" (click)="goMyTeam()" class="btn btn-default submitButton">Cliquez ici pour consulter votre team</button>
+</form>

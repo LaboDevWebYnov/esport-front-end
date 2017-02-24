@@ -57,7 +57,7 @@ export class Step3TeamComponent implements OnInit {
   onSubmit(event) {
     //console.log(event);
     console.log(this.playerAccountSelected);
-    this.playerAccount = event.target[1].value;
+    this.playerAccount = this.playerAccountSelected.key;
     console.log(this.playerAccount);
 
     //set when the form is submited
@@ -77,7 +77,7 @@ export class Step3TeamComponent implements OnInit {
 
     //register user
 
-    /*this.registerTeam(this.userId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
+    this.registerTeam(this.userId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
       if (status == 200) {
         this.status = status;
         this.errorMessage = errorMessage;
@@ -94,7 +94,7 @@ export class Step3TeamComponent implements OnInit {
         console.log(this.errorMessage);
         console.log(this.infoMessage);
       }
-    });*/
+    });
 
   };
   private registerTeam(userId: string, teamRegistered: CreateTeamObject,gameId: string, callback): any {
