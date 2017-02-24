@@ -9,10 +9,10 @@
   <div *ngIf="isActive">
     <div class="col-sm-6">
       <div *ngIf="playerAccount" class="form-group row ">
-        <input list="userDatalist" class="form-control" id="playerAccount" name="playerAccount" placeholder="Choississez votre player account" [(ngModel)]="PlayerAccount">
+        <input list="userDatalist"  class="form-control" id="playerAccount" name="playerAccount" placeholder="Choississez votre player account" >
         <datalist id="userDatalist">
-          <li *ngFor="let pl of playerAccount">
-            <option  value="{{pl._id}}">
+          <li *ngFor="let pl of tab">
+            <option  value="{{pl._id}}"    >{{pl.login}}</option>
           </li>
         </datalist>
         <input type="submit">

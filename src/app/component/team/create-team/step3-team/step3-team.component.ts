@@ -7,6 +7,7 @@ import {TeamService} from '../../../../../shared/services/team.service';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { PlayerAccountService } from '../../../../../shared/services/player-account.service';
 import {isBoolean} from "util";
+import {PlayerAccount} from "../../../../../shared/models/player-account";
 
 @Component({
   selector: 'app-step3-team',
@@ -32,11 +33,13 @@ export class Step3TeamComponent implements OnInit {
   constructor(private gameServiceInstance: GameService, private router: Router, localStorage: CoolLocalStorage, private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
     this.localStorage = localStorage
   }
-
+  tab;
   ngOnInit() {
     this.userId = this.localStorage.getItem('userId');
     this.gameId = this.localStorage.getItem('gameId');
-    this.getPlayerAccountByUserIdByGame(this.userId,this.gameId);
+    this.getPlayerAccountByUserIdByGame(this.userId,this.gameId, (error:any, data:PlayerAccount[]) => {
+      this.tab = data;
+    });
   }
 
 
@@ -45,7 +48,9 @@ export class Step3TeamComponent implements OnInit {
 
   onSubmit(event) {
     //console.log(event);
+    //console.log(document.getElementById("playerAccount"));
     this.playerAccount = event.target[1].value;
+    console.log(this.playerAccount);
 
     //set when the form is submited
     this.submitted = true;
@@ -90,7 +95,7 @@ export class Step3TeamComponent implements OnInit {
       .subscribe(
         data => this.response = data,
         error => {
-          console.log(error);
+          //console.log(error);
 
           callback(401, JSON.parse(error._body).error, null);
 
@@ -98,17 +103,21 @@ export class Step3TeamComponent implements OnInit {
         () => {
 
           console.log('register team complete');
+          console.log(this.response)
+          var team = JSON.parse(this.response["_body"]);
+          var teamId = team._id;
+          this.localStorage.setItem('teamId',teamId);
 
           callback(200, null, 'team registered !', this.response);
         }
       )};
-  private getPlayerAccountByUserIdByGame(UserId: string, GameId: string): void {
+  private getPlayerAccountByUserIdByGame(UserId: string, GameId: string, callback): void {
     this.playerAccountServiceInstance
       .GetPlayerAccountByUserIdByGame(UserId, GameId)
       .subscribe(
         data => this.playerAccount = data,
-        error => console.log(error),
-        () => {console.log('get player account by game and user id complete',this.playerAccount)}
+        error => {console.log(error),callback(error,null)},
+        () => {console.log('get player account by game and user id complete',this.playerAccount),callback(null,this.playerAccount)}
       );
   }
 
