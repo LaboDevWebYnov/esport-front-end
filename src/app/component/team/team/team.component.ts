@@ -44,6 +44,9 @@ export class TeamComponent implements OnInit {
     });
 
   }
+  detailedTeam(id){
+    this.router.navigate(['team/'+id ]);
+  }
 
   display(id:string):void {
     if (document.getElementById(id).style.maxHeight=="0px") {
