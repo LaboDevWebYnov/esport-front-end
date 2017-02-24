@@ -98,3 +98,37 @@ h1{
   transition:max-height 1s;
 }
 
+.notFound{
+  font-size: 25px;
+  font-family: "Rhanoll";
+  color: black;
+  text-align: center;
+}
+
+#notFound{
+  color: #1d1d1b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

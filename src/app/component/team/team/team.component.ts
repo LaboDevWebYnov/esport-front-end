@@ -12,6 +12,8 @@ import { Team } from "../../../../shared/models/team";
 })
 export class TeamComponent implements OnInit {
   private teams: Object;
+  private response: Object;
+  status = null;
 
   constructor(private teamServiceInstance: TeamService,private router: Router) { }
 
@@ -59,9 +61,17 @@ export class TeamComponent implements OnInit {
     this.teamServiceInstance
       .GetSingleTeamByName(name)
       .subscribe(
-        data => this.teams = data,
-        error => console.log(error),
-        () => {console.log('getSingleTeamByName', this.teams)}
+        data => {
+          this.teams = data;
+
+        },
+        error =>{
+          console.log(error);
+          this.status = 401;
+        },
+        () => {console.log('getSingleTeamByName', this.teams)
+
+        }
       );
 
   }

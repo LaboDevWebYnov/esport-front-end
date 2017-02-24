@@ -122,7 +122,6 @@ export class TestPlayerAccountServiceComponent implements OnInit {
     console.log('test update');
   }
 
-
   public onSelectPlayerAccount(id : string):void{
     console.log("Id " +id);
     this.getItemPlayerAccountById(id);
