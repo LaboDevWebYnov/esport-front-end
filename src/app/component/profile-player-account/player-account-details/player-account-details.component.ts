@@ -28,7 +28,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
   ngOnInit() {
     let id = this.localStorage.getItem('userId');
     this.gameId = this.route.snapshot.params['gameId'];
-    this.getPlayerAccountByUserID(id);
+    this.getPlayerAccountByUserID(id,this.gameId);
     console.log(this.gameId);
   }
 
@@ -52,13 +52,14 @@ export class PlayerAccountDetailsComponent implements OnInit {
   private displayWinRatioGraph(playerAccount:Object):any{
     let gamesProperties = [];
     let tabResponse = [];
+    console.log(playerAccount);
     for(let g=0;g in playerAccount;g++){
       gamesProperties[g] = playerAccount[g].properties
     }
 
     for(let r=0; r in playerAccount;r++){
       tabResponse[r] = [];
-      if(playerAccount[r].game._id == "569104a0417130681bcf1586"){//csgo
+      if(this.gameId == "569104a0417130681bcf1586"){//csgo
         tabResponse[r].push({
           propertyName : "total_matches_won",
           propertyToDisplay : "wins",
@@ -70,7 +71,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
+      if(this.gameId == "586f56f5b9fde402faa33fdc"){//lol
         tabResponse[r].push({
           propertyName : "wins",
           propertyToDisplay : "wins",
@@ -82,7 +83,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56bfb9fde402faa33fdb"){//Rocket League
+      if(this.gameId == "586f56bfb9fde402faa33fdb"){//Rocket League
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -94,7 +95,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 1
         });
       }
-      if(playerAccount[r].game._id == "583d85afe26ea010b06b801b"){//Overwatch
+      if(this.gameId == "583d85afe26ea010b06b801b"){//Overwatch
         tabResponse[r].push({
           propertyName : "wins",
           propertyToDisplay : "wins",
@@ -106,7 +107,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56587c2b7302f311eaa5"){//Dota 2
+      if(this.gameId == "586f56587c2b7302f311eaa5"){//Dota 2
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -135,6 +136,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
             }
             else{
               tabResponse[p][o].value = gamesProperties[p][i].value;
+              console.log(tabResponse[p][o])
             }
           }
         }
@@ -164,7 +166,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
 
     for(let r=0; r in playerAccount;r++){
       tabResponseStats[r] = [];
-      if(playerAccount[r].game._id == "569104a0417130681bcf1586"){//csgo
+      if(this.gameId == "569104a0417130681bcf1586"){//csgo
         tabResponseStats[r].push({
           propertyName : "total_kills",
           propertyToDisplay : "kills",
@@ -176,24 +178,14 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
+      if(this.gameId == "586f56f5b9fde402faa33fdc"){//lol
         tabResponseStats[r].push({
-          propertyName : "total_kills",
-          propertyToDisplay : "kills",
-          value : 0
-        });
-        tabResponseStats[r].push({
-          propertyName : "total_deaths",
-          propertyToDisplay : "deaths",
-          value : 0
-        });
-        tabResponseStats[r].push({
-          propertyName : "total_assists",
-          propertyToDisplay : "assists",
+          propertyName : "kda_season",
+          propertyToDisplay : "KDA",
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56bfb9fde402faa33fdb"){//Rocket League
+      if(this.gameId == "586f56bfb9fde402faa33fdb"){//Rocket League
         tabResponseStats[r].push({
           propertyName : "none",
           value : 1
@@ -203,7 +195,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 1
         });
       }
-      if(playerAccount[r].game._id == "583d85afe26ea010b06b801b"){//Overwatch
+      if(this.gameId == "583d85afe26ea010b06b801b"){//Overwatch
         tabResponseStats[r].push({
           propertyName : "wins",
           value : 0
@@ -213,7 +205,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56587c2b7302f311eaa5"){//Dota 2
+      if(this.gameId == "586f56587c2b7302f311eaa5"){//Dota 2
         tabResponseStats[r].push({
           propertyName : "none",
           value : 1
@@ -224,27 +216,40 @@ export class PlayerAccountDetailsComponent implements OnInit {
         });
       }
     }
-
+    console.log("gamesProperties",gamesProperties);
     for(let p=0; p in gamesProperties; p++){
       for(let i=0;i in gamesProperties[p];i++){
         for(let o=0;o in tabResponseStats[p];o++){
           if(gamesProperties[p][i].propertyName == tabResponseStats[p][o].propertyName){
             tabResponseStats[p][o].value = gamesProperties[p][i].value;
-
           }
         }
       }
     }
 
+    console.log("tabResponseStats : ",tabResponseStats);
     for(let h=0;h in playerAccount;h++){
       this.statsLabels[h] = [];
       this.statsData[h] = [];
 
       for(let z=0;z in tabResponseStats[h]; z++){
-        this.statsLabels[h].push(tabResponseStats[h][z].propertyToDisplay);
-        this.statsData[h].push(tabResponseStats[h][z].value);
+        if(tabResponseStats[h][z].propertyToDisplay == "KDA"){
+          this.statsLabels[h].push(tabResponseStats[h][z].value[0].propertyToDisplay);
+          this.statsData[h].push(tabResponseStats[h][z].value[0].value);
+          this.statsLabels[h].push(tabResponseStats[h][z].value[1].propertyToDisplay);
+          this.statsData[h].push(tabResponseStats[h][z].value[1].value);
+          this.statsLabels[h].push(tabResponseStats[h][z].value[2].propertyToDisplay);
+          this.statsData[h].push(tabResponseStats[h][z].value[2].value);
+        }
+        else{
+          this.statsLabels[h].push(tabResponseStats[h][z].propertyToDisplay);
+          this.statsData[h].push(tabResponseStats[h][z].value);
+        }
       }
     }
+
+    console.log(this.statsLabels);
+    console.log(this.statsData);
 
     this.isPropertyStatsLoaded = true;
   }
@@ -258,7 +263,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
 
     for(let r=0; r in playerAccount;r++){
       tabResponse[r] = [];
-      if(playerAccount[r].game._id == "569104a0417130681bcf1586"){//csgo
+      if(this.gameId == "569104a0417130681bcf1586"){//csgo
         tabResponse[r].push({
           propertyName : "total_rounds_played",
           propertyToDisplay : "rounds played",
@@ -270,7 +275,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
+      if(this.gameId == "586f56f5b9fde402faa33fdc"){//lol
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -287,7 +292,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56bfb9fde402faa33fdb"){//Rocket League
+      if(this.gameId == "586f56bfb9fde402faa33fdb"){//Rocket League
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -299,7 +304,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 1
         });
       }
-      if(playerAccount[r].game._id == "583d85afe26ea010b06b801b"){//Overwatch
+      if(this.gameId == "583d85afe26ea010b06b801b"){//Overwatch
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -311,7 +316,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
           value : 0
         });
       }
-      if(playerAccount[r].game._id == "586f56587c2b7302f311eaa5"){//Dota 2
+      if(this.gameId == "586f56587c2b7302f311eaa5"){//Dota 2
         tabResponse[r].push({
           propertyName : "none",
           propertyToDisplay : "none",
@@ -349,9 +354,9 @@ export class PlayerAccountDetailsComponent implements OnInit {
     this.isPropertyActivityLoaded = true;
   }
 
-  private getPlayerAccountByUserID(idUser:string):any {
+  private getPlayerAccountByUserID(idUser:string,gameId:string):any {
     this.playerAccountServiceInstance
-      .GetSinglePlayerAccountByUserId(idUser)
+      .GetPlayerAccountByUserIdByGame(idUser,gameId)
       .subscribe(
         data => this.playerAccountGetByUserId = data,
         error => console.log(error),
