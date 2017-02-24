@@ -64,11 +64,11 @@ export class TeamService {
 
     return this._http.put(this.actionUrl + "teams/" + teamId + "/addPlayer/"+playerAccount,{ headers: this.headers });
   };
-/*
-  public updateTeamName = (teamId: string, teamName: string): Observable<Response> => {
-    return this._http.put(this.actionUrl + "teams/" + teamId + "/updateTeam",{ headers: this.headers });
-  }*/
 
+  public updateTeamName = (teamId: string, maTeam: CreateTeamObject): Observable<Response> => {
+    let JsonBody = JSON.stringify(maTeam);
+    return this._http.put(this.actionUrl + "teams/" + teamId + "/updateTeam",JsonBody,{ headers: this.headers });
+  }
 
 
 

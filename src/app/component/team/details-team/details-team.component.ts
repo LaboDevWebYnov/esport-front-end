@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Configuration } from '../../../../shared/app.constants';
 import {TeamService} from "../../../../shared/services/team.service";
 import {PlayerAccountService} from "../../../../shared/services/player-account.service";
+import {Team} from "../../../../shared/models/team";
+import {CreateTeamObject} from "../../../../shared/models/utils/create-update-team-object";
 
 @Component({
   selector: 'app-details-team',
@@ -25,7 +27,7 @@ export class DetailsTeamComponent implements OnInit {
     this.getSingleTeamById("58ac0d539fd7680604b65add");
     //this.getSingleTeamByName("Djamel");
     //this.getAllTeams();
-    this.getPlayerById("58aaea1f1759e21314c0281e");
+    //this.getPlayerById("58aaea1f1759e21314c0281e");
   }
 
   private getSingleTeamById(id: string): void {
@@ -69,19 +71,43 @@ export class DetailsTeamComponent implements OnInit {
 
   }
 
-  public submitAddForm():void{
+  public submitAddForm(maTeam : Team):void{
     var teamId: string = (<HTMLInputElement>document.getElementById('teamId')).value;
     var playerAccountId:string = (<HTMLInputElement>document.getElementById('playerAccountId')).value;
-    this.addMember(teamId,playerAccountId);
-    console.log('test add Member');
+    var message = "";
+
+    for(var i = 0; i < maTeam.players.length; i++){
+      if(maTeam.players[i]._id == playerAccountId){
+        message = "0";
+      }else{
+        this.addMember(teamId,playerAccountId);
+        message = "1";
+        console.log('test add Member');
+      }
+    }
+
+    if(message == "0"){
+      alert('Le membre existe déjà !');
+    }else{
+      alert('Le membre a été ajouté !');
+    }
+
+
   }
 
- /* public submitUpdateTeamForm():void{
-    var teamId: string = (<HTMLInputElement>document.getElementById('teamId')).value;
-    var teamName:string = (<HTMLInputElement>document.getElementById('teamName')).value;
-    this.updatedTeamName(teamId,teamName);
+ public submitUpdateTeamForm(teamId : string, maTeam : Team):void{
+
+   var  updateTeam: CreateTeamObject = {
+     teamName:(<HTMLInputElement>document.getElementById('nvNom')).value,
+     teamTag:(<HTMLInputElement>document.getElementById('nvTag')).value,
+     teamCountry: null,
+     captainPlayerAccountId:(<HTMLInputElement>document.getElementById('nvCaptain')).value
+   };
+
+
+    this.updatedTeamName(teamId,updateTeam);
     console.log('test update team name');
-  }*/
+  }
 
 private addMember(teamid: string, playerAccountId: string) {
     this.teamServiceInstance
@@ -91,14 +117,19 @@ private addMember(teamid: string, playerAccountId: string) {
         error => console.log(error),
         () => console.log('Add member complete', this.member)
       );
-
   }
- /* private updatedTeamName(teamid: string, teamName: string) {
-        this.teamServiceInstance.updateTeamName(teamid, teamName).subscribe(
+
+ private updatedTeamName(teamId : string , maTeam : CreateTeamObject) {
+        this.teamServiceInstance.updateTeamName(teamId, maTeam).subscribe(
         data => this.updateTeam = data,
         error => console.log(error),
         () => console.log('Update Team Name complete', this.updateTeam)
       );
 
-  }*/
+  }
+
+  public onSelectPlayer(id : string):void{
+    console.log("Id " +id);
+    this.getPlayerById(id);
+  }
 }
