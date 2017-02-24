@@ -7,6 +7,9 @@
   margin-top:50px;
   text-align: center;
 }
+#link{
+  cursor: pointer;
+}
 #search{
   margin-bottom:25px;
   display: inline-flex;
