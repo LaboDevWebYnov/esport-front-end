@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../../../shared/services/team.service';
 import { UserService } from '../../../../shared/services/user.service';
+import { GameService } from '../../../../shared/services/game.service';
 import { Router }                  from '@angular/router';
 import { Configuration } from '../../../../shared/app.constants';
 import { Team } from "../../../../shared/models/team";
@@ -11,10 +12,11 @@ import { CoolLocalStorage } from "angular2-cool-storage";
   selector: 'app-team',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css'],
-  providers: [TeamService, Configuration, UserService]
+  providers: [TeamService, Configuration, UserService,GameService]
 })
 export class TeamComponent implements OnInit {
   private teams: Object;
+  private games: Object;
   status = null;
   public searchTeamTab;
   public myTeamTab;
@@ -22,12 +24,14 @@ export class TeamComponent implements OnInit {
 
   constructor(private teamServiceInstance: TeamService,
               private userServiceInstance: UserService,
+              private gameServiceInstance: GameService,
               localStorage: CoolLocalStorage,
               private router: Router) {
     this.localStorage = localStorage;
   }
 
   ngOnInit() {
+    this.getGames();
     var id = this.localStorage.getItem('userId');
     this.searchMyTeams(id, (status: number, error: any, dataTeam: Team[]) => {
       if (error) {
@@ -125,5 +129,14 @@ export class TeamComponent implements OnInit {
       );
   }
 
+  private getGames(): void {
+    this.gameServiceInstance
+      .GetAllGames()
+      .subscribe(
+        data => this.games = data,
+        error => console.log(error),
+        () => {/*console.log('get all games complete', this.games)*/}
+      );
+  }
 
 }

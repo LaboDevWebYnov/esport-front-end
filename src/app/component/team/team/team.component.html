@@ -1,4 +1,15 @@
 <div id="globalSearch">
+
+  <div *ngIf="games" class="form-group row ">
+    <li *ngFor="let game of games">
+      <input #selector type="checkbox" class="checkboxGame" name="{{game.name}}" id="{{game._id}}" (change)="selector.checked"/>
+      <label for="{{game._id}}">
+        <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+        <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+      </label>
+    </li>
+  </div>
+
   <div id="search">
     <div>
       <form (ngSubmit)="onSubmit($event)" id="searchBar">

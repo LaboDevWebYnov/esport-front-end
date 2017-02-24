@@ -196,9 +196,26 @@ h1{
 
 
 
+/*SELECT GAME*/
 
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:195px;
+  height:180px;
+  padding:15px 10px;
+  margin:0 auto;
+}
 
-
+li img{
+  max-height: 150px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
+}
 
 
 
