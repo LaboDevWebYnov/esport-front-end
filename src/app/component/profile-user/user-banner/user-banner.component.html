@@ -3,25 +3,17 @@
 </div>
 <div id="global">
 
-  <div id="hexagon-content">
+  <div id="avatar_username">
     <div id="avatar">
       <img src="../../../../assets/images/hexapic_profil.png">
     </div>
 
     <div *ngIf="userGetById" id="infoNameUser">
-      <h1 class="user_username">{{userGetById.username}}</h1>
-      <div id="provenance">
-        <!--<div>
-          <img src="../../../../assets/images/FrnchFlag.png" alt="FLAG" id="flag"/>
-        </div>-->
-        <div>
-          <h2>{{userGetById.lastname}}</h2>
-          <h3>{{userGetById.firstname}}</h3>
-        </div>
-        <!--<div>
-          <a href=""><img src="../../../../assets/images/pen.PNG" alt="PEN" id="pen"/></a>
-        </div>-->
-      </div>
+      <!--class="user_username"-->
+      <h1>{{userGetById.username}}</h1>
+      <!--id="provenance"-->
+      <h2>{{userGetById.lastname}}</h2>
+      <h3>{{userGetById.firstname}}</h3>
     </div>
   </div>
 
