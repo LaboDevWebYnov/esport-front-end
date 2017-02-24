@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../../../shared/services/team.service';
-import {Router}                  from '@angular/router';
+import { UserService } from '../../../../shared/services/user.service';
+import { Router }                  from '@angular/router';
 import { Configuration } from '../../../../shared/app.constants';
 import { Team } from "../../../../shared/models/team";
+import { User } from "../../../../shared/models/user";
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css'],
-  providers: [TeamService, Configuration]
+  providers: [TeamService, Configuration, UserService]
 })
 export class TeamComponent implements OnInit {
   private teams: Object;
-  private response: Object;
   status = null;
+  public searchTeamTab;
 
-  constructor(private teamServiceInstance: TeamService,private router: Router) { }
+  constructor(private teamServiceInstance: TeamService,
+              private userServiceInstance: UserService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -37,17 +41,29 @@ export class TeamComponent implements OnInit {
     // elmt.="rotate(0deg)";
     // elmt.style.webkitTransform="rotate(0deg)";
     // elmt.style.webkitTransform="rotate(0deg)";
-
     // -moz-transform: rotate(180deg);
     // -o-transform: rotate(180deg);
     // -ms-transform: rotate(180deg);
   }
+
   onCreate(){
     this.router.navigate(['team/create-team' ]);
   }
+
   onSubmit(event):void {
     console.log("Recherche : "+ event.target[0].value);
-    this.searchTeams(event.target[0].value);
+
+    this.searchTeams(event.target[0].value, (status: number, error: any, dataTeam: Team[]) => {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        this.searchTeamTab = dataTeam;
+
+        console.log('callback',dataTeam);
+        console.log('tab',this.searchTeamTab);
+      }
+    });
 
     var id ="listTeam";
     document.getElementById(id).style.maxHeight="0px";
@@ -57,22 +73,21 @@ export class TeamComponent implements OnInit {
     elmt.style.transform="rotate(180deg)";
   }
 
-  public searchTeams(name:string):void{
+  public searchTeams(name:string, callback):void{
     this.teamServiceInstance
-      .GetSingleTeamByName(name)
+      .GetTeamsByLikeName(name)
       .subscribe(
-        data => {
-          this.teams = data;
-
-        },
+        data =>  this.teams = data ,
         error =>{
           console.log(error);
+          callback(401, JSON.parse(error._body).error, null);
           this.status = 401;
         },
-        () => {console.log('getSingleTeamByName', this.teams)
-
+        () => {
+          callback(200, null, this.teams)
         }
       );
-
   }
+
+
 }

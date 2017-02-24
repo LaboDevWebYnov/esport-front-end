@@ -9,10 +9,10 @@
   <div *ngIf="isActive">
     <div class="col-sm-6">
       <div *ngIf="playerAccount" class="form-group row ">
-        <input list="userDatalist" class="form-control" id="playerAccount" name="playerAccount" placeholder="Choississez votre player account" [(ngModel)]="PlayerAccount">
+        <input list="userDatalist"  class="form-control" id="playerAccount" name="playerAccount" placeholder="Choississez votre player account" >
         <datalist id="userDatalist">
-          <li *ngFor="let pl of playerAccount">
-            <option  value="{{pl._id}}">
+          <li *ngFor="let pl of tab">
+            <option  value="{{pl._id}}"    >{{pl.login}}</option>
           </li>
         </datalist>
         <input type="submit">
@@ -46,4 +46,14 @@
 
   </div>
 </div>
+  <div id="auto">
+    <input
+      ng2-auto-complete
+      [(ngModel)]="playerAccountSelected"
+      [source]="arrayOfKeyValues"
+      [ngModelOptions]="{standalone: true}"
+      list-formatter="value"
+      placeholder="enter text"/>
+  </div>
+
 </form>

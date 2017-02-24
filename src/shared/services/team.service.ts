@@ -23,6 +23,21 @@ export class TeamService {
       .map(response => response.json());
   };
 
+  public GetTeamsByName = (Name: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + Name + "/getTeamsByName")
+      .map(response =>response.json());
+  };
+
+  public GetTeamsByLikeName = (Name: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + Name + "/getTeamsByLikeName")
+      .map(response =>response.json());
+  };
+
+  public GetTeamsByUserId = (id: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + id )
+      .map(response =>response.json());
+  };
+
   public GetSingleTeamById = (id: string): Observable<String> => {
     return this._http.get(this.actionUrl + "teams/" + id + "/getTeamById")
       .map(response =>response.json());
@@ -44,6 +59,10 @@ export class TeamService {
   public registerTeamMainInfo = (userId:string, Variable:CreateTeamObject, gameid : string): Observable<Response> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl + "teams/" + userId + "/addTeam/"+gameid,JsonBody,{ headers: this.headers });
+  };
+  public addPlayerAccountInTeam = (teamId : string, playerAccount:string ): Observable<Response> => {
+
+    return this._http.put(this.actionUrl + "teams/" + teamId + "/addPlayer/"+playerAccount,{ headers: this.headers });
   };
 
 
