@@ -1,10 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/Http';
+import {HttpModule} from '@angular/http';
 import {RouterModule}   from '@angular/router';
 import { CoolStorageModule } from 'angular2-cool-storage';
-
+import { ChartsModule } from 'ng2-charts';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 import {AppComponent} from './app.component';
 import {TestUserServiceComponent} from './component/test_service_component/test-user-service/test-user-service.component';
@@ -42,6 +43,10 @@ import { LogoutComponent } from './component/auth/logout/logout.component';
 import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
 import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
+import { ProfilePlayerAccountComponent } from './component/profile-player-account/profile-player-account.component';
+import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
+import { PlayerAccountDetailsComponent } from './component/profile-player-account/player-account-details/player-account-details.component';
+import { PlayerAccountHistoricComponent } from './component/profile-player-account/player-account-historic/player-account-historic.component';
 import { CreateTeamComponent } from './component/team/create-team/create-team.component';
 import { SelectTeamComponent } from './component/team/select-team/select-team.component';
 import { DetailsTeamComponent } from './component/team/details-team/details-team.component';
@@ -54,7 +59,6 @@ import { Step4TeamComponent } from './component/team/create-team/step4-team/step
 import { Step5TeamComponent } from './component/team/create-team/step5-team/step5-team.component';
 
 import { SearchTeamComponent } from './component/team/search-team/search-team.component';
-
 
 
 @NgModule({
@@ -96,36 +100,31 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
     TeamComponent,
-
+    ProfilePlayerAccountComponent,
+    PlayerAccountBannerComponent,
+    PlayerAccountDetailsComponent,
+    PlayerAccountHistoricComponent,
 
     CreateTeamComponent,
-
     Step1Component,
-
     Step1TeamComponent,
-
     Step2TeamComponent,
-
     Step3TeamComponent,
-
     CreateTeamComponent,
     SelectTeamComponent,
     DetailsTeamComponent,
-
     Step4TeamComponent,
     Step5TeamComponent,
-
     SearchTeamComponent
-
-
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    Ng2AutoCompleteModule,
     ReactiveFormsModule,
     CoolStorageModule,
+    ChartsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -170,11 +169,6 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
       {
         path: 'events',
         component: EventsComponent
-      },
-      /*ROUTE DE TEST POUR LES SERVICES*/
-      {
-        path: 'users',
-        component: TestUserServiceComponent
       },
       {
         path: 'profile',
@@ -225,20 +219,12 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
         component: LogoutComponent
       },
       {
-        path: 'player-account',
-        component: TestPlayerAccountServiceComponent
-      },
-      {
-        path: 'game',
-        component: TestGameServiceComponent
+        path: 'player-account/:gameId',
+        component: ProfilePlayerAccountComponent
       },
       {
         path: 'details-team',
         component: DetailsTeamComponent
-      },
-      {
-        path: 'address',
-        component: TestAddressServiceComponent
       }
     ])
   ],

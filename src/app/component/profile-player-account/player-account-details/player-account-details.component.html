@@ -1,0 +1,77 @@
+<div class="globalDetails">
+  <table class="Details" style="width:100%">
+    <tr>
+      <td rowspan="6" class="imgDetails">
+        <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{gameId}}.png" alt="" >
+      </td>
+    </tr>
+    <tr>
+      <td>Nom Compte</td>
+      <td>Heure de jeux</td>
+      <td>Dernière connexion</td>
+    </tr>
+    <tr>
+      <td colspan="3"><app-blue-separation-bar-small></app-blue-separation-bar-small></td>
+    </tr>
+    <tr>
+      <td>Niveau</td>
+      <td>Ratio global</td>
+      <td>Badges</td>
+    </tr>
+    <tr>
+      <td colspan="3"><app-blue-separation-bar-small></app-blue-separation-bar-small></td>
+    </tr>
+
+    <tr>
+      <td>
+        Win %
+        <div style="display: block">
+          <canvas baseChart
+                  [data]="RatioData"
+                  [labels]="RatioLabels"
+                  [chartType]="RatioChartType"
+                  [legend]="false"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </td>
+      <td>
+        Nb kills
+        <div style="display: block">
+          <canvas baseChart
+                  [data]="statsData"
+                  [labels]="statsLabels"
+                  [chartType]="statsChartType"
+                  [legend]="false"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </td>
+      <td>
+        Activités
+        <div style="display: block">
+          <canvas baseChart
+                  [data]="activityData"
+                  [labels]="activityLabels"
+                  [chartType]="activityChartType"
+                  [legend]="false"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+</div>
+
+
+<!--<tr>
+  <td rowspan="2">
+  </td>
+</tr>
+
+<div class="section">
+  <svg width="160" height="160" class="graph">
+    <circle r="50" cx="80" cy="80"/>
+  </svg>
+</div>-->

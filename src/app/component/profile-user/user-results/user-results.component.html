@@ -2,41 +2,24 @@
 
   <h1>MES <font style="color:#0071bc;">RESULTATS</font></h1>
   <div id="allsection">
-    <div class="section">
-      <svg width="160" height="160" class="graph">
-        <circle r="50" cx="80" cy="80"/>
-      </svg>
-      <h2><a href="">CS : GO</a></h2>
-    </div>
-
-    <div class="section">
-      <svg width="160" height="160" class="graph">
-        <circle r="50" cx="80" cy="80"/>
-      </svg>
-      <h2><a href="">Rocket League</a></h2>
-    </div>
-
-    <div class="section">
-      <svg width="160" height="160" class="graph">
-        <circle r="50" cx="80" cy="80"/>
-      </svg>
-      <h2><a href="">League Of Legend</a></h2>
-    </div>
-
-    <div class="section">
-      <svg width="160" height="160" class="graph">
-        <circle r="50" cx="80" cy="80"/>
-      </svg>
-      <h2><a href="">DOTA 2</a></h2>
-    </div>
-    <div class="section">
-      <svg width="160" height="160" class="graph">
-        <circle r="50" cx="80" cy="80"/>
-      </svg>
-      <h2><a href="">OverWatch</a></h2>
+    <div *ngIf="userGames" id="gameResult">
+      <ul>
+        <li *ngFor="let game of userGames">
+          <div style="display: block">
+            <canvas baseChart
+                    [data]="RatioData"
+                    [labels]="RatioLabels"
+                    [chartType]="RatioChartType"
+                    [legend]="false"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+          <h2><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
-
+  <!--<a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>-->
 </div>

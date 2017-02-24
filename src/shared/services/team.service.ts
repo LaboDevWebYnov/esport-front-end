@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers} from '@angular/Http';
+import {Http, Response, Headers} from '@angular/http';
 import {Configuration} from "../app.constants";
 import {Observable} from "rxjs";
 import {Team} from "../models/team";
@@ -21,6 +21,21 @@ export class TeamService {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'teams/')
       .map(response => response.json());
+  };
+
+  public GetTeamsByName = (Name: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + Name + "/getTeamsByName")
+      .map(response =>response.json());
+  };
+
+  public GetTeamsByLikeName = (Name: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + Name + "/getTeamsByLikeName")
+      .map(response =>response.json());
+  };
+
+  public GetTeamsByUserId = (id: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/" + id )
+      .map(response =>response.json());
   };
 
   public GetSingleTeamById = (id: string): Observable<String> => {

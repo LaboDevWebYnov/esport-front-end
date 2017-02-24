@@ -1,6 +1,5 @@
 import { GameService } from '../../../../shared/services/game.service';
 import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers} from '@angular/Http';
 import {Configuration} from "../../../../shared/app.constants";
 import {Game} from "../../../../shared/models/game";
 

@@ -1,0 +1,27 @@
+* {
+  font-family: Rhanoll;
+}
+.globalDetails {
+  margin-top: 1em !important;
+  padding-left: 30%;
+  padding-right: 30%
+}
+
+img {
+  max-height: 100px;
+  margin-top: -5em;
+}
+
+td {
+  text-align: center;
+  color: white;
+}
+
+.imgDetails {
+
+}
+
+canvas {
+  width: 100px !important;
+  height: 50px !important;
+}

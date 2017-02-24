@@ -3,27 +3,17 @@
 </div>
 <div id="global">
 
-  <div id="hexagon-content">
-    <div class="hexagon hexagon1">
-      <div class="hexagon-in1">
-        <div class="hexagon-in2"></div>
-      </div>
+  <div id="avatar_username">
+    <div id="avatar">
+      <img src="../../../../assets/images/hexapic_profil.png">
     </div>
 
     <div *ngIf="userGetById" id="infoNameUser">
-      <h1 class="user_username">{{userGetById.username}}</h1>
-      <div id="provenance">
-        <!--<div>
-          <img src="../../../../assets/images/FrnchFlag.png" alt="FLAG" id="flag"/>
-        </div>-->
-        <div>
-          <h2>{{userGetById.lastname}}</h2>
-          <h3>{{userGetById.firstname}}</h3>
-        </div>
-        <!--<div>
-          <a href=""><img src="../../../../assets/images/pen.PNG" alt="PEN" id="pen"/></a>
-        </div>-->
-      </div>
+      <!--class="user_username"-->
+      <h1>{{userGetById.username}}</h1>
+      <!--id="provenance"-->
+      <h2>{{userGetById.lastname}}</h2>
+      <h3>{{userGetById.firstname}}</h3>
     </div>
   </div>
 
@@ -31,7 +21,7 @@
     <tr>
       <td><a (click)="openModal()"><img src="../../../../assets/images/logo-profil1.png"/></a></td>
       <td><a href="/profile"><img src="../../../../assets/images/logo-profil2.png"/></a></td>
-      <td><a href="/profile"><img src="../../../../assets/images/logo-profil3.png"/></a></td>
+      <td><a href="/team/create-team"><img src="../../../../assets/images/logo-profil3.png"/></a></td>
     </tr>
     <tr id="titleTable">
       <td><a (click)="openModal()">MODIFIER PROFIL</a></td>
@@ -115,38 +105,134 @@
     <form>
       <div id="content-address">
         <h2>Gestion des adresses</h2>
-        <ul *ngFor="let address of addressApiJson;let i = index;" class="col-md-6">
-
-            <li *ngIf="address.active" id="address{{i}}">
+        <!-- ADRESSE 1 -->
+        <ul class="col-md-6" *ngIf="addressTab[0].line !== ''">
+            <li *ngIf="addressTab[0].active" id="addressApiJsonUpd0">
 
               <h2>
-                Address {{i+1}}
-                <span class="icons" (click)="deleteAddress(address._id,i)" title="Supprimer cette adresse"><i class="fa fa-times icons" aria-hidden="true"></i></span>
-                <span class="icons" (click)="unlockAddress(i)" id="pencil{{i}}" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
-                <span class="icons displayNone" (click)="updateAddress(i,address._id)" id="check{{i}}" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
+                Adresse principale
+                <!--<span class="icons" (click)="deleteAddress(addressApiJson[0]._id,0)" title="Supprimer cette adresse"><i class="fa fa-times icons" aria-hidden="true"></i></span>-->
+                <span class="icons" (click)="unlockUpdAddress(0)" id="pencilUpd0" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
+                <span class="icons displayNone" (click)="updateAddress(0,addressTab[0]._id)" id="checkUpd0" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
               </h2>
 
               <div class="size1" >
                 <label>Rue :</label>
-                <input type="text" value="{{address.line}}"  id="inputLine{{i}}" disabled>
+                <input type="text" value="{{addressTab[0].line}}"  id="inputLineUpd0" disabled>
               </div>
 
               <div class="size2" >
                 <label>Ville :</label>
-                <input type="text" value="{{address.city}}" id="inputCity{{i}}" disabled>
+                <input type="text" value="{{addressTab[0].city}}" id="inputCityUpd0" disabled>
               </div>
 
               <div class="size2">
                 <label>Pays :</label>
-                <input type="text" value="{{address.country}}" id="inputCountry{{i}}" disabled>
+                <input type="text" value="{{addressTab[0].country}}" id="inputCountryUpd0" disabled>
               </div>
 
               <div class="size3alone">
                 <label>PostCode :</label>
-                <input type="text" value="{{address.postCode}}" id="inputPostCode{{i}}" disabled>
+                <input type="text" value="{{addressTab[0].postCode}}" id="inputPostCodeUpd0" disabled>
               </div>
 
             </li>
+        </ul>
+        <ul class="col-md-6" *ngIf="addressTab[0].line === ''">
+          <li id="addressApiJsonAdd0">
+
+            <h2>
+              Adresse principale
+              <span class="icons" (click)="unlockAddAddress(0)" id="pencilAdd0" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
+              <span class="icons displayNone" (click)="addAddress(0)" id="checkAdd0" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
+            </h2>
+
+            <div class="size1" >
+              <label>Rue :</label>
+              <input type="text" value=""  id="inputAddLine0" disabled>
+            </div>
+
+            <div class="size2" >
+              <label>Ville :</label>
+              <input type="text" id="inputAddCity0" disabled>
+            </div>
+
+            <div class="size2">
+              <label>Pays :</label>
+              <input type="text"  id="inputAddCountry0" disabled>
+            </div>
+
+            <div class="size3alone">
+              <label>PostCode :</label>
+              <input type="text"  id="inputAddPostCode0" disabled>
+            </div>
+
+          </li>
+        </ul>
+        <!--ADRESSE 2 -->
+        <ul class="col-md-6" *ngIf="addressTab[1].line !== ''">
+            <li *ngIf="addressTab[1].active" id="addressApiJsonUpd1">
+
+              <h2>
+                Adresse secondaire
+                <!--<span class="icons" (click)="deleteAddress(addressApiJson[1]._id,1)" title="Supprimer cette adresse"><i class="fa fa-times icons" aria-hidden="true"></i></span>-->
+                <span class="icons" (click)="unlockUpdAddress(1)" id="pencilUpd1" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
+                <span class="icons displayNone" (click)="updateAddress(1,addressTab[1]._id)" id="checkUpd1" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
+              </h2>
+
+              <div class="size1" >
+                <label>Rue :</label>
+                <input type="text" value="{{addressTab[1].line}}"  id="inputLineUpd1" disabled>
+              </div>
+
+              <div class="size2" >
+                <label>Ville :</label>
+                <input type="text" value="{{addressTab[1].city}}" id="inputCityUpd1" disabled>
+              </div>
+
+              <div class="size2">
+                <label>Pays :</label>
+                <input type="text" value="{{addressTab[1].country}}" id="inputCountryUpd1" disabled>
+              </div>
+
+              <div class="size3alone">
+                <label>PostCode :</label>
+                <input type="text" value="{{addressTab[1].postCode}}" id="inputPostCodeUpd1" disabled>
+              </div>
+
+            </li>
+        </ul>
+        <ul class="col-md-6" *ngIf="addressTab[1].line === ''">
+          <li id="addressAddApiJsonAdd1">
+
+            <h2>
+              Adresse secondaire
+              <!--<span class="icons" (click)="deleteAddress(addressApiJson[1]._id,1)" title="Supprimer cette adresse"><i class="fa fa-times icons" aria-hidden="true"></i></span>-->
+              <span class="icons" (click)="unlockAddAddress(1)" id="pencilAdd1" title="Modifier cette adresse"><i class="fa fa-pencil icons" aria-hidden="true"></i></span>
+              <span class="icons displayNone" (click)="addAddress(1)" id="checkAdd1" title="Enregistrer les modifications"><i class="fa fa-check icons" aria-hidden="true"></i></span>
+            </h2>
+
+            <div class="size1" >
+              <label>Rue :</label>
+              <input type="text" id="inputAddLine1" disabled>
+            </div>
+
+            <div class="size2" >
+              <label>Ville :</label>
+              <input type="text" id="inputAddCity1" disabled>
+            </div>
+
+            <div class="size2">
+              <label>Pays :</label>
+              <input type="text" id="inputAddCountry1" disabled>
+            </div>
+
+            <div class="size3alone">
+              <label>PostCode :</label>
+              <input type="text" id="inputAddPostCode1" disabled>
+            </div>
+
+          </li>
         </ul>
       </div>
     <button class="myButton" (click)="closeModal()">ANNULER</button>

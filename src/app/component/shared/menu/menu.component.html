@@ -6,7 +6,7 @@
     <!--<li class="menu_letter "><a routerLink="/signup/step0">Sign Up</a></li>-->
     <li *ngIf="isConnectedMenu != 'true'" class="menu_letter"><a routerLink="/auth">Log In / Sign Up</a></li>
     <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/logout">Log Out</a></li>
-    <li class="menu_letter"><a routerLink="/team">Team</a></li>
+    <li *ngIf="isConnectedMenu == 'true'" class="menu_letter"><a routerLink="/team">Team</a></li>
     <li class="menu_letter"><a routerLink="/streamings">Streaming</a></li>
     <li class="menu_letter"><a routerLink="/events">Evenements</a></li>
     <li class="menu_letter"><a routerLink="/news">Actualite</a></li>

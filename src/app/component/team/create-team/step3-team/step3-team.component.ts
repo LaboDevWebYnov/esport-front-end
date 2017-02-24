@@ -30,14 +30,22 @@ export class Step3TeamComponent implements OnInit {
   public errorMessage: string;
   public infoMessage: string;
   private games: Object;
+  public tab;
+  public arrayOfKeyValues = [];
+  public playerAccountSelected: any;
+
   constructor(private gameServiceInstance: GameService, private router: Router, localStorage: CoolLocalStorage, private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
     this.localStorage = localStorage
   }
-  tab;
+
   ngOnInit() {
     this.userId = this.localStorage.getItem('userId');
     this.gameId = this.localStorage.getItem('gameId');
     this.getPlayerAccountByUserIdByGame(this.userId,this.gameId, (error:any, data:PlayerAccount[]) => {
+      for(let i=0;i<data.length;i++)
+      {
+        this.arrayOfKeyValues.push({key: data[i]._id, value: data[i].login});
+      }
       this.tab = data;
     });
   }
@@ -48,7 +56,7 @@ export class Step3TeamComponent implements OnInit {
 
   onSubmit(event) {
     //console.log(event);
-    //console.log(document.getElementById("playerAccount"));
+    console.log(this.playerAccountSelected);
     this.playerAccount = event.target[1].value;
     console.log(this.playerAccount);
 
@@ -69,7 +77,7 @@ export class Step3TeamComponent implements OnInit {
 
     //register user
 
-    this.registerTeam(this.userId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
+    /*this.registerTeam(this.userId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
       if (status == 200) {
         this.status = status;
         this.errorMessage = errorMessage;
@@ -86,7 +94,7 @@ export class Step3TeamComponent implements OnInit {
         console.log(this.errorMessage);
         console.log(this.infoMessage);
       }
-    });
+    });*/
 
   };
   private registerTeam(userId: string, teamRegistered: CreateTeamObject,gameId: string, callback): any {
