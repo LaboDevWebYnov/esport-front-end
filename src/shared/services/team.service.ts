@@ -45,6 +45,10 @@ export class TeamService {
     let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl + "teams/" + userId + "/addTeam/"+gameid,JsonBody,{ headers: this.headers });
   };
+  public addPlayerAccountInTeam = (teamId : string, playerAccount:string ): Observable<Response> => {
+
+    return this._http.put(this.actionUrl + "teams/" + teamId + "/addPlayer/"+playerAccount,{ headers: this.headers });
+  };
 
 
 

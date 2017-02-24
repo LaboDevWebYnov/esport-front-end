@@ -1,14 +1,30 @@
-<form id="searchBar">
-  <input id="insideBar" type="text" placeholder="Rechercher un équipe">
-  <input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">
-</form>
+<!--<form id="searchBar">-->
+  <!--<input id="insideBar" type="text" placeholder="Rechercher une équipe">-->
+  <!--<input id="searchIcon" type="image" src="../../../../assets/images/Ppicto_recherche.png">-->
+<!--</form>-->
+<div id="globalSearch">
+<div id="search">
+  <div>
+    <form (ngSubmit)="onSubmit($event)" id="searchBar">
+      <input id="insideBar" type="text" placeholder="Rechercher une équipe">
+    </form>
+  </div>
+  <div>
+    <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+  </div>
+  <div id="createTeam">
+    <img (click)="onCreate($event)" src="../../../../assets/images/picto_creer_team_sansdescrp.png"/>
+  </div>
+</div>
+</div>
+
 <div>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-8" (click)="display('listTeam')">
       <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
-      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      <img id="listTeamArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
     </div>
     <div class="col-xs-2"></div>
   </div>
@@ -20,21 +36,20 @@
     <div class="col-xs-1"></div>
   </div>
   <div id="listTeam">
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
-  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
   <div class="row">
     <div class="col-xs-2"></div>
+
     <div class="col-xs-8" (click)="display('listTeamSearch')">
       <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
-      <img class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      <img id="listTeamSearchArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
     </div>
+
     <div class="col-xs-2"></div>
   </div>
+
   <div class="row">
     <div class="col-xs-1"></div>
     <div class="col-xs-10">
@@ -42,10 +57,44 @@
     </div>
     <div class="col-xs-1"></div>
   </div>
-  <div id="listTeamSearch">
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
-    <app-select-team></app-select-team>
+
+  //Modif
+  <div *ngIf="status == 401" class="alert alert-danger notFound">
+    <strong id="notFound">Pas de Résultats</strong> {{errorMessage}}
   </div>
+
+  <!--<div id="listTeamSearch">-->
+  <div id="listTeamSearch" *ngIf="teams" class="form-group row ">
+    <h2>Il y a quelque chose.</h2>
+    <ul>
+
+      <div class="col-md-6 global">
+        <div class="hexagon hexagon1">
+          <div class="hexagon-in1">
+            <div class="hexagon-in2"></div>
+          </div>
+        </div>
+
+        <div class="infoTeam">
+          <div class="nameGame">
+            {{teams.game}}
+          </div>
+          <div>
+            <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
+            <h1><a href=""> {{teams.name}} - [{{teams.tag}}]</a></h1>
+          </div>
+          <div>
+            <h2><font style="color:gray;font-size: 25px;">Capitaine : </font><a href="">{{teams.captain.user.username}}</a></h2>
+          </div>
+          <div>
+            <h2><font style="color:gray;font-size: 25px;">Rang :</font> Master Zbra <font style="color:gray;font-size: 25px;margin-left:100px;">Membres :</font> 4</h2>
+          </div>
+        </div>
+      </div>
+
+
+    </ul>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  </div>
+  <!--</div>-->
 </div>

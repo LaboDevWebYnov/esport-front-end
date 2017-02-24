@@ -38,7 +38,7 @@ export class PlayerAccountService {
       .map(response =>response.json());
   };
   public GetPlayerAccountByUserIdByGame = (UserId: string, GameId: string): Observable<String> => {
-    return this._http.get(this.actionUrl + "playerAccounts/" + UserId + "/game"+ GameId)
+    return this._http.get(this.actionUrl + "playerAccounts/" + UserId + "/game/"+ GameId)
       .map(response =>response.json());
   };
 
