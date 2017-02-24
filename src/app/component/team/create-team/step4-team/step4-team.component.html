@@ -1,20 +1,28 @@
 <form (ngSubmit)="onSubmit($event)"   class="form-inline">
 <div class="form-group row">
-
+  <div *ngIf="status == true" class="alert alert-success" style="font-size:x-large;color:black;">
+    <strong>Succes!</strong>  L'ajout de votre joueur à été valider
+  </div>
 
 
   <div class="col-sm-6">
 
-    <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Invittez vos amis dans votre équipe">
-    <button class="btn btn-primary pull-right" (click)="onClicked($event)" type="submit" >Envoie du sale</button>
 
+    <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Invittez vos amis dans votre équipe">
+    <input  class="form-control" id="role" name="playerAccount" placeholder="Role du player">
+    <button class="btn btn-primary pull-right" (click)="onClicked($event)" type="submit" >Ajouter ce joueur à l'équipe</button>
 
   </div>
 
 
 
 </div>
+<div class="form-group row">
 
+  <li *ngFor="let players of player">
+    <ul>{{players.name}}</ul>
+  </li>
+</div>
 
 
 <div class="form-group row">

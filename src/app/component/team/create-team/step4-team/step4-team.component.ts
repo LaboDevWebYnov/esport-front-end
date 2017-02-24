@@ -5,6 +5,8 @@ import { CoolLocalStorage } from 'angular2-cool-storage';
 import {TeamService} from '../../../../../shared/services/team.service';
 import { PlayerAccountService } from '../../../../../shared/services/player-account.service';
 import {PlayerAccount} from "../../../../../shared/models/player-account";
+import {Team} from "../../../../../shared/models/team";
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-step4-team',
@@ -17,28 +19,37 @@ export class Step4TeamComponent implements OnInit {
   private playerAccountId: string;
   private playerAccountGetByLogin: Object;
   private response: Object;
+  private status: boolean;
+
   private teamId: string;
   localStorage: CoolLocalStorage;
-  constructor(private userServiceInstance: UserService, localStorage: CoolLocalStorage,private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
+  constructor(private router: Router, private userServiceInstance: UserService, localStorage: CoolLocalStorage,private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
     this.localStorage = localStorage
   }
 
   ngOnInit() {
 
   }
+  tab;
   onClicked(event){
+    this.status = false;
     //console.log(event);
     this.playerAccountName = (<HTMLInputElement>document.getElementById("playerAccount")).value;
     //console.log(this.playerAccountName);
 
       this.getItemPlayerAccountByLogin(this.playerAccountName, (playerAccount: Object) => {
 
-        console.log(playerAccount);
-        this.playerAccountId = playerAccount[0]["_id"];
+        //console.log(playerAccount["_id"]);
+        this.playerAccountId = playerAccount["_id"];
         console.log(this.playerAccountId);
         this.teamId = this.localStorage.getItem("teamId");
         console.log("team id" + this.teamId);
         this.addPlayerAccountInTeam(this.teamId, this.playerAccountId);
+        {
+
+          this.status = true;
+        };
+
 
       });
 
@@ -47,7 +58,7 @@ export class Step4TeamComponent implements OnInit {
 
   }
   onSubmit(event) {
-
+    this.router.navigate(['team/create-team/step5-team']);
   }
   private getItemPlayerAccountByLogin(Login : string, callback): void {
     this.playerAccountServiceInstance
@@ -67,11 +78,12 @@ export class Step4TeamComponent implements OnInit {
   }
 
 
+
   private addPlayerAccountInTeam(TeamId: string, PlayerAccount: string): any {
     this.teamServiceInstance
       .addPlayerAccountInTeam(TeamId, PlayerAccount)
       .subscribe(
-
+        data => this.response = data,
         error => console.log(error),
         () => {console.log('add is complete',this.playerAccountId)}
 
