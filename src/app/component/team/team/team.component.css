@@ -201,14 +201,14 @@ h1{
 li{
   list-style-type: none;
   display: inline-block;
-  width:195px;
-  height:180px;
+  width:150px;
+  height:150px;
   padding:15px 10px;
   margin:0 auto;
 }
 
 li img{
-  max-height: 150px;
+  max-height: 100px;
 }
 li img:hover{
   cursor:pointer;

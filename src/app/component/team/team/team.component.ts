@@ -21,6 +21,7 @@ export class TeamComponent implements OnInit {
   public searchTeamTab;
   public myTeamTab;
   localStorage : CoolLocalStorage;
+  public isFilteredGameId: any;
 
   constructor(private teamServiceInstance: TeamService,
               private userServiceInstance: UserService,
@@ -90,6 +91,10 @@ export class TeamComponent implements OnInit {
     var elmt = document.getElementById(id);
     elmt.style.webkitTransform="rotate(180deg)";
     elmt.style.transform="rotate(180deg)";
+  }
+  public checkFilter(gameIdFiltered: string)
+  {
+    this.isFilteredGameId = gameIdFiltered;
   }
 
   public searchTeams(name:string, callback):void{
