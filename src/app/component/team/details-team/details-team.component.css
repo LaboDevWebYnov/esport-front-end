@@ -8,7 +8,7 @@
   border-bottom: 2px solid royalblue;
   margin-bottom: 30px;
   width: 250px;
-  text-align: center;
+  text-align: left;
   margin-left: 40%;
   margin-top: 10px;
   background : url('/../../../../assets/images/degrade_title.png');
@@ -69,7 +69,11 @@ h2{
   left: 100px;
   background-repeat: no-repeat ;
   background-position: 50%;
+<<<<<<< HEAD
+  background-color: royalblue;
+=======
   background-color: black;
+>>>>>>> 0724a7429042f34a83b7013265ad6f7d013983b6
   /*background-image: url("../../../../assets/images/LOGO_ESPORT_2.png");*/
   background-size:100%;
   visibility: visible;
@@ -111,6 +115,10 @@ h2{
   float:left;
   width: 35%;
   height:100%;
+<<<<<<< HEAD
+  background-color: #1A1A1A;
+=======
+>>>>>>> 0724a7429042f34a83b7013265ad6f7d013983b6
   min-height : 700px;
   background-color: #1A1A1A;
 }
@@ -133,6 +141,10 @@ h2{
   float:left;
   width:65%;
   height: 100%;
+<<<<<<< HEAD
+  background-color: #1A1A1A;
+=======
+>>>>>>> 0724a7429042f34a83b7013265ad6f7d013983b6
   min-height : 700px;
   background-color: #1A1A1A;
 }
@@ -161,6 +173,7 @@ h2{
 .home{
   margin-left: 20px;
 }
+
 .title {
   text-align: center;
   height: 100%;
@@ -212,15 +225,30 @@ a.onglet.active{color: royalblue;
 
 .tab-content{
   padding-left:30px;
+<<<<<<< HEAD
+  background-color: #1A1A1A;
+
+=======
+>>>>>>> 0724a7429042f34a83b7013265ad6f7d013983b6
   background-color: #1A1A1A;
 }
 
 .tab-pane.active{
+<<<<<<< HEAD
+  background-color: #1A1A1A;
+  min-height : 500px;
+}
+
+.tab-pane.active{
+  background-color: #1A1A1A;
+}
+=======
   /*background-color: #1A1A1A;*/
   background-color: #3E3E3D;
   min-height : 500px;
 }
 
+>>>>>>> 0724a7429042f34a83b7013265ad6f7d013983b6
 
 footer{
   position:relative;
