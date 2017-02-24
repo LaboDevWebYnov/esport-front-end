@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers} from '@angular/Http';
+import {Http, Response, Headers} from '@angular/http';
 import {Configuration} from "../app.constants";
 import {Observable} from "rxjs";
 import {Game} from "../models/game";

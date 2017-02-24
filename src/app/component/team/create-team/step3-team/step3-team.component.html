@@ -46,4 +46,14 @@
 
   </div>
 </div>
+  <div id="auto">
+    <input
+      ng2-auto-complete
+      [(ngModel)]="playerAccountSelected"
+      [source]="arrayOfKeyValues"
+      [ngModelOptions]="{standalone: true}"
+      list-formatter="value"
+      placeholder="enter text"/>
+  </div>
+
 </form>
