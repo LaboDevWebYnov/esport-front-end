@@ -1,4 +1,4 @@
-{
+*{
   font-family: Rhanoll;
   font-size: 16pt;
   color:white;
@@ -8,7 +8,7 @@
   border-bottom: 2px solid royalblue;
   margin-bottom: 30px;
   width: 250px;
-  text-align: center;
+  text-align: left;
   margin-left: 40%;
   margin-top: 10px;
   background : url('/../../../../assets/images/degrade_title.png');
@@ -68,7 +68,7 @@ h2{
   height: 100%;
   background-repeat: no-repeat ;
   background-position: 50%;
-  background-color: red;
+  background-color: royalblue;
   /*background-image: url("../../../../assets/images/LOGO_ESPORT_2.png");*/
   background-size:100%;
   visibility: visible;
@@ -111,14 +111,9 @@ h2{
   width: 35%;
   min-height: 700px;
   height:100%;
-<<<<<<< HEAD
   background-color: #1A1A1A;
-=======
-
   min-height : 700px;
   background-color: #1A1A1A;
-
->>>>>>> 1681d8360140bcb41df954e6dd78ea42c5abe578
 }
 
 .navGauche{
@@ -140,14 +135,9 @@ h2{
   width:65%;
   min-height: 700px;
   height: 100%;
-<<<<<<< HEAD
   background-color: #1A1A1A;
-=======
-
   min-height : 700px;
   background-color: #1A1A1A;
-
->>>>>>> 1681d8360140bcb41df954e6dd78ea42c5abe578
 }
 
 .footer{
@@ -174,6 +164,7 @@ h2{
 .home{
   margin-left: 20px;
 }
+
 .title {
   text-align: center;
   height: 100%;
@@ -219,37 +210,24 @@ a.onglet.active{color: royalblue;
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background-color: royalblue;
-
   color:white;
-
-
 }
 
 
 .tab-content{
   padding-left:30px;
-<<<<<<< HEAD
   background-color: #1A1A1A;
-=======
 
   background-color: #1A1A1A;
 }
 
 .tab-pane.active{
   background-color: #1A1A1A;
-
-  background-color: #3E3E3D;
->>>>>>> 1681d8360140bcb41df954e6dd78ea42c5abe578
   min-height : 500px;
 }
 
 .tab-pane.active{
-<<<<<<< HEAD
   background-color: #1A1A1A;
-=======
-  background-color: #3E3E3D;
-
->>>>>>> 1681d8360140bcb41df954e6dd78ea42c5abe578
 }
 
 footer{
@@ -278,4 +256,3 @@ footer{
   border-radius: 5%;
   margin: 1%;
 }
-
