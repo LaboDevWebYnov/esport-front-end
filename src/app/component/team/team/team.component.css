@@ -4,6 +4,7 @@
   src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
 }
 #globalSearch{
+  overflow-x: hidden;
   margin-top:50px;
   text-align: center;
 }

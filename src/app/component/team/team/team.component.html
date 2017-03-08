@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div>
+<div style="overflow-x: hidden;">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <div class="row">
     <div class="col-xs-2"></div>
@@ -66,7 +66,7 @@
           {{team.game.name}}
         </div>
         <div>
-          <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
+          <img class="logoCountry" src="../../../../assets/images/{{team.country}}.png"/>
           <h1><a href="team/{{team._id}}"> {{team.name}} - [{{team.tag}}]</a></h1>
         </div>
         <div>
@@ -121,7 +121,7 @@
             {{team.game.name}}
           </div>
           <div>
-            <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
+            <img class="logoCountry" src="../../../../assets/images/{{team.country}}.png"/>
             <h1><a href="team/{{team._id}}"> {{team.name}} - [{{team.tag}}]</a></h1>
           </div>
           <div>
@@ -149,7 +149,7 @@
               {{team.game.name}}
             </div>
             <div>
-              <img class="logoCountry" src="../../../../assets/images/FrnchFlag.png"/>
+              <img class="logoCountry" src="../../../../assets/images/{{team.country}}.png"/>
               <h1><a href="team/{{team._id}}"> {{team.name}} - [{{team.tag}}]</a></h1>
             </div>
             <div>
