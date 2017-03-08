@@ -1,114 +1,61 @@
-<div id="globalSearch">
+<div id="global">
+  <div class="container">
+  <div id="globalSearch" >
 
-  <div *ngIf="games" class="form-group row ">
-    <li>
-      <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
-      <label for="AllGame">
-        <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
-        <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
-      </label>
-    </li>
-    <li *ngFor="let game of games">
-      <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="selector.checked"/>
-      <label for="{{game._id}}">
-        <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
-        <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
-      </label>
-    </li>
-  </div>
+    <div *ngIf="games" class="form-group row ">
+      <li>
+        <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
+        <label for="AllGame">
+          <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
+          <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
+        </label>
+      </li>
+      <li *ngFor="let game of games">
+        <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="selector.checked"/>
+        <label for="{{game._id}}">
+          <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+          <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+        </label>
+      </li>
+    </div>
 
-  <div id="search">
-    <div>
-      <form (ngSubmit)="onSubmit($event)" id="searchBar">
-        <input id="insideBar" type="text" placeholder="Rechercher une équipe">
-      </form>
-    </div>
-    <div>
-      <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
-    </div>
-    <div id="createTeam">
-      <img (click)="onCreate($event)" src="../../../../assets/images/picto_creer_team_sansdescrp.png"/>
-    </div>
-  </div>
-</div>
-
-<div style="overflow-x: hidden;">
-  <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <div class="row">
-    <div class="col-xs-2"></div>
-    <div class="col-xs-8" (click)="display('listTeam')">
-      <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
-      <img id="listTeamArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
-    </div>
-    <div class="col-xs-2"></div>
-  </div>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
-      <app-blue-separation-bar-small></app-blue-separation-bar-small>
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-
-
-  <!--BLOC MY TEAM-->
-  <div id="listTeam" *ngIf="myTeamTab">
-    <div class="col-md-6 global" *ngFor="let team of myTeamTab" style="z-index: 2;">
-      <div class="hexagon hexagon1">
-        <div class="hexagon-in1">
-          <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
-          <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
-        </div>
+    <div id="search">
+      <div>
+        <form (ngSubmit)="onSubmit($event)" id="searchBar">
+          <input id="insideBar" type="text" placeholder="Rechercher une équipe">
+        </form>
       </div>
-
-      <div class="infoTeam">
-        <div class="nameGame">
-          {{team.game.name}}
-        </div>
-        <div>
-          <img class="logoCountry" src="../../../../assets/images/{{team.country}}.png"/>
-          <h1><a href="team/{{team._id}}"> {{team.name}} - [{{team.tag}}]</a></h1>
-        </div>
-        <div>
-          <h2><font style="color:gray;font-size: 25px;">Capitaine : </font><a href="">{{team.captain.user.username}}</a></h2>
-        </div>
-        <div>
-          <h2><font style="color:gray;font-size: 25px;">Rang :</font> {{team.rank}}<font style="color:gray;font-size: 25px;margin-left:100px;">Membres : </font>{{team.players.length}}</h2>
-        </div>
+      <div>
+        <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+      </div>
+      <div id="createTeam">
+        <img (click)="onCreate($event)" src="../../../../assets/images/picto_creer_team_sansdescrp.png"/>
       </div>
     </div>
+  </div>
+  </div>
+  <div style="overflow-x: hidden;">
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-2"></div>
-
-    <div class="col-xs-8" (click)="display('listTeamSearch')">
-      <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
-      <img id="listTeamSearchArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8" (click)="display('listTeam')">
+        <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
+        <img id="listTeamArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
+      <div class="col-xs-1"></div>
     </div>
 
-    <div class="col-xs-2"></div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
-      <app-blue-separation-bar-small></app-blue-separation-bar-small>
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-
-  <!--BLOC RESULTS-->
-
-  <div *ngIf="status == 401" class="error">
-    Pas de Résultats
-  </div>
-
-  <div id="listTeamSearch" *ngIf="teams">
-
-    <div *ngIf="isFilteredGameId == AllGame">
-      <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
+    <!--BLOC MY TEAM-->
+    <div id="listTeam" *ngIf="myTeamTab">
+      <div class="col-md-6 global" *ngFor="let team of myTeamTab" style="z-index: 2;">
         <div class="hexagon hexagon1">
           <div class="hexagon-in1">
             <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
@@ -132,15 +79,42 @@
           </div>
         </div>
       </div>
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
 
-    <div *ngIf="isFilteredGameId != AllGame">
-      <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
-        <div *ngIf="team.game._id === isFilteredGameId">
+    <div class="row">
+      <div class="col-xs-2"></div>
+
+      <div class="col-xs-8" (click)="display('listTeamSearch')">
+        <h1>RESULTATS DE <font style="color:#0071bc;">LA RECHERCHE</font></h1>
+        <img id="listTeamSearchArrow" class="droparrow" src="../../../../assets/images/arrow-down.png"/>
+      </div>
+
+      <div class="col-xs-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+
+    <!--BLOC RESULTS-->
+
+    <div *ngIf="status == 401" class="error">
+      Pas de Résultats
+    </div>
+
+    <div id="listTeamSearch" *ngIf="teams">
+
+      <div *ngIf="isFilteredGameId == AllGame">
+        <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
           <div class="hexagon hexagon1">
             <div class="hexagon-in1">
               <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
-              <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game._id}}.png')"></div>
+              <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
             </div>
           </div>
 
@@ -161,7 +135,36 @@
           </div>
         </div>
       </div>
-    </div>
 
+      <div *ngIf="isFilteredGameId != AllGame">
+        <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
+          <div *ngIf="team.game._id === isFilteredGameId">
+            <div class="hexagon hexagon1">
+              <div class="hexagon-in1">
+                <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+                <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game._id}}.png')"></div>
+              </div>
+            </div>
+
+            <div class="infoTeam">
+              <div class="nameGame">
+                {{team.game.name}}
+              </div>
+              <div>
+                <img class="logoCountry" src="../../../../assets/images/{{team.country}}.png"/>
+                <h1><a href="team/{{team._id}}"> {{team.name}} - [{{team.tag}}]</a></h1>
+              </div>
+              <div>
+                <h2><font style="color:gray;font-size: 25px;">Capitaine : </font><a href="">{{team.captain.user.username}}</a></h2>
+              </div>
+              <div>
+                <h2><font style="color:gray;font-size: 25px;">Rang :</font> {{team.rank}}<font style="color:gray;font-size: 25px;margin-left:100px;">Membres : </font>{{team.players.length}}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

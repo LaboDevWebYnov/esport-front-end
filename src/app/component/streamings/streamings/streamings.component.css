@@ -1,7 +1,183 @@
-h2 {
+#global {
+  background-image: url("../../../../assets/images/font-lol.png");
+  min-height: 100vh;
+}
+
+*{
+  color:white;
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+#globalSearch{
+  overflow-x: hidden;
+  margin-top:50px;
   text-align: center;
-  color: white;
-  font-family: Rhanoll;
-  font-size: 2em;
-  margin-top: 2.8em;
+}
+#link{
+  cursor: pointer;
+}
+#search{
+  margin-bottom:25px;
+  display: inline-flex;
+}
+#search div{
+  display: inline-block;
+}
+#searchBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+#searchIcon{
+  outline: none;
+  margin-left:-75px;
+  margin-top: 15px;
+}
+
+#searchIcon:active{
+  margin-top: 16px;
+}
+#search img{
+  height: 62px;
+}
+#search img:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+#search img:active{
+  top:1px;
+  position:relative;
+}
+
+#createTeam{
+  margin-left: 50px;
+}
+
+h1{
+  font-size: 35px;
+  padding-top: 10px;
+}
+
+
+#insideBar{
+  background-color: #1d1d1b;
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  width: 650px;
+  border: 0px;
+  border-bottom: 1px solid grey;
+}
+
+.droparrow{
+  height: 35px;
+  position: relative;
+  float: right;
+  margin-top: -45px;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.droparrow:hover{
+  cursor: pointer;
+}
+
+#listTeam{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
+#listTeamSearch{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
+.notFound{
+  font-size: 25px;
+  font-family: "Rhanoll";
+  color: black;
+  text-align: center;
+}
+
+#notFound{
+  color: #1d1d1b;
+}
+
+/*SELECT GAME*/
+
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:150px;
+  height:150px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+
+li img{
+  max-height: 100px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
+}
+
+/* GRID ACTU*/
+
+.jasgrid{
+  padding:0;
+}
+.box-item {
+  float: left;
+  opacity: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.box-item img {
+  width: 100%;
+}
+.box-item a,span{color:#FFF;}
+
+.box-item .box-post span.meta {
+  font-size: 12px;
+  color: #fff;
+  margin-top: 15px;
+  display: block;
+}
+
+.box-item .box-post span.meta span {
+  margin-right: 15px;
+}
+
+.box-item .box-post {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box-item .box-post h1..post-title {
+  font-size:10pt;
 }
