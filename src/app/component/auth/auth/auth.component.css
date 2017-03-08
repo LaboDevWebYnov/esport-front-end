@@ -10,7 +10,10 @@ input:focus {
 .state-message {
   margin-top: 5px;
 }
-
+#sign img {
+  max-height: 30em;
+  margin-top: 15em;
+}
 h1
 {
   text-align: center;
@@ -105,6 +108,12 @@ ul.tab li a:focus, .active
   left: 0%;
   top: 0%;
   bottom: 87%;
+}
+#top_blueline {
+  top: 15%
+}
+#bot_blueline {
+  bottom: 10%;
 }
 .blueLine
 {

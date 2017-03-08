@@ -232,7 +232,8 @@ export class UserGamesComponent implements OnInit {
 
   ngOnInit() {
     let id = this.localStorage.getItem('userId');
-
+    let indxToRemove = 0;
+    let indxToRemoveTab = [];
     this.getUserGame(id, (userGames: Game[], errorMessage: string): any => {
       //j'appelle tous les jeux pour les tests
       this.getGames((games: Game[], errorMessage: string): any => {
@@ -244,13 +245,21 @@ export class UserGamesComponent implements OnInit {
             {
               for(let j = 0; j<userGames.length; j++)
               {
-                if(games[i]._id == userGames[j]._id)
+                if(games[i]._id === (<Game[]>userGames)[j]._id)
                 {
-                  games.splice(i,1);
+                  indxToRemoveTab[indxToRemove] = i;
+                  indxToRemove ++;
                 }
               }
             }
           }
+          //console.log('IndxToRemove',indxToRemoveTab);
+          for(let i = 0; i<=indxToRemoveTab.length; i++)
+          {
+            games.splice(indxToRemoveTab[i],1);
+          }
+            console.log('UserGames', userGames);
+            console.log('Games', games);
         }
       });
     });

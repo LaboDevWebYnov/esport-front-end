@@ -4,13 +4,13 @@
 
 <div class="mainWindow">
 
-  <div class="blueLine"></div>
+  <div class="blueLine" id="top_blueline"></div>
 
   <div class="row">
     <div class="col-md-8">
       <br>
       <div id="sign">
-        <img src="/../../../../assets/images/image_connexion.png" alt="Photo de montagne" />
+        <img src="/../../../../assets/images/img-tunnelco-01.png" alt="Photo de montagne" />
       </div>
     </div>
 
@@ -70,28 +70,30 @@
         </div>
 
     </div>
-    <div class="col-md-12 state-message">
-      <div [hidden]="!submitted">
-
-        <div *ngIf="infoMessage" class="alert alert-success infoMessage">
-
-          <strong>Success!</strong> {{infoMessage}}
-
-        </div>
-
-
-        <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
-
-          <strong>Error!</strong> {{errorMessage}}
-
-        </div>
-
-      </div>
-    </div>
     <div class="col-md-4"></div>
 
   </div>
   <br><br><br><br>
-  <div class="blueLine"></div>
+  <div class="blueLine" id="bot_blueline"></div>
+  <br>
+  <br>
+  <br>
+  <div class="col-md-12 state-message">
+    <div [hidden]="!submitted">
 
+      <div *ngIf="infoMessage" class="alert alert-success infoMessage">
+
+        <strong>Success!</strong> {{infoMessage}}
+
+      </div>
+
+
+      <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
+
+        <strong>Error!</strong> {{errorMessage}}
+
+      </div>
+
+    </div>
+  </div>
 </div>

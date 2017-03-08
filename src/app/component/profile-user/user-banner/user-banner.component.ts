@@ -282,8 +282,8 @@ export class UserBannerComponent implements OnInit {
     this.getItemAddressById(id, (addressTabF: Object[], errorMessage: string): any => {
 
       this.addressTab = [];
-      console.log(addressTabF[0]);
-      console.log(addressTabF[1]);
+      //console.log(addressTabF[0]);
+      //console.log(addressTabF[1]);
 
       if(addressTabF[0] == null)
       {
