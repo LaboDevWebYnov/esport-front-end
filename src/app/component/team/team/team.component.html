@@ -53,10 +53,11 @@
 
   <!--BLOC MY TEAM-->
   <div id="listTeam" *ngIf="myTeamTab">
-    <div class="col-md-6 global" *ngFor="let team of myTeamTab">
+    <div class="col-md-6 global" *ngFor="let team of myTeamTab" style="z-index: 2;">
       <div class="hexagon hexagon1">
         <div class="hexagon-in1">
-          <div class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+          <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+          <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game.id}}.png')"></div>
         </div>
       </div>
 
@@ -98,19 +99,20 @@
     <div class="col-xs-1"></div>
   </div>
 
-  <div *ngIf="status == 401" class="alert alert-danger notFound">
-    <strong id="notFound">Pas de Résultats</strong> {{errorMessage}}
+  <!--BLOC RESULTS-->
+
+  <div *ngIf="status == 401" class="error">
+    Pas de Résultats
   </div>
 
-<!--BLOC RESULTS-->
   <div id="listTeamSearch" *ngIf="teams">
 
     <div *ngIf="isFilteredGameId == AllGame">
-
       <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
         <div class="hexagon hexagon1">
           <div class="hexagon-in1">
-            <div class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+            <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+            <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game._id}}.png')"></div>
           </div>
         </div>
 
@@ -130,14 +132,15 @@
           </div>
         </div>
       </div>
-
     </div>
+
     <div *ngIf="isFilteredGameId != AllGame">
       <div class="col-md-6 global" *ngFor="let team of searchTeamTab">
         <div *ngIf="team.game._id === isFilteredGameId">
           <div class="hexagon hexagon1">
             <div class="hexagon-in1">
-              <div class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+              <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+              <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game._id}}.png')"></div>
             </div>
           </div>
 
@@ -159,5 +162,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
