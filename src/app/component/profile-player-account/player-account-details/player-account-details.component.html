@@ -1,5 +1,5 @@
 <div class="globalDetails">
-  <div *ngFor="let playerAccount of playerAccountProperty">
+  <div *ngFor="let playerAccount of playerAccountProperty,let i = index">
     <table class="Details" style="width:100%">
       <tr>
         <td rowspan="6" class="imgDetails">
@@ -45,8 +45,8 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isRatioLoaded">
               <canvas baseChart
-                      [data]="RatioData[0]"
-                      [labels]="RatioLabels[0]"
+                      [data]="RatioData[i]"
+                      [labels]="RatioLabels[i]"
                       [chartType]="RatioChartType"
                       [legend]="false">
                 <!--(chartHover)="chartHovered($event)"-->
@@ -61,8 +61,8 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isStatsLoaded">
               <canvas baseChart
-                      [data]="statsData[0]"
-                      [labels]="statsLabels[0]"
+                      [data]="statsData[i]"
+                      [labels]="statsLabels[i]"
                       [chartType]="statsChartType"
                       [legend]="false">
                 <!--(chartHover)="chartHovered($event)"-->
@@ -76,8 +76,8 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isActivityLoaded">
               <canvas baseChart
-                      [data]="activityData[0]"
-                      [labels]="activityLabels[0]"
+                      [data]="activityData[i]"
+                      [labels]="activityLabels[i]"
                       [chartType]="activityChartType"
                       [legend]="false">
                 <!--(chartHover)="chartHovered($event)"-->
