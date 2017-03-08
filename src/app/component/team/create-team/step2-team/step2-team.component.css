@@ -1,24 +1,10 @@
-li{
-  list-style-type: none;
-  display: inline-block;
-  width:195px;
-  height:180px;
-  padding:15px 10px;
-  margin:0 auto;
-}
-li img{
-  max-height: 150px;
-}
-li img:hover{
-  cursor:pointer;
-}
-.checkboxGame{
-  display: none;
-}
+
 .form-control {
   width: 100%;
-  background: #6a6a69;
-  color: #6a6a69 !important;
+  background: #1d1d1b;
+  border:none;
+  border-bottom: 1px solid gray;
+  color: #bdbdbd !important;
   font-family: Rhanoll;
   font-size: x-large;
   border:none;
@@ -29,17 +15,6 @@ li img:hover{
 .form-group {
   width: 100%;
   margin-bottom: 1em;
-}
-
-.submitButton {
-  vertical-align: middle;
-  padding-top:8px;
-  padding-left:55px;
-  padding-right:55px;
-  font-size: x-large;
-  float: right;
-  background: #045d98;
-  font-family: Rhanoll;
 }
 
 .submitButton {
@@ -277,4 +252,22 @@ span.round-tabs.five{
   margin-top:5px;
   max-width:90%;
   float: right;
+}
+
+.checkboxGame{
+  display: none;
+}
+li img{
+  max-height: 150px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.game{
+  list-style-type: none;
+  display: inline-block;
+  width:195px;
+  height:180px;
+  padding:15px 10px;
+  margin:0 auto;
 }
