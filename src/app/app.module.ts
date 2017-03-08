@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {RouterModule}   from '@angular/router';
 import { CoolStorageModule } from 'angular2-cool-storage';
 import { ChartsModule } from 'ng2-charts';
-
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 import {AppComponent} from './app.component';
 import {TestUserServiceComponent} from './component/test_service_component/test-user-service/test-user-service.component';
@@ -121,7 +121,7 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    Ng2AutoCompleteModule,
     ReactiveFormsModule,
     CoolStorageModule,
     ChartsModule,
@@ -223,7 +223,7 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
         component: ProfilePlayerAccountComponent
       },
       {
-        path: 'details-team',
+        path: 'team/:teamid',
         component: DetailsTeamComponent
       }
     ])

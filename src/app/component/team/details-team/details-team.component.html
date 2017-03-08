@@ -3,14 +3,14 @@
 
 </header>
 
-<body>
+<body *ngIf="response">
 
 <div class="divTitle" *ngIf="response">
   <h1>{{response.name}}  {{response.tag}} <img src="../../../../assets/images/{{response.country}}.png" alt="FLAG" id="flag" height="20" width="35"/></h1>
-  <h3>{{response.game.name}}</h3>
+  <h2>{{response.game.name}}</h2>
 </div>
 
-<img class="imageHeader" src="../../../assets/images/Overwatch.jpg">
+<img class="imageHeader" src="../../../assets/images/{{response.game.name}}.jpg">
 
 
 <div class="Gauche">
@@ -20,7 +20,9 @@
     <div class="col-xs-1">
       <div class="hexagon hexagon1">
         <div class="hexagon-in1">
+
           <div class="hexagon-in2">
+
           </div>
         </div>
       </div>
@@ -34,11 +36,11 @@
     </form>
 
     <form class="form" *ngIf="response">
-      <h3 class="title"> <p>MEMBRES {{response.players.length}} JOUEURS</p>
+      <h3 class="title"> <h3>MEMBRES {{response.players.length}} JOUEURS</h3>
         <p>{{response.players.length}} Membres connectés</p></h3>
       <ul>
-        <li *ngIf="response.players">
-          {{ response.players.active }}
+        <li *ngFor="let item of response.players; let i = index">
+          {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
         </li>
       </ul>
     </form>
@@ -57,14 +59,15 @@
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="home"  *ngIf="response && playerById" >
+    <div class="tab-pane active" id="home"  *ngIf="response || playerById" >
       <br/>
       <div class="title">
         GENERAL
       </div>
       <br>
-      <p>Capitaine d'équipe : {{response.captain._id}}</p><br>
-      <p>Membres de l'équipe : {{playerById.user.lastname}} {{playerById.user.firstname}}</p>
+      <h2>Capitaine d'équipe : </h2><p>{{response.captain.user.lastname}} {{response.captain.user.firstname}}</p><br>
+      <h2>Membre de l'équipe :</h2> <p *ngFor="let item of response.players; let i = index">
+      {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}</p>
     </div>
     <div class="tab-pane" id="profile">
       <br/>
@@ -72,37 +75,53 @@
         TEAM STATS
       </div>  <br/><br/><br/><br/>
     </div>
-
     <div class="tab-pane" id="messages">
       <br/>
       <div class="title">
         RECRUTEMENT
       </div>
-
       Nous recherchons un joueur d'un grand talent afin d'être à la hauteur des autres membres du groupe !
       <br/><br/><br/><br/>
     </div>
-    <div class="tab-pane" id="settings" *ngIf="playerById && response">
+    <div class="tab-pane" id="settings" *ngIf="response">
       <br/>
       <div class="title">
         GESTION DES MEMBRES
       </div><br>
-      <p>Capitaine d'équipe : {{response.captain._id}}</p>
-      <br><p>Membres de l'équipe : </p>
-      <p>{{playerById.user.lastname}} {{playerById.user.firstname}} <img src="../../../assets/images/delete.png" alt="exemple onclick"
-                                                         style="cursor:pointer;" onclick="alert('Suppression');" /> </p>
-
-      <h2>Ajouter un membre</h2><input type="text" id="nvMembre">
-      <button class="connectButton">Ajouter</button>
+      <h2>Supprimer un membre</h2><br><p *ngFor="let item of response.players; let i = index">
+      {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+      <img src="../../../assets/images/delete.png" alt="exemple onclick" style="cursor:pointer;" onclick="alert('On va tout faire pété !');" /></p>
       <br>
-      <br>
+      <h2>Ajouter un membre</h2>
 
+      <form method="post" (submit)="submitAddForm(response)" >
+
+        Team id : <input type="text" id="teamId" style="color:black" placeholder="Nom du player account" required autocomplete="off"/>
+
+        Player Account Id : <input type="text" id="playerAccountId"  style="color:black"  placeholder="Identifiant du joueur" required autocomplete="off"/>
+
+        <input class = "connectButton" type = "submit" value="Valider" name="Valider"/>
+
+      </form>
+
+      <br>
       <div class="title">
         MODIFICATION DE LA TEAM
       </div>
       <br>
-      <h2>Changer le nom</h2><input type="text" id="nvNom"><br><br>
-      <h2>Changer avatar</h2><input type="file" id="nvImage"><br>
+
+      <form method="post" (submit)="submitUpdateTeamForm(response._id, response)">
+        Changer le nom de la team : <input type="text" id="nvNom" style="color:black" placeholder="Nouveau Nom de Team"/>
+        Nouveau TAG <input type="text" id="nvTag" style="color:black" placeholder="Nouveau TAG de la Team"/>
+        Nouveau Capitaine :
+        <select style = "color:black" id="nvCaptain" *ngIf="response">
+          <option (click)="onSelectPlayer(response.captain.user.id)" style = "color:black" *ngFor="let item of response.players; let i = index" value="{{response.captain.user._id}}">{{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+          </option>
+        </select>
+        <input class = "connectButton" type = "submit" value="Valider" name="Valider"/><br>
+      </form>
+
+      Changer l'avatar : <input type="file" id="nvImage"/><br>
     </div>
   </div>
 

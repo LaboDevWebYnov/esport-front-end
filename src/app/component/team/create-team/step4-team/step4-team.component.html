@@ -1,23 +1,68 @@
-<div class="form-group row">
+<div class="container signupRoad">
+<app-blue-separation-bar-small></app-blue-separation-bar-small>
 
+<h2>Enregistrer votre  <font style="color:#0071bc;">Team</font></h2>
+<p>Vous pouvez maintenant crée votre propre équipe. <br>Dans un premier temps complété les infos général.</p>
+
+<div id="side">
+
+  <div class="col-md-12 board">
+
+
+    <div class="board-inner">
+      <ul class="nav nav-tabs" id="myTab">
+        <div class="liner">
+          <div id="blueText">
+            Etapes
+          </div>
+        </div>
+        <li >
+          <a href="/home"  title="Rentrer les infos personnelles">
+            <span class="round-tabs one"></span>
+          </a></li>
+        <li ><a href="/home"  title="Séléctionner les jeux">
+          <span class="round-tabs two"></span>
+        </a>
+        </li>
+        <li ><a href="#prototyping"  title="Prototyping">
+          <span class="round-tabs three"></span> </a>
+        </li>
+        <li class="active"><a href="#uidesign"  title="UI Design">
+          <span class="round-tabs four"></span>
+        </a></li>
+        <li><a href="#doner"  title="Development">
+          <span class="round-tabs five"></span> </a>
+        </li>
+      </ul></div>
+  </div>
+</div>
+<app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+<form (ngSubmit)="onSubmit($event)"   class="form-inline">
+<div class="form-group row">
+  <div *ngIf="status == true" class="alert alert-success" style="font-size:x-large;color:black;">
+    <strong>Succes!</strong>  L'ajout de votre joueur à été valider
+  </div>
 
 
   <div class="col-sm-6">
 
-    <input list="userDatalist" class="form-control" name="userInput" placeholder="Invittez vos amis">
-    <datalist id="userDatalist">
-      <li *ngFor="let user of users">
-        <option value="{{user.username}}">
-      </li>
-    </datalist>
-    <input type="submit">
+
+    <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Invittez vos amis dans votre équipe">
+    <input  class="form-control" id="role" name="playerAccount" placeholder="Role du player">
+    <button class="btn btn-primary pull-right" (click)="onClicked($event)" type="submit" >Ajouter ce joueur à l'équipe</button>
 
   </div>
 
 
 
 </div>
+<div class="form-group row">
 
+  <li *ngFor="let players of player">
+    <ul>{{players.name}}</ul>
+  </li>
+</div>
 
 
 <div class="form-group row">
@@ -26,7 +71,10 @@
   </div>
   <div class="col-sm-4"></div>
   <div class="col-sm-2">
-    <button class="btn btn-primary pull-right" (click)="onNext()">Next</button>
+    <button class="btn btn-primary pull-right" type="submit" >Next</button>
 
   </div>
+</div>
+</form>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>

@@ -8,7 +8,7 @@
   border-bottom: 2px solid royalblue;
   margin-bottom: 30px;
   width: 250px;
-  text-align: center;
+  text-align: left;
   margin-left: 40%;
   margin-top: 10px;
   background : url('/../../../../assets/images/degrade_title.png');
@@ -67,9 +67,11 @@ h2{
   width: 100%;
   height: 100%;
   left: 100px;
-  background-repeat: no-repeat ;
+  background-repeat: no-repeat;
   background-position: 50%;
-  background-color: black;
+  background-color: royalblue;
+
+
   /*background-image: url("../../../../assets/images/LOGO_ESPORT_2.png");*/
   background-size:100%;
   visibility: visible;
@@ -111,8 +113,8 @@ h2{
   float:left;
   width: 35%;
   height:100%;
-  min-height : 700px;
   background-color: #1A1A1A;
+  min-height : 700px;
 }
 
 .navGauche{
@@ -133,8 +135,8 @@ h2{
   float:left;
   width:65%;
   height: 100%;
-  min-height : 700px;
   background-color: #1A1A1A;
+  min-height : 700px;
 }
 
 .footer{
@@ -161,6 +163,7 @@ h2{
 .home{
   margin-left: 20px;
 }
+
 .title {
   text-align: center;
   height: 100%;
@@ -216,10 +219,15 @@ a.onglet.active{color: royalblue;
 }
 
 .tab-pane.active{
-  /*background-color: #1A1A1A;*/
-  background-color: #3E3E3D;
+  background-color: #1A1A1A;
   min-height : 500px;
 }
+
+.tab-pane.active{
+  background-color: #1A1A1A;
+  min-height : 500px;
+}
+
 
 
 footer{
