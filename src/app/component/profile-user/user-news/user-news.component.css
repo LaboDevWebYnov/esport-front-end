@@ -2,8 +2,8 @@
   background :black;
   padding-bottom: 1em;
   padding-top: 1em;
+  margin-top:-5px;
 }
-
 #firstSection{
   width:60%;
   padding-right:30px;
@@ -22,12 +22,17 @@
   width:100%;
   height:230px;
   background: #1F1F1D;
-  background: -webkit-linear-gradient(#1F1F1D, #3E3E3D);
-  background: -o-linear-gradient(#1F1F1D, #3E3E3D);
-  background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
-  background: linear-gradient(#1F1F1D, #3E3E3D);
+  background: -webkit-linear-gradient(left, #000000, #0d151b, #172b37, #153245, #153245, #153245, #172b37, #0d151b, #000000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #000000, #0d151b, #172b37, #153245, #153245, #153245, #172b37, #0d151b, #000000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #000000, #0d151b, #172b37, #153245,#153245,#153245, #172b37, #0d151b, #000000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #000000, #0d151b, #172b37, #153245,#153245,#153245, #172b37, #0d151b, #000000); /* Standard syntax */
 }
 
 h1 {
   text-align: center;
+}
+
+.bloc{
+  padding-top:20px;
+  padding-bottom:30px;
 }

@@ -33,17 +33,26 @@ h3{
 
 #avatar_username{
   position:absolute;
-  margin-top: 5em;
+  margin-top: -75px;
   margin-left: 0%;
 }
-
 #avatar img {
   height: 150px;
 }
 
 #infoNameUser{
-  margin-left: 11em;
-  margin-top: -9em;
+  margin-left: 180px;
+  margin-top: -16em;
+}
+
+#infoNameUser h2{
+  margin-top:-30px;
+}
+
+#infoNameUser img {
+  margin-top:-8px;
+  height:22px;
+  margin-right:10px;
 }
 
 #gestionCompte{
@@ -211,6 +220,7 @@ select{
   text-decoration:none;
   text-shadow:0px 1px 0px #21211f;
   margin-top: 25px;
+  float: right;
   /*width:150px;*/
   text-align: center;
 }
@@ -240,7 +250,11 @@ select{
 }
 
 .cross {
-  float: right;
+  position:absolute;
+  right: 20px;
+}
+.cross:hover{
+  cursor:pointer;
 }
 
 #updPwdForm {
@@ -252,10 +266,15 @@ select{
 }
 
 #updProfilBtn {
-  float: right;
+  margin-top: 0px;
+  margin-bottom:15px;
 }
 
 #updPwdBtn {
-  float: right;
+  margin-top:10px;
 }
 
+.triple p{
+  text-align: center;
+  font-size:18px;
+}

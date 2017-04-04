@@ -4,6 +4,7 @@
 }
 
 app-blue-separation-bar-small {
+  background: none;
   position: absolute;
   z-index: 10;
   width: 100%;

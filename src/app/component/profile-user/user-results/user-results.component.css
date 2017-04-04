@@ -1,7 +1,8 @@
 #global{
   background :#1b1b1b;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-top:30px;
+  padding-bottom:30px;
+  margin-top:-5px;
 }
 
 #gameResult ul {
@@ -10,6 +11,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top:10px;
   flex-wrap: nowrap; /* assumes you only want one row */
 }
 
