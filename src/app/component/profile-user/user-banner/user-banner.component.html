@@ -1,8 +1,5 @@
-<div id="backgroundBanner">
 
-</div>
 <div id="global">
-
   <div id="avatar_username">
     <div id="avatar">
       <img src="../../../../assets/images/hexapic_profil.png">
@@ -12,28 +9,28 @@
       <!--class="user_username"-->
       <h1>{{userGetById.username}}</h1>
       <!--id="provenance"-->
-      <h2>{{userGetById.lastname}}</h2>
-      <h3>{{userGetById.firstname}}</h3>
+      <h2><img src="../../../../assets/images/FR.png">{{userGetById.firstname}} {{userGetById.lastname}}</h2>
     </div>
   </div>
 
-  <table id="gestionCompte">
-    <tr>
-      <td><a (click)="openModal()"><img src="../../../../assets/images/logo-profil1.png"/></a></td>
-      <td><a href="/profile"><img src="../../../../assets/images/logo-profil2.png"/></a></td>
-      <td><a href="/team/create-team"><img src="../../../../assets/images/logo-profil3.png"/></a></td>
-    </tr>
-    <tr id="titleTable">
-      <td><a (click)="openModal()">MODIFIER PROFIL</a></td>
-      <td><a href="">GERER ABONNELENT</a></td>
-      <td><a href="">CREER TEAM</a></td>
-    </tr>
-    <tr id="descriptionProfil">
-      <td>Créer et modifier<br> votre profil personnel.</td>
-      <td>Mettre à jour ses abonnements <br>et ses actualités.</td>
-      <td>Créer une équipe et<br> afronter des adversaires !</td>
-    </tr>
-  </table>
+  <div class="col-md-4 col-xs-offset-8 triple">
+    <div class="col-xs-4">
+      <a (click)="openModal()"><img src="../../../../assets/images/picto-modifprofil.png"></a>
+    </div>
+    <div class="col-xs-4">
+      <a href="/profile"><img src="../../../../assets/images/picto-gereabo.png"></a>
+    </div>
+    <div class="col-xs-4">
+      <a href="/team/create-team"><img src="../../../../assets/images/picto-creer_team.png"></a>
+    </div>
+  </div>
+
+  <div class="subMenu">
+    <div><a href="/profile">GENERAL</a></div>
+    <div><a href="/profile">TEAM STATS</a></div>
+    <div><a href="/profile">RECRUTEMENT</a></div>
+    <div><a href="/profile">PARAMETRE TEAM</a></div>
+  </div>
 </div>
 
 <div id="myModal" class="modal" *ngIf="userGetById">
@@ -52,7 +49,7 @@
             </div>
             <div class="size2">
               <label>Date de naissance :</label>
-              <input type="date" id="birthDate" value="{{userGetById.birthDate | date: 'yyyy-MM-dd'}}" placeholder="jour/mois/année">
+              <input type="date" id="birthDate" style="height: 36px;" value="{{userGetById.birthDate | date: 'yyyy-MM-dd'}}" placeholder="jour/mois/année">
             </div>
           </div>
           <div>
@@ -96,7 +93,7 @@
               <label>Confirmer le nouveau mot de passe :</label>
               <input type="password" placeholder="********">
             </div>
-          <button id="updPwdBtn" class="myButton">Mettre à jour le mdp</button>
+          <button id="updPwdBtn" class="myButton">Mettre à jour</button>
         </form>
       </div>
     </div>
@@ -104,7 +101,7 @@
 
     <form>
       <div id="content-address">
-        <h2>Gestion des adresses</h2>
+        <h2 style="padding-left:10px;padding-top:10px;">Gestion des adresses</h2>
         <!-- ADRESSE 1 -->
         <ul class="col-md-6" *ngIf="addressTab[0].line !== ''">
             <li *ngIf="addressTab[0].active" id="addressApiJsonUpd0">

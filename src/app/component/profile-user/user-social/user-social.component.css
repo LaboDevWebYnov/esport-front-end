@@ -1,7 +1,8 @@
 .container-fluid{
   background :#1c1c1b;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-top:36px;
+  padding-bottom:46px;
+  margin-top:-5px;
 }
 
 h1{
@@ -10,17 +11,50 @@ h1{
 
 .content-section{
   width:350px;
-  height:175px;
+  height:240px;
   background: #1F1F1D;
-  background: -webkit-linear-gradient(#1F1F1D, #3E3E3D);
-  background: -o-linear-gradient(#1F1F1D, #3E3E3D);
-  background: -moz-linear-gradient(#1F1F1D, #3E3E3D);
-  background: linear-gradient(#1F1F1D, #3E3E3D);
+  background: -webkit-linear-gradient(left, #1c1c1b, #1a2124, #172b37, #153245, #153245, #153245, #172b37, #1a2124, #1c1c1b); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1c1c1b, #1a2124, #172b37, #153245, #153245, #153245, #172b37, #1a2124, #1c1c1b); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1c1c1b, #1a2124, #172b37, #153245,#153245,#153245, #172b37, #1a2124, #1c1c1b); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1c1c1b, #1a2124, #172b37, #153245,#153245,#153245, #172b37, #1a2124, #1c1c1b); /* Standard syntax */
   margin-left: auto;
   margin-right: auto;
 }
 
+.logoGame{
+  height:60px;
+  margin-top:-30px;
+  margin-left:20px;
+  margin-bottom:10px;
+}
+.team a{
+  color:white;
+}
+.team a:hover{
+  color:#0071bc;
+}
+.dataTeam{
+  display:inline-block;
+}
+.infoTeamView{
+  margin-top: 15px;
+  margin-left:15px;
+}
+.infoTeam h1, .infoTeam h2 {
+  text-align: left;
+}
 
+.test{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+/*.bloc{*/
+  /*padding-top:20px;*/
+  /*padding-bottom:30px;*/
+/*}*/
 /*BUTTON*/
 .myButton {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
