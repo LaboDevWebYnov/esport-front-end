@@ -13,12 +13,14 @@ import {Configuration} from "../../../../shared/app.constants";
 export class NewsComponent implements OnInit {
   private news: Object;
   public isFilteredGameId: any;
+  private
 
   constructor(private newsServiceInstance: NewsService
   ) { }
 
   ngOnInit() {
     this.getNews();
+
 
   }
 
