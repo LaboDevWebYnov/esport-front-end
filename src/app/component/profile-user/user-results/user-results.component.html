@@ -3,6 +3,7 @@
   <h1>MES <font style="color:#0071bc;">RESULTATS</font></h1>
   <div id="allsection">
     <div *ngIf="userGames" id="gameResult">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
       <ul>
         <li *ngFor="let game of userGames">
           <div style="display: block">
@@ -18,8 +19,11 @@
           <h2><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
         </li>
       </ul>
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
   </div>
+
+  <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
 
   <!--<a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>-->
 </div>

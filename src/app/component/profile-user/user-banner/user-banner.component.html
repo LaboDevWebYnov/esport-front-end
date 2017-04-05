@@ -15,22 +15,13 @@
 
   <div class="col-md-4 col-xs-offset-8 triple">
     <div class="col-xs-4">
-      <a (click)="openModal()"><img src="../../../../assets/images/picto_creer_team_sansdescrp.png"></a>
-      <p>
-        Créer et modifier<br> votre profil personnel.
-      </p>
+      <a (click)="openModal()"><img src="../../../../assets/images/picto-creer_team.png"></a>
     </div>
     <div class="col-xs-4">
-      <a href="/profile"><img src="../../../../assets/images/picto_creer_team_sansdescrp.png"></a>
-      <p>
-        Mettre à jour ses abonnements <br>et ses actualités.
-      </p>
+      <a href="/profile"><img src="../../../../assets/images/picto-creer_team.png"></a>
     </div>
     <div class="col-xs-4">
-      <a href="/team/create-team"><img src="../../../../assets/images/picto_creer_team_sansdescrp.png"></a>
-      <p>
-        Créer une équipe et<br> afronter des adversaires !
-      </p>
+      <a href="/team/create-team"><img src="../../../../assets/images/picto-creer_team.png"></a>
     </div>
   </div>
   <!--<table id="gestionCompte">-->
@@ -50,6 +41,12 @@
       <!--<td>Créer une équipe et<br> afronter des adversaires !</td>-->
     <!--</tr>-->
   <!--</table>-->
+  <div class="subMenu">
+    <div><a href="/profile">GENERAL</a></div>
+    <div><a href="/profile">TEAM STATS</a></div>
+    <div><a href="/profile">RECRUTEMENT</a></div>
+    <div><a href="/profile">PARAMETRE TEAM</a></div>
+  </div>
 </div>
 
 <div id="myModal" class="modal" *ngIf="userGetById">
