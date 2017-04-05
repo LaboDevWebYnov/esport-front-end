@@ -1,7 +1,8 @@
-#global{
+.container-fluid{
   background :#1b1b1b;
-  padding-bottom: 30px;
-  padding-top: 1em;
+  padding-top:36px;
+  padding-bottom:46px;
+  margin-top:-5px;
 }
 
 #gameResult ul {

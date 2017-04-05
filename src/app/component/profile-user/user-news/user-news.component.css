@@ -1,21 +1,8 @@
 .container-fluid{
   background :#1b1b1b;
-  padding-bottom: 1em;
-  padding-top: 2em;
+  padding-top:36px;
+  padding-bottom:46px;
   margin-top:-5px;
-}
-#firstSection{
-  width:60%;
-  padding-right:30px;
-  padding-left:30px;
-  display: inline-block;
-}
-
-#secondSection{
-  width:30%;
-  padding-right:30px;
-  padding-left:30px;
-  display: inline-block;
 }
 
 .content-section{
@@ -30,9 +17,4 @@
 
 h1 {
   text-align: center;
-}
-
-.bloc{
-  padding-top:20px;
-  padding-bottom:30px;
 }

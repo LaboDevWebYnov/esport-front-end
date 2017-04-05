@@ -33,13 +33,13 @@ h3{
 
 #avatar_username{
   position:absolute;
-  margin-top: -80px;
+  margin-top: -81px;
   margin-left: 0%;
 }
 #avatar img {
   height: 150px;
   position:relative;
-  z-index: 3;
+  z-index: 10;
 }
 
 #infoNameUser{
@@ -295,7 +295,12 @@ select{
 }
 .subMenu a {
   color:white;
+  text-decoration: none;
 }
 .subMenu a:hover {
   color:#0071bc;
+}
+.subMenu a:active {
+  position :relative;
+  top:1px;
 }

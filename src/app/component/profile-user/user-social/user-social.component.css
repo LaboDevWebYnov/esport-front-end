@@ -1,7 +1,7 @@
 .container-fluid{
   background :#1c1c1b;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-top:36px;
+  padding-bottom:46px;
   margin-top:-5px;
 }
 
@@ -51,10 +51,10 @@ h1{
   flex-wrap: nowrap;
 }
 
-.bloc{
-  padding-top:20px;
-  padding-bottom:30px;
-}
+/*.bloc{*/
+  /*padding-top:20px;*/
+  /*padding-bottom:30px;*/
+/*}*/
 /*BUTTON*/
 .myButton {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
