@@ -1,16 +1,31 @@
-#global{
+.container-fluid{
   background :#1b1b1b;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-top:36px;
+  padding-bottom:46px;
+  margin-top:-5px;
 }
 
 #gameResult ul {
   list-style-type: none;
-  padding: 0;
+  /*padding: 0;*/
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: nowrap; /* assumes you only want one row */
+  padding-left: auto;
+  padding-right: auto;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 13px;
+
+}
+
+#gameResult {
+  background: #1F1F1D;
+  background: -webkit-linear-gradient(left, #1c1c1b, #1a2124, #172b37, #153245, #153245, #153245, #172b37, #1a2124, #1c1c1b); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1c1c1b, #1a2124, #172b37, #153245, #153245, #153245, #172b37, #1a2124, #1c1c1b); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1c1c1b, #1a2124, #172b37, #153245,#153245,#153245, #172b37, #1a2124, #1c1c1b); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1c1c1b, #1a2124, #172b37, #153245,#153245,#153245, #172b37, #1a2124, #1c1c1b); /* Standard syntax */
 }
 
 circle {
@@ -44,6 +59,7 @@ h2 a {
 
 #allsection {
   padding-left: 2.5%;
+  margin-bottom: 7px;
 }
 
 #allsection {

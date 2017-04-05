@@ -40,7 +40,6 @@ export class TeamComponent implements OnInit {
       }
       else {
         this.myTeamTab = dataTeam;
-
       }
     });
 

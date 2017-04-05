@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col-xs-6 col-md-4">
+  <div class="col-sm-12 col-md-6 col-lg-4 bloc">
     <h1>MES <font style="color:#0071bc;">AMIS</font></h1>
     <div class="content-section">
 
@@ -7,15 +7,38 @@
     <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
   </div>
 
-  <div class="col-xs-6 col-md-4">
+  <div class="col-sm-12 col-md-6 col-lg-4 bloc">
     <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
     <div class="content-section">
+
+      <!--Boucle team-->
+      <div class="team" *ngFor="let team of myTeamTab; let i = index">
+        <div *ngIf="i<3">
+          <div style="position:absolute;margin-top:-6px;width:350px;">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div>
+          <div class="dataTeam">
+            <img class="logoGame" src="../../../../assets/images/hexa_white/{{team.game._id}}.png">
+          </div>
+          <div class="infoTeamView dataTeam">
+            <div>
+              <h1><a href="team/{{team._id}}">[{{team.tag}}] {{team.name}}</a></h1>
+            </div>
+            <div>
+              <h2>{{team.players.length}} membres</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;margin-top:-6px;width:350px;">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
 
     </div>
     <a href="/team" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
   </div>
 
-  <div class="col-xs-6 col-md-4">
+  <div class="col-md-12 col-lg-4 bloc">
     <h1>RESEAUX <font style="color:#0071bc;">SOCIAUX</font></h1>
     <div class="content-section">
 

@@ -1,8 +1,12 @@
-<div id="global">
+<div class="container-fluid">
 
   <h1>MES <font style="color:#0071bc;">RESULTATS</font></h1>
   <div id="allsection">
     <div *ngIf="userGames" id="gameResult">
+      <div style="margin-top:-5px;">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
+
       <ul>
         <li *ngFor="let game of userGames; let i = index;">
           <div style="display: block">
@@ -17,11 +21,16 @@
               </canvas>
             </div>
           </div>
-          <h2><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
+          <h2 style="margin-top:10px;"><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
         </li>
       </ul>
+      <div  style="margin-bottom:-7px;">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
     </div>
   </div>
+
+  <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
 
   <!--<a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>-->
 </div>

@@ -1,0 +1,27 @@
+.container-fluid{
+  background :#1b1b1b;
+  padding-top:36px;
+  margin-top:-5px;
+}
+
+.content-section{
+  padding:10px;
+  background: #1F1F1D;
+  background: -webkit-linear-gradient(left, #1c1c1b, #1c1c1b, #172b37, #153245, #153245, #153245, #172b37, #1c1c1b, #1c1c1b); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1c1c1b, #1c1c1b, #172b37, #153245, #153245, #153245, #172b37, #1c1c1b, #1c1c1b); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1b1b1b, #1c1c1b, #172b37, #153245,#153245,#153245, #172b37, #1c1c1b, #1c1c1b); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1c1c1b, #1c1c1b, #172b37, #153245,#153245,#153245, #172b37, #1c1c1b, #1c1c1b); /* Standard syntax */
+}
+
+
+.bloc1{
+  height:160px;
+}
+.bloc2{
+  height:230px;
+}
+
+h1 {
+  text-align: center;
+}
+

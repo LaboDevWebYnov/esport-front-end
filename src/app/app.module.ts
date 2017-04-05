@@ -59,6 +59,7 @@ import { Step4TeamComponent } from './component/team/create-team/step4-team/step
 import { Step5TeamComponent } from './component/team/create-team/step5-team/step5-team.component';
 
 import { SearchTeamComponent } from './component/team/search-team/search-team.component';
+import { UserInfoComponent } from './component/profile-user/user-info/user-info.component';
 
 
 @NgModule({
@@ -115,7 +116,8 @@ import { SearchTeamComponent } from './component/team/search-team/search-team.co
     DetailsTeamComponent,
     Step4TeamComponent,
     Step5TeamComponent,
-    SearchTeamComponent
+    SearchTeamComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
