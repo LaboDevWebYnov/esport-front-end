@@ -2,7 +2,7 @@
   font-family: Rhanoll;
 }
 .globalDetails {
-  margin-top: 1em !important;
+  margin-top: 5em;
   padding-left: 30%;
   padding-right: 30%
 }
@@ -17,8 +17,8 @@ td {
   color: white;
 }
 
-.imgDetails {
-
+.Details {
+  margin-top: 2em;
 }
 
 canvas {

@@ -38,104 +38,24 @@ export class UserResultsComponent implements OnInit {
     }
 
     for(let r=0; r in playerAccount;r++){
+      this.RatioLabels[r] = [];
+      this.RatioData[r] = [];
       tabResponse[r] = [];
       if(playerAccount[r].game._id == "569104a0417130681bcf1586"){//csgo
-        tabResponse[r].push({
-          propertyName : "total_matches_won",
-          propertyToDisplay : "wins",
-          value : 0
-        });
-        tabResponse[r].push({
-          propertyName : "total_matches_played",
-          propertyToDisplay : "losses",
-          value : 0
-        });
+        this.RatioLabels[r].push("wins");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['total_matches_won']);
+
+        this.RatioLabels[r].push("losses");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['total_matches_played'] - playerAccount[r]['properties'][0]['stats']['total_matches_won']);
       }
       if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
-        tabResponse[r].push({
-          propertyName : "wins",
-          propertyToDisplay : "wins",
-          value : 0
-        });
-        tabResponse[r].push({
-          propertyName : "losses",
-          propertyToDisplay : "losses",
-          value : 0
-        });
-      }
-      if(playerAccount[r].game._id == "586f56bfb9fde402faa33fdb"){//Rocket League
-        tabResponse[r].push({
-          propertyName : "none",
-          propertyToDisplay : "none",
-          value : 1
-        });
-        tabResponse[r].push({
-          propertyName : "none",
-          propertyToDisplay : "none",
-          value : 1
-        });
-      }
-      if(playerAccount[r].game._id == "583d85afe26ea010b06b801b"){//Overwatch
-        tabResponse[r].push({
-          propertyName : "wins",
-          propertyToDisplay : "wins",
-          value : 0
-        });
-        tabResponse[r].push({
-          propertyName : "losses",
-          propertyToDisplay : "losses",
-          value : 0
-        });
-      }
-      if(playerAccount[r].game._id == "586f56587c2b7302f311eaa5"){//Dota 2
-        tabResponse[r].push({
-          propertyName : "none",
-          propertyToDisplay : "none",
-          value : 1
-        });
-        tabResponse[r].push({
-          propertyName : "none",
-          propertyToDisplay : "none",
-          value : 1
-        });
+        this.RatioLabels[r].push("wins");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['infos']['wins']);
+
+        this.RatioLabels[r].push("losses");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['infos']['losses']);
       }
     }
-
-    console.log(gamesProperties);
-    console.log(tabResponse);
-
-    for(let p=0; p in gamesProperties; p++){
-      for(let i=0;i in gamesProperties[p];i++){
-        for(let o=0;o in tabResponse[p];o++){
-          if(gamesProperties[p][i].propertyName == tabResponse[p][o].propertyName){
-            if(gamesProperties[p][i].propertyName == "total_matches_played"){
-              let nbWin;
-              for(let j=0;j in gamesProperties[p];j++){
-                if(gamesProperties[p][j].propertyName == "total_matches_won"){
-                  nbWin = gamesProperties[p][j].value;
-                }
-              }
-              tabResponse[p][o].value = gamesProperties[p][i].value - nbWin;
-            }
-            else{
-              tabResponse[p][o].value = gamesProperties[p][i].value;
-            }
-          }
-        }
-      }
-    }
-
-
-    for(let h=0;h in playerAccount;h++){
-      this.RatioLabels[h] = [];
-      this.RatioData[h] = [];
-
-      for(let z=0;z in tabResponse[h]; z++){
-        this.RatioLabels[h].push(tabResponse[h][z].propertyToDisplay);
-        this.RatioData[h].push(tabResponse[h][z].value);
-      }
-    }
-
     this.isPropertyLoaded = true;
   }
 
