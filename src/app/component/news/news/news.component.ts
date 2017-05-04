@@ -1,38 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import {GameService} from "../../../../shared/services/game.service";
+import {NewsService} from "../../../../shared/services/news.service";
 import {Configuration} from "../../../../shared/app.constants";
+
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
-  providers: [Configuration,GameService]
+  providers: [Configuration,NewsService]
 
 })
 export class NewsComponent implements OnInit {
-  private games: Object;
+  private news: Object;
   public isFilteredGameId: any;
+  private
 
-  constructor(private gameServiceInstance: GameService
+  constructor(private newsServiceInstance: NewsService
   ) { }
 
   ngOnInit() {
-    this.getGames();
+    this.getNews();
+
+
   }
+
+
+
 
   public checkFilter(gameIdFiltered: string)
   {
     this.isFilteredGameId = gameIdFiltered;
   }
 
-  private getGames(): void {
-    this.gameServiceInstance
-      .GetAllGames()
+  private getNews(): void {
+    this.newsServiceInstance
+      .GetAllNews()
       .subscribe(
-        data => this.games = data,
+        data => this.news = data,
         error => console.log(error),
-        () => {/*console.log('get all games complete', this.games)*/}
+        () => {
+          console.log('get all news complete', this.news);
+
+        }
       );
   }
+
 
 }

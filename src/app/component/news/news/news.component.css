@@ -142,7 +142,7 @@ li img:hover{
 /* GRID ACTU*/
 
 .jasgrid{
-  padding:0;
+  padding:10px;
 }
 .box-item {
   float: left;
@@ -157,7 +157,7 @@ li img:hover{
 .box-item a,span{color:#FFF;}
 
 .box-item .box-post span.meta {
-  font-size: 12px;
+  font-size: 20px;
   color: #fff;
   margin-top: 15px;
   display: block;
@@ -177,7 +177,8 @@ li img:hover{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 20px;
 }
-.box-item .box-post h1..post-title {
-  font-size:10pt;
+.box-item .box-post h1.post-title {
+  font-size:20pt;
 }
