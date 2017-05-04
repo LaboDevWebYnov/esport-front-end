@@ -5,3 +5,8 @@ h2 {
   font-size: 2em;
   margin-top: 2.8em;
 }
+
+#global {
+  background-image: url("../../../../assets/images/font-overwatch.png");
+  min-height: 100vh;
+}
