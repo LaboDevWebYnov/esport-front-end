@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {RouterModule}   from '@angular/router';
 import { CoolStorageModule } from 'angular2-cool-storage';
 import { ChartsModule } from 'ng2-charts';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+
 
 import {AppComponent} from './app.component';
 import {TestUserServiceComponent} from './component/test_service_component/test-user-service/test-user-service.component';
@@ -123,9 +123,7 @@ import { UserInfoComponent } from './component/profile-user/user-info/user-info.
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2AutoCompleteModule,
     ReactiveFormsModule,
-    CoolStorageModule,
     ChartsModule,
     RouterModule.forRoot([
       {
