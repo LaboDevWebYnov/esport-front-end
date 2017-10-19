@@ -101,6 +101,8 @@ export class Step3TeamComponent implements OnInit {
     this.teamServiceInstance
       .registerTeamMainInfo(userId,teamRegistered, gameId)
       .subscribe(
+
+
         data => this.response = data,
         error => {
           //console.log(error);
