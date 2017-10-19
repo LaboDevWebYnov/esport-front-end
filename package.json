@@ -22,6 +22,7 @@
     "@angular/router": "3.2.1",
     "@types/lodash": "ts2.0",
     "angular2-cookie": "^1.2.6",
+    "angular2-cool-storage": "^1.2.1",
     "angular2-localstorage": "^0.4.0",
     "angular2-wizard": "^0.2.1",
     "bootstrap": "^4.0.0-alpha.5",

@@ -123,6 +123,7 @@ import { UserInfoComponent } from './component/profile-user/user-info/user-info.
     BrowserModule,
     FormsModule,
     HttpModule,
+    CoolStorageModule,
     ReactiveFormsModule,
     ChartsModule,
     RouterModule.forRoot([
