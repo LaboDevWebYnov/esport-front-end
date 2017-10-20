@@ -45,9 +45,10 @@
         <div class="col-md-12 col-lg-6 jasgrid" *ngFor="let stream of liveStream.streams">
           <div >
             <div class="box-item">
+              <a href="{{stream.channel.url}}" target="_blank">
               <div class="box-post">
                     <span class="label label-success" style="padding: 10px;">
-                        <a href="#" rel="tag" style="font-size: 25px;">{{stream.channel.game}}</a>
+                        <a rel="tag" style="font-size: 25px;">{{stream.channel.game}}</a>
                     </span>
                 <h1 class="post-title">
                   <a href="{{stream.channel.url}}" target="_blank">
@@ -55,10 +56,11 @@
                   </a>
                 </h1>
                 <span class="meta">
-                        <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
+                        <span>{{stream.channel.display_name}}</span>
                     </span>
               </div>
               <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}" class="">
+              </a>
             </div>
           </div>
         </div>
