@@ -1,7 +1,7 @@
 <div id="global">
   <div class="container">
     <!--<div class="row">-->
-      <<div id="globalSearch">
+      <div id="globalSearch">
 
       <div *ngIf="games" class="form-group row ">
         <li>
@@ -36,56 +36,61 @@
     </div>
   </div>
 
-  <div class="container" *ngIf="liveStream && !searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of liveStream.streams">
-      <div class="">
-        <div class="box-item">
-          <div class="box-post">
+
+  <div class="container">
+    <div class="row">
+
+      <div *ngIf="liveStream && !searchStream">
+
+        <div class="col-md-12 col-lg-6 jasgrid" *ngFor="let stream of liveStream.streams">
+          <div >
+            <div class="box-item">
+              <div class="box-post">
+                    <span class="label label-success" style="padding: 10px;">
+                        <a href="#" rel="tag" style="font-size: 25px;">{{stream.channel.game}}</a>
+                    </span>
+                <h1 class="post-title">
+                  <a href="{{stream.channel.url}}" target="_blank">
+                    {{stream.channel.status}}
+                  </a>
+                </h1>
+                <span class="meta">
+                        <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
+                    </span>
+              </div>
+              <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}" class="">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div *ngIf="searchStream">
+
+        <div class="col-md-12 col-lg-6 jasgrid" >
+          <div *ngFor="let stream of searchStream.streams">
+            <div class="box-item">
+              <div class="box-post">
                     <span class="label label-success">
                         <a href="#" rel="tag">{{stream.channel.game}}</a>
                     </span>
-            <h1 class="post-title">
-              <a href="{{stream.channel.url}}" target="_blank">
-                {{stream.channel.status}}
-              </a>
-            </h1>
-            <span class="meta">
+                <h1 class="post-title">
+                  <a href="{{stream.channel.url}}" target="_blank">
+                    {{stream.channel.status}}
+                  </a>
+                </h1>
+                <span class="meta">
                         <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
                     </span>
+              </div>
+              <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
+                   class="">
+            </div>
           </div>
-          <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
-               class="">
         </div>
+
       </div>
 
-
-    </div>
+    </div> <!-- /container -->
   </div>
-
-  <div class="container" *ngIf="searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of searchStream.streams">
-      <div class="">
-        <div class="box-item">
-          <div class="box-post">
-                    <span class="label label-success">
-                        <a href="#" rel="tag">{{stream.channel.game}}</a>
-                    </span>
-            <h1 class="post-title">
-              <a href="{{stream.channel.url}}" target="_blank">
-                {{stream.channel.status}}
-              </a>
-            </h1>
-            <span class="meta">
-                        <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
-                    </span>
-          </div>
-          <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
-               class="">
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
 </div>

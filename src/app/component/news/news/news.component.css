@@ -1,6 +1,9 @@
 #global {
-  background-image: url("../../../../assets/images/font-cs.png");
+  background: url("../../../../assets/images/font-cs.png");
   min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 *{
   color:white;
@@ -138,7 +141,6 @@ li img:hover{
   display: none;
 }
 
-
 /* GRID ACTU*/
 
 .jasgrid{
@@ -149,6 +151,7 @@ li img:hover{
   opacity: 1;
   overflow: hidden;
   position: relative;
+  margin-bottom: 22px;
 }
 
 .box-item img {

@@ -1,8 +1,10 @@
 #global {
-  background-image: url("../../../../assets/images/font-lol.png");
+  background: url("../../../../assets/images/font-lol.png");
   min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
 *{
   color:white;
   font-family: "Rhanoll";
@@ -142,13 +144,14 @@ li img:hover{
 /* GRID ACTU*/
 
 .jasgrid{
-  padding:0;
+  padding:10px;
 }
 .box-item {
   float: left;
   opacity: 1;
   overflow: hidden;
   position: relative;
+  /*margin-bottom: 22px;*/
 }
 
 .box-item img {
@@ -177,6 +180,7 @@ li img:hover{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 20px;
 }
 .box-item .box-post h1..post-title {
   font-size:10pt;
