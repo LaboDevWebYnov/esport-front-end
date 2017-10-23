@@ -19,8 +19,12 @@
   cursor: pointer;
 }
 #search{
+  width:100%;
   margin-bottom:25px;
   display: inline-flex;
+}
+#contentSearchForm{
+  width: 100%;
 }
 #search div{
   display: inline-block;
@@ -52,6 +56,18 @@
   position:relative;
 }
 
+
+#insideBar{
+  background-color: #1d1d1b;
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  width: 100%;
+  border: 0px;
+  border-bottom: 1px solid grey;
+}
+
+
 #createTeam{
   margin-left: 50px;
 }
@@ -59,17 +75,6 @@
 h1{
   font-size: 35px;
   padding-top: 10px;
-}
-
-
-#insideBar{
-  background-color: #1d1d1b;
-  font-size: 30px;
-  padding: 7px;
-  text-align: center;
-  width: 650px;
-  border: 0px;
-  border-bottom: 1px solid grey;
 }
 
 .droparrow{
