@@ -1,6 +1,9 @@
 #global {
-  background-image: url("../../../../assets/images/font-cs.png");
+  background: url("../../../../assets/images/font-cs.png");
   min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 *{
   color:white;
@@ -16,8 +19,12 @@
   cursor: pointer;
 }
 #search{
+  width:100%;
   margin-bottom:25px;
   display: inline-flex;
+}
+#contentSearchForm{
+  width: 100%;
 }
 #search div{
   display: inline-block;
@@ -49,6 +56,19 @@
   position:relative;
 }
 
+
+#insideBar{
+  background-color: rgba(29,29,29,0.8);
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  width: 100%;
+  border: 0px;
+  border-radius: 5px 5px 1px 1px;
+  border-bottom: 1px solid grey;
+}
+
+
 #createTeam{
   margin-left: 50px;
 }
@@ -56,17 +76,6 @@
 h1{
   font-size: 35px;
   padding-top: 10px;
-}
-
-
-#insideBar{
-  background-color: #1d1d1b;
-  font-size: 30px;
-  padding: 7px;
-  text-align: center;
-  width: 650px;
-  border: 0px;
-  border-bottom: 1px solid grey;
 }
 
 .droparrow{
@@ -138,7 +147,6 @@ li img:hover{
   display: none;
 }
 
-
 /* GRID ACTU*/
 
 .jasgrid{
@@ -149,6 +157,7 @@ li img:hover{
   opacity: 1;
   overflow: hidden;
   position: relative;
+  margin-bottom: 22px;
 }
 
 .box-item img {

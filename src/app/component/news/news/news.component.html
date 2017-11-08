@@ -1,41 +1,43 @@
 <div id="global">
   <div class="container">
     <!--<div class="row">-->
-      <div id="globalSearch">
+      <div id="globalSearch" class="row">
 
+        <!--<div *ngIf="games" class="form-group row ">-->
+          <!--<li>-->
+            <!--<input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame"-->
+                   <!--(change)="checkFilter(AllGame)" (change)="selector.checked"/>-->
+            <!--<label for="AllGame">-->
+              <!--<img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png"-->
+                   <!--alt="All Game Checked">-->
+              <!--<img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game">-->
+            <!--</label>-->
+          <!--</li>-->
+          <!--<li *ngFor="let game of games">-->
+            <!--<input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}"-->
+                   <!--(change)="checkFilter(game._id)" (change)="selector.checked"/>-->
+            <!--<label for="{{game._id}}">-->
+              <!--<img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png"-->
+                   <!--alt="{{game.name}}">-->
+              <!--<img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png"-->
+                   <!--alt="{{game.name}}">-->
+            <!--</label>-->
+          <!--</li>-->
+        <!--</div>-->
 
-        <div *ngIf="games" class="form-group row ">
-          <li>
-            <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame"
-                   (change)="checkFilter(AllGame)" (change)="selector.checked"/>
-            <label for="AllGame">
-              <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png"
-                   alt="All Game Checked">
-              <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game">
-            </label>
-          </li>
-          <li *ngFor="let game of games">
-            <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}"
-                   (change)="checkFilter(game._id)" (change)="selector.checked"/>
-            <label for="{{game._id}}">
-              <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png"
-                   alt="{{game.name}}">
-              <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png"
-                   alt="{{game.name}}">
-            </label>
-          </li>
-        </div>
-
-        <div id="search">
-          <div>
+        <div class="col-md-2"></div>
+        <div id="search" class="col-md-8 align-self-center">
+          <div id="contentSearchForm">
             <form (ngSubmit)="onSubmit($event)" id="searchBar">
-              <input id="insideBar" type="text" placeholder="Rechercher une actu">
+              <input id="insideBar" type="text" placeholder="Rechercher une actualité">
             </form>
           </div>
           <div>
             <input id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
           </div>
         </div>
+        <div class="col-md-2"></div>
+
       </div>
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
@@ -43,66 +45,59 @@
   </div>
 
 
-  <div class="container">
+  <div class="container"> <!-- container -->
     <div class="row">
-
       <div *ngIf="news">
-        <div class="col-md-6 jasgrid">
+
+        <div class="col-md-12 col-lg-6 jasgrid">
           <div *ngFor="let a of news.polygon.articles, let i=index">
-
             <div class="box-item">
-              <div class="box-post">
-                <span class="label label-success" style="padding: 10px;">
-                          <a href="{{a.url}}" rel="tag" style="font-size: 25px;">{{news.polygon.source}}</a>
-                      </span>
-                <h1 class="post-title">
-                  <a href="#">
-                    {{a.description}}
-                  </a>
-                </h1>
-                <span class="meta">
-                          <span><i class="glyphicon glyphicon-comment"></i> <a
-                            href="{{a.url}}">Lien de l'article</a></span>
-
-                  <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt}}</span>
-                      </span>
-              </div>
-              <img src="{{a.urlToImage}}" alt="Photo de l'article"
-                   class="">
-
+              <a href="{{a.url}}" target="_blank">
+                <div class="box-post">
+                  <span class="label label-success" style="padding: 10px;">
+                    <a rel="tag" style="font-size: 25px;">{{news.polygon.source}}</a>
+                  </span>
+                  <h1 class="post-title">
+                    <a href="{{a.url}}" target="_blank">
+                      {{a.description}}
+                    </a>
+                  </h1>
+                  <span class="meta">
+                    <span *ngIf="a.publishedAt"> {{a.publishedAt}}</span>
+                  </span>
+                </div>
+                <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
+              </a>
             </div>
           </div>
         </div>
-        <div class="col-md-6 jasgrid">
+
+        <div class="col-md-12 col-lg-6 jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
-
             <div class="box-item">
-              <div class="box-post">
-                <span class="label label-success" style="padding: 10px;">
-                          <a href="{{a.url}}" rel="tag" style="font-size: 25px;">{{news.ign.source}}</a>
-                      </span>
-                <h1 class="post-title">
-                  <a href="#">
-                    {{a.description}}
-                  </a>
-                </h1>
-                <span class="meta">
-                          <span><i class="glyphicon glyphicon-comment"></i> <a
-                            href="{{a.url}}">Lien de l'article</a></span>
-
-                          <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt}}</span>
-                      </span>
-              </div>
-              <img src="{{a.urlToImage}}" alt="Photo de l'article"
-                   class="">
-
+              <a href="{{a.url}}" target="_blank">
+                <div class="box-post">
+                  <span class="label label-success" style="padding: 10px;">
+                    <a rel="tag" style="font-size: 25px;">{{news.ign.source}}</a>
+                  </span>
+                  <h1 class="post-title">
+                    <a href="{{a.url}}" target="_blank">
+                      {{a.description}}
+                    </a>
+                  </h1>
+                  <span class="meta">
+                     <span *ngIf="a.publishedAt"> {{a.publishedAt}}</span>
+                  </span>
+                </div>
+                <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
+              </a>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
+  </div> <!-- /container -->
 
-    </div> <!-- /container -->
-  </div>
 </div>
 
