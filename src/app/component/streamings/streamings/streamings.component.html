@@ -57,6 +57,7 @@
   </div>
 
 
+
   <div class="container">
     <div class="row">
 
@@ -65,6 +66,7 @@
         <div class="col-md-12 col-lg-6 jasgrid" *ngFor="let stream of liveStream.streams">
           <div >
             <div class="box-item">
+
               <a href="{{stream.channel.url}}" target="_blank">
               <div class="box-post">
                     <span class="label label-success" style="padding: 10px;">
@@ -89,10 +91,12 @@
       </div>
       <div *ngIf="searchStream">
 
+
         <div class="col-md-12 col-lg-6 jasgrid" >
           <div *ngFor="let stream of searchStream.streams">
             <div class="box-item">
               <div class="box-post">
+
                     <span class="label label-success">
                         <a href="#" rel="tag">{{stream.channel.game}}</a>
                     </span>

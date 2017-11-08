@@ -4,6 +4,8 @@ import {TeamService} from "../../../../shared/services/team.service";
 import {PlayerAccountService} from "../../../../shared/services/player-account.service";
 import {Team} from "../../../../shared/models/team";
 import {CreateTeamObject} from "../../../../shared/models/utils/create-update-team-object";
+import { CoolLocalStorage } from "angular2-cool-storage";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-details-team',
@@ -18,13 +20,18 @@ export class DetailsTeamComponent implements OnInit {
   response: Object;
   member : Object;
   updateTeam: Object;
+  localStorage : CoolLocalStorage;
+  teamId: string;
 
-  constructor(private teamServiceInstance: TeamService, private playerAccountInstance : PlayerAccountService) {
-
+  constructor(private teamServiceInstance: TeamService, private playerAccountInstance : PlayerAccountService,localStorage: CoolLocalStorage,private router: Router,private route: ActivatedRoute,) {
+    this.localStorage = localStorage;
   }
 
   ngOnInit() {
-    this.getSingleTeamById("58ac0d539fd7680604b65add");
+    this.teamId = this.route.snapshot.params['teamid'];
+    console.log(this.teamId);
+    //this.teamId = this.localStorage.getItem('teamId');
+    this.getSingleTeamById(this.teamId);
     //this.getSingleTeamByName("Djamel");
     //this.getAllTeams();
     //this.getPlayerById("58aaea1f1759e21314c0281e");

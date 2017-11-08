@@ -149,7 +149,9 @@ li img:hover{
 /* GRID ACTU*/
 
 .jasgrid{
+
   padding:10px;
+
 }
 .box-item {
   float: left;
@@ -173,6 +175,7 @@ li img:hover{
 
 .box-item .box-post span.meta span {
   margin-right: 15px;
+
 }
 
 .box-item .box-post {
@@ -180,6 +183,7 @@ li img:hover{
   left: 0;
   bottom: 0;
   width: 100%;
+  margin: 10%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 30px;
   -webkit-box-sizing: border-box;
@@ -188,5 +192,8 @@ li img:hover{
   font-size: 20px;
 }
 .box-item .box-post h1.post-title {
+
   font-size:25pt;
+
 }
+
