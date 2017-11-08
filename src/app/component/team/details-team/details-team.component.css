@@ -158,6 +158,7 @@ h2{
 .hexagon-in2 {
   background-image:url("../../../../assets/images/slide_overwatch.png");
   background-size: inherit;
+  margin-inside: 10px;
 }
 
 .home{
@@ -254,4 +255,7 @@ footer{
   height: 30px;
   border-radius: 5%;
   margin: 1%;
+}
+.img{
+  margin-top: -5px;
 }

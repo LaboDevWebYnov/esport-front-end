@@ -37,7 +37,7 @@
   </div>
 
   <div class="container" *ngIf="liveStream && !searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of liveStream.streams">
+    <div class="row col-md-5 jasgrid" *ngFor="let stream of liveStream.streams">
       <div class="">
         <div class="box-item">
           <div class="box-post">
@@ -62,8 +62,10 @@
     </div>
   </div>
 
+
   <div class="container" *ngIf="searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of searchStream.streams">
+
+    <div class="row col-md-5 jasgrid" *ngFor="let stream of searchStream.streams">
       <div class="">
         <div class="box-item">
           <div class="box-post">
