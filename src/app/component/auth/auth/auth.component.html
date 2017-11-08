@@ -1,5 +1,4 @@
-<div class="container"><!--style="margin-top:50px;"-->
-  <div class="test">
+<div class="container">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
   <div class="row align-items-center">
@@ -31,11 +30,13 @@
                    class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
             <input (keyup)="entryVerification($event,'password')" (change)="entryVerification($event,'password')"
                    class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
-            <button id="logInSubmitButton" class="connectButton" disabled>Identifiez-vous</button>
+            <button id="logInSubmitButton" class="myButton" disabled>Identifiez-vous</button>
           </form>
 
           <div class="facebookButton">
-            <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png"> S'identifier avec Facebbok
+            <button class="buttonFacebook" disabled>
+              <img class="fb_img" src="../../../../assets/images/facebook_blanc.PNG">
+              <div>Identifiez-vous depuis Facebook</div>
             </button>
           </div>
         </div>
@@ -44,11 +45,12 @@
           <form (ngSubmit)="onSubmit($event)">
             <input (keyup)="entryVerification($event,'email')" (change)="entryVerification($event,'email')"
                    class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
-            <button class="connectButton">S'inscrire avec une adresse mail</button>
+            <button class="myButton">S'inscrire avec une adresse mail</button>
           </form>
 
-          <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png">
-            S'inscrire avec Facebook
+          <button class="buttonFacebook" disabled>
+            <img class="fb_img" src="../../../../assets/images/facebook_blanc.PNG">
+            <div>S'inscrire depuis Facebook</div>
           </button>
         </div>
 
@@ -70,5 +72,5 @@
     </div><!--/Bloc log-->
   </div><!--row-->
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  </div>
 </div>
+
