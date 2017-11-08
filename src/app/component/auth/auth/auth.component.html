@@ -1,99 +1,74 @@
-<div class="window"></div>
+<div class="container"><!--style="margin-top:50px;"-->
+  <div class="test">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-<div class="menuWindow"></div>
-
-<div class="mainWindow">
-
-  <div class="blueLine" id="top_blueline"></div>
-
-  <div class="row">
-    <div class="col-md-8">
-      <br>
-      <div id="sign">
-        <img src="/../../../../assets/images/img-tunnelco-01.png" alt="Photo de montagne" />
-      </div>
+  <div class="row align-items-center">
+    <div class="hidden-sm hidden-xs col-md-6 col-lg-6 ">
+      <img src="/../../../../assets/images/img-tunnelco-01.png" alt="Photo de montagne" id="imgLog"/>
     </div>
 
-
-    <div class="col-md-4">
-      <h1>Bienvenue Sur NoName Gaming</h1>
+    <div class="col-md-12 col-lg-6"> <!--Bloc log-->
+      <div>
+        <h1>Bienvenue Sur NoName Gaming</h1>
 
         <div class="menuLogIn">
-
           <ul class="tab">
-
-            <li><a href="javascript:void(0)" class="tablinks" (click)="authLiClick($event, 'signUp')">S'inscrire</a></li>
-            <li><a href="javascript:void(0)" class="tablinks active" (click)="authLiClick($event, 'logIn')">Se Connecter</a></li>
+            <li><a href="javascript:void(0)" class="tablinks" (click)="authLiClick($event, 'signUp')">S'inscrire</a>
+            </li>
+            <li><a href="javascript:void(0)" class="tablinks active" (click)="authLiClick($event, 'logIn')">Se
+              Connecter</a></li>
             <li class="liEnd"></li>
-
           </ul>
-
         </div>
 
         <div id="logIn" class="formStyle">
-
           <div *ngIf="status==401" id="errorMessage">
-
             <strong>{{error.errorMessage}}</strong>
-
           </div>
 
-
           <form (submit)="checkAuth()">
-
-            <input (keyup)="entryVerification($event,'login')" (change)="entryVerification($event,'login')" class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
-            <input (keyup)="entryVerification($event,'password')" (change)="entryVerification($event,'password')" class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
-            <button id="logInSubmitButton" class="connectButton" disabled>SE CONNECTER ET JOUER</button>
-
+            <input (keyup)="entryVerification($event,'login')" (change)="entryVerification($event,'login')"
+                   class="inputGray" id="emailAuth" type="text" placeholder="Email Adress/Username" required>
+            <input (keyup)="entryVerification($event,'password')" (change)="entryVerification($event,'password')"
+                   class="inputGray" id="pwdAuth" type="password" placeholder="Mot de passe" required>
+            <button id="logInSubmitButton" class="connectButton" disabled>Identifiez-vous</button>
           </form>
 
           <div class="facebookButton">
-
-            <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png"> Se connecter avec Facebbok</button>
-
+            <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png"> S'identifier avec Facebbok
+            </button>
           </div>
-
         </div>
 
         <div id="signUp" class="formStyle">
-
           <form (ngSubmit)="onSubmit($event)">
-
-            <input (keyup)="entryVerification($event,'email')" (change)="entryVerification($event,'email')" class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
-
-            <button class="connectButton">S'inscrire avec addresse mail</button>
-
+            <input (keyup)="entryVerification($event,'email')" (change)="entryVerification($event,'email')"
+                   class="inputGray" id="signUpButton" type="text" placeholder="Email Adress/Username" required>
+            <button class="connectButton">S'inscrire avec une adresse mail</button>
           </form>
 
-          <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png"> S'inscrire avec Facebook</button>
-
+          <button class="buttonFacebook" disabled><img class="fb_img" src="../../../../assets/images/facebook.png">
+            S'inscrire avec Facebook
+          </button>
         </div>
 
-    </div>
-    <div class="col-md-4"></div>
-
-  </div>
-  <br><br><br><br>
-  <div class="blueLine" id="bot_blueline"></div>
-  <br>
-  <br>
-  <br>
-  <div class="col-md-12 state-message">
-    <div [hidden]="!submitted">
-
-      <div *ngIf="infoMessage" class="alert alert-success infoMessage">
-
-        <strong>Success!</strong> {{infoMessage}}
-
       </div>
 
+      <div class="state-message">
+        <div [hidden]="!submitted">
+          <div *ngIf="infoMessage" class="alert alert-success infoMessage">
+            <strong>Success!</strong> {{infoMessage}}
+          </div>
 
-      <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
+          <div *ngIf="errorMessage" class="alert alert-danger errorMessage">
+            <strong>Error!</strong> {{errorMessage}}
+          </div>
 
-        <strong>Error!</strong> {{errorMessage}}
-
+        </div>
       </div>
 
-    </div>
+    </div><!--/Bloc log-->
+  </div><!--row-->
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
   </div>
 </div>

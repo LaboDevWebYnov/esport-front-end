@@ -67,12 +67,13 @@ h1{
 
 
 #insideBar{
-  background-color: #1d1d1b;
+  background-color: rgba(29,29,29,0.8);
   font-size: 30px;
   padding: 7px;
   text-align: center;
-  width: 650px;
+  width: 100%;
   border: 0px;
+  border-radius: 5px 5px 1px 1px;
   border-bottom: 1px solid grey;
 }
 
