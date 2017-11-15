@@ -47,6 +47,8 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isRatioLoaded">
               <canvas baseChart
+                      [colors]="RatioChartColor"
+                      [options]="RatioChartOption"
                       [data]="RatioData[i]"
                       [labels]="RatioLabels[i]"
                       [chartType]="RatioChartType"
@@ -63,6 +65,7 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isStatsLoaded">
               <canvas baseChart
+                      [options]="statsChartOption"
                       [data]="statsData[i]"
                       [labels]="statsLabels[i]"
                       [chartType]="statsChartType"
@@ -78,6 +81,7 @@
           <div style="display: block">
             <div *ngIf="playerAccount.isActivityLoaded">
               <canvas baseChart
+                      [options]="activityChartOption"
                       [data]="activityData[i]"
                       [labels]="activityLabels[i]"
                       [chartType]="activityChartType"

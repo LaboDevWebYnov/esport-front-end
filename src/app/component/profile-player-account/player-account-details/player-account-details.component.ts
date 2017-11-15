@@ -39,16 +39,26 @@ export class PlayerAccountDetailsComponent implements OnInit {
   public RatioChartType: string = 'doughnut';
   public RatioLabels = [];
   public RatioData = [];
+  public RatioChartOption:any = {
+    responsive: false
+  };
+  public RatioChartColor: any[] = [{backgroundColor: ["#2b6c98","#a4465a"]}];
   public isPropertyRatioLoaded: boolean = false;
 
   public statsChartType: string = 'doughnut';
   public statsLabels = [];
   public statsData = [];
+  public statsChartOption:any = {
+    responsive: false
+  };
   public isPropertyStatsLoaded: boolean = false;
 
   public activityChartType: string = 'doughnut';
   public activityLabels = [];
   public activityData = [];
+  public activityChartOption:any = {
+    responsive: false
+  };
   public isPropertyActivityLoaded: boolean = false;
 
   public playerAccountProperty = [
