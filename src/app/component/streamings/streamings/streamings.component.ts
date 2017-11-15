@@ -46,7 +46,7 @@ export class StreamingsComponent implements OnInit {
         data => this.liveStream = data,
         error => console.log(error),
         () => {console.log('get live stream complete', this.liveStream)}
-      )
+      );
   }
 
   private getStreamByLikeName(twitchUser: string): any {
@@ -56,7 +56,7 @@ export class StreamingsComponent implements OnInit {
         data => this.searchStream = data,
         error => console.log(error),
         () => {console.log('get stream complete', this.searchStream)}
-      )
+      );
   }
 
   private getGames(): void {

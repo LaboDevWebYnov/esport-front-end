@@ -2,11 +2,118 @@ h2 {
   text-align: center;
   color: white;
   font-family: Rhanoll;
-  font-size: 2em;
-  margin-top: 2.8em;
+  font-size: 2.5em;
+  margin-top:2em;
 }
 
 #global {
   background-image: url("../../../../assets/images/font-lol.png");
   min-height: 100vh;
+  text-align: center;
+  font-family: Rhanoll;
+}
+
+.showTeam{
+  color: white;
+  font-size:2em;
+}
+
+.nameGame{
+font-size: 20px;
+}
+
+.teamName{
+  font-size:30px;
+}
+
+.vosTeamTitle {
+  text-align: center;
+  color: white;
+  font-size: 2.3em;
+  margin-top:0.2em;
+  font-family: Rhanoll;
+}
+.gameName{
+  text-align: center;
+  color: white;
+  font-size: 2.1em;
+  margin-top:0.2em;
+  font-family: Rhanoll;
+  font-weight:unset;
+}
+li img{
+  max-height: 100px;
+}
+
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
+}
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:150px;
+  height:150px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+app-blue-separation-bar-small div{
+  transform: translateY(25px);
+}
+@media screen and (max-width: 992px){
+  .col-md-6.global{
+    margin: auto;
+  }
+
+}
+
+/* Actu */
+h1{
+  font-size: 35px;
+  padding-top: 10px;
+}
+.jasgrid{
+  padding:10px;
+}
+.box-item {
+  float: left;
+  opacity: 1;
+  overflow: hidden;
+  position: relative;
+  width:33%;
+  padding:10px;
+}
+
+.box-item img {
+  width: 100%;
+}
+.box-item a,span{color:#FFF;}
+
+.box-item .box-post span.meta {
+  font-size: 20px;
+  color: #fff;
+  margin-top: 15px;
+  display: block;
+}
+
+.box-item .box-post span.meta span {
+  margin-right: 15px;
+}
+
+.box-item .box-post {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.box-item .box-post h1.post-title {
+  font-size:16pt;
 }
