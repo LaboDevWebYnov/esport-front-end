@@ -1,0 +1,46 @@
+<div class="lastMatchs">
+  <h1>Dernières parties jouées : </h1>
+  <app-blue-separation-bar></app-blue-separation-bar>
+  <div class="games" *ngFor="let match of lastMatch,let i = index">
+      <!-- Left part with score of the both teams -->
+    <div class="div-last-game">
+      <h2 class="blue">Victoire {{match.winnersTeamName}}</h2>
+      <table class="teamsLastMatchs">
+        <tr>
+          <td><img class="imgTeam" src="../../../assets/images/imgTeamEmpty.png"></td>
+          <td><h2>VS</h2></td>
+          <td><img class="imgTeam" src="../../../assets/images/imgTeamEmpty.png"></td>
+        </tr>
+        <tr>
+          <td><h2>{{match.winnersTeamPoint }}</h2></td>
+          <td><h2> / </h2></td>
+          <td><h2>{{match.losersTeamPoint }}</h2></td>
+        </tr>
+      </table>
+    </div>
+      <!-- Right part with stats-->
+    <div class="div-last-game">
+      <table class="statsLastMatchs">
+        <tr>
+          <td></td>
+          <td><h2>Score : {{match.nbKills }}/{{ match.nbDeath}}</h2></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><h2>Number of kills : {{match.nbKills }}</h2></td>
+          <td><h2>Number of deaths : {{ match.nbDeath}}</h2></td>
+          <td><h2>Most Use Weapon : {{match.mostUseWeapon }}</h2></td>
+        </tr>
+        <tr>
+          <td><h2>Time death : {{match.timeDeath }} min</h2></td>
+          <td><h2>Ratio : {{match.nbKills / match.nbDeath}}</h2></td>
+          <td><h2>Job : {{match.job }}</h2></td>
+        </tr>
+        <tr>
+
+        </tr>
+      </table>
+    </div>
+    <app-blue-separation-bar></app-blue-separation-bar>
+  </div>
+</div>

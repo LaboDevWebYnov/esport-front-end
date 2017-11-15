@@ -60,6 +60,9 @@ import { Step5TeamComponent } from './component/team/create-team/step5-team/step
 
 import { SearchTeamComponent } from './component/team/search-team/search-team.component';
 import { UserInfoComponent } from './component/profile-user/user-info/user-info.component';
+import { SliderHomeComponent } from './component/home/slider-home/slider-home.component';
+import { PlayerAccountLastGamesComponent } from './component/profile-player-account/player-account-last-games/player-account-last-games.component';
+import { StatsGamesComponent } from './component/home/stats-games/stats-games.component';
 
 
 @NgModule({
@@ -117,7 +120,10 @@ import { UserInfoComponent } from './component/profile-user/user-info/user-info.
     Step4TeamComponent,
     Step5TeamComponent,
     SearchTeamComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    SliderHomeComponent,
+    PlayerAccountLastGamesComponent,
+    StatsGamesComponent
   ],
   imports: [
     BrowserModule,

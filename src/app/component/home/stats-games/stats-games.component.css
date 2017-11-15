@@ -1,0 +1,26 @@
+.table_stats
+{
+  margin: 50px auto;
+}
+.table_stats-lignes
+{
+  background: linear-gradient(to right, rgba(28, 42, 51, 0), rgba(28, 42, 51, 0.5), rgba(28, 42, 51, 0.6), rgba(28, 42, 51, 0.8), rgb(28, 42, 51), rgb(28, 42, 51), rgba(28, 42, 51, 0.8), rgba(28, 42, 51, 0.6), rgba(28, 42, 51, 0.5), rgba(28, 42, 51, 0) );
+}
+.table_stats_cell
+{
+  font-family: Rhanoll;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  padding: 0 20px;
+}
+.table_stats_cell img
+{
+  width: 40px;
+  height: auto;
+}
+.table_stats_cell
+{
+  line-height: 20px;
+}

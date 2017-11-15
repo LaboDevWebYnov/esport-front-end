@@ -1,91 +1,122 @@
 <div id="global">
   <div class="container">
     <!--<div class="row">-->
-      <<div id="globalSearch">
+    <div id="globalSearch" class="row">
 
-      <div *ngIf="games" class="form-group row ">
-        <li>
-          <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
-          <label for="AllGame">
-            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
-            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
-          </label>
-        </li>
-        <li *ngFor="let game of games">
-          <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="selector.checked"/>
-          <label for="{{game._id}}">
-            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
-            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
-          </label>
-        </li>
-      </div>
+      <!--<div *ngIf="games" class="form-group row ">-->
+      <!--<li>-->
+      <!--<input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame"-->
+      <!--(change)="checkFilter(AllGame)" (change)="selector.checked"/>-->
+      <!--<label for="AllGame">-->
+      <!--<img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png"-->
+      <!--alt="All Game Checked">-->
+      <!--<img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game">-->
+      <!--</label>-->
+      <!--</li>-->
+      <!--<li *ngFor="let game of games">-->
+      <!--<input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}"-->
+      <!--(change)="checkFilter(game._id)" (change)="selector.checked"/>-->
+      <!--<label for="{{game._id}}">-->
+      <!--<img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png"-->
+      <!--alt="{{game.name}}">-->
+      <!--<img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png"-->
+      <!--alt="{{game.name}}">-->
+      <!--</label>-->
+      <!--</li>-->
+      <!--</div>-->
 
-      <div id="search">
-        <div>
-          <form (keydown)="onChangeSearchStream($event)" id="searchBar">
+      <div class="col-md-2"></div>
+      <div id="search" class="col-md-8 align-self-center">
+        <div id="contentSearchForm">
+          <form (ngSubmit)="onSubmit($event)" id="searchBar">
             <input id="insideBar" type="text" placeholder="Rechercher un stream">
           </form>
         </div>
         <div>
-          <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+          <input id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
         </div>
+      </div>
+      <div class="col-md-2"></div>
+
+      <!--<div id="search">-->
+      <!--<div>-->
+      <!--<form (keydown)="onChangeSearchStream($event)" id="searchBar">-->
+      <!--<input id="insideBar" type="text" placeholder="Rechercher un stream">-->
+      <!--</form>-->
       <!--</div>-->
-    </div>
-      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      <!--<div>-->
+      <!--<input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">-->
+      <!--</div>-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--</div>-->
 
     </div>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+    <!--</div>-->
   </div>
 
-  <div class="container" *ngIf="liveStream && !searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of liveStream.streams">
-      <div class="">
-        <div class="box-item">
-          <div class="box-post">
+
+
+  <div class="container">
+    <div class="row">
+
+      <div *ngIf="liveStream && !searchStream">
+
+        <div class="col-md-12 col-lg-6 jasgrid" *ngFor="let stream of liveStream.streams">
+          <div >
+            <div class="box-item">
+
+              <a href="{{stream.channel.url}}" target="_blank">
+              <div class="box-post">
+                    <span class="label label-success" style="padding: 10px;">
+                        <a rel="tag" style="font-size: 25px;">{{stream.channel.game}}</a>
+                    </span>
+                <h1 class="post-title">
+                  <a href="{{stream.channel.url}}" target="_blank">
+                    {{stream.channel.status}}
+                  </a>
+                </h1>
+                <span class="meta">
+                        <span>{{stream.channel.display_name}}</span>
+                    </span>
+              </div>
+              <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}" class="">
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div *ngIf="searchStream">
+
+
+        <div class="col-md-12 col-lg-6 jasgrid" >
+          <div *ngFor="let stream of searchStream.streams">
+            <div class="box-item">
+              <div class="box-post">
+
                     <span class="label label-success">
                         <a href="#" rel="tag">{{stream.channel.game}}</a>
                     </span>
-            <h1 class="post-title">
-              <a href="{{stream.channel.url}}" target="_blank">
-                {{stream.channel.status}}
-              </a>
-            </h1>
-            <span class="meta">
+                <h1 class="post-title">
+                  <a href="{{stream.channel.url}}" target="_blank">
+                    {{stream.channel.status}}
+                  </a>
+                </h1>
+                <span class="meta">
                         <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
                     </span>
+              </div>
+              <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
+                   class="">
+            </div>
           </div>
-          <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
-               class="">
         </div>
+
       </div>
 
-
-    </div>
+    </div> <!-- /container -->
   </div>
-
-  <div class="container" *ngIf="searchStream">
-    <div class="row col-md-6 jasgrid" *ngFor="let stream of searchStream.streams">
-      <div class="">
-        <div class="box-item">
-          <div class="box-post">
-                    <span class="label label-success">
-                        <a href="#" rel="tag">{{stream.channel.game}}</a>
-                    </span>
-            <h1 class="post-title">
-              <a href="{{stream.channel.url}}" target="_blank">
-                {{stream.channel.status}}
-              </a>
-            </h1>
-            <span class="meta">
-                        <span><i class="glyphicon glyphicon-comment"></i> <a href="{{stream.channel.url}}">{{stream.channel.display_name}}</a></span>
-                    </span>
-          </div>
-          <img src="{{stream.channel.video_banner}}" alt="{{stream.channel.video_banner}}"
-               class="">
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
 </div>

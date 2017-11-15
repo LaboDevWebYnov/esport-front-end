@@ -1,49 +1,49 @@
 <div class="container signupRoad">
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-<h2>Enregistrer votre  <font style="color:#0071bc;">Team</font></h2>
-<p>Vous pouvez maintenant crée votre propre équipe. <br>Dans un premier temps complété les infos général.</p>
+  <div class="row">
+    <div class="col-md-6">
+      <h1 id="formTitle">Enregistrer votre  <font style="color:#0071bc;">Team</font></h1>
+      <h3>Vous pouvez maintenant crée votre propre équipe. Dans un premier temps complété les infos général.</h3>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-12 board">
 
-<div id="side">
+        <div class="board-inner">
+          <ul class="nav nav-tabs" id="myTab">
 
-  <div class="col-md-12 board">
+            <div class="liner">
 
-
-    <div class="board-inner">
-      <ul class="nav nav-tabs" id="myTab">
-        <div class="liner">
-          <div id="blueText">
-            Etapes
-          </div>
-        </div>
-        <li >
-          <a href="/home"  title="Rentrer les infos personnelles">
-            <span class="round-tabs one"></span>
-          </a></li>
-        <li ><a href="/home"  title="Séléctionner les jeux">
-          <span class="round-tabs two"></span>
-        </a>
-        </li>
-        <li class="active"><a href="#prototyping"  title="Prototyping">
-          <span class="round-tabs three"></span> </a>
-        </li>
-        <li><a href="#uidesign"  title="UI Design">
-          <span class="round-tabs four"></span>
-        </a></li>
-        <li><a href="#doner"  title="Development">
-          <span class="round-tabs five"></span> </a>
-        </li>
-      </ul></div>
+            </div>
+            <li>
+              <a href="/home"  title="Rentrer les infos personnelles">
+                <span class="round-tabs one"></span>
+              </a></li>
+            <li><a href="/home"  title="Séléctionner les jeux">
+              <span class="round-tabs two"></span>
+            </a>
+            </li>
+            <li class="active"><a href="#prototyping"  title="Prototyping">
+              <span class="round-tabs three"></span> </a>
+            </li>
+            <li><a href="#uidesign"  title="UI Design">
+              <span class="round-tabs four"></span>
+            </a></li>
+            <li><a href="#doner"  title="Development">
+              <span class="round-tabs five"></span> </a>
+            </li>
+          </ul></div>
+      </div>
+    </div>
   </div>
-</div>
-<app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
 <form #f="ngForm" (ngSubmit)="onSubmit($event)"   class="form-inline">
 <div class="form-group row">
 
 
-  <div class="col-sm-6">
-    <label for="checkboxCaptain"> Voulez vous être le capitaine de l'équipe?</label>
+  <div class="col-sm-10">
+    <h2>Voulez vous être le capitaine de l'équipe ?</h2>
     <input type="checkbox"  id="checkboxCaptain" class="checkboxGame" name="isActive"   [(ngModel)]="isActive" >
   </div>
   <div *ngIf="isActive">
@@ -61,24 +61,11 @@
           placeholder="Choississez votre player account"/>
         <input type="submit">
       </div>
-
-
     </div>
   </div>
-
-
-
-
-
-      </div>
-
-
+</div>
 
   <pre>submitted value: <br>{{f.value | json}}</pre>
-
-
-
-
 
 <div class="form-group row">
   <div class="col-sm-6">
@@ -86,7 +73,7 @@
   </div>
   <div class="col-sm-4"></div>
   <div class="col-sm-2">
-    <button class="btn btn-primary pull-right" type="submit" >Next</button>
+    <button class="btn btn-primary submitButton" type="submit" >Next</button>
 
   </div>
 </div>

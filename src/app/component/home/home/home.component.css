@@ -116,4 +116,5 @@ h1{
 }
 .box-item .box-post h1.post-title {
   font-size:16pt;
+  background-size: cover;
 }

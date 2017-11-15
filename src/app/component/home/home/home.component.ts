@@ -6,6 +6,7 @@ import {GameService} from '../../../../shared/services/game.service';
 import {NewsService} from "../../../../shared/services/news.service";
 import {PlayerAccount} from '../../../../shared/models/player-account';
 import {User} from '../../../../shared/models/user';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,8 +26,8 @@ export class HomeComponent implements OnInit {
               private gameServiceInstance: GameService,
               private newsServiceInstance: NewsService,
               private teamServiceInstance: TeamService, localStorage: CoolLocalStorage) {
-      this.localStorage = localStorage;
-  }
+      this.localStorage = localStorage;}
+
 
   ngOnInit() {
     this.getTeam();

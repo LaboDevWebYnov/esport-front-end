@@ -38,6 +38,11 @@ export class TeamService {
       .map(response =>response.json());
   };
 
+  public GetTeamsByGameId = (id: string): Observable<String> => {
+    return this._http.get(this.actionUrl + "teams/games/" + id )
+      .map(response =>response.json());
+  };
+
   public GetSingleTeamById = (id: string): Observable<String> => {
     return this._http.get(this.actionUrl + "teams/" + id + "/getTeamById")
       .map(response =>response.json());

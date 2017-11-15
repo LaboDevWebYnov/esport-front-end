@@ -1,8 +1,10 @@
 #global {
-  background-image: url("../../../../assets/images/font-lol.png");
+  background: url("../../../../assets/images/font-lol.png");
   min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-
 *{
   color:white;
   font-family: "Rhanoll";
@@ -17,8 +19,12 @@
   cursor: pointer;
 }
 #search{
+  width:100%;
   margin-bottom:25px;
   display: inline-flex;
+}
+#contentSearchForm{
+  width: 100%;
 }
 #search div{
   display: inline-block;
@@ -61,12 +67,13 @@ h1{
 
 
 #insideBar{
-  background-color: #1d1d1b;
+  background-color: rgba(29,29,29,0.8);
   font-size: 30px;
   padding: 7px;
   text-align: center;
-  width: 650px;
+  width: 100%;
   border: 0px;
+  border-radius: 5px 5px 1px 1px;
   border-bottom: 1px solid grey;
 }
 
@@ -142,13 +149,16 @@ li img:hover{
 /* GRID ACTU*/
 
 .jasgrid{
-  padding:0;
+
+  padding:10px;
+
 }
 .box-item {
   float: left;
   opacity: 1;
   overflow: hidden;
   position: relative;
+  /*margin-bottom: 22px;*/
 }
 
 .box-item img {
@@ -157,7 +167,7 @@ li img:hover{
 .box-item a,span{color:#FFF;}
 
 .box-item .box-post span.meta {
-  font-size: 12px;
+  font-size: 26px;
   color: #fff;
   margin-top: 15px;
   display: block;
@@ -165,6 +175,7 @@ li img:hover{
 
 .box-item .box-post span.meta span {
   margin-right: 15px;
+
 }
 
 .box-item .box-post {
@@ -172,12 +183,17 @@ li img:hover{
   left: 0;
   bottom: 0;
   width: 100%;
+  margin: 10%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 30px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 20px;
 }
-.box-item .box-post h1..post-title {
-  font-size:10pt;
+.box-item .box-post h1.post-title {
+
+  font-size:25pt;
+
 }
+
