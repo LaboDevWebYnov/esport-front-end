@@ -9,46 +9,15 @@
     <button class="myButton" type="submit" (click)="openSelectGameModal()">Ajouter</button>
   </div>
 
-  <div class="lastMatch">
-    <h1>Dernières parties jouées : </h1>
 
-    <div *ngFor="let match of lastMatch,let i = index" class="match">
-      <br>
-      <table class="Right">
-      <h2 class="td blue">Victoire {{match.winnersTeamName}}</h2>
-      <h2 class="tdRight td">{{match.pseudo}}</h2>
-      <h2 class="tdRight td">Score : {{match.nbKills }}/{{ match.nbDeath}}</h2>
-      </table>
-    </div>
-      <div class="imgTeams">
 
-        <table>
-          <tr>
-            <td class="tdCenter td"><img class="imgTeam" src="../../../assets/images/imgTeamEmpty.png"></td>
-            <td class="tdCenter td"><h2>VS</h2></td>
-            <td class="tdCenter td"><img class="imgTeam" src="../../../assets/images/imgTeamEmpty.png"></td>
-            <td class="tdRight td"><h2>Nb Kills : {{match.nbKills }}</h2></td>
-            <td class="td"><h2>Time Death : {{match.timeDeath }}min</h2></td>
-            <td class="td"><h2>Most Use Weapon : {{match.mostUseWeapon }}</h2></td>
-          </tr>
-          <tr>
-            <td class="tdCenter td"><h2>{{match.winnersTeamPoint }}</h2></td>
-            <td class="tdCenter td"><h2>/</h2></td>
-            <td class="tdCenter td"><h2>{{match.losersTeamPoint }}</h2></td>
-            <td class="tdRight td"><h2>Nb Deaths : {{match.nbDeath }}</h2></td>
-            <td class="td"><h2>Ratio : {{match.nbKills / match.nbDeath}}</h2></td>
-            <td class="td"><h2>Job : {{match.job }}</h2></td>
-        </table>
-      </div>
+  <app-player-account-last-games></app-player-account-last-games>
 
-      <br>
 
-      <app-blue-separation-bar></app-blue-separation-bar>
 
 
     <button class="myButtonEnd" type="button">Afficher toutes les dernières parties</button>
 
-  </div>
 
 
 </div>

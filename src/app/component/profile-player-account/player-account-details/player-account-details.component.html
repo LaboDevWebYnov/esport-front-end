@@ -8,13 +8,13 @@
       </tr>
       <tr>
         <td>
-          <div *ngIf="playerAccount.Case1.loaded">{{playerAccount.Case1.value}}</div>
+          <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
         </td>
         <td>
-          <div *ngIf="playerAccount.Case2.loaded">{{playerAccount.Case2.value}}</div>
+          <div *ngIf="playerAccount.Case2.loaded"><h2>{{playerAccount.Case2.value}}</h2></div>
         </td>
         <td>
-          <div *ngIf="playerAccount.Case3.loaded">{{playerAccount.Case3.value}}</div>
+          <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
         </td>
       </tr>
       <tr>
@@ -24,13 +24,13 @@
       </tr>
       <tr>
         <td>
-          <div *ngIf="playerAccount.Case4.loaded">{{playerAccount.Case4.value}}</div>
+          <div *ngIf="playerAccount.Case4.loaded"><h2>{{playerAccount.Case4.value}}</h2></div>
         </td>
         <td>
-          <div *ngIf="playerAccount.Case5.loaded">{{playerAccount.Case5.value}}</div>
+          <div *ngIf="playerAccount.Case5.loaded"><h2>{{playerAccount.Case5.value}}</h2></div>
         </td>
         <td>
-          <div *ngIf="playerAccount.Case6.loaded">{{playerAccount.Case6.value}}</div>
+          <div *ngIf="playerAccount.Case6.loaded"><h2>{{playerAccount.Case6.value}}</h2></div>
         </td>
       </tr>
       <tr>
@@ -41,7 +41,8 @@
 
       <tr>
         <td>
-          Win / Loose
+
+          <h2>Win / Loose</h2>
 
           <div style="display: block">
             <div *ngIf="playerAccount.isRatioLoaded">
@@ -58,7 +59,7 @@
           </div>
         </td>
         <td>
-          Ratio
+          <h2>Ratio</h2>
           <div style="display: block">
             <div *ngIf="playerAccount.isStatsLoaded">
               <canvas baseChart
@@ -73,7 +74,7 @@
           </div>
         </td>
         <td>
-          Activités
+          <h2>Activités</h2>
           <div style="display: block">
             <div *ngIf="playerAccount.isActivityLoaded">
               <canvas baseChart

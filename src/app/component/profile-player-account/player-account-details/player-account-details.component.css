@@ -2,9 +2,8 @@
   font-family: Rhanoll;
 }
 .globalDetails {
-  margin-top: 5em;
-  padding-left: 30%;
-  padding-right: 30%
+  margin: 5em auto 0 auto;
+  width: 70vw;
 }
 
 img {
@@ -18,11 +17,13 @@ td {
 }
 
 .Details {
-  margin-top: 2em;
+  margin: 2em auto 2em auto;
 }
 
 canvas {
-  width: 100px !important;
-  height: 50px !important;
+
+  width: 150px !important;
+  height: 75px !important;
+  margin: auto;
 
 }

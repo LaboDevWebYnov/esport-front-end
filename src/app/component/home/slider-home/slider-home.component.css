@@ -1,0 +1,70 @@
+.container-slider
+{
+  margin-top: 70px;
+}
+.carousel-caption h3
+{
+  font-family: Rhanoll;
+  font-size: 30px;
+}
+.carousel-caption a
+{
+  color: white;
+}
+.carousel-caption p
+{
+  font-family: Rhanoll;
+  font-size: 25px;
+}
+.carousel-indicators li
+{
+  background-color: #a2a2a2;
+  margin: 0 5px 0 5px;
+  border: none;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  bottom: -20px;
+}
+.carousel-indicators .active
+{
+  background-color: #093f76;
+  margin: 0 5px 0 5px;
+  border: none;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  bottom: -20px;
+}
+.container
+{
+  width: 80vw;
+  max-width: 900px;
+  display: block;
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  position: static;
+}
+.item img
+{
+  display: table-cell;
+  vertical-align: center;
+  height:35vw;
+  width: auto;
+}
+#separation[_ngcontent-imm-34]
+{
+  margin-top: 50px;
+}
+.site-article
+{
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  background-color: rgba(0,113,188,0.7);
+  padding: 0 8px 1px 8px;
+  border-radius: 4px;
+  font-family: Rhanoll;
+  font-size: 23px;
+}
