@@ -14,10 +14,14 @@
 
     <div *ngFor="let match of lastMatch,let i = index" class="match">
       <br>
+      <table class="Right">
       <h2 class="td blue">Victoire {{match.winnersTeamName}}</h2>
       <h2 class="tdRight td">{{match.pseudo}}</h2>
       <h2 class="tdRight td">Score : {{match.nbKills }}/{{ match.nbDeath}}</h2>
+      </table>
+    </div>
       <div class="imgTeams">
+
         <table>
           <tr>
             <td class="tdCenter td"><img class="imgTeam" src="../../../assets/images/imgTeamEmpty.png"></td>
@@ -41,7 +45,7 @@
 
       <app-blue-separation-bar></app-blue-separation-bar>
 
-    </div>
+
     <button class="myButtonEnd" type="button">Afficher toutes les dernières parties</button>
 
   </div>
