@@ -21,7 +21,10 @@ td {
 }
 
 canvas {
+
   width: 150px !important;
   height: 75px !important;
   margin: auto;
+
 }
+
