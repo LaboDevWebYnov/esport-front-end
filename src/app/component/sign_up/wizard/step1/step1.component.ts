@@ -90,18 +90,18 @@ export class Step1Component implements OnInit {
     this.userRegistered = new RegisterUserObject();
 
     //check if it's the same password
-    if (event.target[2].value === event.target[4].value) {
+    if (event.target[4].value === event.target[5].value) {
       //username
-      this.userRegistered.username = event.target[0].value;
+      this.userRegistered.username = event.target[2].value;
       //firstname
       this.userRegistered.firstname = event.target[1].value;
       //lastname
-      this.userRegistered.lastname = event.target[3].value;
+      this.userRegistered.lastname = event.target[0].value;
       //birthdate
-      this.userRegistered.birthDate = event.target[5].value;
+      this.userRegistered.birthDate = event.target[3].value;
       //password
-      this.userRegistered.password = event.target[2].value;
-      this.userRegistered.passwordConfirmation = event.target[4].value;
+      this.userRegistered.password = event.target[4].value;
+      this.userRegistered.passwordConfirmation = event.target[5].value;
       //register user
       this.registerUser(this.userId, this.userRegistered, (status: number, errorMessage: string, infoMessage: string) => {
         if (status == 200) {

@@ -10,7 +10,7 @@
 
 
 
-  <h1>BIENVENUE {{userGetById.username}},</h1>
+  <h1>BIENVENUE {{userGetById.username}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
   <div *ngIf="status">
@@ -21,7 +21,7 @@
   </div>
   <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
     <h2>Selectionnez vos <font style="color:#0071bc;">jeux favoris</font></h2>
-    <p>Les informations ont été enregistrées. <br>Veuillez sélectionner les jeux par lesquels vous êtes intéréssés.</p>
+    <!--<p>Les informations ont été enregistrées. <br>Veuillez sélectionner les jeux par lesquels vous êtes intéréssés.</p>-->
 
 
     <div id="side">
@@ -31,12 +31,12 @@
 
         <div class="board-inner">
           <ul class="nav nav-tabs" id="myTab">
-            <div class="liner">
+            <!--<div class="liner">
               <div id="blueText">
                 Etapes
               </div>
 
-            </div>
+            </div>-->
             <li>
               <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="Rentrer les infos personnelles">
                       <span class="round-tabs one">
@@ -71,6 +71,7 @@
           </ul></div>
       </div>
     </div>
+    
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
 
