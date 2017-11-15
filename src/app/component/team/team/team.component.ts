@@ -33,6 +33,7 @@ export class TeamComponent implements OnInit {
 
   ngOnInit() {
     this.getGames();
+    this.localStorage.setItem('teamId', '');
     var id = this.localStorage.getItem('userId');
     this.searchMyTeams(id, (status: number, error: any, dataTeam: Team[]) => {
       if (error) {
