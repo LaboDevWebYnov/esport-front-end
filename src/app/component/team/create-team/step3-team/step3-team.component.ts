@@ -41,7 +41,7 @@ export class Step3TeamComponent implements OnInit {
   ngOnInit() {
     this.userId = this.localStorage.getItem('userId');
     this.gameId = this.localStorage.getItem('gameId');
-    this.getPlayerAccountByUserIdByGame(this.userId,this.gameId, (error:any, data:PlayerAccount[]) => {
+    this.getPlayerAccountByUserIdByGame(this.userId,this.gameId, (error:any, data: PlayerAccount[]) => {
       for(let i=0;i<data.length;i++)
       {
         this.arrayOfKeyValues.push({key: data[i]._id, value: data[i].login});
