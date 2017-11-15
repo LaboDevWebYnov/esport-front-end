@@ -1,0 +1,224 @@
+body,html
+{
+  padding: 0;
+  margin: 0;
+}
+imgLog{
+  width:100%;
+}
+input:focus {
+  outline:  none;
+  background-color: #777777;
+}
+.state-message {
+  margin-top: 5px;
+}
+#sign img {
+  max-height: 30em;
+  margin-top: 15em;
+}
+h1
+{
+  text-align: center;
+  font-family: Rhanoll;
+  color: white;
+}
+ul.tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ul.tab li
+{
+  float: left;
+  background-color: #4D4D4D;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+ul.tab li a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  color: white;
+  font-family: Rhanoll;
+  font-size: 1em;
+}
+ul.tab li a:hover
+{
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  background-color: #ddd;
+}
+ul.tab li a:focus, .active
+{
+  background-color: #333333;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
+.fb_img {
+  margin-bottom: 4px;
+}
+
+
+
+.connectButton
+{
+  background-color: #0071BC;
+  color: white;
+  border: solid white 1px;
+  font-size: 1.5em;
+  font-family: Rhanoll;
+  width: 85%;
+  border-radius: 5%;
+  margin: 1%;
+}
+.buttonFacebook
+{
+  background-color: #666666;
+  color: white;
+  border: solid white 1px;
+  font-size: 1.5em;
+  font-family: Rhanoll;
+  width: 85%;
+  border-radius: 5%;
+  margin: 1%;
+  text-align: right;
+  right: 5%;
+  text-align: center;
+}
+.window
+{
+
+  margin-top: 150px;
+  position: fixed;
+  right: 0%;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+
+}
+.menuWindow
+{
+
+  position: fixed;
+  right: 0%;
+  left: 0%;
+  top: 0%;
+  bottom: 87%;
+}
+#top_blueline {
+  top: 15%
+}
+#bot_blueline {
+  bottom: 10%;
+}
+.blueLine
+{
+  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 45%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: block;
+  position: fixed;
+  height: 1.5%;
+  left: -50%;
+  right: -50%;
+}
+.mainWindow
+{
+  position: absolute;
+  top:15%;
+  left: 15%;
+  right: 15%;
+  height: 50%;
+  z-index: 12;
+
+}
+#sign{
+  max-height: 500px;
+  margin-top: -40%;
+  margin-left: -15%;
+}
+.row
+{
+
+
+  margin-top: 1%;
+  padding: 2%;
+}
+.inputGray
+{
+  background-color: #555555;
+  border: solid 1px #8C8C8C;
+  font-family: "Rhanoll";
+  font-size: 1.5em;
+  color: white;
+  margin: 1%;
+  border-radius: 2%;
+  width: 95%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.menuLogIn
+{
+  text-align: left;
+}
+.subtitleWhite
+{
+  font-family: "Rhanoll";
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+}
+.formStyle
+{
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
+  border-top-right-radius: 1.5%;
+  padding: 2%;
+  background-color: #333333;
+  animation-name: anim;
+  animation-duration: 2s;
+  text-align: center;
+}
+
+
+
+#facebookButton
+{
+  text-align: right;
+  display: inline;
+}
+#signUp
+{
+  display: none;
+}
+#errorMessage
+{
+  color: red;
+  background-color: #FFECEC;
+  border:solid 2px #F7B3AF;
+  border-radius: 5%;
+  margin: 1%;
+}
+
+p
+{
+  color: white;
+}
+img
+{
+  vertical-align: middle;
+}
+@font-face
+{
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+@keyframes anim {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

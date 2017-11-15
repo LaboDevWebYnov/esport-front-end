@@ -1,14 +1,6 @@
 
 <div class="container signupRoad">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
-
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-
   <h1>BIENVENUE {{this.email}},</h1>
 
   <!--Check IF the user is verified to continue signup-->
@@ -20,13 +12,14 @@
       <strong>Error!</strong> {{errorMessage}}
       <br>
       <button type="button"><a href="/signup/"style="color:black;">Réinscription</a></button>
-
     </div>
 
 
   <div *ngIf="status==200">
     <h2>Enregistrer ses <font style="color:#0071bc;">informations personnelles</font></h2>
-    <p>Nous avons confirmé votre email. <br>Veuillez compléter les infos de votre compte.</p>
+    <div class="description">
+      Votre email a été confirmé, veuillez compléter les informations suivantes pour créer votre compte.
+    </div>
 
     <div id="side">
       <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
@@ -79,48 +72,45 @@
 
       <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-inline">
         <div class="form-group row">
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="username" required
-                   name="username" placeholder="Username">
-          </div>
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <input type="text" class="form-control" id="lastname" required
                    name="lastname" placeholder="Nom">
           </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-6">
-            <input type="password" class="form-control" id="password" required
-                   name="password" placeholder="Mot de passe">
-          </div>
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <input type="text" class="form-control" id="firstname" required
                    name="firstname" placeholder="Prénom">
           </div>
         </div>
 
         <div class="form-group row">
-          <div class="col-sm-6">
-            <input type="password" class="form-control" id="confirmPassword" required
-                   name="confirmPassword" placeholder="Répéter Mot de passe">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="username" required
+                   name="username" placeholder="Username">
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <input type="date" class="form-control" id="birthDate" required
                    name="birthDate" placeholder="jour/mois/année">
           </div>
         </div>
 
-
         <div class="form-group row">
-          <div class="col-sm-6">
-
+          <div class="col-md-6">
+            <input type="password" class="form-control" id="password" required
+                   name="password" placeholder="Mot de passe">
           </div>
-          <div class="col-sm-4"></div>
-          <div class="col-sm-2">
-            <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">CONFIRMER</button>
-
+          <div class="col-md-6">
+            <input type="password" class="form-control" id="confirmPassword" required
+                   name="confirmPassword" placeholder="Répéter Mot de passe">
+          </div>
         </div>
+
+
+        <div class="form-group row align-items-end">
+          <div class="col-md-6"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">CONFIRMER</button>
+          </div>
         </div>
       </form>
     </div>
@@ -129,5 +119,5 @@
 
 
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <p *ngIf="status==200">*Tous les champs sont obligatoires.</p>
+  <p *ngIf="status==200">Tous les champs sont obligatoires.</p>
 </div>

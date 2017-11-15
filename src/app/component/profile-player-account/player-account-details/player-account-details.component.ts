@@ -31,6 +31,8 @@ export class PlayerAccountDetailsComponent implements OnInit {
     this.gameId = this.route.snapshot.params['gameId'];
     this.getPlayerAccountByUserIDByGameId(id, this.gameId);
     console.log("Game Id : " + this.gameId);
+    console.log("User id : " + id);
+
   }
 
   // Doughnut
