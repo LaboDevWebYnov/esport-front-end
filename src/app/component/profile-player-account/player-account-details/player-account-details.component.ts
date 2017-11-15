@@ -97,7 +97,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.RatioLabels[playerAccountNumber].push("wins");
-      //this.RatioData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['wins']);
+      this.RatioData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['wins']);
       this.RatioLabels[playerAccountNumber].push("losses");
       this.RatioData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['losses']);
     }
