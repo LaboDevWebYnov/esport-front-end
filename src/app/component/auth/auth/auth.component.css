@@ -3,15 +3,11 @@ body,html
   padding: 0;
   margin: 0;
 }
-.test{
+.container{
   -webkit-transform: translateY(35%);
-
   -moz-transform: translateY(35%);
-
   -ms-transform: translateY(35%);
-
   -o-transform: translateY(35%);
-
   transform: translateY(35%);
 }
 #imgLog{
@@ -72,67 +68,37 @@ ul.tab li a:focus, .active
 }
 
 .fb_img {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  margin-top:-3px;
+  height:25px;
 }
 
-.connectButton
-{
-  background-color: #0071BC;
-  color: white;
-  border: solid white 1px;
-  font-size: 24px;
-  font-family: Rhanoll;
-  width: 85%;
-  margin: 1%;
-}
+
 .buttonFacebook
 {
-  background-color: #666666;
+  background-color: #4861a3;
   color: white;
-  border: solid white 1px;
+  border:0px;
   font-size: 24px;
   font-family: Rhanoll;
   width: 85%;
   margin: 1%;
-  text-align: right;
   right: 5%;
   text-align: center;
 }
-.window
+.buttonFacebook:hover
 {
+  background-color: #0071bc;
+}
+button {
+  margin-top:15px;
+}
+.buttonFacebook div {
+  display: inline-block;
+  margin-top:5px;
+}
 
-  margin-top: 150px;
-  position: fixed;
-  right: 0%;
-  top: 0%;
-  left: 0%;
-  bottom: 0%;
-
-}
-.menuWindow
-{
-
-  position: fixed;
-  right: 0%;
-  left: 0%;
-  top: 0%;
-  bottom: 87%;
-}
-#top_blueline {
-  top: 15%
-}
-#bot_blueline {
-  bottom: 10%;
-}
-.blueLine
-{
-  background: radial-gradient(ellipse at center, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 45%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  display: block;
-  position: fixed;
-  height: 1.5%;
-  left: -50%;
-  right: -50%;
-}
 .mainWindow
 {
   position: absolute;
@@ -157,8 +123,8 @@ ul.tab li a:focus, .active
 }
 .inputGray
 {
-  background-color: #555555;
-  border: solid 1px #8C8C8C;
+  background-color: #333333;
+  border-bottom: solid 1px #8C8C8C;
   font-family: "Rhanoll";
   font-size: 22px;
   color: white;
@@ -224,4 +190,42 @@ img
 @keyframes anim {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+.myButton {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
+  background:-moz-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-webkit-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-o-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-ms-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:linear-gradient(to bottom, #40403f 5%, #21211f 100%);
+  background-color:#40403f;
+  border:1px solid black;
+  color:white;
+  font-size: 24px;
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+  display:inline-block;
+  cursor:pointer;
+  padding:2px 28px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #21211f;
+  width:85%;
+  text-align: center;
+}
+
+.myButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #21211f), color-stop(1, #40403f));
+  background:-moz-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-webkit-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-o-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-ms-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:linear-gradient(to bottom, #21211f 5%, #40403f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#21211f', endColorstr='#40403f',GradientType=0);
+  background-color:#21211f;
+}
+
+.myButton:active {
+  position:relative;
+  top:1px;
 }
