@@ -70,49 +70,49 @@
     </div>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-      <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-inline">
-        <div class="form-group row">
-          <div class="col-md-6">
-            <input type="text" class="form-control" id="lastname" required
-                   name="lastname" placeholder="Nom">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" id="firstname" required
-                   name="firstname" placeholder="Prénom">
-          </div>
+    <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-inline">
+      <div class="form-group row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="lastname" required
+                 name="lastname" placeholder="Nom">
         </div>
-
-        <div class="form-group row">
-          <div class="col-md-6">
-            <input type="text" class="form-control" id="username" required
-                   name="username" placeholder="Username">
-          </div>
-          <div class="col-md-6">
-            <input type="date" class="form-control" id="birthDate" required
-                   name="birthDate" placeholder="jour/mois/année">
-          </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="firstname" required
+                 name="firstname" placeholder="Prénom">
         </div>
+      </div>
 
-        <div class="form-group row">
-          <div class="col-md-6">
-            <input type="password" class="form-control" id="password" required
-                   name="password" placeholder="Mot de passe">
-          </div>
-          <div class="col-md-6">
-            <input type="password" class="form-control" id="confirmPassword" required
-                   name="confirmPassword" placeholder="Répéter Mot de passe">
-          </div>
+      <div class="form-group row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="username" required
+                 name="username" placeholder="Username">
         </div>
-
-
-        <div class="form-group row align-items-end">
-          <div class="col-md-6"></div>
-          <div class="col-md-4"></div>
-          <div class="col-md-2">
-            <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">CONFIRMER</button>
-          </div>
+        <div class="col-md-6">
+          <input type="date" class="form-control" id="birthDate" required
+                 name="birthDate" placeholder="jour/mois/année">
         </div>
-      </form>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6">
+          <input type="password" class="form-control" id="password" required
+                 name="password" placeholder="Mot de passe">
+        </div>
+        <div class="col-md-6">
+          <input type="password" class="form-control" id="confirmPassword" required
+                 name="confirmPassword" placeholder="Répéter Mot de passe">
+        </div>
+      </div>
+
+
+      <div class="form-group row align-items-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-default submitButton" [disabled]="!step0Form.form.valid">CONFIRMER</button>
+        </div>
+      </div>
+    </form>
     </div>
   </div>
 

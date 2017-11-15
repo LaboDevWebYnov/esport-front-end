@@ -28,9 +28,6 @@
         <div>
           <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
         </div>
-        <div id="createTeam">
-          <img (click)="onCreate($event)" src="../../../../assets/images/picto_creer_team_sansdescrp.png"/>
-        </div>
       </div>
     </div>
   </div>
@@ -81,6 +78,13 @@
       </div>
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
+    <div class="row">
+      <div id="createTeam" class="col-md-10">
+        <img (click)="onCreate($event)" src="../../../../assets/images/picto_creer_team_sansdescrp.png" id="createTeamLogo"/>
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-xs-2"></div>

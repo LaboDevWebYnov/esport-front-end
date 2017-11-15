@@ -50,7 +50,12 @@
 }
 
 #createTeam{
-  margin-left: 50px;
+  margin: auto;
+}
+
+#createTeamLogo{
+  display: block;
+  margin: auto;
 }
 
 h1{

@@ -1,48 +1,55 @@
 <div class="container signupRoad">
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-<h2>Enregistrer votre  <font style="color:#0071bc;">Team</font></h2>
-<p>Vous pouvez maintenant crée votre propre équipe. <br>Dans un premier temps complété les infos général.</p>
+  <div class="row">
+    <div class="col-md-6">
+      <h1 id="formTitle">Enregistrer votre  <font style="color:#0071bc;">Team</font></h1>
+      <h3>Vous pouvez maintenant crée votre propre équipe. Dans un premier temps complété les infos général.</h3>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-12 board">
 
-<div id="side">
+        <div class="board-inner">
+          <ul class="nav nav-tabs" id="myTab">
 
-  <div class="col-md-12 board">
+            <div class="liner">
 
-
-    <div class="board-inner">
-      <ul class="nav nav-tabs" id="myTab">
-        <div class="liner">
-          <div id="blueText">
-            Etapes
-          </div>
-        </div>
-        <li >
-          <a href="/home"  title="Rentrer les infos personnelles">
-            <span class="round-tabs one"></span>
-          </a></li>
-        <li ><a href="/home"  title="Séléctionner les jeux">
-          <span class="round-tabs two"></span>
-        </a>
-        </li>
-        <li ><a href="#prototyping"  title="Prototyping">
-          <span class="round-tabs three"></span> </a>
-        </li>
-        <li><a href="#uidesign"  title="UI Design">
-          <span class="round-tabs four"></span>
-        </a></li>
-        <li class="active"><a href="#doner"  title="Development">
-          <span class="round-tabs five"></span> </a>
-        </li>
-      </ul></div>
+            </div>
+            <li>
+              <a href="/home"  title="Rentrer les infos personnelles">
+                <span class="round-tabs one"></span>
+              </a></li>
+            <li><a href="/home"  title="Séléctionner les jeux">
+              <span class="round-tabs two"></span>
+            </a>
+            </li>
+            <li><a href="#prototyping"  title="Prototyping">
+              <span class="round-tabs three"></span> </a>
+            </li>
+            <li><a href="#uidesign"  title="UI Design">
+              <span class="round-tabs four"></span>
+            </a></li>
+            <li class="active"><a href="#doner"  title="Development">
+              <span class="round-tabs five"></span> </a>
+            </li>
+          </ul></div>
+      </div>
+    </div>
   </div>
-</div>
-<app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
 <h3>La création de votre équipe est maintenant terminés :</h3>
 <form (ngSubmit)="onSubmit($event)">
   <br>
-<button class="btn btn-primary pull-right" type="submit" >Cliquez ici pour consulter tout les teams</button>
-<button type="button" (click)="goMyTeam()" class="btn btn-default submitButton">Cliquez ici pour consulter votre team</button>
+  <div class="row">
+    <div class="col-md-3">
+      <button class="btn btn-primary submitButton" type="submit" ><h2>Cliquez ici pour consulter tout les teams</h2></button>
+    </div>
+    <div class="col-md-3">
+      <button type="button" (click)="goMyTeam()" class="btn btn-default submitButton"><h2>Cliquez ici pour consulter votre team</h2></button>
+
+    </div>
+    <div class="col-md-6"></div></div>
 <br>
 </form>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
