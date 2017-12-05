@@ -1,78 +1,49 @@
 <div *ngIf="userGetById" class="container signupRoad">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
-
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
-
   <h1>BIENVENUE {{userGetById.username}},</h1>
 
   <!--Check IF the user is verified to continue signup-->
   <div *ngIf="status">
-
     <div *ngIf="status == 401" class="alert alert-danger errorMessage">
       <strong>Error!</strong> {{errorMessage}}
       <!--<button type="button"><a href="/signup/">Réinscription</a></button>-->
     </div>
   </div>
 
-  <div *ngIf="verifiedCodeTemp == 'VERIFIED'">
-    <h2>Trouvez vos amis et <font style="color:#0071bc;">créer une équipe</font></h2>
-    <p>Voici les sites auquel vous connectez <br></p>
+  <div *ngIf="verifiedCodeTemp == 'VERIFIED'" id="verified">
+    <h2>Trouvez vos amis et <font style="color:#0071bc;">créez une équipe</font></h2>
+    <div class="description">
+      Ces informations servirons à récupérer vos statistique de jeux et vous proposer une expèrience personnalisée.
+    </div>
 
-    <br>
-    <div id="side">
-      <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
-      <div class="col-md-12 board">
-        <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
-
-        <div class="board-inner">
-          <ul class="nav nav-tabs" id="myTab">
-            <div class="liner">
-              <div id="blueText">
-                Etapes
-              </div>
-
-            </div>
-            <li >
-              <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="Rentrer les infos personnelles">
-                      <span class="round-tabs one">
-                              <i class="icon icon-profile-male"></i>
-                      </span>
-              </a></li>
-
-            <li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Séléctionner les jeux">
-                     <span class="round-tabs two">
-                         <i class="icon icon-pencil"></i>
-                     </span>
-            </a>
-            </li>
-            <li><a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
-                     <span class="round-tabs three">
-                          <i class="icon icon-layers"></i>
-                     </span> </a>
-            </li>
-
-            <li class="active"><a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
-                         <span class="round-tabs four">
-                              <i class="icon icon-aperture"></i>
-                         </span>
-            </a></li>
-
-            <li><a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
-                         <span class="round-tabs five">
-                              <i class="icon icon-tools-2"></i>
-                         </span> </a>
-            </li>
-
-          </ul></div>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-3 col-sm-8 col-8"></div>
+      <div class="col-md-3 col-sm-4 col-4">
+        <img id="step" src="../../../../../assets/images/step4.png" alt="4 / 5">
       </div>
     </div>
-    <br><br>
-    <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+    <div class="form-group" >
+
+      <!--No content-->
+
+      <div class="form-group row align-items-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3" id="validPlayerAccount">
+          <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
+            <div class="buttonSubmit">
+              <button id="submitButton" type="submit" class="myButton">SUIVANT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!--<form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
 
       <div *ngIf="games" class="form-group row">
         <li *ngFor="let game of games">
@@ -88,9 +59,8 @@
           <button type="submit" class="btn btn-default submitButton">Confirmer</button>
         </div>
       </div>
-    </form>
+    </form>-->
   </div>
-
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>
 
