@@ -20,7 +20,7 @@ export class TeamComponent implements OnInit {
   status = null;
   public searchTeamTab;
   public myTeamTab;
-  localStorage : CoolLocalStorage;
+  localStorage: CoolLocalStorage;
   public isFilteredGameId: any;
 
   constructor(private teamServiceInstance: TeamService,
@@ -120,7 +120,7 @@ export class TeamComponent implements OnInit {
       );
   }
 
-  public searchMyTeams(id:string, callback):void{
+  public searchMyTeams(id: string, callback): void {
     this.teamServiceInstance
       .GetTeamsByUserId(id)
       .subscribe(
@@ -130,7 +130,7 @@ export class TeamComponent implements OnInit {
           callback(401, JSON.parse(error._body).error, null);
         },
         () => {
-          callback(200, null, this.teams)
+          callback(200, null, this.teams);
         }
       );
   }
