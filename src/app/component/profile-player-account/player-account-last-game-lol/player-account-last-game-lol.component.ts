@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   selector: 'app-player-account-last-game-lol',
   templateUrl: './player-account-last-game-lol.component.html',
   styleUrls: ['./player-account-last-game-lol.component.css']
+
 })
 export class PlayerAccountLastGameLolComponent implements OnInit {
   gameId: string;
@@ -46,5 +47,6 @@ export class PlayerAccountLastGameLolComponent implements OnInit {
   public gotoProfile() : void {
     this.router.navigate(['/profile']);
   }
+
 
 }

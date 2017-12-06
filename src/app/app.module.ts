@@ -63,6 +63,7 @@ import { UserInfoComponent } from './component/profile-user/user-info/user-info.
 import { SliderHomeComponent } from './component/home/slider-home/slider-home.component';
 import { PlayerAccountLastGamesComponent } from './component/profile-player-account/player-account-last-games/player-account-last-games.component';
 import { StatsGamesComponent } from './component/home/stats-games/stats-games.component';
+import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 
 
 @NgModule({
@@ -123,7 +124,8 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
     UserInfoComponent,
     SliderHomeComponent,
     PlayerAccountLastGamesComponent,
-    StatsGamesComponent
+    StatsGamesComponent,
+    PlayerAccountLastGameLolComponent
   ],
   imports: [
     BrowserModule,
