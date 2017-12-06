@@ -1,12 +1,24 @@
 <div class="globalDetails">
+  <div *ngFor="let p of playerAccount,let i = index">
+
+    <div *ngFor="let q of p.properties,let i = index">
+      {{q.stats.last_match_t_wins}}
+    </div>
+  </div>
   <div *ngFor="let playerAccount of playerAccountProperty,let i = index">
     <table class="Details" style="width:100%">
       <tr>
         <td rowspan="6" class="imgDetails">
+          <div *ngIf="playerAccount.Case7.loaded">
           <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{gameId}}.png" alt="">
+          </div>
         </td>
       </tr>
       <tr>
+        <td>
+          <div *ngIf="playerAccount.Case7.loaded"><h2><img class="logoGame" src="{{playerAccount.Case7.value}}" alt=""></h2></div>
+          {{playerAccount.last_match_t_wins}}
+        </td>
         <td>
           <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
         </td>
