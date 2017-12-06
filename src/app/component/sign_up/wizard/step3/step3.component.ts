@@ -63,19 +63,19 @@ export class Step3Component implements OnInit {
         gameName = game.name;
 
         if(gameName=='League of Legends'){
-          inputPlaceHolder="entrez votre pseudo LOL";
+          inputPlaceHolder="Nom d'invocateur";
         }
         else if (gameName=='Counter-Strike: Global Offensive'){
-          inputPlaceHolder="entrez votre Steam Id";
+          inputPlaceHolder="Steam ID";
         }
         else if (gameName=='OverWatch'){
-          inputPlaceHolder="entrez votre battleTag";
+          inputPlaceHolder="BattleTag";
         }
         else if (gameName=='DOTA2'){
-          inputPlaceHolder="entrez votre steam Id";
+          inputPlaceHolder="Steam ID";
         }
         else if (gameName=='Rocket League'){
-          inputPlaceHolder="entrez votre steam Id";
+          inputPlaceHolder="Steam ID";
         }
       }
     }
