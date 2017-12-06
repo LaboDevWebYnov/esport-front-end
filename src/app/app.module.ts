@@ -63,7 +63,11 @@ import { UserInfoComponent } from './component/profile-user/user-info/user-info.
 import { SliderHomeComponent } from './component/home/slider-home/slider-home.component';
 import { PlayerAccountLastGamesComponent } from './component/profile-player-account/player-account-last-games/player-account-last-games.component';
 import { StatsGamesComponent } from './component/home/stats-games/stats-games.component';
+<<<<<<< HEAD
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
+=======
+import { FooterComponent } from './component/footer/footer.component';
+>>>>>>> c14ae198e6a126784bda4fd2427be7b50e15747c
 
 
 @NgModule({
@@ -125,7 +129,11 @@ import { PlayerAccountLastGameLolComponent } from './component/profile-player-ac
     SliderHomeComponent,
     PlayerAccountLastGamesComponent,
     StatsGamesComponent,
+<<<<<<< HEAD
     PlayerAccountLastGameLolComponent
+=======
+    FooterComponent
+>>>>>>> c14ae198e6a126784bda4fd2427be7b50e15747c
   ],
   imports: [
     BrowserModule,
