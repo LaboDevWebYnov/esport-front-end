@@ -17,6 +17,7 @@ import * as _ from 'lodash';
 export class PlayerAccountDetailsComponent implements OnInit {
   localStorage: CoolLocalStorage;
   playerAccountGetByUserId: Object;
+  playerAccount: Object;
   gameId: string;
 
   constructor(private playerAccountServiceInstance: PlayerAccountService,
@@ -27,11 +28,15 @@ export class PlayerAccountDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+
     let id = this.localStorage.getItem('userId');
     this.gameId = this.route.snapshot.params['gameId'];
     this.getPlayerAccountByUserIDByGameId(id, this.gameId);
+    this.getPlayerAccount(id,this.gameId);
     console.log("Game Id : " + this.gameId);
     console.log("User id : " + id);
+    console.log("xd"+this.playerAccount);
+
 
   }
 
@@ -91,6 +96,10 @@ export class PlayerAccountDetailsComponent implements OnInit {
         loaded: false,
         value: "",
       },
+      Case7: {
+        loaded: false,
+        value: "",
+      },
     },
   ];
 
@@ -145,6 +154,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
       this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['stats']['total_rounds_played']);
       this.activityLabels[playerAccountNumber].push("number of mvps");
       this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['stats']['total_mvps']);
+
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.activityLabels[playerAccountNumber].push("Number Of Double Kills");
@@ -159,10 +169,15 @@ export class PlayerAccountDetailsComponent implements OnInit {
     this.playerAccountProperty[playerAccountNumber].isActivityLoaded = true;
   }
 
-
+private getAvatarPlayerAccount(playerAccountNumber: number): any{
+    if(this.gameId == "569104a0417130681bcf1586") {//cs go
+     return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['stats'];
+    }
+}
   private getUserNamePlayerAccount(playerAccountNumber: number): any {
     if (this.gameId == "569104a0417130681bcf1586") {//cs go
       return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['userInfo']['pseudo'];
+
     }
     else if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       return this.playerAccountGetByUserId[playerAccountNumber]['login'];
@@ -290,6 +305,10 @@ export class PlayerAccountDetailsComponent implements OnInit {
                 loaded: false,
                 value: "",
               },
+              Case7: {
+                loaded: false,
+                value: "",
+              },
             };
             this.displayWinRatioGraph(this.playerAccountGetByUserId[d], d);
             this.displayWinStatsGraph(this.playerAccountGetByUserId[d], d);
@@ -307,6 +326,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
               this.playerAccountProperty[d].Case6.value = "Time Played : " + this.getTimePlayedCSGO(d); // Good
               this.playerAccountProperty[d].Case2.value = "Head Shot : " + this.getHeadShotPercentageCSGO(d) + "%"; // Good
               this.playerAccountProperty[d].Case3.value = "MVPS : " + this.getMVPSCSGO(d);
+              this.playerAccountProperty[d].Case7.value = this.getAvatarPlayerAccount(d);
             }
             if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
               this.playerAccountProperty[d].Case2.value = "Total Minion Kills : " + this.getTotalMinionKillsLOL(d);
@@ -315,7 +335,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
               this.playerAccountProperty[d].Case6.value = this.getRankLOL(d); // Good
             }
 
-            for (let u = 1; u < 7; u++) {
+            for (let u = 1; u < 8; u++) {
               if (!_.isEmpty(this.playerAccountProperty[d]['Case' + u].value) && !_.isNull(this.playerAccountProperty[d]['Case' + u].value)) {
                 this.playerAccountProperty[d]['Case' + u].loaded = true;
               }
@@ -326,6 +346,18 @@ export class PlayerAccountDetailsComponent implements OnInit {
             // this.getUserNamePlayerAccount(d);
 
           }
+        }
+      );
+  }
+  private getPlayerAccount(idUser: string, gameId: string): any {
+    this.playerAccountServiceInstance
+      .GetPlayerAccountByUserIdByGame(idUser, gameId)
+      .subscribe(
+        data => this.playerAccount = data,
+        error => console.log(error),
+        () => {
+          console.log('get One Player Account just PA', this.playerAccount[0].properties[0].stats);
+
         }
       );
   }
