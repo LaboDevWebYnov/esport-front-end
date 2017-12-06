@@ -49,23 +49,19 @@
   <div *ngIf="isActive">
     <div class="col-sm-6">
       <div *ngIf="playerAccount" class="form-group row ">
+        <select  class="form-control"  required placeholder="Choississez votre player account">
+          <option *ngFor="let player of playerAccount" [value]="player._id">
+{{player.user.firstname}} {{player.user.lastname}}            </option>
+        </select>
 
-        <input
-          required
-          class="form-control"
 
-          [(ngModel)]="playerAccountSelected"
-
-          [ngModelOptions]="{standalone: true}"
-          list-formatter="value"
-          placeholder="Choississez votre player account"/>
         <input type="submit">
       </div>
     </div>
   </div>
 </div>
 
-  <pre>submitted value: <br>{{f.value | json}}</pre>
+
 
 <div class="form-group row">
   <div class="col-sm-6">

@@ -7,7 +7,8 @@ import {TeamService} from '../../../../../shared/services/team.service';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { PlayerAccountService } from '../../../../../shared/services/player-account.service';
 import {isBoolean} from "util";
-import {PlayerAccount} from "../../../../../shared/models/player-account";
+import {PlayerAccount} from "../../../../../shared/models/player-account"
+
 
 @Component({
   selector: 'app-step3-team',
@@ -55,10 +56,9 @@ export class Step3TeamComponent implements OnInit {
 
 
   onSubmit(event) {
-    //console.log(event);
-    console.log(this.playerAccountSelected);
-    this.playerAccount = this.playerAccountSelected.key;
-    console.log(this.playerAccount);
+    console.log(event);
+    console.log("cool"+event.target[1].value);
+    console.log("player account");
 
     //set when the form is submited
     this.submitted = true;
@@ -73,7 +73,7 @@ export class Step3TeamComponent implements OnInit {
     //country
     this.teamRegistered.teamCountry = this.localStorage.getItem('teamCountry');
     //capitaine
-    this.teamRegistered.captainPlayerAccountId = this.playerAccount.toString();
+    this.teamRegistered.captainPlayerAccountId = event.target[1].value;
 
     //register user
 

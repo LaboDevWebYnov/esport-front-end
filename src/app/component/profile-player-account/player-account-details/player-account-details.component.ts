@@ -171,7 +171,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
 
 private getAvatarPlayerAccount(playerAccountNumber: number): any{
     if(this.gameId == "569104a0417130681bcf1586") {//cs go
-     return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['stats'];
+     return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['userinfo'].avatar;
     }
 }
   private getUserNamePlayerAccount(playerAccountNumber: number): any {
@@ -356,7 +356,7 @@ private getAvatarPlayerAccount(playerAccountNumber: number): any{
         data => this.playerAccount = data,
         error => console.log(error),
         () => {
-          console.log('get One Player Account just PA', this.playerAccount[0].properties[0].stats);
+          console.log('get One Player Account just PA', this.playerAccount[0].properties[0].userInfo.avatar);
 
         }
       );
