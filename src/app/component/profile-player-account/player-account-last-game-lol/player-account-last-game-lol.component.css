@@ -1,0 +1,31 @@
+.lastMatchs
+{
+  margin: 75px auto 0 auto;
+  width: 70vw;
+}
+.lastMatchs h1
+{
+  margin-bottom: 30px;
+}
+.blue
+{
+  color: dodgerblue;
+}
+.div-last-game
+{
+  display: inline-block;
+  width: 32vw;
+  overflow: hidden;
+}
+.games
+{
+  margin: 18px 0 10px 0;
+}
+.teamsLastMatchs
+{
+  margin: auto;
+}
+.teamsLastMatchs td, .statsLastMatchs td
+{
+  padding: 8px 10px 14px 10px;
+}

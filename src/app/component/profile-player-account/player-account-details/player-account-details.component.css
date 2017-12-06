@@ -6,18 +6,38 @@
   width: 70vw;
 }
 
+.imgDetails{
+  display: flex;
+  margin-top: -4em;
+}
+
+.PlayerName{
+  font-size: 80px;
+}
+
+.AllStats{
+  display: flex;
+  margin-left: 5em;
+}
+.TableStats{
+  width: 45%;
+}
+
+.CaseStatCircle{
+  width: 45%;
+  margin-left:4em;
+}
+
+.StatCircle{
+  display: flex;
+  padding-bottom:0.8em;
+}
+
 img {
-  max-height: 100px;
-  margin-top: -5em;
-}
-
-td {
-  text-align: center;
-  color: white;
-}
-
-.Details {
-  margin: 2em auto 2em auto;
+  position: relative;
+  max-height: 150px;
+  margin-top: -9.6em;
+  z-index: 3;
 }
 
 canvas {

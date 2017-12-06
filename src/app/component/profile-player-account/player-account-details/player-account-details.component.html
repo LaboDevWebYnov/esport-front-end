@@ -1,46 +1,65 @@
 <div class="globalDetails">
   <div *ngFor="let playerAccount of playerAccountProperty,let i = index">
-    <table class="Details" style="width:100%">
-      <tr>
-        <td rowspan="6" class="imgDetails">
-          <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{gameId}}.png" alt="">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
-        </td>
-        <td>
-          <div *ngIf="playerAccount.Case2.loaded"><h2>{{playerAccount.Case2.value}}</h2></div>
-        </td>
-        <td>
-          <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <app-blue-separation-bar-small></app-blue-separation-bar-small>
-        </td><!---->
-      </tr>
-      <tr>
-        <td>
-          <div *ngIf="playerAccount.Case4.loaded"><h2>{{playerAccount.Case4.value}}</h2></div>
-        </td>
-        <td>
-          <div *ngIf="playerAccount.Case5.loaded"><h2>{{playerAccount.Case5.value}}</h2></div>
-        </td>
-        <td>
-          <div *ngIf="playerAccount.Case6.loaded"><h2>{{playerAccount.Case6.value}}</h2></div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <app-blue-separation-bar-small></app-blue-separation-bar-small>
-        </td>
-      </tr>
 
-      <tr>
-        <td>
+    <div rowspan="6" class="imgDetails">
+      <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{gameId}}.png" alt="">
+      <div *ngIf="playerAccount.Case1.loaded"><h2 class="PlayerName">{{playerAccount.Case1.value}}</h2></div>
+    </div>
+
+    <div class="AllStats">
+    <div class="TableStats">
+      <div colspan="3">
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+      </div><!---->
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
+            </div>
+            <div colspan="3">
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+            </div><!---->
+            <div>
+              <div *ngIf="playerAccount.Case2.loaded"><h2>{{playerAccount.Case2.value}}</h2></div>
+            </div>
+            <div colspan="3">
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+            </div><!---->
+            <div>
+              <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div *ngIf="playerAccount.Case4.loaded"><h2>{{playerAccount.Case4.value}}</h2></div>
+            </div>
+            <div colspan="3">
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+            </div><!---->
+            <div>
+              <div *ngIf="playerAccount.Case5.loaded"><h2>{{playerAccount.Case5.value}}</h2></div>
+            </div>
+            <div colspan="3">
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+            </div><!---->
+            <div>
+              <div *ngIf="playerAccount.Case6.loaded"><h2>{{playerAccount.Case6.value}}</h2></div>
+            </div>
+
+          </div>
+        </div>
+    <div colspan="3">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    </div><!---->
+    </div>
+
+
+      <div class="CaseStatCircle">
+        <div colspan="3">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div><!---->
+        <div class="StatCircle">
+        <div class="CircleRatioWL">
 
           <h2>Win / Loose</h2>
 
@@ -59,8 +78,8 @@
               </canvas>
             </div>
           </div>
-        </td>
-        <td>
+        </div>
+        <div class="CircleRatioKD">
           <h2>Ratio</h2>
           <div style="display: block">
             <div *ngIf="playerAccount.isStatsLoaded">
@@ -75,8 +94,8 @@
               </canvas>
             </div>
           </div>
-        </td>
-        <td>
+        </div>
+        <div class="CircleRound">
           <h2>Activités</h2>
           <div style="display: block">
             <div *ngIf="playerAccount.isActivityLoaded">
@@ -91,14 +110,14 @@
               </canvas>
             </div>
           </div>
-        </td>
-      </tr>
-    </table>
+        </div>
+      </div>
+        <div colspan="3">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div><!---->
+      </div>
+    </div>
 
-    <app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-  </div>
-</div>
 
 
 <!--<tr>
