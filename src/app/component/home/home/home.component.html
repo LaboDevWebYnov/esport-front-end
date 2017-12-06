@@ -3,6 +3,7 @@
 
     <app-slider-home></app-slider-home>
     <app-stats-games></app-stats-games>
+
   </div>
 
   <!-- --------------------------VOS TEAMS--------------------- -->
@@ -13,22 +14,32 @@
     <div class="jasgrid" style="font-size: 12px; color: white;">
 
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
-        <h1 class="vosTeamTitle">VOS TEAMS:</h1>
-      <div id="listTeam" *ngIf="yourTeams">
 
+      <div id="listTeam" *ngIf="yourTeams">
+        <h1 _ngcontent-nup-21="" class="vosTeamTitle">VOS <font _ngcontent-nup-21="" style="color: #0071bc;"> TEAMS: </font> </h1>
 
           <div class="col-md-6 global" *ngFor="let team of yourTeams; let inde=index" style="z-index: 2;">
+
             <div *ngIf="inde < 4">
-            <div class="hexagon hexagon1">
-            <div class="hexagon-in1">
-              <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
-              <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
-            </div>
-          </div>
-          <div><a href="team/{{team._id}}" class="teamName"> {{team.name}} - [{{team.tag}}]</a></div>
-          <div class="nameGame">
-            {{team.game.name}}
-          </div>
+              <table class="Details">
+                <tr>
+                  <td rowspan="6" class="imgDetails">
+                    <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{team.game._id}}.png" alt="">
+                  </td>
+              <!--<td class="hexagon hexagon1">
+              <div class="hexagon-in1">
+                <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+                <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
+              </div>
+            </td>-->
+                 <td>
+                    <div><a href="team/{{team._id}}" class="teamName"> {{team.name}} - [{{team.tag}}]</a></div>
+                    <div class="nameGame">
+                      {{team.game.name}}
+                    </div>
+                  </td>
+                </tr>
+              </table>
 
           </div>
       </div>
@@ -40,7 +51,7 @@
 
   <!-- --------------------------FILTRE--------------------- -->
 
-  <h2 class="vosTeamTitle">SELECTIONNER UN JEU !</h2>
+  <h2 _ngcontent-nup-21="" class="vosTeamTitle">SELECTIONNEZ <font _ngcontent-nup-21="" style="color:#0071bc;">UN JEU</font></h2>
   <div *ngIf="games" class="form-group row ">
   <li>
     <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
@@ -74,21 +85,28 @@
             <div class="box-item">
               <div class="box-post">
 
-                <h1 class="post-title">
-                  <a href="#">
-                    {{a.description}}
-                  </a>
-                </h1>
                 <span class="meta">
                           <span><i class="glyphicon glyphicon-comment"></i> <a
                             href="{{a.url}}">Lien de l'article</a></span>
 
-                          <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt}}</span>
+                          <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt | date : 'dd/MM/yyyy'}}</span>
                       </span>
               </div>
+
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
               <img src="{{a.urlToImage}}" alt="Photo de l'article"
                    class="">
 
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+              <h1 class="post-title">
+                <a href="{{a.url}}">
+                  {{a.description}}
+                </a>
+              </h1>
+
+              <app-blue-separation-bar-small></app-blue-separation-bar-small>
             </div>
           </div>
           </div>
@@ -99,4 +117,9 @@
     </div> <!-- /container -->
   </div>
 </div>
+
+
+
+
+
 
