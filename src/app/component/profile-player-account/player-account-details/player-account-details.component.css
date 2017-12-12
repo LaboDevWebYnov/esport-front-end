@@ -6,6 +6,7 @@
   width: 70vw;
 }
 
+
 .imgBackground{
   background-image: url("../../../../assets/images/hexa_game/checked/picto_empty.png");
   min-height: 100vh;
@@ -15,13 +16,39 @@ img {
   margin-top: -5em;
 }
 
-td {
-  text-align: center;
-  color: white;
+.imgDetails{
+  display: flex;
+  margin-top: -4em;
+
 }
 
-.Details {
-  margin: 2em auto 2em auto;
+.PlayerName{
+  font-size: 80px;
+}
+
+.AllStats{
+  display: flex;
+  margin-left: 5em;
+}
+.TableStats{
+  width: 45%;
+}
+
+.CaseStatCircle{
+  width: 45%;
+  margin-left:4em;
+}
+
+.StatCircle{
+  display: flex;
+  padding-bottom:0.8em;
+}
+
+img {
+  position: relative;
+  max-height: 150px;
+  margin-top: -9.6em;
+  z-index: 3;
 }
 
 canvas {

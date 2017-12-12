@@ -22,6 +22,14 @@ h2 {
 font-size: 20px;
 }
 
+.logoGame{
+  height: 60px;
+}
+
+.Details{
+  margin: auto;
+}
+
 .teamName{
   font-size:30px;
 }
@@ -41,6 +49,11 @@ font-size: 20px;
   font-family: Rhanoll;
   font-weight:unset;
 }
+
+.form-group{
+  margin-bottom: 50px;
+}
+
 li img{
   max-height: 100px;
 }
@@ -83,16 +96,18 @@ h1{
   overflow: hidden;
   position: relative;
   width:33%;
-  padding:10px;
+  padding:40px 10px 0;
+  /*background: linear-gradient(to right, rgba(0, 113, 188, 0), rgba(0, 113, 188, 0.5), rgba(0, 113, 188, 0.6), rgba(0, 113, 188, 0.8), rgb(0, 113, 188), rgb(0, 113, 188), rgba(0, 113, 188, 0.8), rgba(0, 113, 188, 0.6), rgba(0, 113, 188, 0.5), rgba(0, 113, 188, 0) );*/
 }
 
 .box-item img {
   width: 100%;
+  max-height: 197px;
 }
 .box-item a,span{color:#FFF;}
 
 .box-item .box-post span.meta {
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   margin-top: 15px;
   display: block;
@@ -105,9 +120,8 @@ h1{
 .box-item .box-post {
   position: absolute;
   left: 0;
-  bottom: 0;
+  top: -20px;
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 30px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -117,4 +131,10 @@ h1{
 .box-item .box-post h1.post-title {
   font-size:16pt;
   background-size: cover;
+}
+
+.post-title{
+  margin: 0;
+  font-size: 20px;
+  min-height: 76px;
 }
