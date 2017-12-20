@@ -37,5 +37,4 @@ export class StreamingService {
     return this._http.get(this.actionUrl + 'streaming/'+ partialTwitchUser +'/getStreamingByLikeName')
       .map(response => response.json());
   };
-
 }
