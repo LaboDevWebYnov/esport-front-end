@@ -1,23 +1,65 @@
+
 <div class="pageContent">
   <app-blue-separation-bar></app-blue-separation-bar>
   <app-player-account-banner></app-player-account-banner>
   <app-blue-separation-bar></app-blue-separation-bar>
-  <app-player-account-details></app-player-account-details>
 
-  <div class="col-md-12 btnContainer">
-    <button class="myButton" type="button" (click)="gotoProfile()">Retour</button>
-    <button class="myButton" type="submit" (click)="openSelectGameModal()">Ajouter</button>
-  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-8">
+    <app-player-account-details></app-player-account-details>
 
 
-  <div *ngIf="gameId=='569104a0417130681bcf1586'">
-    <app-player-account-last-games></app-player-account-last-games>
 
-  </div>
-  <div *ngIf="gameId=='586f56f5b9fde402faa33fdc'">
-    <app-player-account-last-game-lol></app-player-account-last-game-lol>
-  </div>
+    <div class="col-md-12 btnContainer">
+      <button class="myButton" type="button" (click)="goToOther('58ad7948f9ebe2190ce5a132')">Retour</button>
+      <button class="myButton" type="button" (click)="gotoProfile()">ADD</button>
+      <div id="addPlayerAccountModal" class="modal">
+        <div class="modal-content">
+          <span class="cross" (click)="closeAddPlayerModal()" title="Fermer">&times;</span>
+          <div class="container">
+            <div class="col-sm-12 row" *ngIf="divForms">
+              <h2>Ajouter des jeux</h2>
+              <div class="addPlayerAccountContainer" *ngFor="let form of divForms;let i = index;">
+                <br><br>
+                <p>{{form.gameName}}</p>
+                <input class="form-control col-sm-6" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
+                <button (click)='createPlayerAccount(i)' id="AddPlayerAccountBtn{{i}}" class="btn btn-default submitButton">Valider</button><br>
+              </div>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+              <div class="col-sm-12 btnContainer">
+                <button class="myButton" type="button" (click)="closeAddPlayerModal()">Annuler</button>
+                <button id="AddPlayerSubmitButton" class="myButton" disable="true">Confirmer</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="gameId=='569104a0417130681bcf1586'">
+      <app-player-account-last-games></app-player-account-last-games>
+
+    </div>
+    <div *ngIf="gameId=='586f56f5b9fde402faa33fdc'">
+      <app-player-account-last-game-lol></app-player-account-last-game-lol>
+    </div>
     <button class="myButtonEnd" type="button">Afficher toutes les dernières parties</button>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-2">
+
+    <div *ngFor="let playerAccount of playerAccount,let i = index">
+
+      <div class="col-md-12 btnContainer">
+        <button class="myButton" type="submit" (click)="goToOther('58ad7948f9ebe2190ce5a132')">{{playerAccount.login}}</button>
+
+      </div>
+    </div>
+  </div>
+
 
 
 

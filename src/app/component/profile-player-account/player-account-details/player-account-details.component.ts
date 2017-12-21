@@ -31,13 +31,28 @@ export class PlayerAccountDetailsComponent implements OnInit {
 
     let id = this.localStorage.getItem('userId');
     this.gameId = this.route.snapshot.params['gameId'];
+    this.getPlayerAccount(id, this.gameId);
     this.getPlayerAccountByUserIDByGameId(id, this.gameId);
-    this.getPlayerAccount(id,this.gameId);
+
     console.log("Game Id : " + this.gameId);
     console.log("User id : " + id);
-    console.log("xd"+this.playerAccount);
 
 
+
+
+  }
+
+  private getPlayerAccount(idUser: string, gameId: string): void {
+    this.playerAccountServiceInstance
+      .GetPlayerAccountByUserIdByGame(idUser, gameId)
+      .subscribe(
+        data => this.playerAccount = data,
+        error => console.log(error),
+        () => {
+          console.log('get One Player Account just PA', this.playerAccount);
+
+        }
+      );
   }
 
   // Doughnut
@@ -171,7 +186,7 @@ export class PlayerAccountDetailsComponent implements OnInit {
 
 private getAvatarPlayerAccount(playerAccountNumber: number): any{
     if(this.gameId == "569104a0417130681bcf1586") {//cs go
-     return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['stats'];
+     return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['userInfo']['avatar'];
     }
 }
   private getUserNamePlayerAccount(playerAccountNumber: number): any {
@@ -349,18 +364,7 @@ private getAvatarPlayerAccount(playerAccountNumber: number): any{
         }
       );
   }
-  private getPlayerAccount(idUser: string, gameId: string): any {
-    this.playerAccountServiceInstance
-      .GetPlayerAccountByUserIdByGame(idUser, gameId)
-      .subscribe(
-        data => this.playerAccount = data,
-        error => console.log(error),
-        () => {
-          console.log('get One Player Account just PA', this.playerAccount[0].properties[0].stats);
 
-        }
-      );
-  }
 
   // events
   public chartClicked(e: any): void {

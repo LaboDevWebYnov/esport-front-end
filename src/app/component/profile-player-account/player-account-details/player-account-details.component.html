@@ -3,6 +3,7 @@
   <div *ngFor="let playerAccount of playerAccountProperty,let i = index">
 
 
+
     <div rowspan="6" class="imgDetails">
       <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{gameId}}.png" alt="">
       <div *ngIf="playerAccount.Case1.loaded"><h2 class="PlayerName">{{playerAccount.Case1.value}}</h2></div>
@@ -31,6 +32,7 @@
             <div>
               <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
             </div>
+
           </div>
           <div class="col-md-6">
             <div>

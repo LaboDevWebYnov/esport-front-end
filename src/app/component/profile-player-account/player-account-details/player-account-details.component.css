@@ -6,9 +6,20 @@
   width: 70vw;
 }
 
+
+.imgBackground{
+  background-image: url("../../../../assets/images/hexa_game/checked/picto_empty.png");
+  min-height: 100vh;
+}
+img {
+  max-height: 100px;
+  margin-top: -5em;
+}
+
 .imgDetails{
   display: flex;
   margin-top: -4em;
+
 }
 
 .PlayerName{
