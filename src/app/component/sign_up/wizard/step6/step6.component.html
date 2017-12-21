@@ -1,12 +1,5 @@
 <div *ngIf="userGetById" class="container signupRoad">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <div class="row">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-10">
-
-    </div>
-    <div class="col-xs-1"></div>
-  </div>
   <h1>BIENVENUE {{userGetById.username}}</h1>
 
   <!--Check IF the user is verified to continue signup-->
@@ -18,22 +11,23 @@
     </div>
   </div>
 
-  <div *ngIf="status == 200">
-    <h2>Félicitation votre inscriptions est maintenant finalisé <font style="color:#0071bc;">vous pouvez maintenant accédez au site !</font></h2>
-    <p>Vous pouvez modifier vos informations en cliquant sur profil ou commencer à<br> utiliser notre plateforme en cliquant sur accueil. Bon jeux !<br></p>
+  <div *ngIf="status == 200" id="verified">
+    <h2>Félicitation votre inscription est maintenant terminée <font style="color:#0071bc;">vous pouvez maintenant accéder au site !</font></h2>
+    <div class="description">Vous pourrez modifier vos informations en accédant à votre profil ou commencer à utiliser notre plateforme en rejoingnant l'accueil. Bon jeu !</div>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-3 col-sm-8 col-8"></div>
+      <div class="col-md-3 col-sm-4 col-4">
+        <img id="step" src="../../../../../assets/images/step6.png">
+      </div>
+    </div>
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
-
-
-      <br><br>
-
       <div class="form-group row">
-        <div class="col-sm-7">
+        <div class="col-md-3 offset-xs-6 offset-lg-6 offset-md-4">
+          <button type="submit" class="myButton">ACCUEIL</button>
         </div>
-        <div class="col-sm-2">
-          <button type="submit" class="btn btn-default submitButton">Accueil</button>
-        </div>
-        <div class="col-sm-3">
-          <button type="button" (click)="goToProfile()" class="btn btn-default submitButton">Profil</button>
+        <div class="col-md-3 offset-md-1 offset-lg-0">
+          <button type="button" (click)="goToProfile()" class="myButton">PROFIL</button>
         </div>
       </div>
     </form>

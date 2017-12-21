@@ -65,7 +65,6 @@ import { PlayerAccountLastGamesComponent } from './component/profile-player-acco
 import { StatsGamesComponent } from './component/home/stats-games/stats-games.component';
 
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
-
 import { FooterComponent } from './component/footer/footer.component';
 
 
@@ -131,6 +130,7 @@ import { FooterComponent } from './component/footer/footer.component';
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent
+
 
   ],
   imports: [

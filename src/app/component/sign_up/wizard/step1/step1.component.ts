@@ -108,7 +108,7 @@ export class Step1Component implements OnInit {
           this.status = status;
           this.errorMessage = errorMessage;
           this.infoMessage = infoMessage;
-          this.localStorage.setItem('pwd', event.target[2].value);
+          this.localStorage.setItem('pwd', event.target[4].value);
           this.router.navigate(['signup/step2/' + this.token, {id: this.userId, status: status}]);
         }
         else {
