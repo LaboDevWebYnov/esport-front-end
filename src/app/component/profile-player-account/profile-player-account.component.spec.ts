@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ProfilePlayerAccountComponent } from './profile-player-account.component';
+import {GameService} from "../../../shared/services/game.service";
+import {Configuration} from "../../../shared/app.constants";
+import {PlayerAccountService} from "../../../shared/services/player-account.service";
 
 describe('ProfilePlayerAccountComponent', () => {
   let component: ProfilePlayerAccountComponent;
@@ -11,7 +14,8 @@ describe('ProfilePlayerAccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilePlayerAccountComponent ]
+      declarations: [ ProfilePlayerAccountComponent ],
+
     })
     .compileComponents();
   }));

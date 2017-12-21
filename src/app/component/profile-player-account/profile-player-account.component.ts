@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PlayerAccountService} from "../../../shared/services/player-account.service";
 import {CoolLocalStorage} from "angular2-cool-storage";
-import {Configuration} from "../../../shared/app.constants";
 import {GameService} from "../../../shared/services/game.service";
 
 import {AddNewPlayerAccount} from "../../../shared/models/utils/create-player-account-object";
 import {Game} from "../../../shared/models/game";
+import {Configuration} from "shared/app.constants";
 
 
 @Component({
@@ -16,33 +16,6 @@ import {Game} from "../../../shared/models/game";
   providers: [PlayerAccountService, Configuration,GameService]
 })
 export class ProfilePlayerAccountComponent implements OnInit {
-
-
-  public lastMatch = [{
-    teamName:"No Name",
-    losersTeamName:"No Name",
-    losersTeamPoint:10,
-    winnersTeamName:"No2 Name",
-    winnersTeamPoint:16,
-    nbKills:10,
-    nbDeath:2,
-    timeDeath:20,
-    pseudo:"pseudo",
-    mostUseWeapon:"AWP",
-    job:"Entry Fragger"
-  },{
-    teamName:"No Name",
-    losersTeamName:"No Name",
-    losersTeamPoint:10,
-    winnersTeamName:"No2 Name",
-    winnersTeamPoint:16,
-    nbKills:20,
-    nbDeath:4,
-    pseudo:"pseudo",
-    timeDeath:20,
-    mostUseWeapon:"m4a4",
-    job:"Entry Fragger"
-  }];
 
   playerAccount: Object;
   gameId: string;

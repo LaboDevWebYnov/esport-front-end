@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SliderHomeComponent } from './slider-home.component';
+import {NewsService} from "../../../../shared/services/news.service";
 
 describe('SliderHomeComponent', () => {
   let component: SliderHomeComponent;
@@ -9,6 +10,7 @@ describe('SliderHomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SliderHomeComponent ]
+
     })
     .compileComponents();
   }));

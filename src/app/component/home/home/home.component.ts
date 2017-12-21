@@ -11,7 +11,8 @@ import {User} from '../../../../shared/models/user';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [Configuration, TeamService, GameService, NewsService]
+  providers: [TeamService,GameService, NewsService,Configuration]
+
 })
 export class HomeComponent implements OnInit {
   private team: Object;

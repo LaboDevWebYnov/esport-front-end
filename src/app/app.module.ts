@@ -1,10 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {RouterModule}   from '@angular/router';
 import { CoolStorageModule } from 'angular2-cool-storage';
 import { ChartsModule } from 'ng2-charts';
+
 
 
 import {AppComponent} from './app.component';
@@ -66,6 +68,8 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
+import {TeamService} from "../shared/services/team.service";
+
 
 
 
@@ -137,6 +141,7 @@ import { FooterComponent } from './component/footer/footer.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     CoolStorageModule,
     ReactiveFormsModule,
     ChartsModule,

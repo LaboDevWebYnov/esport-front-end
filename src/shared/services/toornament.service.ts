@@ -5,7 +5,6 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
 
-@Injectable()
 export class ToornamentService {
 
   private actionUrl: string;
@@ -90,92 +89,92 @@ export class ToornamentService {
   };
 
   // Oauth
-  public postOauthToken = (): Observable<String> => {
+  public postOauthToken = (): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.post(this.actionUrl + 'toornament/oauth/v2/token', null)
       .map(response => response);
   };
 
   // Tournaments
-  public getTournaments = (params): Observable<String> => {
+  public getTournaments = (params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'getTournaments', params))
       .map(response => response);
   };
 
-  public getTournamentById = (idTournament: string): Observable<String> => {
+  public getTournamentById = (idTournament: string): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament)
       .map(response => response);
   };
 
-  public getMyTournaments = (params): Observable<String> => {
+  public getMyTournaments = (params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'me/tournaments', params))
       .map(response => response);
   };
 
   // Matches
-  public getMatchesByTournament = (idTournament: string, params): Observable<String> => {
+  public getMatchesByTournament = (idTournament: string, params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'tournaments/' + idTournament + '/matches', params))
       .map(response => response);
   };
 
-  public getMatchesByDiscipline = (idDiscipline: string, params): Observable<String> => {
+  public getMatchesByDiscipline = (idDiscipline: string, params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'tournaments/discipline/' + idDiscipline + '/matches', params))
       .map(response => response);
   };
 
-  public getMatchByTournamentAndId = (idTournament: string, idMatch: string): Observable<String> => {
+  public getMatchByTournamentAndId = (idTournament: string, idMatch: string): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament + '/matches/' + idMatch)
       .map(response => response);
   };
 
-  public getMatchResult = (idTournament: string, idMatch: string): Observable<String> => {
+  public getMatchResult = (idTournament: string, idMatch: string): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament + '/matches/' + idMatch + '/result')
       .map(response => response);
   };
 
   // Games
-  public getGamesByMatch = (idTournament: string, idMatch: string, params): Observable<String> => {
+  public getGamesByMatch = (idTournament: string, idMatch: string, params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'tournaments/' + idTournament + '/matches/'
       + idMatch + '/games', params))
       .map(response => response);
   };
 
-  public getGameByMatchAndId = (idTournament: string, idMatch: string, idGame: string, params): Observable<String> => {
+  public getGameByMatchAndId = (idTournament: string, idMatch: string, idGame: string, params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'tournaments/' + idTournament + '/matches/'
       + idMatch + '/games/' + idGame, params))
       .map(response => response);
   };
 
-  public getGameResult = (idTournament: string, idMatch: string, idGame: string): Observable<String> => {
+  public getGameResult = (idTournament: string, idMatch: string, idGame: string): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament + '/matches/' + idMatch + '/games/' + idGame + '/result')
       .map(response => response);
   };
 
   // Discipline
-  public getDisciplines = (): Observable<String> => {
+  public getDisciplines = (): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/discipline')
       .map(response => response);
   };
 
   // Participant
-  public getParticipantsByTournament = (idTournament: string, params): Observable<String> => {
+  public getParticipantsByTournament = (idTournament: string, params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'tournaments/' + idTournament + '/participants', params))
       .map(response => response);
   };
 
-  public getParticipantByTournamentAndId = (idTournament: string, idParticipant: string): Observable<String> => {
+  public getParticipantByTournamentAndId = (idTournament: string, idParticipant: string): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament + '/participants/' + idParticipant)
       .map(response => response);
