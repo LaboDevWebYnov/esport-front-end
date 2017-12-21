@@ -6,7 +6,7 @@
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <div class="container">
     <div class="row profil-banner">
-      <div class="col-md-2">
+      <div class="col-md-2 avatar">
         <img src="../../../../assets/images/hexapic_profil.png" class="img-team">
       </div>
       <div class="col-md-4">
@@ -64,7 +64,7 @@
     </div>
   </div>-->
 
-  <div class="contentD">
+  <div class="container">
     <!-- Nav tabs -->
     <!--<ul class="nav nav-tabs" role="tablist">
       <li class="active"><a href="#home" role="tab" data-toggle="tab" class="onglet">GENERAL</a></li>
@@ -74,35 +74,48 @@
     </ul>-->
 
     <div class="tab-content">
-      <div class="tab-pane active" id="home" *ngIf="response || playerById">
-        <br/>
-        <div class="title">
-          GENERAL
+
+      <div class="tab-pane active row" id="home" *ngIf="response || playerById">
+        <div class="col-md-3">
+          <div class="title">
+            GENERAL
+          </div>
+          <div class="pad">
+            <h2>Capitaine : </h2>
+            <div>
+              {{response.captain.user.lastname}} {{response.captain.user.firstname}}
+            </div>
+            <h2>Membres :</h2>
+            <div *ngFor="let item of response.players; let i = index">
+              - {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+            </div>
+          </div>
         </div>
-        <br>
-        <h2>Capitaine d'équipe : </h2>
-        <p>{{response.captain.user.lastname}} {{response.captain.user.firstname}}</p><br>
-        <h2>Membre de l'équipe :</h2>
-        <p *ngFor="let item of response.players; let i = index">
-          {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}</p>
+        <div class="col-md-9">
+          <div class="title">
+            Information {{response.name}}
+          </div>
+          <div class="pad">
+            Sed maximum est in amicitia parem esse inferiori. Saepe enim excellentiae quaedam sunt, qualis erat Scipionis in nostro, ut ita dicam, grege. Numquam se ille Philo, numquam Rupilio, numquam Mummio anteposuit, numquam inferioris ordinis amicis, Q. vero Maximum fratrem, egregium virum omnino, sibi nequaquam parem, quod is anteibat aetate, tamquam superiorem colebat suosque omnes per se posse esse ampliores volebat.
+          </div>
+        </div>
       </div>
-      <div class="tab-pane" id="profile">
-        <br/>
+
+      <div class="tab-pane row" id="profile">
         <div class="title">
           TEAM STATS
         </div>
-        <br/><br/><br/><br/>
       </div>
-      <div class="tab-pane" id="messages">
-        <br/>
+
+      <div class="tab-pane row" id="messages">
         <div class="title">
           RECRUTEMENT
         </div>
         Nous recherchons un joueur d'un grand talent afin d'être à la hauteur des autres membres du groupe !
-        <br/><br/><br/><br/>
+
       </div>
-      <div class="tab-pane" id="settings" *ngIf="response">
-        <br/>
+
+      <div class="tab-pane row" id="settings" *ngIf="response">
         <div class="title">
           GESTION DES MEMBRES
         </div>
