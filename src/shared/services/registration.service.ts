@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
@@ -14,43 +14,43 @@ import {RegisterUserObject} from '../models/utils/register-user-object';
 export class RegistrationService {
 
   private actionUrl: string;
-  private headers: Headers;
+  private headers: HttpHeaders;
 
-  constructor(private _http: Http, private _configuration: Configuration) {
+  constructor(private _http: HttpClient, private _configuration: Configuration) {
     this.actionUrl = _configuration.ServerWithApiUrl;
 
-    this.headers = new Headers();
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Accept', 'application/json');
+    this.headers = new HttpHeaders();
+    this.headers.set('Content-Type', 'application/json');
+    this.headers.set('Accept', 'application/json');
   }
 
-  public registerUser = (Variable:SignupUser): Observable<Response> => {
+  public registerUser = (Variable:SignupUser): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl+"register/", JsonBody, { headers: this.headers })
-      .map((response => response.json()));
+      .map((response => response));
   };
 
-  public registerUserMainInfo = (id:string, Variable:RegisterUserObject): Observable<Response> => {
+  public registerUserMainInfo = (id:string, Variable:RegisterUserObject): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
     return this._http.put(this.actionUrl + "register/" + id + "/step1",JsonBody,{ headers: this.headers });
   };
 
-  public completeRegistration = (id:string, token: string): Observable<Response> => {
+  public completeRegistration = (id:string, token: string): Observable<any> => {
     return this._http.put(this.actionUrl + "register/" + id + "/completeRegistration?t="+token,null,{ headers: this.headers });
   };
 
-  public cancelRegistration = (id:string, token: string): Observable<Response> => {
+  public cancelRegistration = (id:string, token: string): Observable<any> => {
     return this._http.delete(this.actionUrl + "register/" + id + "/cancelRegistration?t="+token);
   };
 
-  public verifyEmail = (email: string, token: string): Observable<String> => {
+  public verifyEmail = (email: string, token: string): Observable<any> => {
     return this._http.get(this.actionUrl + 'register/' + email+'/step0?t='+token)
-      .map(response => response.json())
+      .map(response => response)
   };
 
-  public isVerified = (email: string, token: string): Observable<String> => {
+  public isVerified = (email: string, token: string): Observable<any> => {
     return this._http.get(this.actionUrl + 'register/'+email+'/isVerified?t=' + token)
-      .map(response => response.json())
+      .map(response => response)
   };
 
 }
