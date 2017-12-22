@@ -10,7 +10,7 @@ import {TeamService} from '../../../../shared/services/team.service';
 })
 export class StatsGamesComponent implements OnInit {
 
-  private PlayerAccountsCs: Object;
+  public PlayerAccountsCs: Object;
   private PlayerAccountsLol: Object;
   private TeamsById: Object;
   constructor( private playerAccountServiceInstance: PlayerAccountService, private teamsServiceInstance: TeamService) {
@@ -27,12 +27,13 @@ export class StatsGamesComponent implements OnInit {
     };
     this.getPlayerAccounts(gamesId['cs']);
     this.getTeamByIdGame(gamesId['cs']);
+
   }
 
   private getPlayerAccounts(GameId: string): void {
     if (GameId = '569104a0417130681bcf1586') {
       this.playerAccountServiceInstance
-        .GetPlayerAccountByGame(GameId)
+        .GetPlayerAccountsByGameCount(GameId)
         .subscribe(
           data => this.PlayerAccountsCs = data,
           error => console.log(error),
@@ -58,7 +59,7 @@ export class StatsGamesComponent implements OnInit {
     this.teamsServiceInstance
       .GetTeamsByGameId(GameId)
       .subscribe(
-        data => this.TeamsById = data,
+        data => this.TeamsById = data.length,
         error => console.log(error),
         () => {
           console.log('get all Teams complete', this.TeamsById);

@@ -45,6 +45,10 @@ export class PlayerAccountService {
     return this._http.get(this.actionUrl + 'playerAccounts/game/' + GameId)
       .map(response => response);
   };
+  public GetPlayerAccountsByGameCount = (GameId: string): Observable<any> => {
+    return this._http.get(this.actionUrl + 'playerAccounts/game/' + GameId + '/count')
+      .map(response => response);
+  };
 
   public GetSinglePlayerAccountByLogin = (Login: string): Observable<any> => {
     return this._http.get(this.actionUrl + 'playerAccounts/' + Login + '/getPlayerAccountByLogin')
