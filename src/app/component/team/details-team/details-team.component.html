@@ -9,7 +9,7 @@
       <div class="col-md-2 avatar">
         <img src="../../../../assets/images/hexapic_profil.png" class="img-team">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-10">
         <h1><img src="../../../../assets/images/{{response.country}}.png" id="flag">[{{response.tag}}] {{response.name}} </h1>
         <!--id="provenance"-->
         <h3>{{response.game.name}}</h3>
@@ -17,16 +17,143 @@
     </div>
   </div>
 
+
   <div class="subMenu">
     <div class="container">
-      <ul role="tablist" class="nav nav-tabs col-md-10 offset-md-2">
-        <li class="active"><a href="#home" role="tab" data-toggle="tab" class="onglet">GENERAL</a></li>
-        <li><a href="#profile" role="tab" data-toggle="tab" class="onglet">TEAM STATS</a></li>
-        <li><a href="#messages" role="tab" data-toggle="tab" class="onglet">RECRUTEMENT</a></li>
-        <li><a href="#settings" role="tab" data-toggle="tab" class="onglet">PARAMETRES TEAM</a></li>
-      </ul>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <ul class="col-md-10 tab">
+          <li (click)="changeOnglet($event, 'general')" class="tablinks active">GENERAL</li>
+          <li (click)="changeOnglet($event, 'statistics')" class="tablinks">STATISTIQUES</li>
+          <li (click)="changeOnglet($event, 'membres')" class="tablinks">MEMBRES</li>
+          <li (click)="changeOnglet($event, 'parameters')" class="tablinks">PARAMETRES</li>
+        </ul>
+      </div>
     </div>
   </div>
+
+  <div class="container">
+    <div id="general" class="content row">
+      <div class="col-md-3">
+        <div class="title">
+          GENERAL
+        </div>
+        <div class="pad">
+          <h2>Capitaine : </h2>
+          <div>
+            {{response.captain.user.lastname}} {{response.captain.user.firstname}}
+          </div>
+          <h2>Membres :</h2>
+          <div *ngFor="let item of response.players; let i = index">
+            - {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="title">
+          Information {{response.name}}
+        </div>
+        <div class="pad">
+          Sed maximum est in amicitia parem esse inferiori. Saepe enim excellentiae quaedam sunt, qualis erat Scipionis in nostro, ut ita dicam, grege. Numquam se ille Philo, numquam Rupilio, numquam Mummio anteposuit, numquam inferioris ordinis amicis, Q. vero Maximum fratrem, egregium virum omnino, sibi nequaquam parem, quod is anteibat aetate, tamquam superiorem colebat suosque omnes per se posse esse ampliores volebat.
+        </div>
+      </div>
+    </div>
+
+    <div id="statistics" class="content">
+      Contenu de statistics
+    </div>
+
+    <div id="membres" class="content">
+      <div class="title">
+        GESTION DES MEMBRES
+      </div>
+      <div class="row pad">
+        <div class="col-md-6">
+          <h2>Ajouter un membre</h2>
+
+          <form method="post" (submit)="submitAddForm(response)">
+            <input class="form-control" type="text" id="teamId"  placeholder="Nom du player account/Team id" required autocomplete="off"/>
+            <input class="form-control" type="text" id="playerAccountId" placeholder="Identifiant du joueur/Player Account Id" required autocomplete="off"/>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-2"></div>
+              <div class="col-md-4">
+                <input class="myButton" type="submit" value="Ajouter" name="Valider"/>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h2>Capitaine</h2>
+          <select style="color:black" id="nvCaptain" *ngIf="response">
+            <option (click)="onSelectPlayer(response.captain.user.id)" style="color:black"
+                    *ngFor="let item of response.players; let i = index" value="{{response.captain.user._id}}">
+              {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <h2>Supprimer un membre</h2>
+      <div *ngFor="let item of response.players; let i = index">
+        <span class="cross" (click)="alert('Fonction à ajouter !');" title="Retirer membre">&times;</span>
+        {{response.players[i].user.lastname}} {{response.players[i].user.firstname}}
+      </div>
+    </div>
+
+    <div id="parameters" class="content">
+      <div class="title">
+        Modification de l'équipe
+      </div>
+
+      <form method="post" (submit)="submitUpdateTeamForm(response._id, response)" class="row pad">
+        <div class="col-md-6">
+          <h2>Information générales</h2>
+          <input class="form-control" type="text" id="nvNom" value="{{response.name}}"/>
+          <input class="form-control" type="text" id="nvTag" value="{{response.tag}}"/>
+        </div>
+        <div class="col-md-6">
+          <h2>Changer d'avatar</h2>
+          <!--<input type="file" id="nvImage"/>-->
+
+          <form class="box dragDrop" method="post" action="" enctype="multipart/form-data">
+            <div class="box__input">
+              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+              <!--<label for="file">w
+                <strong>Déposer ici.</strong>
+                <span class="box__dragndrop"> or drag it here.</span></label>-->
+            </div>
+            <div class="box__uploading">Uploading&hellip;</div>
+            <div class="box__success">Done!</div>
+            <div class="box__error">Error! <span></span>.</div>
+          </form>
+
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <input class="myButton" type="submit" value="Modifier" name="Valider"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!--End-->
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!--<div class="divTitle">
     <h1>{{response.name}} {{response.tag}} <img src="../../../../assets/images/{{response.country}}.png" alt="FLAG"
                                                 id="flag" height="20" width="35" style="margin-top: -5px;"/></h1>
@@ -64,7 +191,7 @@
     </div>
   </div>-->
 
-  <div class="container">
+  <!--<div class="container">
     <!-- Nav tabs -->
     <!--<ul class="nav nav-tabs" role="tablist">
       <li class="active"><a href="#home" role="tab" data-toggle="tab" class="onglet">GENERAL</a></li>
@@ -73,7 +200,7 @@
       <li><a href="#settings" role="tab" data-toggle="tab" class="onglet">PARAMETRES TEAM</a></li>
     </ul>-->
 
-    <div class="tab-content">
+    <!--<div class="tab-content">
 
       <div class="tab-pane active row" id="home" *ngIf="response || playerById">
         <div class="col-md-3">
@@ -165,5 +292,4 @@
     </div>
 
   </div>
-  <div class="clear"></div>
-</div>
+  <div class="clear"></div>-->

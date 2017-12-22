@@ -98,8 +98,32 @@ export class DetailsTeamComponent implements OnInit {
     }else{
       alert('Le membre a été ajouté !');
     }
+  }
 
+  public changeOnglet(event, option): void {
+    let i, tabContent, tabLinks;
 
+    tabContent = document.getElementsByClassName("content");
+    for (i = 0; i < tabContent.length; i++) {
+      (<HTMLInputElement>tabContent[i]).style.display = "none";
+    }
+
+    tabLinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tabLinks.length; i++) {
+      (<HTMLInputElement>tabLinks[i]).className = tabLinks[i].className.replace(" active", "");
+    }
+
+    (<HTMLInputElement>document.getElementById(option)).style.display = "block";
+    event.currentTarget.className += " active";
+  }
+
+  private hide():void{
+    let tabContent, i;
+    tabContent = document.getElementsByClassName("content");
+    for (i = 0; i < tabContent.length; i++) {
+      (<HTMLInputElement>tabContent[i]).style.display = "none";
+    }
+    (<HTMLInputElement>document.getElementById("general")).style.display = "block";
   }
 
  public submitUpdateTeamForm(teamId : string, maTeam : Team):void{
@@ -110,7 +134,6 @@ export class DetailsTeamComponent implements OnInit {
      teamCountry: null,
      captainPlayerAccountId:(<HTMLInputElement>document.getElementById('nvCaptain')).value
    };
-
 
     this.updatedTeamName(teamId,updateTeam);
     console.log('test update team name');
