@@ -17,8 +17,8 @@ export class PlayerAccountService {
     this.actionUrl = _configuration.ServerWithApiUrl;
 
     this.headers = new HttpHeaders();
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Accept', 'application/json');
+    this.headers.set('Content-Type', 'application/json');
+    this.headers.set('Accept', 'application/json');
 
   }
 

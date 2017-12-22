@@ -30,7 +30,7 @@ export class SliderHomeComponent implements OnInit {
         data => this.news = data,
         error => console.log(error),
         () => {
-          console.log('get all news complete', this.news);
+          console.log('get all news complete from slider', this.news);
 
         }
       );
