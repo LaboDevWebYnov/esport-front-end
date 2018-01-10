@@ -73,6 +73,7 @@ import {TeamService} from "../shared/services/team.service";
 
 
 
+
 @NgModule({
   declarations: [
     TeamComponent,
@@ -133,7 +134,8 @@ import {TeamService} from "../shared/services/team.service";
     PlayerAccountLastGamesComponent,
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
-    FooterComponent
+    FooterComponent,
+    MyNewComponentComponent
 
 
   ],

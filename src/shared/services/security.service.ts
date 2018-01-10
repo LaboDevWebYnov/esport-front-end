@@ -16,8 +16,8 @@ export class SecurityService {
     this.actionUrl = _configuration.ServerWithApiUrl;
 
     this.headers = new HttpHeaders();
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Accept', 'application/json');
+    this.headers.set('Content-Type', 'application/json');
+    this.headers.set('Accept', 'application/json');
   }
 
   //Good
@@ -34,7 +34,8 @@ export class SecurityService {
   //Good
   public auth = (authObject: AuthObject): Observable<any> => {
     let JsonBody = JSON.stringify(authObject);
-    return this._http.post(this.actionUrl + 'auth', JsonBody, {headers: this.headers})
+    console.log(JsonBody);
+    return this._http.post(this.actionUrl + 'auth', {body: JsonBody}, {headers: this.headers})
       .map((response => response))
   };
 }
