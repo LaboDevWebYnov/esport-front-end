@@ -135,7 +135,6 @@ import {TeamService} from "../shared/services/team.service";
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
-    MyNewComponentComponent
 
 
   ],

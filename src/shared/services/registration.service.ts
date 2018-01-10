@@ -26,13 +26,13 @@ export class RegistrationService {
 
   public registerUser = (Variable:SignupUser): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"register/", JsonBody, { headers: this.headers })
-      .map((response => response));
+    return this._http.post(this.actionUrl+"register/", Variable, { headers: this.headers })
+      ;
   };
 
   public registerUserMainInfo = (id:string, Variable:RegisterUserObject): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.put(this.actionUrl + "register/" + id + "/step1",JsonBody,{ headers: this.headers });
+    return this._http.put(this.actionUrl + "register/" + id + "/step1",Variable,{ headers: this.headers });
   };
 
   public completeRegistration = (id:string, token: string): Observable<any> => {
