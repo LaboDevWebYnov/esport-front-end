@@ -74,41 +74,39 @@
 
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <h2 class="vosTeamTitle">ACTUALITES</h2>
-  <div class="container">
+  <div class="container_news">
     <div class="row">
 
       <div *ngIf="news">
 
-        <div class="jasgrid">
-          <div *ngFor="let a of news.ign.articles, let i=index">
+        <div class="news">
+          <div *ngFor="let a of news.ign.articles, let i=index" class="news__item">
             <div *ngIf="i < 9">
-            <div class="box-item">
-              <div class="box-post">
-
-                <span class="meta">
-                          <span><i class="glyphicon glyphicon-comment"></i> <a
-                            href="{{a.url}}">Lien de l'article</a></span>
-
-                          <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt | date : 'dd/MM/yyyy'}}</span>
-                      </span>
+              <div class="news_item__meta">
+                <span>
+                  <i class="glyphicon glyphicon-comment"></i>
+                  <a href="{{a.url}}">Lien de l'article</a>
+                </span>
+                <span *ngIf="a.publishedAt">
+                  <i class="glyphicon glyphicon-time"></i>
+                  {{a.publishedAt | date : 'dd/MM/yyyy'}}
+                </span>
               </div>
-
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-              <img src="{{a.urlToImage}}" alt="Photo de l'article"
-                   class="">
-
+              <div class="image_container">
+                <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
+              </div>
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
-
               <h1 class="post-title">
-                <a href="{{a.url}}">
+                <a *ngIf="a.description.length > 100" href="{{a.url}}">
+                  {{a.description.substring(0,100)}}...
+                </a>
+                <a *ngIf="a.description.length <= 100" href="{{a.url}}">
                   {{a.description}}
                 </a>
               </h1>
-
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
             </div>
-          </div>
           </div>
         </div>
 
