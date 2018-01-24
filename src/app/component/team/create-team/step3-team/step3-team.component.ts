@@ -107,15 +107,17 @@ export class Step3TeamComponent implements OnInit {
         error => {
           //console.log(error);
 
-          callback(401, JSON.parse(error._body).error, null);
+          callback(401, error._body.error, null);
 
         },
         () => {
 
           console.log('register team complete');
-          console.log(this.response)
-          var team = JSON.parse(this.response["_body"]);
-          var teamId = team._id;
+          console.log('response', this.response);
+          var team = this.response;
+
+          console.log("team",team);
+          var teamId = team["id"];
           this.localStorage.setItem('teamId',teamId);
 
           callback(200, null, 'team registered !', this.response);

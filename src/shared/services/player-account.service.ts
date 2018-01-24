@@ -65,6 +65,6 @@ export class PlayerAccountService {
 
   public UpdatePlayerAccount = (id: string, Variable: AddNewPlayerAccount): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.put(this.actionUrl + 'playerAccounts/' + id + '/updatePlayerAccount', JsonBody, { headers: this.headers });
+    return this._http.put(this.actionUrl + 'playerAccounts/' + id + '/updatePlayerAccount', Variable, { headers: this.headers });
   };
 }
