@@ -25,7 +25,7 @@ export class RegistrationService {
   }
 
   public registerUser = (Variable:SignupUser): Observable<any> => {
-    let JsonBody = JSON.stringify(Variable);
+    //let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl+"register/", Variable, { headers: this.headers })
       ;
   };
@@ -37,6 +37,7 @@ export class RegistrationService {
 
   public completeRegistration = (id:string, token: string): Observable<any> => {
     return this._http.put(this.actionUrl + "register/" + id + "/completeRegistration?t="+token,null,{ headers: this.headers });
+
   };
 
   public cancelRegistration = (id:string, token: string): Observable<any> => {
