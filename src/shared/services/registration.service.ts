@@ -25,7 +25,7 @@ export class RegistrationService {
   }
 
   public registerUser = (Variable:SignupUser): Observable<any> => {
-    let JsonBody = JSON.stringify(Variable);
+    //let JsonBody = JSON.stringify(Variable);
     return this._http.post(this.actionUrl+"register/", Variable, { headers: this.headers })
       ;
   };
