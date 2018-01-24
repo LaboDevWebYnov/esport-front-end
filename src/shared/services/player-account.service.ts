@@ -56,7 +56,7 @@ export class PlayerAccountService {
   };
   public AddPlayerAccount = (Variable: AddNewPlayerAccount, userid: string, gameid: string): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl + 'playerAccounts/' + userid + '/addPlayerAccount/' + gameid, JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl + 'playerAccounts/' + userid + '/addPlayerAccount/' + gameid, Variable, { headers: this.headers })
       .map((response => response));
   };
   public DeletePlayerAccount = (id: string): Observable<any> => {

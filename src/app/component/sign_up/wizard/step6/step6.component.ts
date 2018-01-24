@@ -48,7 +48,7 @@ export class Step6Component implements OnInit {
 
     this.getUserById(this.idParam, (userGet: User) => {
       //check if the user is already verified
-      /*this.isVerifiedUser(userGet.email, this.token, (verifiedCode: string, userId: string) => {
+      this.isVerifiedUser(userGet.email, this.token, (verifiedCode: string, userId: string) => {
         this.verifiedCodeTemp = verifiedCode;
         if (verifiedCode === 'E_NOT_VERIFIED') {
           this.router.navigate(['/']);
@@ -66,14 +66,14 @@ export class Step6Component implements OnInit {
               this.infoMessage = null;
             }
             //verifiedCode === 'VERIFIED'
-            else {*/
+            else {
               this.status = 200;
               this.errorMessage = null;
               this.infoMessage = "Votre inscription est finalisée, vous pouvez accédez au site ...";
-            /*}
+            }
           }
         }
-      });*/
+      });
     });
   }
 

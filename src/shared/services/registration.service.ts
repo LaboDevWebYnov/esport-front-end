@@ -37,6 +37,7 @@ export class RegistrationService {
 
   public completeRegistration = (id:string, token: string): Observable<any> => {
     return this._http.put(this.actionUrl + "register/" + id + "/completeRegistration?t="+token,null,{ headers: this.headers });
+
   };
 
   public cancelRegistration = (id:string, token: string): Observable<any> => {
