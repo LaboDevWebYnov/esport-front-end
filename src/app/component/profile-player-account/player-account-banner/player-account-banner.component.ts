@@ -31,6 +31,9 @@ export class PlayerAccountBannerComponent implements OnInit {
       case '586f56bfb9fde402faa33fdb' :
                 this.bannerName = "banner-rocketleague-01";
                 break;
+      case '5a61e8d69fe0d61c36c54253' :
+                this.bannerName = "banner-r6-01";
+                break;
     }
     console.log(this.gameId);
     console.log(this.bannerName);
