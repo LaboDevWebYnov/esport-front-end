@@ -1,0 +1,27 @@
+#friendContent {
+  margin-top: 100px;
+  color: white;
+}
+
+#friendList{
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#chat{
+  margin-top: 150px;
+}
+
+#messages{
+  color: white;
+  font-size: 15px;
+  list-style: none;
+}
+
+#titleChat{
+  color: white;
+}
+
+#messagesDiv{
+  height: 300px;
+}

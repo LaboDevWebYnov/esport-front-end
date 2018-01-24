@@ -69,6 +69,7 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
 import {TeamService} from "../shared/services/team.service";
+import { ContactComponent } from './component/contact/contact.component';
 
 
 
@@ -135,7 +136,7 @@ import {TeamService} from "../shared/services/team.service";
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
-    MyNewComponentComponent
+    ContactComponent
 
 
   ],
@@ -247,6 +248,10 @@ import {TeamService} from "../shared/services/team.service";
       {
         path: 'team/:teamid',
         component: DetailsTeamComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
       }
     ])
   ],

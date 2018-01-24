@@ -11,12 +11,12 @@
   <div style ="overflow-x: hidden;">
     <div *ngIf="team">
 
-    <div class="jasgrid" style="font-size: 12px; color: white;">
+      <div class="jasgrid" style="font-size: 12px; color: white;">
 
-      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-      <div id="listTeam" *ngIf="yourTeams">
-        <h1 _ngcontent-nup-21="" class="vosTeamTitle">VOS <font _ngcontent-nup-21="" style="color: #0071bc;"> TEAMS: </font> </h1>
+        <div id="listTeam" *ngIf="yourTeams">
+          <h1 _ngcontent-nup-21="" class="vosTeamTitle">VOS <font _ngcontent-nup-21="" style="color: #0071bc;"> TEAMS: </font> </h1>
 
           <div class="col-md-6 global" *ngFor="let team of yourTeams; let inde=index" style="z-index: 2;">
 
@@ -26,13 +26,13 @@
                   <td rowspan="6" class="imgDetails">
                     <img class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{team.game._id}}.png" alt="">
                   </td>
-              <!--<td class="hexagon hexagon1">
-              <div class="hexagon-in1">
-                <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
-                <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
-              </div>
-            </td>-->
-                 <td>
+                  <!--<td class="hexagon hexagon1">
+                  <div class="hexagon-in1">
+                    <div *ngIf="team.logo" class="hexagon-in2" style="background-image: url('https://media.rtl2.fr/cache/mP7Ygi774ALk6dlr8IQNIg/795v530-0/online/image/2015/1006/7779991925_rtl2-presente-toto-en-concert-a-nantes.jpg')"></div>
+                    <div *ngIf="!team.logo" class="hexagon-in2" style="background-image: url('../../../../assets/images/hexa_game/{{team.game}}.png')"></div>
+                  </div>
+                </td>-->
+                  <td>
                     <div><a href="team/{{team._id}}" class="teamName"> {{team.name}} - [{{team.tag}}]</a></div>
                     <div class="nameGame">
                       {{team.game.name}}
@@ -41,34 +41,34 @@
                 </tr>
               </table>
 
+            </div>
           </div>
-      </div>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- --------------------------FILTRE--------------------- -->
 
   <h2 _ngcontent-nup-21="" class="vosTeamTitle">SELECTIONNEZ <font _ngcontent-nup-21="" style="color:#0071bc;">UN JEU</font></h2>
   <div *ngIf="games" class="form-group row ">
-  <li>
-    <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
-    <label for="AllGame">
-      <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
-      <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
-    </label>
-  </li>
-  <li *ngFor="let game of games">
-    <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="selector.checked"/>
-    <label for="{{game._id}}" class="gameName">
-      <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
-      <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
-      {{game.name}}
-    </label>
-  </li>
-</div>
+    <li>
+      <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="selector.checked"/>
+      <label for="AllGame">
+        <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
+        <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
+      </label>
+    </li>
+    <li *ngFor="let game of games">
+      <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="selector.checked"/>
+      <label for="{{game._id}}" class="gameName">
+        <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+        <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+        {{game.name}}
+      </label>
+    </li>
+  </div>
 
   <!-- --------------------------ACTUALITÉS--------------------- -->
 
@@ -82,8 +82,8 @@
         <div class="jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
             <div *ngIf="i < 9">
-            <div class="box-item">
-              <div class="box-post">
+              <div class="box-item">
+                <div class="box-post">
 
                 <span class="meta">
                           <span><i class="glyphicon glyphicon-comment"></i> <a
@@ -91,24 +91,24 @@
 
                           <span *ngIf="a.publishedAt"><i class="glyphicon glyphicon-time"></i> {{a.publishedAt | date : 'dd/MM/yyyy'}}</span>
                       </span>
+                </div>
+
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+                <img src="{{a.urlToImage}}" alt="Photo de l'article"
+                     class="">
+
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+                <h1 class="post-title">
+                  <a href="{{a.url}}">
+                    {{a.description}}
+                  </a>
+                </h1>
+
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
               </div>
-
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-              <img src="{{a.urlToImage}}" alt="Photo de l'article"
-                   class="">
-
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-              <h1 class="post-title">
-                <a href="{{a.url}}">
-                  {{a.description}}
-                </a>
-              </h1>
-
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
             </div>
-          </div>
           </div>
         </div>
 
@@ -117,6 +117,7 @@
     </div> <!-- /container -->
   </div>
 </div>
+
 
 
 
