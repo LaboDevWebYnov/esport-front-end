@@ -9,14 +9,20 @@ p{
 }
 
 #global {
-
-  background-image: url("./../../../../assets/images/dota2_tiny_by_biggreenpepper-d842e7l.jpg");
-  position: fixed;
-  top:0;
-  right:0;
-  left:0;
-  bottom: 0;
+  background: url("../../../../assets/images/font-overwatch.png");
+  opacity: 0.8;
+  min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+#global2 {
+  background:rgba(0,0,0,0.4);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 h1, h3, h4{
   color: white !important;
 }
