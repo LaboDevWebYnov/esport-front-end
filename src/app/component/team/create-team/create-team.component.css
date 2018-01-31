@@ -10,7 +10,6 @@ p{
 
 #global {
   background: url("../../../../assets/images/font-overwatch.png");
-  opacity: 0.8;
   min-height: 100vh;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -19,6 +18,7 @@ p{
 #global2 {
   background:rgba(0,0,0,0.4);
   background-size: 100%;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

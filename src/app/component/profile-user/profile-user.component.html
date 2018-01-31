@@ -1,4 +1,52 @@
-<div id="backgroundBanner">
+
+
+  <div class="banner">
+    <img class="imageHeader" src="../../../../assets/images/banner-586f56f5b9fde402faa33fdc.png">
+    <!--<img class="imageHeader" src="../../../../assets/images/banner-{{response.game._id}}.png">-->
+  </div>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <div class="container">
+    <div class="row profil-banner">
+      <div class="col-md-2 avatar">
+        <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+      </div>
+      <div class="col-md-10">
+        <h1><img src="../../../../assets/images/{{response.country}}.png" id="flag">[{{response.tag}}] {{response.name}} </h1>
+        <!--id="provenance"-->
+        <h3>{{response.game.name}}</h3>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="subMenu">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <ul class="col-md-10 tab">
+          <li (click)="changeOnglet($event, 'general')" class="tablinks active">GENERAL</li>
+          <li (click)="changeOnglet($event, 'statistics')" class="tablinks">STATISTIQUES</li>
+          <li (click)="changeOnglet($event, 'membres')" class="tablinks">MEMBRES</li>
+          <li (click)="changeOnglet($event, 'parameters')" class="tablinks">PARAMETRES</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="general" class="content">
+    <app-user-news></app-user-news>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    <app-user-social></app-user-social>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    <app-user-games></app-user-games>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    <app-user-results></app-user-results>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    <app-user-historic></app-user-historic>
+  </div>
+
+
+<!-- <div id="backgroundBanner">
   <img src="../../../assets/images/banner-586f56f5b9fde402faa33fdc.png" style="width:100%;">
 </div>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
@@ -12,4 +60,4 @@
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 <app-user-results></app-user-results>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
-<app-user-historic></app-user-historic>
+<app-user-historic></app-user-historic> -->

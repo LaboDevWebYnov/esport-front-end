@@ -1,7 +1,11 @@
 #global {
   background-image: url("../../../../assets/images/font-overwatch.png");
   min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
 *{
   color:white;
   font-family: "Rhanoll";
