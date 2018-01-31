@@ -81,7 +81,8 @@
 
         <div class="jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
-            <div *ngIf="i < 9">
+            <div *ngIf="a.urlToImage">
+            <div *ngIf="i < 8">
             <div class="box-item">
               <div class="box-post">
 
@@ -107,6 +108,7 @@
               </h1>
 
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
+            </div>
             </div>
           </div>
           </div>
