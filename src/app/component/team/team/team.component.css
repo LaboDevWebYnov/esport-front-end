@@ -69,7 +69,7 @@ h1{
 
 
 #insideBar{
-  background-color: #1d1d1b;
+  background-color: rgba(29,29,29,0.8);
   font-size: 30px;
   padding: 7px;
   text-align: center;

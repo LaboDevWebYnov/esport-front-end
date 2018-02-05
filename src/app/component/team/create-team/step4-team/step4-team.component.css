@@ -295,3 +295,76 @@ span.round-tabs.five{
   float: right;
 }
 
+h1{
+  font-size: 35px;
+  margin-bottom: 0px;
+  padding-left:15px;
+  color: white !important;
+}
+.description{
+  font-size: x-large;
+  line-height:18px;
+}
+#global{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+#step{
+  width:100%;
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+#listPlayers{
+  padding-left:20px;
+}
+.signupRoad{
+  background:none;
+}
+input{
+   background-color: rgba(29,29,29,0)!important;
+   border-radius: 0px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+ }
+
+/*BUTTON*/
+.myButton {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
+  background: -moz-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background: -webkit-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background: -o-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background: -ms-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background: linear-gradient(to bottom, #40403f 5%, #21211f 100%);
+  background-color: #40403f;
+  border: 1px solid black;
+  color: white;
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+  padding: 2px 28px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #21211f;
+  /*margin-top: 280px;*/
+  width: 180px;
+  margin-top: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.myButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #21211f), color-stop(1, #40403f));
+  background:-moz-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-webkit-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-o-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-ms-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:linear-gradient(to bottom, #21211f 5%, #40403f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#21211f', endColorstr='#40403f',GradientType=0);
+  background-color:#21211f;
+}
+
+.myButton:active {
+  position:relative;
+  top:1px;
+}

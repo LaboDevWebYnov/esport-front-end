@@ -1,74 +1,50 @@
 <div class="container signupRoad">
-<app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-  <div class="row">
-    <div class="col-md-6">
-      <h1 id="formTitle">Enregistrer votre  <font style="color:#0071bc;">Team</font></h1>
-      <h3>Vous pouvez maintenant crée votre propre équipe. Dans un premier temps complété les infos général.</h3>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-12 board">
-
-        <div class="board-inner">
-          <ul class="nav nav-tabs" id="myTab">
-
-            <div class="liner">
-
-            </div>
-            <li class="active">
-              <a href="/home"  title="Rentrer les infos personnelles">
-                <span class="round-tabs one"></span>
-              </a></li>
-            <li><a href="/home"  title="Séléctionner les jeux">
-              <span class="round-tabs two"></span>
-            </a>
-            </li>
-            <li><a href="#prototyping"  title="Prototyping">
-              <span class="round-tabs three"></span> </a>
-            </li>
-            <li><a href="#uidesign"  title="UI Design">
-              <span class="round-tabs four"></span>
-            </a></li>
-            <li><a href="#doner"  title="Development">
-              <span class="round-tabs five"></span> </a>
-            </li>
-          </ul></div>
-      </div>
-    </div>
-  </div>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
+  <div id="global">
+    <h2>Création de <font style="color:#0071bc;">votre équipe</font></h2>
+    <div class="description">
+      Vous pouvez désormais créer votre propre équipe. Dans un premier temps veuillez renseigner les informations générales.
+    </div>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-3 col-sm-8 col-8"></div>
+      <div class="col-md-3 col-sm-4 col-4">
+        <img id="step" src="../../../../../assets/images/step1.png" alt="1 / 5">
+      </div>
+    </div>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
 
-  <form (ngSubmit)="onSubmit($event)" class="form-inline">
-<div class="form-group row">
-  <div class="col-sm-6">
-    <input type="text" class="form-control" id="name" required
-           name="name" placeholder="Nom de l'équipe">
-  </div>
-  <div class="col-sm-6">
-    <input type="text" class="form-control" id="tag" required
-           name="tag" placeholder="TAG de l'équipe">
-  </div>
-</div>
 
+    <form (ngSubmit)="onSubmit($event)" class="form-inline">
+      <div class="form-group row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="name" required
+                 name="name" placeholder="Nom de l'équipe">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="tag" required
+                 name="tag" placeholder="TAG de l'équipe">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="country" required
+               name="country" placeholder="Pays">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="rank" required
+               name="rank" placeholder="Rank de l'équipe">
+        </div>
+      </div>
 
-    <div class="form-group row">
-
-  <div class="col-sm-6">
-    <input type="text" class="form-control" id="country" required
-           name="country" placeholder="Pays">
+      <div class="form-group row align-items-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <button type="submit" class="myButton">CONFIRMER</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="col-sm-6">
-    <input type="text" class="form-control" id="rank" required
-           name="rank" placeholder="Rank de l'équipe">
-  </div>
-</div>
-<div class="form-group row">
-  <div class="col-sm-9"></div>
-  <div class="col-sm-3">
-    <button class="btn btn-primary submitButton" type="submit" >Next</button>
-  </div>
-</div>
-</form><app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>

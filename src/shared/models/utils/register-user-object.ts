@@ -6,5 +6,5 @@ export class RegisterUserObject {
   password: string;
   passwordConfirmation: string;
   phoneNumber : string;
-  updated_at:Date;
+  updated_at: Date;
 }

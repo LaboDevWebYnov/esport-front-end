@@ -7,6 +7,8 @@ import { PlayerAccountService } from '../../../../../shared/services/player-acco
 import {PlayerAccount} from "../../../../../shared/models/player-account";
 import {Team} from "../../../../../shared/models/team";
 import {Router, ActivatedRoute} from '@angular/router';
+import {createElement} from "@angular/core/src/view/element";
+import {isSuccess} from "@angular/http/src/http_utils";
 
 @Component({
   selector: 'app-step4-team',
@@ -20,7 +22,8 @@ export class Step4TeamComponent implements OnInit {
   private playerAccountGetByLogin: Object;
   private response: Object;
   private status: boolean;
-
+  private players: object;
+  private team : object;
   private teamId: string;
   localStorage: CoolLocalStorage;
   constructor(private router: Router, private userServiceInstance: UserService, localStorage: CoolLocalStorage,private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
@@ -28,9 +31,16 @@ export class Step4TeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    let nameTeam = this.localStorage.getItem('teamName');
+    this.getTeam(nameTeam, (team: Object[], errorMessage: string): any =>{
+      this.localStorage.setItem('teamId', team["_id"]);
+      console.log(team);
+      this.players = team["players"];
+      console.log(this.players);
 
+    });
   }
-  tab;
+
   onClicked(event){
     this.status = false;
     //console.log(event);
@@ -41,20 +51,20 @@ export class Step4TeamComponent implements OnInit {
 
         //console.log(playerAccount["_id"]);
         this.playerAccountId = playerAccount["_id"];
-        console.log(this.playerAccountId);
         this.teamId = this.localStorage.getItem("teamId");
-        console.log("team id" + this.teamId);
-        this.addPlayerAccountInTeam(this.teamId, this.playerAccountId);
-        {
+        this.addPlayerAccountInTeam(this.teamId, this.playerAccountId,(error, success):any => {
+          if(error == null && success != null){
+            this.status = true;
 
-          this.status = true;
-        };
-
-
+            let list = (<HTMLElement>document.getElementById("listPlayers"));
+            let div = document.createElement('div');
+            div.textContent = this.playerAccountName;
+            list.appendChild(div);
+          }else{
+            this.status = false;
+          }
+        });
       });
-
-
-
 
   }
   onSubmit(event) {
@@ -66,29 +76,41 @@ export class Step4TeamComponent implements OnInit {
       .subscribe(
         data => {this.playerAccountGetByLogin = data;},
         error => console.log(error),
-        () =>{ console.log('get One Player Account by Login blblblbl',this.playerAccountGetByLogin),callback(this.playerAccountGetByLogin )}//console.log('get All Items complete')
+        () =>{ console.log('get One Player Account by Login',this.playerAccountGetByLogin),callback(this.playerAccountGetByLogin )}//console.log('get All Items complete')
 
       );
     ;
+  }
 
-
-
-
-
+  private getTeam(nameTeam: string, callback): any{
+    this.teamServiceInstance
+      .GetSingleTeamByName(nameTeam)
+      .subscribe(
+        data => this.team = data,
+        error => console.log(error),
+        () => {callback(this.team, null)}
+      );
   }
 
 
 
-  private addPlayerAccountInTeam(TeamId: string, PlayerAccount: string): any {
+  private addPlayerAccountInTeam(TeamId: string, PlayerAccount: string, callback): any {
     this.teamServiceInstance
       .addPlayerAccountInTeam(TeamId, PlayerAccount)
       .subscribe(
         data => this.response = data,
-        error => console.log(error),
-        () => {console.log('add is complete',this.playerAccountId)}
+        error => callback(error, null),
+        () => callback(null, this.response)
+          /*console.log('add is complete',this.playerAccountId);
+
+          /* Ajoute le pseudo à la vue
+          let list = (<HTMLElement>document.getElementById("listPlayers"));
+          let div = document.createElement('div');
+          div.textContent = this.playerAccountName;
+          list.appendChild(div);
+        }*/
 
       );
   }
-
 
 }

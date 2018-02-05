@@ -81,8 +81,6 @@ export class Step1Component implements OnInit {
 
   //Triggered when the form is submited
   onSubmit(event) {
-    //console.log(event);
-    //console.log(event.target[5].value);
 
     //set when the form is submited
     this.submitted = true;
@@ -91,12 +89,12 @@ export class Step1Component implements OnInit {
 
     //check if it's the same password
     if (event.target[4].value === event.target[5].value) {
-      //username
-      this.userRegistered.username = event.target[2].value;
-      //firstname
-      this.userRegistered.firstname = event.target[1].value;
       //lastname
       this.userRegistered.lastname = event.target[0].value;
+      //firstname
+      this.userRegistered.firstname = event.target[1].value;
+      //username
+      this.userRegistered.username = event.target[2].value;
       //birthdate
       this.userRegistered.birthDate = event.target[3].value;
       //password
