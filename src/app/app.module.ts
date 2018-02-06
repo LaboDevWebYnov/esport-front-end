@@ -240,7 +240,7 @@ import {TeamService} from "../shared/services/team.service";
         component: LogoutComponent
       },
       {
-        path: 'player-account/:gameId',
+        path: 'player-account/:playerAccountId',
         component: ProfilePlayerAccountComponent
       },
       {

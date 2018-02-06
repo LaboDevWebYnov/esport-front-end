@@ -3,15 +3,15 @@
   <app-blue-separation-bar></app-blue-separation-bar>
 
 
-  <div *ngFor="let p of playerAccount,let i = index">
 
-    <div *ngFor="let q of p.properties,let i = index">
+
+{{playerAccount.properties.stats.last_match_wins}}
 
       <div class="div-last-game">
-        <div *ngIf="q.stats.last_match_wins=='0'">
+        <div *ngIf="playerAccount.properties[0].stats.last_match_wins=='0'">
           <h2 class="blue">Défaite</h2>
         </div>
-        <div *ngIf="q.stats.last_match_wins=='1'">
+        <div *ngIf="playerAccount[0].properties[0].stats.last_match_wins=='1'">
           <h2 class="blue">Victoire</h2>
         </div>
         <div class="teamsLastMatchs">
@@ -24,9 +24,9 @@
           </div>
           <div class="row">
             <div class="col-md-3"></div>
-              <div class="col-md-2"><h2>{{q.stats.last_match_t_wins }}</h2></div>
+              <div class="col-md-2"><h2>{{playerAccount[0].properties[0].stats.last_match_t_wins }}</h2></div>
               <div class="col-md-2"></div>
-              <div class="col-md-2"><h2>{{q.stats.last_match_ct_wins }}</h2></div>
+              <div class="col-md-2"><h2>{{playerAccount[0].properties[0].stats.last_match_ct_wins }}</h2></div>
             <div class="col-md-3"></div>
           </div>
 
@@ -36,7 +36,7 @@
         <div class="statsLastMatchs">
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8"><div class="score"><div class="blue2"><i class="fa fa-trophy" aria-hidden="true"></i><h1>Score :</h1></div><h1> {{q.stats.last_match_kills }}/{{q.stats.last_match_deaths}}</h1></div></div>
+            <div class="col-md-8"><div class="score"><div class="blue2"><i class="fa fa-trophy" aria-hidden="true"></i><h1>Score :</h1></div><h1> {{playerAccount[0].properties[0].stats.last_match_kills }}/{{playerAccount[0].properties[0].stats.last_match_deaths}}</h1></div></div>
             <div class="col-md-2"></div>
           </div>
           <div class="row">
@@ -51,9 +51,9 @@
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
+
+
 
 
   <app-blue-separation-bar></app-blue-separation-bar>
