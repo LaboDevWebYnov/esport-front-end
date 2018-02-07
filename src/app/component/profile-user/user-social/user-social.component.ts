@@ -3,23 +3,30 @@ import { TeamService } from '../../../../shared/services/team.service';
 import { Configuration } from '../../../../shared/app.constants';
 import { CoolLocalStorage } from "angular2-cool-storage";
 import { Team } from "../../../../shared/models/team";
+import {UserService} from '../../../../shared/services/user.service';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-user-social',
   templateUrl: 'user-social.component.html',
   styleUrls: ['user-social.component.css'],
-  providers: [TeamService, Configuration]
+  providers: [TeamService, Configuration, UserService]
 })
 export class UserSocialComponent implements OnInit {
 
   private teams: Object;
   public myTeamTab;
-  localStorage : CoolLocalStorage;
+  localStorage: CoolLocalStorage;
+
+  private currentUser: Object
 
   constructor(private teamServiceInstance: TeamService,
-              localStorage: CoolLocalStorage,) {
+              localStorage: CoolLocalStorage,
+              private userServiceInstance: UserService,) {
     this.localStorage = localStorage;
   }
+
+
 
   ngOnInit() {
     var id = this.localStorage.getItem('userId');
@@ -31,6 +38,17 @@ export class UserSocialComponent implements OnInit {
         this.myTeamTab = dataTeam;
       }
     });
+    this.userServiceInstance.GetSingleUserById(id)
+      .subscribe(
+        data =>  this.currentUser = data ,
+        error => {
+          console.log(error);
+        },
+        () => {
+          console.log('Get friends by user: ', this.currentUser);
+        }
+      );
+
   }
 
   public searchMyTeams(id:string, callback):void{
@@ -43,10 +61,12 @@ export class UserSocialComponent implements OnInit {
           callback(401, JSON.parse(error._body).error, null);
         },
         () => {
-          callback(200, null, this.teams)
+          callback(200, null, this.teams);
         }
       );
   }
+
+
 
 
 }
