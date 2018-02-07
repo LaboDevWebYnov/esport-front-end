@@ -4,6 +4,7 @@ import {GameService} from "../../../../shared/services/game.service";
 import {PlayerAccountService} from "../../../../shared/services/player-account.service";
 import {Configuration} from '../../../../shared/app.constants';
 import {CoolLocalStorage} from "angular2-cool-storage";
+import {PlayerAccount} from "../../../../shared/models/player-account";
 
 @Component({
   selector: 'app-player-account-last-games',
@@ -79,7 +80,7 @@ export class PlayerAccountLastGamesComponent implements OnInit, OnDestroy {
         data => this.playerAccount = data,
         error => console.log(error),
         () => {
-          console.log('get One Player Account just PAAAA', this.playerAccount.properties[0].stats);
+          console.log('get One Player Account just PAAAA', this.playerAccount);
 
         }
       );

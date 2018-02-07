@@ -23,7 +23,7 @@ export class Step4TeamComponent implements OnInit {
   private response: Object;
   private status: boolean;
   private players: object;
-  private team : object;
+  private team : Team;
   private teamId: string;
   localStorage: CoolLocalStorage;
   constructor(private router: Router, private userServiceInstance: UserService, localStorage: CoolLocalStorage,private teamServiceInstance: TeamService, private playerAccountServiceInstance: PlayerAccountService) {
@@ -32,7 +32,7 @@ export class Step4TeamComponent implements OnInit {
 
   ngOnInit() {
     let nameTeam = this.localStorage.getItem('teamName');
-    this.getTeam(nameTeam, (team: Object[], errorMessage: string): any =>{
+    this.getTeam(nameTeam, (team: Team[], errorMessage: string): any =>{
       this.localStorage.setItem('teamId', team["_id"]);
       console.log(team);
       this.players = team["players"];

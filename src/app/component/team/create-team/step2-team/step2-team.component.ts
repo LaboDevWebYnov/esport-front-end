@@ -63,6 +63,45 @@ export class Step2TeamComponent implements OnInit {
       }
       else
       {
+        this.teamRegistered = new CreateTeamObject();
+        this.userId = this.localStorage.getItem('userId');
+        this.gameId = this.localStorage.getItem('gameId');
+        //name
+        this.teamRegistered.teamName = this.localStorage.getItem('teamName');
+        //tag
+        this.teamRegistered.teamTag = this.localStorage.getItem('teamTag');
+        //rank
+        // this.teamRegistered.rank = event.target[3].value;
+        //country
+        this.teamRegistered.teamCountry = this.localStorage.getItem('teamCountry');
+        //capitaine
+        this.teamRegistered.captainPlayerAccountId = this.userId;
+
+        //register user
+
+        this.registerTeam(this.userId, this.teamRegistered, this.gameId, (status: number, errorMessage: string, infoMessage: string) => {
+          if (status == 200) {
+            this.status = status;
+            this.errorMessage = errorMessage;
+            this.infoMessage = infoMessage;
+
+
+           // this.router.navigate(['team/create-team/step4-team']);
+          }
+          else {
+            this.status = status;
+            this.errorMessage = errorMessage;
+            this.infoMessage = infoMessage;
+            console.log(this.status);
+            console.log(this.errorMessage);
+            console.log(this.infoMessage);
+          }
+        });
+
+
+
+
+
         this.status = 200;
         this.infoMessage = null;
         this.errorMessage = null;
@@ -78,6 +117,32 @@ export class Step2TeamComponent implements OnInit {
 
 
   };
+  private registerTeam(userId: string, teamRegistered: CreateTeamObject,gameId: string, callback): any {
+    this.teamServiceInstance
+      .registerTeamMainInfo(userId,teamRegistered, gameId)
+      .subscribe(
+
+
+        data => this.response = data,
+        error => {
+          //console.log(error);
+
+          callback(401, error._body.error, null);
+
+        },
+        () => {
+
+          console.log('register team complete');
+          console.log('response', this.response);
+          var team = this.response;
+
+          console.log("team",team);
+          var teamId = team["id"];
+          this.localStorage.setItem('teamId',teamId);
+
+          callback(200, null, 'team registered !', this.response);
+        }
+      )};
 
 
   private isOneChecked(event: any, className: string, callback): any {
