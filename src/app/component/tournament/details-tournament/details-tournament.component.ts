@@ -19,6 +19,8 @@ export class DetailsTournamentComponent implements OnInit {
     Date: "30 Fevrier 2018",
     Plateform: "PC",
     Game: "Rocket League",
+    TotalPlace: "32",
+    PlaceLoked: "12",
   }
 
   public changeOnglet(event, option): void {
