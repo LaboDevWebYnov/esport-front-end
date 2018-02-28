@@ -8,11 +8,17 @@
     <div class="col-md-2 avatar">
       <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
     </div>
-    <div class="col-md-10">
-      <h1><img src="../../../../assets/images/FR.png" id="flag">{{tournament.Name}}</h1>
+    <div>
+      <div class="col-md-10 tournament-general-left">
+        <h1><img src="../../../../assets/images/FR.png" id="flag">{{tournament.Name}}</h1>
       <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
       <!--id="provenance"-->
-      <h3>By {{tournament.Creator}}</h3>
+
+      </div>
+     <div class="col-md-10 tournament-general-left">
+       <h2>By {{tournament.Creator}}</h2>
+       <h2><i class="far fa-calendar-check"></i> {{tournament.Date}}</h2>
+      </div>
     </div>
   </div>
 </div>
