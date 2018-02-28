@@ -174,8 +174,8 @@ export class Step5Component implements OnInit {
           this.response = data;
         },
         error => {
-          console.log(JSON.parse(error._body).error.errorMessage);
-          callback(null, JSON.parse(error._body).error.errorMessage);
+          console.log(error["error"].errorMessage);
+          callback(null, error["error"].errorMessage);
         },
         () => {
           //console.log(this.response);
@@ -194,11 +194,11 @@ export class Step5Component implements OnInit {
         },
         error => {
           //console.log(JSON.parse(error._body).error.errorMessage);
-          callback(null, JSON.parse(error._body).error.errorMessage);
+          callback(null, error["error"].errorMessage);
         },
         () => {
           //console.log(this.response);
-          callback(JSON.parse((<any>this.response)._body).successCode, null);
+          callback((<any>this.response["successCode"]), null);
         }
       );
   };
@@ -210,7 +210,7 @@ export class Step5Component implements OnInit {
         data => this.verifyAuthJson = data,
         error => {
           console.log(error);
-          callback(401, JSON.parse(error._body).error, null)
+          callback(401, error["error"], null)
         },//this.router.redirectTo(['/home'])} ,
         () => {
           callback(200, null, this.verifyAuthJson);

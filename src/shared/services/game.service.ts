@@ -45,7 +45,7 @@ export class GameService {
   //Fonctionne
   public AddGame = (Variable:Game): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"games/addGame", JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl+"games/addGame", Variable, { headers: this.headers })
       .map((response => response));
   };
 
@@ -57,7 +57,7 @@ export class GameService {
 
   public ChangeGameInformation = (id:string,Variable:Game): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.put(this.actionUrl + "games/" + id + "/updateGame",JsonBody,{ headers: this.headers });
+    return this._http.put(this.actionUrl + "games/" + id + "/updateGame",Variable,{ headers: this.headers });
   };
 
 

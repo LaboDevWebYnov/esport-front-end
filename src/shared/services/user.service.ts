@@ -52,26 +52,26 @@ export class UserService {
   public ChangeUserPassword = (id: string, Variable: ChangePasswordObject): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
     console.log(JsonBody);
-    return this._http.put(this.actionUrl + 'users/' + id + '/updatePassword', JsonBody, { headers: this.headers });
+    return this._http.put(this.actionUrl + 'users/' + id + '/updatePassword', Variable, { headers: this.headers });
   };
 
   // Fonctionne
   public ChangeUserEmail = (id: string, Variable: ChangeEmailObject): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
     console.log(JsonBody);
-    return this._http.put(this.actionUrl + 'users/' + id + '/updateEmail', JsonBody, { headers: this.headers });
+    return this._http.put(this.actionUrl + 'users/' + id + '/updateEmail', Variable, { headers: this.headers });
   };
 
   // Fonctionne
   public ChangeUserInformation = (id: string, Variable: User): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.put(this.actionUrl + 'users/' + id + '/updateUser', JsonBody, { headers: this.headers });
+    return this._http.put(this.actionUrl + 'users/' + id + '/updateUser', Variable, { headers: this.headers });
   };
 
   // Fonctionne
   public AddUser = (Variable: User): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl + 'users/addUser', JsonBody, { headers: this.headers })
+    return this._http.post(this.actionUrl + 'users/addUser', Variable, { headers: this.headers })
       .map((response => response));
   };
 

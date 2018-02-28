@@ -15,14 +15,20 @@ export class ContactComponent implements OnInit {
 
   myFriends: any;
   socket = io('http://localhost:3000');
-  myUser: any;
   message = '';
   roomName = "";
 
 
   constructor(public userService: UserService, public localStorage: CoolLocalStorage) {
     this.FindFriends();
-    this.Login();
+
+    this.socket.on('return-chat-message', function(msg){
+      console.log('chat message', msg);
+
+      var li=document.createElement("li");
+      li.appendChild(document.createTextNode(msg.username + ' : ' + msg.content));
+      document.getElementById("messages").appendChild(li);
+    });
   }
 
   ngOnInit() {
@@ -45,30 +51,15 @@ export class ContactComponent implements OnInit {
       );
   }
 
-  Login(){
-    this.userService.GetSingleUserById(this.localStorage.getItem('userId'))
-      .subscribe(
-        data =>
-        {
-          this.myUser = data;
-          this.socket.emit('connection');
-          this.socket.emit('user-login', data, function () {});
-        } ,
-        error => {
-          console.log(error);
-        },
-        () => {
-          console.log('Get user: ', this.myUser);
-        }
-      );
-  }
+
 
   JoinRoom(friendId){
-      if(this.roomName != "")
-        this.socket.emit('disconnect', this.roomName);
+      /*if(this.roomName != "")
+        this.socket.emit('disconnect', this.roomName);*/
 
-    this.socket.emit('join-room', friendId.toString());
-    this.roomName = friendId.toString();
+    this.socket.emit('join-room', friendId.toString(), localStorage.getItem('username'));
+    //this.roomName = friendId.toString();
+    this.roomName = "room1";
     document.getElementById("messages").innerHTML = "";
     document.getElementById("chat").style.visibility = 'visible';
 
@@ -76,15 +67,12 @@ export class ContactComponent implements OnInit {
 
   SendMessage(){
 
-    this.socket.emit('chat-message', this.message, this.roomName);
+
+    this.socket.emit('chat-message', this.message, localStorage.getItem('username'));
     this.message="";
 
-    this.socket.on('chat-message', function(msg){
-      console.log('chat message', msg);
 
-      var li=document.createElement("li");
-      li.appendChild(document.createTextNode(msg.username + ' : ' + msg.content));
-      document.getElementById("messages").appendChild(li);
-    });
   }
+
+
 }

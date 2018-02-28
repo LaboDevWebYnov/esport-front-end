@@ -56,7 +56,7 @@ export class AuthComponent implements OnInit {
         data => this.verifyAuthJson = data,
         error => {
           console.log(error);
-          callback(401, JSON.parse(error._body).error, null)
+          callback(401, error._body.error, null)
         },//this.router.redirectTo(['/home'])} ,
         () => {
           callback(200, null, this.verifyAuthJson);
@@ -89,9 +89,9 @@ export class AuthComponent implements OnInit {
       //sinon 401, bad credentials, message d'erreur sur la page, l'user doit recommencer
       else if (status == 401 && error) {
         // && _.includes(verifyAuthJson, 'error')
-        console.log('Auth error: ' + JSON.stringify(error));
+        console.log('Auth error: ' + error.error);
         this.status = status;
-        this.error = error;
+        this.error = error.error;
         (<HTMLInputElement>document.getElementById("emailAuth")).value = "";
         (<HTMLInputElement>document.getElementById("pwdAuth")).value = "";
         (<HTMLInputElement>document.getElementById("emailAuth")).style.borderColor = "#8C8C8C";
@@ -194,8 +194,8 @@ export class AuthComponent implements OnInit {
       .subscribe(
         data => this.response = data,
         error => {
-          //console.log(JSON.parse(error._body).error),
-          this.errorMessage = JSON.parse(error._body).error;
+          //console.log(error["error"]);
+          this.errorMessage = error["error"];
           this.infoMessage = null;
         },
         () => {

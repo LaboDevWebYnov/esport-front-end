@@ -139,6 +139,7 @@ import { ContactComponent } from './component/contact/contact.component';
     ContactComponent
 
 
+
   ],
   imports: [
     BrowserModule,

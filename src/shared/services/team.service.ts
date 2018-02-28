@@ -53,16 +53,16 @@ export class TeamService {
   };
 
   public AddTeam = (Variable:CreateTeamObject, playerAccountId : string, gameid : string): Observable<any> => {
-    let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl+"/teams/"+ playerAccountId+"/addTeam/"+gameid, JsonBody, { headers: this.headers })
+    //let JsonBody = JSON.stringify(Variable);
+    return this._http.post(this.actionUrl+"/teams/"+ playerAccountId+"/addTeam/"+gameid, Variable, { headers: this.headers })
       .map((response => response));
   };
   public DeleteTeam = (id: string): Observable<any> => {
     return this._http.put(this.actionUrl + "teams/" + id + "/deleteTeam","");
   };
   public registerTeamMainInfo = (userId:string, Variable:CreateTeamObject, gameid : string): Observable<any> => {
-    let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl + "teams/" + userId + "/addTeam/"+gameid,JsonBody,{ headers: this.headers });
+   // let JsonBody = JSON.stringify(Variable);
+    return this._http.post(this.actionUrl + "teams/" + userId + "/addTeam/"+gameid,Variable,{ headers: this.headers });
   };
   public addPlayerAccountInTeam = (teamId : string, playerAccount:string ): Observable<any> => {
 
@@ -71,7 +71,7 @@ export class TeamService {
 
   public updateTeamName = (teamId: string, maTeam: CreateTeamObject): Observable<any> => {
     let JsonBody = JSON.stringify(maTeam);
-    return this._http.put(this.actionUrl + "teams/" + teamId + "/updateTeam",JsonBody,{ headers: this.headers });
+    return this._http.put(this.actionUrl + "teams/" + teamId + "/updateTeam",maTeam,{ headers: this.headers });
   }
 
 
