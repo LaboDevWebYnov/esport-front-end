@@ -70,6 +70,11 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { Step1TournamentComponent } from './step1-tournament/step1-tournament.component';
+import { Step2TournamentComponent } from './step2-tournament/step2-tournament.component';
+import { Step3TournamentComponent } from './step3-tournament/step3-tournament.component';
+import { Step4TournamentComponent } from './step4-tournament/step4-tournament.component';
+import { Step5TournamentComponent } from './step5-tournament/step5-tournament.component';
 
 
 
@@ -138,6 +143,11 @@ import { ContactComponent } from './component/contact/contact.component';
     FooterComponent,
     ContactComponent,
     DetailsTournamentComponent,
+    Step1TournamentComponent,
+    Step2TournamentComponent,
+    Step3TournamentComponent,
+    Step4TournamentComponent,
+    Step5TournamentComponent,
   ],
   imports: [
     BrowserModule,
