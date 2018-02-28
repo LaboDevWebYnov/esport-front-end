@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { Configuration } from '../../../../shared/app.constants';
@@ -24,16 +25,16 @@ export class DetailsTournamentComponent implements OnInit {
   }
 
   public changeOnglet(event, option): void {
-    let i, tabContent, tabLinks;
 
-    tabContent = document.getElementsByClassName("content");
-
-    tabLinks = document.getElementsByClassName("tablinks");
+    let tabLinks = document.getElementsByClassName("tablinks");
     _.each(tabLinks, function (link) {
       link.className = 'tablinks'
     })
 
     event.path[0].className = 'tablinks active';
+
+
+
     var id_content = event.path[0].innerText
     id_content = id_content.toLowerCase();
     document.querySelector('.content').innerHTML = document.getElementById(id_content).innerHTML;
