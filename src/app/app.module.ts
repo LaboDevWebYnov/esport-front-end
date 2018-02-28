@@ -75,6 +75,9 @@ import { Step2TournamentComponent } from './step2-tournament/step2-tournament.co
 import { Step3TournamentComponent } from './step3-tournament/step3-tournament.component';
 import { Step4TournamentComponent } from './step4-tournament/step4-tournament.component';
 import { Step5TournamentComponent } from './step5-tournament/step5-tournament.component';
+import { InformationsComponent } from './component/tournament/details-tournament/informations/informations.component';
+import { ParticipantsComponent } from './component/tournament/details-tournament/participants/participants.component';
+import { MatchesComponent } from './component/tournament/details-tournament/matches/matches.component';
 
 
 
@@ -148,6 +151,9 @@ import { Step5TournamentComponent } from './step5-tournament/step5-tournament.co
     Step3TournamentComponent,
     Step4TournamentComponent,
     Step5TournamentComponent,
+    InformationsComponent,
+    ParticipantsComponent,
+    MatchesComponent,
   ],
   imports: [
     BrowserModule,
