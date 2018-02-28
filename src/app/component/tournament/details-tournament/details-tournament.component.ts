@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { Configuration } from '../../../../shared/app.constants';
@@ -43,6 +44,7 @@ export class DetailsTournamentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
 }
