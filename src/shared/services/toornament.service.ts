@@ -96,6 +96,12 @@ export class ToornamentService {
   };
 
   // Tournaments
+  public addTournament = (): Observable<any> => {
+    console.log(this.actionUrl);
+    return this._http.post(this.actionUrl + 'tournaments/addTournament', null)
+      .map(response => response);
+  };
+
   public getTournaments = (params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'getTournaments', params))
