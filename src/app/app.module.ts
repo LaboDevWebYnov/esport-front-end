@@ -31,6 +31,7 @@ import {UserResultsComponent} from './component/profile-user/user-results/user-r
 import {UserHistoricComponent} from './component/profile-user/user-historic/user-historic.component';
 import {UserNewsComponent} from './component/profile-user/user-news/user-news.component';
 import { AuthComponent } from './component/auth/auth/auth.component';
+import {DetailsTournamentComponent} from './component/tournament/details-tournament/details-tournament.component';
 
 import { WizardComponent } from './component/sign_up/wizard/wizard.component';
 import { Step0Component } from './component/sign_up/wizard/step0/step0.component';
@@ -69,7 +70,11 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
 import {TeamService} from "../shared/services/team.service";
+<<<<<<< HEAD
 import { ContactComponent } from './component/contact/contact.component';
+=======
+import {TournamentsComponent} from "./component/tournament/tournaments/tournaments.component";
+>>>>>>> 8d3961f5a67ad61db0a8dd080fe8a66bd2a3a114
 
 
 
@@ -136,10 +141,8 @@ import { ContactComponent } from './component/contact/contact.component';
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
-    ContactComponent
-
-
-
+    ContactComponent,
+    DetailsTournamentComponent,
   ],
   imports: [
     BrowserModule,
@@ -253,6 +256,10 @@ import { ContactComponent } from './component/contact/contact.component';
       {
         path: 'contact',
         component: ContactComponent
+      },
+      {
+        path: 'events/detail',
+        component: DetailsTournamentComponent
       }
     ])
   ],
