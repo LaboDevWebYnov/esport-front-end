@@ -1,5 +1,5 @@
 
-<div id="global">
+<!--<div id="global">
   <div id="avatar_username">
     <div id="avatar">
       <img src="../../../../assets/images/hexapic_profil.png">
@@ -7,37 +7,36 @@
 
     <div *ngIf="userGetById" id="infoNameUser">
       <!--class="user_username"-->
-      <h1>{{userGetById.username}}</h1>
-      <!--id="provenance"-->
-      <h2><img src="../../../../assets/images/FR.png">{{userGetById.firstname}} {{userGetById.lastname}}</h2>
-    </div>
-  </div>
-
-  <div class="col-md-4 col-xs-offset-8 triple">
-    <div class="col-xs-4">
-      <a (click)="openModal()"><img src="../../../../assets/images/picto-modifprofil.png"></a>
-    </div>
-    <div class="col-xs-4">
-      <a href="/profile"><img src="../../../../assets/images/picto-gereabo.png"></a>
-    </div>
-    <div class="col-xs-4">
-      <a href="/team/create-team"><img src="../../../../assets/images/picto-creer_team.png"></a>
-    </div>
-  </div>
-
-  <div class="subMenu">
-    <div><a href="/profile">GENERAL</a></div>
-    <div><a href="/profile">TEAM STATS</a></div>
-    <div><a href="/profile">RECRUTEMENT</a></div>
-    <div><a href="/profile">PARAMETRE TEAM</a></div>
-  </div>
+<!--<h1>{{userGetById.username}}</h1>
+<!--id="provenance"-->
+<!-- <h2><img src="../../../../assets/images/FR.png">{{userGetById.firstname}} {{userGetById.lastname}}</h2>
+</div>
 </div>
 
-<div id="myModal" class="modal" *ngIf="userGetById">
-  <div class="modal-content">
-    <span class="cross" (click)="closeModal()" title="Fermer">&times;</span>
-    <h1>Profil</h1>
-    <div class="container">
+<div class="col-md-4 col-xs-offset-8 triple">
+<div class="col-xs-4">
+ <a (click)="openModal()"><img src="../../../../assets/images/picto-modifprofil.png"></a>
+</div>
+<div class="col-xs-4">
+ <a href="/profile"><img src="../../../../assets/images/picto-gereabo.png"></a>
+</div>
+<div class="col-xs-4">
+ <a href="/team/create-team"><img src="../../../../assets/images/picto-creer_team.png"></a>
+</div>
+</div>
+
+<div class="subMenu">
+<div><a href="/profile">GENERAL</a></div>
+<div><a href="/profile">TEAM STATS</a></div>
+<div><a href="/profile">RECRUTEMENT</a></div>
+<div><a href="/profile">PARAMETRE TEAM</a></div>
+</div>
+</div> -->
+<br>
+<div id="myModal" class="container" *ngIf="userGetById">
+  <div class="">
+    <h1>Gestion de vos informations personnelles</h1>
+    <div class="row">
       <div class="col-md-6" id="updProfileForm">
         <form (ngSubmit)="updateProfile($event)">
 
@@ -101,7 +100,7 @@
 
     <form>
       <div id="content-address">
-        <h2 style="padding-left:10px;padding-top:10px;">Gestion des adresses</h2>
+        <h1 style="padding-left:10px;padding-top:10px;">Gestion des adresses</h1>
         <!-- ADRESSE 1 -->
         <ul class="col-md-6" *ngIf="addressTab[0].line !== ''">
             <li *ngIf="addressTab[0].active" id="addressApiJsonUpd0">
@@ -232,7 +231,6 @@
           </li>
         </ul>
       </div>
-    <button class="myButton" (click)="closeModal()">ANNULER</button>
     </form>
   </div>
 </div>

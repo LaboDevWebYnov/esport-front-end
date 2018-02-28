@@ -1,84 +1,59 @@
 <div class="container signupRoad">
-<app-blue-separation-bar-small></app-blue-separation-bar-small>
-
-  <div class="row">
-    <div class="col-md-6">
-      <h1 id="formTitle">Enregistrer votre  <font style="color:#0071bc;">Team</font></h1>
-      <h3>Vous pouvez maintenant crée votre propre équipe. Dans un premier temps complété les infos général.</h3>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-12 board">
-
-        <div class="board-inner">
-          <ul class="nav nav-tabs" id="myTab">
-
-            <div class="liner">
-
-            </div>
-            <li>
-              <a href="/home"  title="Rentrer les infos personnelles">
-                <span class="round-tabs one"></span>
-              </a></li>
-            <li><a href="/home"  title="Séléctionner les jeux">
-              <span class="round-tabs two"></span>
-            </a>
-            </li>
-            <li><a href="#prototyping"  title="Prototyping">
-              <span class="round-tabs three"></span> </a>
-            </li>
-            <li class="active"><a href="#uidesign"  title="UI Design">
-              <span class="round-tabs four"></span>
-            </a></li>
-            <li><a href="#doner"  title="Development">
-              <span class="round-tabs five"></span> </a>
-            </li>
-          </ul></div>
-      </div>
-    </div>
-  </div>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-<form (ngSubmit)="onSubmit($event)"   class="form-inline">
-<div class="form-group row">
-  <div *ngIf="status == true" class="alert alert-success" style="font-size:x-large;color:black;">
-    <strong>Succes!</strong>  L'ajout de votre joueur à été valider
-  </div>
-
-
-  <div class="col-sm-6">
-
-
-    <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Invittez vos amis dans votre équipe">
-    <input  class="form-control" id="role" name="playerAccount" placeholder="Role du player">
+  <div id="global">
+    <h2>Création de <font style="color:#0071bc;">votre équipe</font></h2>
+    <div class="description">
+       Invitez vos amis à vous rejoindre !
+    </div>
     <div class="row">
-      <div class="col-md-7"></div>
-      <div class="col-md-5">
-        <button class="btn btn-primary button" (click)="onClicked($event)" type="submit" ><h2>Ajouter ce joueur à l'équipe</h2></button>
+      <div class="col-md-6"></div>
+      <div class="col-md-3 col-sm-8 col-8"></div>
+      <div class="col-md-3 col-sm-4 col-4">
+        <img id="step" src="../../../../../assets/images/step4.png" alt="4 / 5">
       </div>
     </div>
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+
+    <form (ngSubmit)="onSubmit($event)"   class="form-inline">
+      <div class="form-group row">
+
+        <div class="col-sm-6">
+          <h3>Ajouter un ami :</h3>
+          <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Pseudonyme de Jeu">
+          <input  class="form-control" id="role" name="playerAccount" placeholder="Rôle du joueur">
+          <div class="row">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+              <button class="myButton" (click)="onClicked($event)" type="button" >Ajouter</button>
+            </div>
+          </div>
+
+          <div *ngIf="status == true" class="alert alert-success" style="font-size:x-large;color:black;">
+            L'ajout de votre joueur à été validé !
+          </div>
+          <div *ngIf="status == false" class="alert alert-danger" style="font-size:x-large;color:black;">
+            Le joueur n'a pus être ajouté, réessayez !
+          </div>
+
+        </div>
+        <div class="col-sm-6 description">
+          <h3>Joueurs de l'équipe :</h3>
+          <div id="listPlayers">
+            <div *ngFor="let player of players">{{player.login}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row align-items-end">
+        <div class="col-md-6"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <button type="submit" class="myButton">CONFIRMER</button>
+        </div>
+      </div>
+    </form>
   </div>
-
-
-
-</div>
-<div class="form-group row">
-
-  <li *ngFor="let players of player">
-    <ul>{{players.name}}</ul>
-  </li>
-</div>
-
-
-<div class="form-group row">
-  <div class="col-sm-6">
-
-  </div>
-  <div class="col-sm-4"></div>
-  <div class="col-sm-2">
-    <button class="btn btn-primary submitButton" type="submit" >Next</button>
-
-  </div>
-</div>
-</form>
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 </div>

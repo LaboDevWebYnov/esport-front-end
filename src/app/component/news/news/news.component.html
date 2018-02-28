@@ -49,13 +49,14 @@
     <div class="row">
       <div *ngIf="news">
 
-        <div class="col-md-12 col-lg-6 jasgrid">
-          <div *ngFor="let a of news.polygon.articles, let i=index">
+        <div class="col-md-6 col-lg-6 jasgrid">
+          <div *ngFor="let a of news.ign.articles, let i=index">
+            <div *ngIf="a.source.name == 'Polygon'">
             <div class="box-item">
               <a href="{{a.url}}" target="_blank">
                 <div class="box-post">
                   <span class="label label-success" style="padding: 10px;">
-                    <a rel="tag" style="font-size: 25px;">{{news.polygon.source}}</a>
+                    <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
                   </span>
                   <h1 class="post-title">
                     <a href="{{a.url}}" target="_blank">
@@ -71,14 +72,16 @@
             </div>
           </div>
         </div>
+        </div>
 
-        <div class="col-md-12 col-lg-6 jasgrid">
+        <div class="col-md-6 col-lg-6 jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
+            <div *ngIf="a.source.name == 'IGN'">
             <div class="box-item">
               <a href="{{a.url}}" target="_blank">
                 <div class="box-post">
                   <span class="label label-success" style="padding: 10px;">
-                    <a rel="tag" style="font-size: 25px;">{{news.ign.source}}</a>
+                    <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
                   </span>
                   <h1 class="post-title">
                     <a href="{{a.url}}" target="_blank">
@@ -92,6 +95,7 @@
                 <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
               </a>
             </div>
+
           </div>
         </div>
 
@@ -101,4 +105,6 @@
 
 </div>
 
+
+</div>
 

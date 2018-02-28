@@ -68,7 +68,7 @@ export class Step2TeamComponent implements OnInit {
         this.errorMessage = null;
         console.log('Y a des game');
         this.localStorage.setItem('gameId', selectedGame);
-        this.router.navigate(['team/create-team/step3-team' ]);
+        this.router.navigate(['team/create-team/step4-team' ]);
       }
     });
     //this.router.navigate(['team/create-team/step3-team']);
