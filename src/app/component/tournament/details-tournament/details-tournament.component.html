@@ -34,10 +34,16 @@
     <div class="row">
       <div class="col-md-2"></div>
       <ul class="col-md-10 tab">
-        <li (click)="changeOnglet($event, 'informations')" class="tablinks active">INFORMATION</li>
+        <li (click)="changeOnglet($event, 'informations')" class="tablinks active">INFORMATIONS</li>
         <li (click)="changeOnglet($event, 'participants')" class="tablinks">PARTICIPANTS</li>
         <li (click)="changeOnglet($event, 'matches')" class="tablinks">MATCHES</li>
       </ul>
     </div>
   </div>
 </div>
+
+<div class="content">
+</div>
+<app-informations></app-informations>
+<app-matches></app-matches>
+<app-participants></app-participants>

@@ -27,17 +27,16 @@ export class DetailsTournamentComponent implements OnInit {
     let i, tabContent, tabLinks;
 
     tabContent = document.getElementsByClassName("content");
-    for (i = 0; i < tabContent.length; i++) {
-      (<HTMLInputElement>tabContent[i]).style.display = "none";
-    }
 
     tabLinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tabLinks.length; i++) {
-      (<HTMLInputElement>tabLinks[i]).className = tabLinks[i].className.replace(" active", "");
-    }
+    _.each(tabLinks, function (link) {
+      link.className = 'tablinks'
+    })
 
-    (<HTMLInputElement>document.getElementById(option)).style.display = "block";
-    event.currentTarget.className += " active";
+    event.path[0].className = 'tablinks active';
+    var id_content = event.path[0].innerText
+    id_content = id_content.toLowerCase();
+    document.querySelector('.content').innerHTML = document.getElementById(id_content).innerHTML;
   }
 
 
