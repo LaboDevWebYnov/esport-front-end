@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { Configuration } from '../../../../shared/app.constants';
 import { ToornamentService} from "../../../../shared/services/toornament.service";
@@ -35,8 +35,7 @@ export class DetailsTournamentComponent implements OnInit {
 
 
 
-    var id_content = event.path[0].innerText
-    id_content = id_content.toLowerCase();
+    var id_content = option;
     document.querySelector('.content').innerHTML = document.getElementById(id_content).innerHTML;
   }
 
@@ -47,4 +46,7 @@ export class DetailsTournamentComponent implements OnInit {
     document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
+  ngAfterContentInit(){
+    document.querySelector('.fa-calendar').removeAttribute('_ngcontent-c4')
+  }
 }
