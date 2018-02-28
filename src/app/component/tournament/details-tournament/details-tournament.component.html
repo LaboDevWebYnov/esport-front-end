@@ -1,3 +1,32 @@
-<p>
-  details-tournament works!
-</p>
+<div class="banner">
+  <img class="imageHeader" src="../../../../assets/images/banner-csgo-01.png">
+  <!--<img class="imageHeader" src="../../../../assets/images/banner-{{response.game._id}}.png">-->
+</div>
+<app-blue-separation-bar-small></app-blue-separation-bar-small>
+<div class="container">
+  <div class="row profil-banner">
+    <div class="col-md-2 avatar">
+      <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+    </div>
+    <div class="col-md-10">
+      <h1><img src="../../../../assets/images/FR.png" id="flag">{{tournament.Name}}</h1>
+      <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
+      <!--id="provenance"-->
+      <h3>By {{tournament.Creator}}</h3>
+    </div>
+  </div>
+</div>
+
+
+<div class="subMenu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <ul class="col-md-10 tab">
+        <li (click)="changeOnglet($event, 'information')" class="tablinks active">INFORMATION</li>
+        <li (click)="changeOnglet($event, 'participants')" class="tablinks">PARTICIPANTS</li>
+        <li (click)="changeOnglet($event, 'matches')" class="tablinks">MATCHES</li>
+      </ul>
+    </div>
+  </div>
+</div>
