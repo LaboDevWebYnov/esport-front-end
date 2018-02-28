@@ -44,6 +44,7 @@ export class DetailsTournamentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
 }
