@@ -69,12 +69,7 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
-import {TeamService} from "../shared/services/team.service";
-<<<<<<< HEAD
 import { ContactComponent } from './component/contact/contact.component';
-=======
-import {TournamentsComponent} from "./component/tournament/tournaments/tournaments.component";
->>>>>>> 8d3961f5a67ad61db0a8dd080fe8a66bd2a3a114
 
 
 
