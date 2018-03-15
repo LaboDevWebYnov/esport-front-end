@@ -23,7 +23,7 @@ export class ParticipantsComponent implements OnInit {
       'logo': '',
       'coutry': 'ca',
     }
-  ]
+  ];
 
   constructor() { }
 
