@@ -1,3 +1,15 @@
 <div id="matches">
-  matches works!
+  <div class="row ensemble">
+    <div *ngFor=" let player of participants, let i = index">
+      <div class="col-md-12 match">
+        <div class="joueur">
+          joueur 1
+        </div>
+        <div class="vs">VS</div>
+        <div class="joueur">
+          joueur 2
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
