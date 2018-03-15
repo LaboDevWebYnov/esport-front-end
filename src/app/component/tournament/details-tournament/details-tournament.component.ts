@@ -22,7 +22,8 @@ export class DetailsTournamentComponent implements OnInit {
     Game: "Rocket League",
     TotalPlace: "32",
     PlaceLoked: "12",
-  }
+  };
+
 
 
     game_id: "5a61e8d69fe0d61c36c54253";
