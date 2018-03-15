@@ -1,15 +1,19 @@
 <div id="matches">
-  <div class="row ensemble">
-    <div *ngFor=" let player of participants, let i = index">
-      <div class="col-md-12 match">
+  <div class="ensemble">
+    <div class="containerMatch">
+    <div *ngFor=" let match of matchIncome" class="test">
+
+      <div class="match">
         <div class="joueur">
-          joueur 1
+          {{match.joueur1}}
         </div>
         <div class="vs">VS</div>
         <div class="joueur">
-          joueur 2
+          {{match.joueur2}}
         </div>
       </div>
+
+    </div>
     </div>
   </div>
 </div>
