@@ -24,6 +24,9 @@ export class DetailsTournamentComponent implements OnInit {
     PlaceLoked: "12",
   }
 
+
+    game_id: "5a61e8d69fe0d61c36c54253";
+
   public changeOnglet(event, option): void {
 
     let tabLinks = document.getElementsByClassName("tablinks");
@@ -40,7 +43,8 @@ export class DetailsTournamentComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
