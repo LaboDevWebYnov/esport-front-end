@@ -4,13 +4,13 @@
       <div class="Description">
         <h1 class="title">Tournament Description :</h1>
         <div class="Text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam architecto cupiditate delectus deleniti ex laboriosam minima possimus quae quasi quis quisquam tempore, ullam. Ab adipisci magnam mollitia sequi temporibus.
+          {{tournamentInfo.Desc}}
         </div>
       </div>
       <div class="Rules">
         <h1 class="title">Rules :</h1>
         <div class="Text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam asperiores at cupiditate, dolor, ea eaque facilis harum illo laboriosam minima natus quis quo sint temporibus vero vitae! Quisquam, repellat?
+          {{tournamentInfo.Rules}}
         </div>
       </div>
     </div>
@@ -18,12 +18,12 @@
       <div class="Eliminations">
         <h1 class="title">Eliminations :</h1>
         <div class="Text">
-          qualification : BO1, semi-final and final : BO3
+          qualification : {{tournamentInfo.BO1}}, semi-final and final : {{tournamentInfo.BO3}}
         </div>
       </div>
       <div class="CashPrize">
         <h1 class="title">Cash Prize :</h1>
-        <div class="Text">Pas de cash prize on a pas d'argent à donner</div>
+        <div class="Text">{{tournamentInfo.Cash}}</div>
       </div>
     </div>
   </div>

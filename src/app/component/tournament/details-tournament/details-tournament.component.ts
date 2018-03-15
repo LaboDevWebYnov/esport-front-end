@@ -22,7 +22,8 @@ export class DetailsTournamentComponent implements OnInit {
     Game: "Rocket League",
     TotalPlace: "32",
     PlaceLoked: "12",
-  }
+  };
+
 
   public changeOnglet(event, option): void {
 
