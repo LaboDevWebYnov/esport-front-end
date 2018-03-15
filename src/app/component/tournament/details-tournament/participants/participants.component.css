@@ -3,22 +3,28 @@
 }
 .participants {
   display: flex;
-
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 45px;
 }
 .participants__item {
   display: flex;
   max-width: 100%;
-  margin: 6px 6px;
+  margin: 6px 20px;
+  display: flex;
+  align-items: center;
 }
 .participants__item__country {
-  height: 55px;
+  height: 30px;
   width: auto;
 }
 .participants__item__pseudo {
   padding: 3px 7px;
   font-size: 37px;
+  margin: 0;
 }
 .participants__item__logo {
   height: 55px;
   width: auto;
+  border-radius: 55px;
 }

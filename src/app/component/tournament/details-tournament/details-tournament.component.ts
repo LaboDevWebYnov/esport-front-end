@@ -13,6 +13,7 @@ import { ToornamentService} from "../../../../shared/services/toornament.service
 export class DetailsTournamentComponent implements OnInit {
 
   loclaStorage: CoolLocalStorage;
+  game_id = "5a61e8d69fe0d61c36c54253";
 
   public tournament = {
     Name: "Tournois de test",
@@ -26,7 +27,6 @@ export class DetailsTournamentComponent implements OnInit {
 
 
 
-    game_id: "5a61e8d69fe0d61c36c54253";
 
   public changeOnglet(event, option): void {
 
@@ -54,4 +54,6 @@ export class DetailsTournamentComponent implements OnInit {
   ngAfterContentInit(){
     document.querySelector('.fa-calendar').removeAttribute('_ngcontent-c4')
   }
+  // ngAfterContentChecked(){
+  // }
 }
