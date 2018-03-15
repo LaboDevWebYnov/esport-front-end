@@ -96,9 +96,9 @@ export class ToornamentService {
   };
 
   // Tournaments
-  public addTournament = (): Observable<any> => {
+  public addTournament = (params,userId): Observable<any> => {
     console.log(this.actionUrl);
-    return this._http.post(this.actionUrl + 'tournaments/addTournament', null)
+    return this._http.post(this.actionUrl + 'tournaments/addTournament/' + userId, {params: params})
       .map(response => response);
   };
 
