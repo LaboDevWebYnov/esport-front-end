@@ -16,8 +16,8 @@ export class AppComponent {
   socket = io('http://localhost:3000');
 
   constructor(public userService: UserService, public localStorage: CoolLocalStorage){
-    if(this.localStorage.getItem('userId') != null)
-      this.loginSocketIO();
+    // if(this.localStorage.getItem('userId') != null)
+    //   this.loginSocketIO();
 
   }
 

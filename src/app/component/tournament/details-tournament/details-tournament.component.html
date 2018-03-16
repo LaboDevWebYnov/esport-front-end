@@ -1,6 +1,5 @@
 <div class="banner">
-  <img class="imageHeader" src="../../../../assets/images/banner-csgo-01.png">
-  <!--<img class="imageHeader" src="../../../../assets/images/banner-{{response.game._id}}.png">-->
+  <app-player-account-banner [game_id]="game_id"></app-player-account-banner>
 </div>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 <div class="container">
@@ -8,14 +7,34 @@
     <div class="col-md-2 avatar">
       <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
     </div>
-    <div class="col-md-10">
-      <h1><img src="../../../../assets/images/FR.png" id="flag">{{tournament.Name}}</h1>
+    <div class="row col-md-10" *ngIf="toornamentObj">
+      <div class="col-md-4 text-info">
+        <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
+          <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+          {{toornamentObj.name}}
+        </h2>
+        <ng-template #elseBlock>
+          <h2 class="nameTournament-long">
+            <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+            {{toornamentObj.name}}
+          </h2>
+        </ng-template>
       <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
       <!--id="provenance"-->
-      <h3>By {{tournament.Creator}}</h3>
+        <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
+      </div>
+     <div class="col-md-4">
+       <h2>By {{toornamentObj.organization}}</h2>
+       <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
+      </div>
+      <div class="col-md-4">
+        <h2>Nombre de participants :</h2>
+        <h2> {{tournament.PlaceLoked}}/{{toornamentObj.size}}</h2>
+      </div>
     </div>
   </div>
 </div>
+
 
 
 <div class="subMenu">
@@ -23,10 +42,16 @@
     <div class="row">
       <div class="col-md-2"></div>
       <ul class="col-md-10 tab">
-        <li (click)="changeOnglet($event, 'information')" class="tablinks active">INFORMATION</li>
+        <li (click)="changeOnglet($event, 'informations')" class="tablinks active">INFORMATIONS</li>
         <li (click)="changeOnglet($event, 'participants')" class="tablinks">PARTICIPANTS</li>
         <li (click)="changeOnglet($event, 'matches')" class="tablinks">MATCHES</li>
       </ul>
     </div>
   </div>
 </div>
+
+<div class="content">
+</div>
+<app-informations [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
+<app-matches></app-matches>
+<app-participants></app-participants>

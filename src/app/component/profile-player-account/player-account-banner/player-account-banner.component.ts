@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -9,11 +9,13 @@ import {ActivatedRoute} from "@angular/router";
 export class PlayerAccountBannerComponent implements OnInit {
   gameId: string;
   bannerName: string;
+  @Input('game_id') game_id: string;
 
   constructor(private route: ActivatedRoute,) { }
 
   ngOnInit() {
-    this.gameId = this.route.snapshot.params['gameId'];
+    this.gameId = this.game_id ? this.game_id : this.route.snapshot.params['gameId'];
+    console.log("Game id : " + this.gameId);
     switch (this.gameId)
     {
       case '569104a0417130681bcf1586' :

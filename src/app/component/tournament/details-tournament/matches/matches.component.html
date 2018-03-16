@@ -1,0 +1,40 @@
+<div id="matches">
+  <div class="ensemble">
+    <div class="title">Matchs à venir</div>
+    <div class="containerMatch">
+    <div *ngFor=" let match of matchIncome" class="oneMatchContent">
+
+      <div class="match">
+        <div class="joueur">
+          {{match.joueur1}}
+        </div>
+        <div class="vs">VS</div>
+        <div class="joueur">
+          {{match.joueur2}}
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="title">Matchs terminés</div>
+    <div class="containerMatchPass">
+      <div *ngFor="let oldMatch of matchPass" class="oneOldMatch">
+
+        <div class="match">
+
+          <div class="oldPlayer">
+            <div class="player">{{oldMatch.joueur1}}</div>
+            <div class="score">{{oldMatch.score1}}</div>
+          </div>
+          <div class="vs">VS</div>
+          <div class="oldPlayer">
+            <div class="player">{{oldMatch.joueur2}}</div>
+            <div class="score">{{oldMatch.score2}}</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
