@@ -63,7 +63,6 @@ export class DetailsTournamentComponent implements OnInit {
         data => this.toornamentObj = data,
         error => console.log(error),
         () => {
-          console.log("Country : " + this.toornamentObj.country)
           console.log("on a get le tournois", this.toornamentObj);
         }
       );

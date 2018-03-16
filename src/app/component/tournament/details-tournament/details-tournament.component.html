@@ -10,12 +10,12 @@
     <div class="row col-md-10" *ngIf="toornamentObj">
       <div class="col-md-4 text-info">
         <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
-          <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
           {{toornamentObj.name}}
         </h2>
         <ng-template #elseBlock>
           <h2 class="nameTournament-long">
-            <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+            <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
             {{toornamentObj.name}}
           </h2>
         </ng-template>
