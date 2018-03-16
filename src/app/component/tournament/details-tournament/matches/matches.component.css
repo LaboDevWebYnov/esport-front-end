@@ -14,15 +14,21 @@
   margin-right: auto;
 
 }
-
 .match{
   font-size: 25px;
 
+
+}
+.oneMatchContent{
+  flex: 1 0 25%;
+  max-width: 25%;
+  margin: 20px;
 }
 
 .vs{
   color: dodgerblue;
   text-align: center;
+  border: 1px solid white;
 
 }
 
@@ -33,6 +39,38 @@
 
 .containerMatch{
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
 
+.containerMatchPass{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.oneOldMatch{
+  flex: 1 0 25%;
+  max-width: 25%;
+  margin: 20px;
+}
+
+.oldPlayer{
+  border: 1px solid white;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.score{
+  padding-right: 10px;
+}
+
+.player{
+  padding-left: 10px;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
 }
 
