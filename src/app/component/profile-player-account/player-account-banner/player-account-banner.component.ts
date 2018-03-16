@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CoolLocalStorage} from "angular2-cool-storage";
 
@@ -11,13 +11,15 @@ export class PlayerAccountBannerComponent implements OnInit {
   localStorage: CoolLocalStorage;
   gameId: string;
   bannerName: string;
+  @Input('game_id') game_id: string;
 
   constructor(private route: ActivatedRoute,localStorage: CoolLocalStorage) {
     this.localStorage = localStorage;
   }
 
   ngOnInit() {
-    this.gameId = this.localStorage.getItem('gameId');
+    this.gameId = this.game_id ? this.game_id : this.route.snapshot.params['gameId'];
+    console.log("Game id : " + this.gameId);
     switch (this.gameId)
     {
       case '569104a0417130681bcf1586' :

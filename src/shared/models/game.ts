@@ -3,6 +3,7 @@ export class Game  {
   name: string;
   releaseDate: Date;
   multiPlayer: boolean;
+  id_toornament: string;
   editor: string;
   description: string;
   created_at: Date;

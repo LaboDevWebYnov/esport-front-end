@@ -123,6 +123,7 @@ export class Step3TeamComponent implements OnInit {
           callback(200, null, 'team registered !', this.response);
         }
       )};
+
   private getPlayerAccountByUserIdByGame(UserId: string, GameId: string, callback): void {
     this.playerAccountServiceInstance
       .GetPlayerAccountByUserIdByGame(UserId, GameId)

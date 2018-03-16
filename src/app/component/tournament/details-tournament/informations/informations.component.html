@@ -1,3 +1,30 @@
-<p>
-  informations works!
-</p>
+<div id="informations">
+  <div class="row ensemble">
+    <div class="col-md-6">
+      <div class="Description">
+        <h1 class="title">Tournament Description :</h1>
+        <div class="Text" *ngIf="description">
+          {{description}}
+        </div>
+      </div>
+      <div class="Rules">
+        <h1 class="title">Rules :</h1>
+        <div class="Text" *ngIf="rules">
+          {{rules}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="Eliminations">
+        <h1 class="title">Eliminations :</h1>
+        <div class="Text">
+          qualification : {{tournamentInfo.BO1}}, semi-final and final : {{tournamentInfo.BO3}}
+        </div>
+      </div>
+      <div class="CashPrize">
+        <h1 class="title">Cash Prize :</h1>
+        <div class="Text" *ngIf="prize">{{prize}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -44,7 +44,7 @@ export class Step2TeamComponent implements OnInit {
   }
 
   onSubmit(event) {
-   // console.log(event);
+    // console.log(event);
 
     //this.gameId = event.target[0].id;
     //console.log(this.gameId);
@@ -85,8 +85,6 @@ export class Step2TeamComponent implements OnInit {
             this.errorMessage = errorMessage;
             this.infoMessage = infoMessage;
 
-
-           // this.router.navigate(['team/create-team/step4-team']);
           }
           else {
             this.status = status;
