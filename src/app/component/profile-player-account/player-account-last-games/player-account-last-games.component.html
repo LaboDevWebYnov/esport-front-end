@@ -5,13 +5,13 @@
 
 
 
-{{playerAccount.properties.stats.last_match_wins}}
-
+      <div *ngIf="playerAccount">
+        <div *ngIf="playerAccount.properties">
       <div class="div-last-game">
         <div *ngIf="playerAccount.properties[0].stats.last_match_wins=='0'">
           <h2 class="blue">Défaite</h2>
         </div>
-        <div *ngIf="playerAccount[0].properties[0].stats.last_match_wins=='1'">
+        <div *ngIf="playerAccount.properties[0].stats.last_match_wins=='1'">
           <h2 class="blue">Victoire</h2>
         </div>
         <div class="teamsLastMatchs">
@@ -24,9 +24,9 @@
           </div>
           <div class="row">
             <div class="col-md-3"></div>
-              <div class="col-md-2"><h2>{{playerAccount[0].properties[0].stats.last_match_t_wins }}</h2></div>
+              <div class="col-md-2"><h2>{{playerAccount.properties[0].stats.last_match_t_wins }}</h2></div>
               <div class="col-md-2"></div>
-              <div class="col-md-2"><h2>{{playerAccount[0].properties[0].stats.last_match_ct_wins }}</h2></div>
+              <div class="col-md-2"><h2>{{playerAccount.properties[0].stats.last_match_t_wins }}</h2></div>
             <div class="col-md-3"></div>
           </div>
 
@@ -36,22 +36,23 @@
         <div class="statsLastMatchs">
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8"><div class="score"><div class="blue2"><i class="fa fa-trophy" aria-hidden="true"></i><h1>Score :</h1></div><h1> {{playerAccount[0].properties[0].stats.last_match_kills }}/{{playerAccount[0].properties[0].stats.last_match_deaths}}</h1></div></div>
+            <div class="col-md-8"><div class="score"><div class="blue2"><i class="fa fa-trophy" aria-hidden="true"></i><h1>Score :</h1></div><h1> {{playerAccount.properties[0].stats.last_match_kills }}/{{playerAccount.properties[0].stats.last_match_deaths}}</h1></div></div>
             <div class="col-md-2"></div>
           </div>
           <div class="row">
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Number of kills</h1></div><h1> {{q.stats.last_match_kills }}</h1></div>
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Number of deaths</h1></div><h1> {{q.stats.last_match_deaths}}</h1></div>
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Most Use Weapon</h1></div><h1> {{q.stats.last_match_favweapon_id}}</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Number of kills</h1></div><h1> {{playerAccount.properties[0].stats.last_match_kills }}</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Number of deaths</h1></div><h1> {{playerAccount.properties[0].stats.last_match_deaths}}</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Most Use Weapon</h1></div><h1> {{playerAccount.properties[0].stats.last_match_favweapon_id}}</h1></div>
           </div>
           <div class="row">
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Money Used</h1></div><h1> {{q.stats.last_match_money_spent }} $</h1></div>
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Ratio</h1></div><h1> {{q.stats.last_match_kills / q.stats.last_match_deaths}}</h1></div>
-            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Dammage</h1></div><h1> {{q.stats.last_match_damage }}</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Money Used</h1></div><h1> {{playerAccount.properties[0].stats.last_match_money_spent }} $</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Ratio</h1></div><h1> {{playerAccount.properties[0].stats.last_match_kills / playerAccount.properties[0].stats.last_match_deaths}}</h1></div>
+            <div class="col-md-4"><div class="blue2"><h1><i class="fa fa-bars" aria-hidden="true"></i> Dammage</h1></div><h1> {{playerAccount.properties[0].stats.last_match_damage }}</h1></div>
           </div>
         </div>
       </div>
-
+        </div>
+      </div>
 
 
 

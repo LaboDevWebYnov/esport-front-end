@@ -80,7 +80,7 @@ export class PlayerAccountLastGamesComponent implements OnInit, OnDestroy {
         data => this.playerAccount = data,
         error => console.log(error),
         () => {
-          console.log('get One Player Account just PAAAA', this.playerAccount);
+          console.log('get One Player Account just PAAAA', this.playerAccount["properties"][0].stats);
 
         }
       );

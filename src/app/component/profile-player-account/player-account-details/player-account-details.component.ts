@@ -6,7 +6,6 @@ import {CoolLocalStorage} from "angular2-cool-storage";
 import {ActivatedRoute} from "@angular/router";
 import * as _ from 'lodash';
 
-
 @Component({
   selector: 'app-player-account-details',
   templateUrl: './player-account-details.component.html',
@@ -61,6 +60,22 @@ private playerAccountId;
 
         }
       );
+  }
+  public changeOnglet(event, option): void {
+    let i, tabContent, tabLinks;
+
+    tabContent = document.getElementsByClassName("content");
+    for (i = 0; i < tabContent.length; i++) {
+      (<HTMLInputElement>tabContent[i]).style.display = "none";
+    }
+
+    tabLinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tabLinks.length; i++) {
+      (<HTMLInputElement>tabLinks[i]).className = tabLinks[i].className.replace(" active", "");
+    }
+
+    (<HTMLInputElement>document.getElementById(option)).style.display = "block";
+    event.currentTarget.className += " active";
   }
 
   // Doughnut

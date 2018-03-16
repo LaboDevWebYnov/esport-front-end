@@ -38,27 +38,17 @@ export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
-      this.playerAccountId = params['playerAccountId']; // (+) converts string 'id' to a number
-
+      this.playerAccountId = params['playerAccountId'];
       let id = this.localStorage.getItem('userId');
-
-
-
       this.getPlayerAccountById(this.playerAccountId,(gameId: string,login: string) => {
         this.gameId = gameId;
         this.login = login;
         console.log(this.gameId);
         this.localStorage.setItem('gameId',this.gameId);
         this.getPlayerAccount(id,this.gameId);
-
-
+        this.getGames();
       });
-      // In a real app: dispatch action to load the details here.
     });
-
-
-
-
   }
   ngOnDestroy()
   {
@@ -77,7 +67,7 @@ export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
   }
 
   public openSelectGameModal() :void{
-    (<HTMLElement>document.getElementById("selectGameModal")).style.display = "block";
+    (<HTMLElement>document.getElementById("addPlayerAccountModal")).style.display = "block";
   }
 
   public closeSelectGameModal() :void{
@@ -117,19 +107,17 @@ export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
 
   }
 
-  private getGames(callback): any {
+  private getGames(): any {
     this.gameServiceInstance
       .GetAllGames()
       .subscribe(
         data => this.games = data,
-        error => {
-          console.log(error),
-            callback(null, error.message)
-        },
+        error => console.log(error),
         () => {
-          //console.log('Add player account complete', this.games);
-          callback(this.games, null);
+          console.log('get One Player Account just PA', this.games);
+
         }
+
       );
   }
 
@@ -293,18 +281,18 @@ export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
       );
 
 
-};
-private getPlayerAccount(userId: string, gameId: string): void {
-  this.playerAccountServiceInstance
-    .GetPlayerAccountByUserIdByGame(userId, gameId)
-    .subscribe(
-      data => this.playerAccountAll = data,
-      error => console.log(error),
-      () => {
-        console.log('get all the fucking pa', this.playerAccountAll);
+  };
+  private getPlayerAccount(userId: string, gameId: string): void {
+    this.playerAccountServiceInstance
+      .GetPlayerAccountByUserIdByGame(userId, gameId)
+      .subscribe(
+        data => this.playerAccountAll = data,
+        error => console.log(error),
+        () => {
+          console.log('get all the fucking pa', this.playerAccountAll);
 
-      }
-    );
+        }
+      );
 
 
-}}
+  }}

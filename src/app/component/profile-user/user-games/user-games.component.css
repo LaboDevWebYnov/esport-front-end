@@ -5,7 +5,43 @@
   /*min-height: 310px;*/
   margin-top:-5px;
 }
+/*Sélecteur de jeu*/
+.checkboxGame{
+  display: none;
+  margin:5%;
+}
+.gameName{
+  text-align: center;
+  color: white;
+  margin-top:0.2em;
+  font-family: Rhanoll;
+  font-weight:unset;
+}
+.gameSelector{
+  margin: 3%;
+  width: 210px;
 
+}
+li img{
+  max-height: 100px;
+}
+
+li img:hover{
+  cursor:pointer;
+}
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:150px;
+  height:150px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+.game{
+  margin-top:15px;
+}
+
+/*Fin Selecteur*/
 h1{
   text-align: center;
 }
@@ -47,8 +83,11 @@ li img:hover{
 
 .addPlayerAccountContainer {
   max-height: 100px;
+  margin-bottom: 10%;
 }
-
+#gameList{
+  margin-bottom: 5%;
+}
 .btnContainer {
   display: flex;
 }
