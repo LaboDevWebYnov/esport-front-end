@@ -11,7 +11,16 @@
     </div>
     <div class="row col-md-10" *ngIf="toornamentObj">
       <div class="col-md-4 text-info">
-        <h2><img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">{{toornamentObj.name}}</h2>
+        <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
+          <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+          {{toornamentObj.name}}
+        </h2>
+        <ng-template #elseBlock>
+          <h2 class="nameTournament-long">
+            <img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">
+            {{toornamentObj.name}}
+          </h2>
+        </ng-template>
       <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
       <!--id="provenance"-->
         <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>

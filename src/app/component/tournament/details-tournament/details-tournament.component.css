@@ -80,3 +80,11 @@ ul.tab li:hover{
   border-bottom: 2px solid #0071bc;
 }
 
+.nameTournament-long{
+  font-size: x-large;
+  display: flex;
+}
+
+.nameTournament{
+  display: flex;
+}
