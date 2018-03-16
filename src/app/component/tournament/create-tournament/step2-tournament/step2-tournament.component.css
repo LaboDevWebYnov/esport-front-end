@@ -230,7 +230,7 @@ li{
 .game{
   margin-top:15px;
 }
-#test{
+#containerGame{
   display: flex;
   justify-content: space-around;
   width:100%;

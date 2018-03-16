@@ -62,7 +62,6 @@ export class Step2TournamentComponent implements OnInit {
     let size = event.target[2].value;
     let discipline = this.idToornament;
 
-
     /*params['organisation'] = this.localStorage.getItem('tooOrganizer');
     params['website'] = this.localStorage.getItem('tooUrl');
     params['full_name'] = this.localStorage.getItem('tooDescription');*/
