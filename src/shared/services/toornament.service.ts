@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
 @Injectable()
 
-
 @Injectable()
 export class ToornamentService {
 

@@ -75,6 +75,9 @@ import { Step2TournamentComponent } from './component/tournament/create-tourname
 import { Step3TournamentComponent } from './component/tournament/create-tournament/step3-tournament/step3-tournament.component';
 import { Step4TournamentComponent } from './component/tournament/create-tournament/step4-tournament/step4-tournament.component';
 import { Step5TournamentComponent } from './component/tournament/create-tournament/step5-tournament/step5-tournament.component';
+import { InformationsComponent } from './component/tournament/details-tournament/informations/informations.component';
+import { ParticipantsComponent } from './component/tournament/details-tournament/participants/participants.component';
+import { MatchesComponent } from './component/tournament/details-tournament/matches/matches.component';
 
 import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
 
@@ -150,6 +153,9 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
     Step3TournamentComponent,
     Step4TournamentComponent,
     Step5TournamentComponent,
+    InformationsComponent,
+    ParticipantsComponent,
+    MatchesComponent,
   ],
   imports: [
     BrowserModule,
@@ -265,7 +271,7 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
         component: ContactComponent
       },
       {
-        path: 'events/detail',
+        path: 'events/detail/:toornamentId',
         component: DetailsTournamentComponent
       },
       {
