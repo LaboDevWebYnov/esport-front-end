@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {CoolLocalStorage} from "angular2-cool-storage";
 
 @Component({
   selector: 'app-player-account-banner',
@@ -7,11 +8,14 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./player-account-banner.component.css']
 })
 export class PlayerAccountBannerComponent implements OnInit {
+  localStorage: CoolLocalStorage;
   gameId: string;
   bannerName: string;
   @Input('game_id') game_id: string;
 
-  constructor(private route: ActivatedRoute,) { }
+  constructor(private route: ActivatedRoute,localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage;
+  }
 
   ngOnInit() {
     this.gameId = this.game_id ? this.game_id : this.route.snapshot.params['gameId'];

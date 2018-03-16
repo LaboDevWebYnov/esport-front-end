@@ -79,8 +79,10 @@
 
       <div *ngIf="news">
 
+
         <div class="news">
           <div *ngFor="let a of news.ign.articles, let i=index" class="news__item">
+            <div *ngIf="a.urlToImage">
             <div *ngIf="i < 9">
               <div class="news_item__meta">
                 <span>
@@ -91,6 +93,7 @@
                   <i class="glyphicon glyphicon-time"></i>
                   {{a.publishedAt | date : 'dd/MM/yyyy'}}
                 </span>
+
               </div>
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
               <div class="image_container">
@@ -107,11 +110,13 @@
               </h1>
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
             </div>
+            </div>
           </div>
+        </div>
         </div>
 
       </div>
 
     </div> <!-- /container -->
   </div>
-</div>
+

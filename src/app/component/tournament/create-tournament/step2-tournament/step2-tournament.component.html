@@ -1,0 +1,80 @@
+<div class="container signupRoad">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <h1>Création de <font style="color:#0071bc;">Tournois</font></h1>
+
+  <!--Check IF the user is verified to continue signup-->
+  <div class="info" >
+    <div id="success">
+      <div class="description">
+        Vous débutez la création d'un tournois, veillez à remplir les informations minimum requises*.
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-3 col-sm-8 col-8"></div>
+        <div class="col-md-3 col-sm-4 col-4">
+          <img id="step" src="../../../../../assets/images/step2-2.png" alt="1 / 5">
+        </div>
+      </div>
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+      <form (ngSubmit)="onSubmit($event)" #step1Form="ngForm" class="form-inline">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="x-large">
+              Type de participants* :
+            </div>
+            <div>
+              <label>
+                <input type="radio" class="select" value="team" name="participantType" (change)="checkSoloTeam('team')">
+                Equipes
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" class="select" value="solo" name="participantType" (change)="checkSoloTeam('solo')">
+                Joueurs
+              </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="x-large">
+              Nombre de participants* :
+            </div>
+            <div>
+              <select id="nbrPartic">
+                <option *ngFor="let nombre of nombres" value="{{nombre}}">{{nombre}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="games" class="form-group game">
+          <div class="x-large">
+            Sélectionnez le jeu* :
+          </div>
+          <div id="test">
+            <li *ngFor="let game of games">
+              <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game.id_toornament)" (change)="selector.checked" value="counterstrike_go"/>
+              <label for="{{game._id}}" class="gameName">
+                <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" value="counterstrike_go">
+                <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" value="counterstrike_go" >
+                {{game.name}}
+              </label>
+            </li>
+          </div>
+        </div>
+
+        <div class="form-group row align-items-end">
+          <div class="col-md-6"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <button type="submit" class="myButton" [disabled]="!step1Form.form.valid">CREER</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+</div>

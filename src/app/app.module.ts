@@ -70,15 +70,16 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { Step1TournamentComponent } from './step1-tournament/step1-tournament.component';
-import { Step2TournamentComponent } from './step2-tournament/step2-tournament.component';
-import { Step3TournamentComponent } from './step3-tournament/step3-tournament.component';
-import { Step4TournamentComponent } from './step4-tournament/step4-tournament.component';
-import { Step5TournamentComponent } from './step5-tournament/step5-tournament.component';
+import { Step1TournamentComponent } from './component/tournament/create-tournament/step1-tournament/step1-tournament.component';
+import { Step2TournamentComponent } from './component/tournament/create-tournament/step2-tournament/step2-tournament.component';
+import { Step3TournamentComponent } from './component/tournament/create-tournament/step3-tournament/step3-tournament.component';
+import { Step4TournamentComponent } from './component/tournament/create-tournament/step4-tournament/step4-tournament.component';
+import { Step5TournamentComponent } from './component/tournament/create-tournament/step5-tournament/step5-tournament.component';
 import { InformationsComponent } from './component/tournament/details-tournament/informations/informations.component';
 import { ParticipantsComponent } from './component/tournament/details-tournament/participants/participants.component';
 import { MatchesComponent } from './component/tournament/details-tournament/matches/matches.component';
 
+import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
 
 
 
@@ -144,6 +145,7 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
+    TournamentsComponent,
     ContactComponent,
     DetailsTournamentComponent,
     Step1TournamentComponent,
@@ -206,7 +208,7 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
       },
       {
         path: 'events',
-        component: EventsComponent
+        component: TournamentsComponent
       },
       {
         path: 'profile',
@@ -257,7 +259,7 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
         component: LogoutComponent
       },
       {
-        path: 'player-account/:gameId',
+        path: 'player-account/:playerAccountId',
         component: ProfilePlayerAccountComponent
       },
       {
@@ -271,6 +273,14 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
       {
         path: 'events/detail/:toornamentId',
         component: DetailsTournamentComponent
+      },
+      {
+        path: 'events/create/step1',
+        component: Step1TournamentComponent
+      },
+      {
+        path: 'events/create/step2',
+        component: Step2TournamentComponent
       }
     ])
   ],

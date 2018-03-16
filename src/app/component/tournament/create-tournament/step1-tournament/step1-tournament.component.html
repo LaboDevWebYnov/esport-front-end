@@ -1,0 +1,63 @@
+<div class="container signupRoad">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <h1>Création de <font style="color:#0071bc;">Tournois</font></h1>
+
+  <!--Check IF the user is verified to continue signup-->
+  <div class="info" >
+    <div id="success">
+      <div class="description">
+        Vous débutez la création d'un tournois, veillez à remplir les informations minimum requises*.
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-3 col-sm-8 col-8"></div>
+        <div class="col-md-3 col-sm-4 col-4">
+          <img id="step" src="../../../../../assets/images/step1-2.png" alt="1 / 5">
+        </div>
+      </div>
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
+      <form (ngSubmit)="onSubmit($event)" #step1Form="ngForm" class="form-inline">
+        <div class="form-group row">
+          <div class="col-md-6">
+            <div class="x-large">Nom* :</div>
+            <input type="text" class="form-control" id="name" required
+                   name="lastname" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <div class="x-large">Organisateur :</div>
+            <input type="text" class="form-control" id="organiser"
+                   name="lastname" placeholder="">
+          </div>
+          <div class="col-md-6">
+            <div class="x-large">Site web du tournois :</div>
+            <input type="text" class="form-control" id="url"
+                   name="firstname" placeholder="">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <div class="x-large">Description (80 caractères max.) :</div>
+            <input type="text" class="form-control" id="description"
+                   name="username" placeholder="" maxlength="80">
+          </div>
+        </div>
+
+        <div class="form-group row align-items-end">
+          <div class="col-md-6"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <button type="submit" class="myButton" [disabled]="!step1Form.form.valid">SUIVANT</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+</div>

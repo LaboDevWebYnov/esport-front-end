@@ -3,10 +3,9 @@
   <div *ngIf="userGames" id="gameList">
     <ul>
       <li *ngFor="let game of userGames">
-        <input #selector type="checkbox" class="checkboxGame" name="{{game.name}}" id="{{game._id}}" (change)="selector.checked"/>
-        <label for="{{game._id}}">
+
           <a href="/player-account/{{game._id}}"><img class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" ></a>
-        </label>
+
       </li>
     </ul>
   </div>
@@ -34,15 +33,16 @@
         <form (ngSubmit)="addGame($event)">
           <h2>Ajouter des jeux</h2>
           <div *ngIf="games" id="selectGame">
-            <ul>
-              <li *ngFor="let selectGame of games">
-                <input #selector type="checkbox" class="checkboxGame checkboxGameSelection" name="{{selectGame.name}}" id="{{selectGame._id}}" (change)="selector.checked"/>
+
+              <li *ngFor="let selectGame of games" class="gameSelector">
+                <input #selector type="radio" class="checkboxGame checkboxGameSelection" name="groupe" id="{{selectGame._id}}" (change)="selector.checked"/>
                 <label for="{{selectGame._id}}">
                   <img *ngIf="selector.checked" class="logoGameModal" src="../../../../../assets/images/hexa_game/checked/{{selectGame._id}}.png" alt="{{selectGame.name}}" >
                   <img *ngIf="!selector.checked" class="logoGameModal" src="../../../../../assets/images/hexa_game/{{selectGame._id}}.png" alt="{{selectGame.name}}" >
                 </label>
+                {{selectGame.name}}
               </li>
-            </ul>
+
           </div>
           <div class="col-md-12 btnContainer">
             <button class="myButton" type="button" (click)="closeSelectGameModal()">Annuler</button>
@@ -63,12 +63,18 @@
       <div class="col-sm-12 row" *ngIf="divForms">
         <h2>Ajouter des jeux</h2>
         <div class="addPlayerAccountContainer" *ngFor="let form of divForms;let i = index;">
-          <br><br>
+          <br>
           <p>{{form.gameName}}</p>
-          <input class="form-control col-sm-6" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
-          <button (click)='createPlayerAccount(i)' id="AddPlayerAccountBtn{{i}}" class="btn btn-default submitButton">Valider</button><br>
+          <div class="row">
+          <input class="form-control col-md-6" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
+          </div>
+          <div class="row">
+          <button (click)='createPlayerAccount(i)' id="AddPlayerAccountBtn{{i}}" class="btn btn-default submitButton">Valider</button>
+          </div>
+          <br>
         </div>
       </div>
+      <br><br><br>
       <form (ngSubmit)="onSubmit()">
         <div class="col-sm-12 btnContainer">
           <button class="myButton" type="button" (click)="closeAddPlayerModal()">Annuler</button>

@@ -73,7 +73,7 @@ export class Step3TeamComponent implements OnInit {
     //country
     this.teamRegistered.teamCountry = this.localStorage.getItem('teamCountry');
     //capitaine
-    this.teamRegistered.captainPlayerAccountId = event.target[1].value;
+    this.teamRegistered.captainPlayerAccountId = this.userId;
 
     //register user
 
@@ -123,6 +123,7 @@ export class Step3TeamComponent implements OnInit {
           callback(200, null, 'team registered !', this.response);
         }
       )};
+
   private getPlayerAccountByUserIdByGame(UserId: string, GameId: string, callback): void {
     this.playerAccountServiceInstance
       .GetPlayerAccountByUserIdByGame(UserId, GameId)
