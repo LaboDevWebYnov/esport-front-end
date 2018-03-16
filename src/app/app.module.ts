@@ -70,11 +70,11 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { Step1TournamentComponent } from './step1-tournament/step1-tournament.component';
-import { Step2TournamentComponent } from './step2-tournament/step2-tournament.component';
-import { Step3TournamentComponent } from './step3-tournament/step3-tournament.component';
-import { Step4TournamentComponent } from './step4-tournament/step4-tournament.component';
-import { Step5TournamentComponent } from './step5-tournament/step5-tournament.component';
+import { Step1TournamentComponent } from './component/tournament/create-tournament/step1-tournament/step1-tournament.component';
+import { Step2TournamentComponent } from './component/tournament/create-tournament/step2-tournament/step2-tournament.component';
+import { Step3TournamentComponent } from './component/tournament/create-tournament/step3-tournament/step3-tournament.component';
+import { Step4TournamentComponent } from './component/tournament/create-tournament/step4-tournament/step4-tournament.component';
+import { Step5TournamentComponent } from './component/tournament/create-tournament/step5-tournament/step5-tournament.component';
 
 
 
@@ -265,6 +265,14 @@ import { Step5TournamentComponent } from './step5-tournament/step5-tournament.co
       {
         path: 'events/detail',
         component: DetailsTournamentComponent
+      },
+      {
+        path: 'events/step1',
+        component: Step1TournamentComponent
+      },
+      {
+        path: 'events/step2',
+        component: Step2TournamentComponent
       }
     ])
   ],
