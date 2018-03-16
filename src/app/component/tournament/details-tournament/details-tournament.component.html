@@ -9,20 +9,20 @@
     <div class="col-md-2 avatar">
       <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
     </div>
-    <div class="row col-md-10">
+    <div class="row col-md-10" *ngIf="toornamentObj">
       <div class="col-md-4 text-info">
-        <h2><img src="../../../../assets/images/FR.png" id="flag">{{tournament.Name}}</h2>
+        <h2><img src="../../../../assets/images/toornament_flag/{{toornamentCountry}}.png" id="flag">{{toornamentObj.name}}</h2>
       <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
       <!--id="provenance"-->
-        <h2>{{tournament.Plateform}} {{tournament.Game}}</h2>
+        <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
       </div>
      <div class="col-md-4">
-       <h2>By {{tournament.Creator}}</h2>
-       <h2><i class="fa fa-calendar" aria-hidden="true"></i> {{tournament.Date}}</h2>
+       <h2>By {{toornamentObj.organization}}</h2>
+       <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
       </div>
       <div class="col-md-4">
         <h2>Nombre de participants :</h2>
-        <h2> {{tournament.PlaceLoked}}/{{tournament.TotalPlace}}</h2>
+        <h2> {{tournament.PlaceLoked}}/{{toornamentObj.size}}</h2>
       </div>
     </div>
   </div>

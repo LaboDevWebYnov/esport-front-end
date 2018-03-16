@@ -269,7 +269,7 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
         component: ContactComponent
       },
       {
-        path: 'events/detail',
+        path: 'events/detail/:toornamentId',
         component: DetailsTournamentComponent
       }
     ])

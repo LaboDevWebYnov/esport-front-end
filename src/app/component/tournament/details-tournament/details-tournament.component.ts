@@ -2,13 +2,14 @@ import * as _ from 'lodash';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { Configuration } from '../../../../shared/app.constants';
-import { ToornamentService} from "../../../../shared/services/toornament.service";
+import { ToornamentService } from '../../../../shared/services/toornament.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-details-tournament',
   templateUrl: './details-tournament.component.html',
   styleUrls: ['./details-tournament.component.css'],
-  providers: [Configuration]
+  providers: [Configuration, ToornamentService],
 })
 export class DetailsTournamentComponent implements OnInit {
 
@@ -25,8 +26,9 @@ export class DetailsTournamentComponent implements OnInit {
     PlaceLoked: "12",
   };
 
-
-
+  public toornamentObj: object;
+  public toornamentCountry: string;
+  tournamentId: string;
 
   public changeOnglet(event, option): void {
 
@@ -37,23 +39,33 @@ export class DetailsTournamentComponent implements OnInit {
 
     event.path[0].className = 'tablinks active';
 
-
-
     var id_content = option;
     document.querySelector('.content').innerHTML = document.getElementById(id_content).innerHTML;
   }
 
 
-  constructor() {
+  constructor(private route: ActivatedRoute, private toornamentService: ToornamentService) {
   }
 
   ngOnInit() {
-    document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
+    this.tournamentId = this.route.snapshot.params['toornamentId']
+    this.getParticipantsByToornaments(this.tournamentId);
+    document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML
   }
 
   ngAfterContentInit(){
-    document.querySelector('.fa-calendar').removeAttribute('_ngcontent-c4')
   }
-  // ngAfterContentChecked(){
-  // }
+
+  private getParticipantsByToornaments(tournamentid: string)
+  {
+    this.toornamentService.getTournamentById(tournamentid)
+      .subscribe(
+        data => this.toornamentObj = data,
+        error => console.log(error),
+        () => {
+          this.toornamentCountry = this.toornamentObj.country.toLowerCase()
+          console.log("on a get le tournois", this.toornamentObj);
+        }
+      );
+  }
 }
