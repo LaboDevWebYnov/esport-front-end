@@ -1,6 +1,4 @@
 <div class="banner">
-  <!--<img class="imageHeader" src="../../../../assets/images/banner-csgo-01.png">-->
-  <!--<img class="imageHeader" src="../../../../assets/images/banner-{{response.game._id}}.png">-->
   <app-player-account-banner [game_id]="game_id"></app-player-account-banner>
 </div>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
@@ -54,6 +52,6 @@
 
 <div class="content">
 </div>
-<app-informations></app-informations>
+<app-informations [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
 <app-matches></app-matches>
 <app-participants></app-participants>

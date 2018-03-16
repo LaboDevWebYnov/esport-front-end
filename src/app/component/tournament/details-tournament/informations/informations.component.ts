@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Configuration } from '../../../../../shared/app.constants';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 
@@ -10,6 +10,10 @@ import { CoolLocalStorage } from 'angular2-cool-storage';
   providers: [Configuration]
 })
 export class InformationsComponent implements OnInit {
+  @Input('prize') prize: string;
+  @Input('rules') rules: string;
+  @Input('description') description: string;
+  // @Input('prize') prize: string;
 
   loclaStorage: CoolLocalStorage;
 
