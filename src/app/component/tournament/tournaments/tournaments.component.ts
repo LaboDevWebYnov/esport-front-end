@@ -46,6 +46,7 @@ export class TournamentsComponent implements OnInit {
   private getAllTournamentsByDiscipline(toornamentGameId): void {
     console.log(toornamentGameId);
     if(toornamentGameId) {
+      this.params["country"] = "FR";
       this.params["discipline"] = toornamentGameId;
     }
     this.ToornamentServiceInstance
@@ -60,7 +61,7 @@ export class TournamentsComponent implements OnInit {
   }
 
   private getAllTournaments(): void {
-    this.params = [];
+
 
     this.ToornamentServiceInstance
       .getTournaments(this.params)
