@@ -83,8 +83,10 @@ ul.tab li:hover{
 .nameTournament-long{
   font-size: x-large;
   display: flex;
+  align-items: center;
 }
 
 .nameTournament{
   display: flex;
+  align-items: center;
 }
