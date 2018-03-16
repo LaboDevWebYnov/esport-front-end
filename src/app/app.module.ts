@@ -70,6 +70,7 @@ import { PlayerAccountLastGameLolComponent } from './component/profile-player-ac
 import { FooterComponent } from './component/footer/footer.component';
 import {TeamService} from "../shared/services/team.service";
 
+import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
 
 
 
@@ -135,7 +136,7 @@ import {TeamService} from "../shared/services/team.service";
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
-
+    TournamentsComponent,
 
   ],
   imports: [
@@ -189,7 +190,7 @@ import {TeamService} from "../shared/services/team.service";
       },
       {
         path: 'events',
-        component: EventsComponent
+        component: TournamentsComponent
       },
       {
         path: 'profile',

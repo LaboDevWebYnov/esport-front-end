@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
+@Injectable()
 
 export class ToornamentService {
 
@@ -11,7 +12,7 @@ export class ToornamentService {
   private headers: HttpHeaders;
 
   constructor(private _http: HttpClient, private _configuration: Configuration) {
-    this.actionUrl = _configuration.ServerWithApiUrl;
+        this.actionUrl = _configuration.ServerWithApiUrl;
 
     this.headers = new HttpHeaders();
     this.headers.append('Content-Type', 'application/json');
@@ -81,7 +82,10 @@ export class ToornamentService {
         url += 'with_stats=' + params['with_stats'] + '&';
       }
       if (params['tournament_ids']) {
-        url += '&tournament_ids=' + params['tournament_ids'];
+        url += '&tournament_ids=' + params['tournament_ids'] + '&';
+      }
+      if (params['sort']) {
+        url += '&sort=' + params['sort'] + '&';
       }
       url = url.substring(0, url.length - 1);
     }
@@ -163,7 +167,7 @@ export class ToornamentService {
   // Discipline
   public getDisciplines = (): Observable<any> => {
     console.log(this.actionUrl);
-    return this._http.get(this.actionUrl + 'tournaments/discipline')
+    return this._http.get(this.actionUrl + 'tournaments/disciplines')
       .map(response => response);
   };
 
