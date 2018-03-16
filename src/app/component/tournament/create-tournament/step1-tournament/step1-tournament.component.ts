@@ -35,7 +35,7 @@ export class Step1TournamentComponent implements OnInit {
       this.localStorage.setItem('tooDescription', event.target[3].value);
       console.log(this.localStorage.getItem('tooDescription'));
     }
-    this.router.navigate(['events/step2']);
+    this.router.navigate(['events/create/step2']);
   };
 
 }

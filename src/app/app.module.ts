@@ -269,11 +269,11 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
         component: DetailsTournamentComponent
       },
       {
-        path: 'events/step1',
+        path: 'events/create/step1',
         component: Step1TournamentComponent
       },
       {
-        path: 'events/step2',
+        path: 'events/create/step2',
         component: Step2TournamentComponent
       }
     ])
