@@ -31,6 +31,7 @@ import {UserResultsComponent} from './component/profile-user/user-results/user-r
 import {UserHistoricComponent} from './component/profile-user/user-historic/user-historic.component';
 import {UserNewsComponent} from './component/profile-user/user-news/user-news.component';
 import { AuthComponent } from './component/auth/auth/auth.component';
+import {DetailsTournamentComponent} from './component/tournament/details-tournament/details-tournament.component';
 
 import { WizardComponent } from './component/sign_up/wizard/wizard.component';
 import { Step0Component } from './component/sign_up/wizard/step0/step0.component';
@@ -68,7 +69,12 @@ import { StatsGamesComponent } from './component/home/stats-games/stats-games.co
 
 import { PlayerAccountLastGameLolComponent } from './component/profile-player-account/player-account-last-game-lol/player-account-last-game-lol.component';
 import { FooterComponent } from './component/footer/footer.component';
-import {TeamService} from "../shared/services/team.service";
+import { ContactComponent } from './component/contact/contact.component';
+import { Step1TournamentComponent } from './step1-tournament/step1-tournament.component';
+import { Step2TournamentComponent } from './step2-tournament/step2-tournament.component';
+import { Step3TournamentComponent } from './step3-tournament/step3-tournament.component';
+import { Step4TournamentComponent } from './step4-tournament/step4-tournament.component';
+import { Step5TournamentComponent } from './step5-tournament/step5-tournament.component';
 
 
 
@@ -135,8 +141,13 @@ import {TeamService} from "../shared/services/team.service";
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
-
-
+    ContactComponent,
+    DetailsTournamentComponent,
+    Step1TournamentComponent,
+    Step2TournamentComponent,
+    Step3TournamentComponent,
+    Step4TournamentComponent,
+    Step5TournamentComponent,
   ],
   imports: [
     BrowserModule,
@@ -246,6 +257,14 @@ import {TeamService} from "../shared/services/team.service";
       {
         path: 'team/:teamid',
         component: DetailsTeamComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'events/detail',
+        component: DetailsTournamentComponent
       }
     ])
   ],
