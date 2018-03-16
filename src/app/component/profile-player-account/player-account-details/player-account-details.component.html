@@ -10,129 +10,153 @@
       <div *ngIf="playerAccount.Case7.loaded"><h2><img class="logoGame" src="{{playerAccount.Case7.value}}" alt=""></h2></div>
     </div>
 
-    <div class="AllStats">
-    <div class="TableStats">
-      <div colspan="3">
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
-      </div><!---->
+    <div class="subMenu">
+      <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <div>
-              <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
-            </div>
-            <div colspan="3">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-            </div><!---->
-            <div>
-              <div *ngIf="playerAccount.Case2.loaded"><h2>{{playerAccount.Case2.value}}</h2></div>
-            </div>
-            <div colspan="3">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-            </div><!---->
-            <div>
-              <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            <div>
-              <div *ngIf="playerAccount.Case4.loaded"><h2>{{playerAccount.Case4.value}}</h2></div>
-            </div>
-            <div colspan="3">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-            </div><!---->
-            <div>
-              <div *ngIf="playerAccount.Case5.loaded"><h2>{{playerAccount.Case5.value}}</h2></div>
-            </div>
-            <div colspan="3">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-            </div><!---->
-            <div>
-              <div *ngIf="playerAccount.Case6.loaded"><h2>{{playerAccount.Case6.value}}</h2></div>
-            </div>
-
-          </div>
-        </div>
-    <div colspan="3">
-      <app-blue-separation-bar-small></app-blue-separation-bar-small>
-    </div><!---->
-    </div>
-
-
-      <div class="CaseStatCircle">
-        <div colspan="3">
-          <app-blue-separation-bar-small></app-blue-separation-bar-small>
-        </div><!---->
-        <div class="StatCircle">
-        <div class="CircleRatioWL">
-
-          <h2>Win / Loose</h2>
-
-          <div style="display: block">
-            <div *ngIf="playerAccount.isRatioLoaded">
-              <canvas baseChart
-                      [colors]="RatioChartColor"
-                      [options]="RatioChartOption"
-                      [data]="RatioData[i]"
-                      [labels]="RatioLabels[i]"
-                      [chartType]="RatioChartType"
-                      [legend]="false">
-                <!--(chartHover)="chartHovered($event)"-->
-                <!--(chartClick)="chartClicked($event)">-->
-
-              </canvas>
-            </div>
-          </div>
-        </div>
-        <div class="CircleRatioKD">
-          <h2>Ratio</h2>
-          <div style="display: block">
-            <div *ngIf="playerAccount.isStatsLoaded">
-              <canvas baseChart
-                      [options]="statsChartOption"
-                      [data]="statsData[i]"
-                      [labels]="statsLabels[i]"
-                      [chartType]="statsChartType"
-                      [legend]="false">
-                <!--(chartHover)="chartHovered($event)"-->
-                <!--(chartClick)="chartClicked($event)">-->
-              </canvas>
-            </div>
-          </div>
-        </div>
-        <div class="CircleRound">
-          <h2>Activités</h2>
-          <div style="display: block">
-            <div *ngIf="playerAccount.isActivityLoaded">
-              <canvas baseChart
-                      [options]="activityChartOption"
-                      [data]="activityData[i]"
-                      [labels]="activityLabels[i]"
-                      [chartType]="activityChartType"
-                      [legend]="false">
-                <!--(chartHover)="chartHovered($event)"-->
-                <!--(chartClick)="chartClicked($event)">-->
-              </canvas>
-            </div>
-          </div>
+          <div class="col-md-2"></div>
+          <ul class="col-md-10 tab">
+            <li (click)="changeOnglet($event, 'general')" class="tablinks active">GENERAL</li>
+            <li (click)="changeOnglet($event, 'statistics')" class="tablinks">STATISTIQUES</li>
+            <li (click)="changeOnglet($event, 'parameters')" class="tablinks">PARAMETRES</li>
+          </ul>
         </div>
       </div>
-        <div colspan="3">
-          <app-blue-separation-bar-small></app-blue-separation-bar-small>
-        </div><!---->
+    </div>
+
+    <div id="general" class="content">
+      <div class="AllStats">
+        <div class="TableStats">
+          <div colspan="3">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div><!---->
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <div *ngIf="playerAccount.Case1.loaded"><h2>{{playerAccount.Case1.value}}</h2></div>
+              </div>
+              <div colspan="3">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+              </div><!---->
+              <div>
+                <div *ngIf="playerAccount.Case2.loaded"><h2>{{playerAccount.Case2.value}}</h2></div>
+              </div>
+              <div colspan="3">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+              </div><!---->
+              <div>
+                <div *ngIf="playerAccount.Case3.loaded"><h2>{{playerAccount.Case3.value}}</h2></div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div>
+                <div *ngIf="playerAccount.Case4.loaded"><h2>{{playerAccount.Case4.value}}</h2></div>
+              </div>
+              <div colspan="3">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+              </div><!---->
+              <div>
+                <div *ngIf="playerAccount.Case5.loaded"><h2>{{playerAccount.Case5.value}}</h2></div>
+              </div>
+              <div colspan="3">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+              </div><!---->
+              <div>
+                <div *ngIf="playerAccount.Case6.loaded"><h2>{{playerAccount.Case6.value}}</h2></div>
+              </div>
+
+            </div>
+          </div>
+          <div colspan="3">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div><!---->
+        </div>
+
+
+        <div class="CaseStatCircle">
+          <div colspan="3">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div><!---->
+          <div class="StatCircle">
+            <div class="CircleRatioWL">
+
+              <h2>Win / Loose</h2>
+
+              <div style="display: block">
+                <div *ngIf="playerAccount.isRatioLoaded">
+                  <canvas baseChart
+                          [colors]="RatioChartColor"
+                          [options]="RatioChartOption"
+                          [data]="RatioData[i]"
+                          [labels]="RatioLabels[i]"
+                          [chartType]="RatioChartType"
+                          [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+
+                  </canvas>
+                </div>
+              </div>
+            </div>
+            <div class="CircleRatioKD">
+              <h2>Ratio</h2>
+              <div style="display: block">
+                <div *ngIf="playerAccount.isStatsLoaded">
+                  <canvas baseChart
+                          [options]="statsChartOption"
+                          [data]="statsData[i]"
+                          [labels]="statsLabels[i]"
+                          [chartType]="statsChartType"
+                          [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+                  </canvas>
+                </div>
+              </div>
+            </div>
+            <div class="CircleRound">
+              <h2>Activités</h2>
+              <div style="display: block">
+                <div *ngIf="playerAccount.isActivityLoaded">
+                  <canvas baseChart
+                          [options]="activityChartOption"
+                          [data]="activityData[i]"
+                          [labels]="activityLabels[i]"
+                          [chartType]="activityChartType"
+                          [legend]="false">
+                    <!--(chartHover)="chartHovered($event)"-->
+                    <!--(chartClick)="chartClicked($event)">-->
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div colspan="3">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div><!---->
+        </div>
       </div>
     </div>
+
+    <div id="statistics" class="content">
+      Prochainement les statistics !
+    </div>
+
+    <div id="parameters" class="content">
+
+    </div>
+
   </div>
 
 
-<!--<tr>
-  <td rowspan="2">
-  </td>
-</tr>
+  <!--<tr>
+    <td rowspan="2">
+    </td>
+  </tr>
 
-<div class="section">
-  <svg width="160" height="160" class="graph">
-    <circle r="50" cx="80" cy="80"/>
-  </svg>
-</div>-->
+  <div class="section">
+    <svg width="160" height="160" class="graph">
+      <circle r="50" cx="80" cy="80"/>
+    </svg>
+  </div>-->
 </div>

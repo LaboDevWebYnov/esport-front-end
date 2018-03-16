@@ -1,0 +1,292 @@
+#global {
+  background-image: url("../../../../assets/images/font-overwatch.png");
+  min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+*{
+  color:white;
+  font-family: "Rhanoll";
+  src: url("../../../../assets/fonts/rhanoll/Rhanoll.ttf");
+}
+#globalSearch{
+  overflow-x: hidden;
+  margin-top:50px;
+  text-align: center;
+}
+#link{
+  cursor: pointer;
+}
+#search{
+  margin-bottom:25px;
+  display: inline-flex;
+}
+#search div{
+  display: inline-block;
+}
+#searchBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+#searchIcon{
+  outline: none;
+  margin-left:-75px;
+  margin-top: 15px;
+}
+
+#searchIcon:active{
+  margin-top: 16px;
+}
+#search img{
+  height: 62px;
+}
+#search img:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+#search img:active{
+  top:1px;
+  position:relative;
+}
+
+#createTeam{
+  margin: auto;
+}
+
+#createTeamLogo{
+  display: block;
+  margin: auto;
+}
+
+h1{
+  font-size: 35px;
+  padding-top: 10px;
+}
+
+
+#insideBar{
+  background-color: rgba(29,29,29,0.8);
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  width: 650px;
+  border: 0px;
+  border-bottom: 1px solid grey;
+}
+
+.droparrow{
+  height: 35px;
+  position: relative;
+  float: right;
+  margin-top: -45px;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.droparrow:hover{
+  cursor: pointer;
+}
+
+#listTeam{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
+#listTeamSearch{
+  max-height:5000px;
+  overflow: hidden;
+  -webkit-transition:max-height 1s;
+  -moz-transition:max-height 1s;
+  -ms-transition:max-height 1s;
+  -o-transition:max-height 1s;
+  transition:max-height 1s;
+}
+
+.notFound{
+  font-size: 25px;
+  font-family: "Rhanoll";
+  color: black;
+  text-align: center;
+}
+
+#notFound{
+  color: #1d1d1b;
+}
+
+
+/*ELEMENT TEAM*/
+
+.global{
+  margin-top:25px;
+  margin-bottom: 25px;
+}
+.infoTeam{
+  margin-top: -190px;
+  margin-left:75px;
+  height:180px;
+  padding-top:40px;
+  padding-left:175px;
+  background-color: #1d1d1b;
+}
+.nameGame{
+  float:right;
+  position:relative;
+  margin-top:-30px;
+  margin-right: 15px;
+  color:gray;
+  font-size: 20px;
+  text-align: right;
+}
+.logoCountry{
+  height:40px;
+  display: inline-block;
+  margin-top:-15px;
+}
+
+.global h1{
+  margin-left:20px;
+  font-size: 40px;
+  display:inline-block;
+}
+.global a:hover{
+  color:#0071bc;
+  text-decoration: none;
+}
+.global h2{
+  font-size: 30px;
+}
+
+/*HEXAGON*/
+.hexagon {
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+.hexagon-in1 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+.hexagon-in2 {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat ;
+  background-position: 50%;
+  background-color: black;
+  /*background-image: url("../../../../assets/images/LOGO_ESPORT_2.png");*/
+  background-size:100%;
+  visibility: visible;
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.hexagon1 {
+  width: 400px;/*680*/
+  height: 200px;
+  margin: 0 0 0 -80px;
+}
+
+
+
+/*SELECT GAME*/
+
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:150px;
+  height:150px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+
+li img{
+  max-height: 100px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
+}
+
+
+.tournamentGameIcon{
+  max-height:50px;
+}
+.tournamentTable{
+  font-size:26px;
+  width: 100%;
+}
+
+.tournamentTable tr{
+  display: flex;
+  margin:10px 0;
+  position:relative;
+  height:60px;
+}
+
+.divGameIconTournament{
+  width:10%;
+}
+.tournamentName{
+  width:55%;
+  font-size:34px;
+}
+
+.tournamentDate{
+  width:20%;
+}
+
+.tournamentPlayerNumber{
+  width:10%;
+  text-align: center;
+}
+
+.tournamentIsOpen{
+  width:15%;
+  text-align: center;
+}
+
+.toutSaufImage{
+  align-items: center;
+  display: flex;
+  height:100%;
+  width:90%;
+}
+
+.blueBar{
+  opacity: .5;
+  position:absolute;
+  bottom:-20px;
+  width:100%;
+}
+
+.error{
+  text-align: center;
+  font-size: 35px;
+}

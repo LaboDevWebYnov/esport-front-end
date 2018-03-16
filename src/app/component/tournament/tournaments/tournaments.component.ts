@@ -1,15 +1,80 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../../../../shared/services/game.service';
+import {Configuration} from "../../../../shared/app.constants";
+import { Team } from "../../../../shared/models/team";
+import {ToornamentService} from "../../../../shared/services/toornament.service";
 
 @Component({
   selector: 'app-tournaments',
   templateUrl: './tournaments.component.html',
-  styleUrls: ['./tournaments.component.css']
+  styleUrls: ['./tournaments.component.css'],
+  providers: [ToornamentService, Configuration, GameService]
 })
 export class TournamentsComponent implements OnInit {
+  private games: Object;
+  public isFilteredGameId: any;
+  public tournaments;
+  public discipline;
+  params = [];
 
-  constructor() { }
+  constructor(private ToornamentServiceInstance: ToornamentService,
+    private gameServiceInstance: GameService) {
+
+  }
 
   ngOnInit() {
+    this.getGames();
+    this.getAllTournaments();
+
+  }
+
+  public checkFilter(gameIdFiltered: string)
+  {
+    this.isFilteredGameId = gameIdFiltered;
+  }
+
+  private getGames(): void {
+    this.gameServiceInstance
+      .GetAllGames()
+      .subscribe(
+        data => this.games = data,
+        error => console.log(error),
+        () => {/*console.log('get all games complete', this.games)*/}
+      );
+  }
+
+  private getAllTournamentsByDiscipline(toornamentGameId): void {
+    console.log(toornamentGameId);
+    if(toornamentGameId) {
+      this.params["discipline"] = toornamentGameId;
+    }
+    this.ToornamentServiceInstance
+      .getTournaments(this.params)
+      .subscribe(
+        data => this.tournaments = data,
+        error => console.log(error),
+        () => {
+          console.log('get all tournaments by discipline complete', this.tournaments);
+        }
+      );
+  }
+
+  private getAllTournaments(): void {
+    this.params = [];
+
+    this.ToornamentServiceInstance
+      .getTournaments(this.params)
+      .subscribe(
+        data => this.tournaments = data,
+        error => console.log(error),
+        () => {
+          console.log('get all tournaments complete', this.tournaments);
+        }
+      );
+  }
+
+  private click(): void{
+    console.log("ca clique");
   }
 
 }

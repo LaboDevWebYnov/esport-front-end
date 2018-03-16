@@ -76,6 +76,7 @@ import { Step3TournamentComponent } from './component/tournament/create-tourname
 import { Step4TournamentComponent } from './component/tournament/create-tournament/step4-tournament/step4-tournament.component';
 import { Step5TournamentComponent } from './component/tournament/create-tournament/step5-tournament/step5-tournament.component';
 
+import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
 
 
 
@@ -141,6 +142,7 @@ import { Step5TournamentComponent } from './component/tournament/create-tourname
     StatsGamesComponent,
     PlayerAccountLastGameLolComponent,
     FooterComponent,
+    TournamentsComponent,
     ContactComponent,
     DetailsTournamentComponent,
     Step1TournamentComponent,
@@ -200,7 +202,7 @@ import { Step5TournamentComponent } from './component/tournament/create-tourname
       },
       {
         path: 'events',
-        component: EventsComponent
+        component: TournamentsComponent
       },
       {
         path: 'profile',
@@ -251,7 +253,7 @@ import { Step5TournamentComponent } from './component/tournament/create-tourname
         component: LogoutComponent
       },
       {
-        path: 'player-account/:gameId',
+        path: 'player-account/:playerAccountId',
         component: ProfilePlayerAccountComponent
       },
       {

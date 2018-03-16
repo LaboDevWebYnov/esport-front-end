@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {GameService} from "../../../../shared/services/game.service";
 import { PlayerAccountService } from '../../../../shared/services/player-account.service';
 import {CoolLocalStorage} from "angular2-cool-storage";
@@ -24,7 +24,7 @@ export class UserGamesComponent implements OnInit {
   private selectedGame: String;
   divForms = [];
   private response: Object;
-
+  @Input('master') masterName: string;
 
   constructor(private gameServiceInstance: GameService,
               private playerAccountServiceInstance: PlayerAccountService,
@@ -56,40 +56,32 @@ export class UserGamesComponent implements OnInit {
     }
     (<HTMLElement>document.getElementById("addPlayerAccountModal")).style.display = "none";
   }
-
-  private getUserGame(idUser: string, callback): any {
+  private getUserGame(idUser: string) {
     this.gameServiceInstance
       .GetUserGames(idUser)
       .subscribe(
         data => this.userGames = data,
         error => {
-            console.log(error),
-            callback(null, error.message)
+            console.log(error)
         },
         () => {
               //console.log('get user\'s games complete', this.userGames),
-                callback(this.userGames, null)
             }
       );
-
   }
-
-  private getGames(callback): any {
+  private getGame() {
     this.gameServiceInstance
       .GetAllGames()
       .subscribe(
         data => this.games = data,
         error => {
-          console.log(error),
-            callback(null, error.message)
+          console.log(error)
         },
         () => {
-          //console.log('Add player account complete', this.games);
-          callback(this.games, null);
+          console.log('get  games complete', this.games)
         }
       );
   }
-
   private addPlayerAccount(addPlayerAccount : AddNewPlayerAccount, userid : string, gameid : string, callback): void {
 
     this.playerAccountServiceInstance
@@ -110,10 +102,11 @@ export class UserGamesComponent implements OnInit {
   createPlayerAccount(inputId:string){
     let isAllPayerAccountCreate = true;
     let userId = this.localStorage.getItem('userId');
+    console.log("bim clicked");
 
     console.log("playerAccount"+inputId);
     console.log((<HTMLInputElement>document.getElementById("playerAccount"+inputId)).value);
-
+    ((<HTMLInputElement>document.getElementById("playerAccount"+inputId)).disabled) = false;
     let playerAccount: AddNewPlayerAccount = {
       login : (<HTMLInputElement>document.getElementById("playerAccount"+inputId)).value
     };
@@ -125,7 +118,7 @@ export class UserGamesComponent implements OnInit {
 
         (<HTMLInputElement>document.getElementById("playerAccount"+inputId)).disabled = true;
         (<HTMLInputElement>document.getElementById("playerAccount"+inputId)).className += ' validPlayerAccount';
-        (<HTMLInputElement>document.getElementById("AddPlayerAccountBtn"+inputId)).disabled = true;
+        (<HTMLInputElement>document.getElementById("AddPlayerAccountBtn"+inputId)).disabled = false;
 
         for(let y=0;y < this.divForms.length;y++){
           console.log(this.divForms[y].create);
@@ -153,10 +146,12 @@ export class UserGamesComponent implements OnInit {
         if(cpt == 0)
         {
           selectedGame = event.target[i].id;
+          console.log("ici c'est le if");
         }
         else
         {
           selectedGame += ':'+event.target[i].id;
+          console.log("ici c'est le else");
         }
         isChecked = true;
         cpt ++;
@@ -190,6 +185,9 @@ export class UserGamesComponent implements OnInit {
         else if (gameName=='Rocket League'){
           inputPlaceHolder="entrez votre steam Id";
         }
+        else if (gameName=='Rainbow six Siege'){
+          inputPlaceHolder="entrez votre id rainbow six siege";
+        }
       }
     }
     let response = {
@@ -210,14 +208,16 @@ export class UserGamesComponent implements OnInit {
   }
 
   addGame(event): void {
+console.log("a clicked");
     this.isOneChecked(event, "checkboxGameSelection", (isChecked: boolean, selectedGame: string) => {
+      console.log("if checked"+isChecked);
       if(!isChecked)
       {
         console.log('no game selected');
       }
       else
       {
-        console.log(selectedGame);
+        console.log("selected game"+selectedGame);
         this.selectedGame = selectedGame;
         this.closeSelectGameModal();
         this.openAddPlayerModal();
@@ -231,38 +231,13 @@ export class UserGamesComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.getGame();
     let id = this.localStorage.getItem('userId');
-    let indxToRemove = 0;
-    let indxToRemoveTab = [];
-    this.getUserGame(id, (userGames: Game[], errorMessage: string): any => {
-      //j'appelle tous les jeux pour les tests
-      this.getGames((games: Game[], errorMessage: string): any => {
-        if(userGames != null && games != null)
-        {
-          if(userGames.length > 0)
-          {
-            for(let i = 0; i<games.length; i++)
-            {
-              for(let j = 0; j<userGames.length; j++)
-              {
-                if(games[i]._id === (<Game[]>userGames)[j]._id)
-                {
-                  indxToRemoveTab[indxToRemove] = i;
-                  indxToRemove ++;
-                }
-              }
-            }
-          }
-          //console.log('IndxToRemove',indxToRemoveTab);
-          for(let i = 0; i<=indxToRemoveTab.length; i++)
-          {
-            games.splice(indxToRemoveTab[i],1);
-          }
-            console.log('UserGames', userGames);
-            console.log('Games', games);
-        }
-      });
-    });
+
+    this.getUserGame(id);
+    this.getGame();
+    console.log("gay"+this.masterName);
+
 
   }
 

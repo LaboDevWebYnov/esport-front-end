@@ -47,17 +47,17 @@ export class HomeComponent implements OnInit {
     this.getGames();
   }
     private getTeam(): void {
-      this.teamServiceInstance
-        .GetAllTeam()
-        .subscribe(
-          data => this.team = data,
-          error => console.log(error),
-          () => {
-            console.log('get all news complete', this.team);
+    this.teamServiceInstance
+      .GetAllTeam()
+      .subscribe(
+        data => this.team = data,
+        error => console.log(error),
+        () => {
+          console.log('get all news complete', this.team);
 
-          }
-        );
-    }
+        }
+      );
+  }
     private getGames(): void {
     this.gameServiceInstance
       .GetAllGames()

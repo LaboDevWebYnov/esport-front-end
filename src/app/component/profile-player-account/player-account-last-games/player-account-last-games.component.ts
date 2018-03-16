@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../../../shared/services/game.service";
 import {PlayerAccountService} from "../../../../shared/services/player-account.service";
 import {Configuration} from '../../../../shared/app.constants';
 import {CoolLocalStorage} from "angular2-cool-storage";
+import {PlayerAccount} from "../../../../shared/models/player-account";
 
 @Component({
   selector: 'app-player-account-last-games',
@@ -11,10 +12,12 @@ import {CoolLocalStorage} from "angular2-cool-storage";
   styleUrls: ['./player-account-last-games.component.css'],
   providers: [PlayerAccountService, GameService, Configuration]
 })
-export class PlayerAccountLastGamesComponent implements OnInit {
+export class PlayerAccountLastGamesComponent implements OnInit, OnDestroy {
   localStorage: CoolLocalStorage;
   playerAccount: Object;
   gameId: string;
+  private sub: any;
+  private playerAccountId;
 
   public lastMatch = [{
     teamName:"No Name",
@@ -49,24 +52,35 @@ export class PlayerAccountLastGamesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gameId = this.route.snapshot.params['gameId'];
+
+    this.sub = this.route.params.subscribe(params => {
+      this.playerAccountId = params['playerAccountId'];
+
+      console.log(this.playerAccountId);
+    this.gameId = this.localStorage.getItem('gameId');
     console.log(this.gameId);
     let id = this.localStorage.getItem('userId');
-    this.getPlayerAccount(id,this.gameId)
+    this.getPlayerAccountById(this.playerAccountId)
+    });
+  }
+
+  ngOnDestroy()
+  {
+    this.sub.unsubscribe();
   }
 
   public gotoProfile() : void {
     this.router.navigate(['/profile']);
   }
 
-  private getPlayerAccount(idUser: string, gameId: string): any {
+  private getPlayerAccountById(playerAccountId: string): any {
     this.playerAccountServiceInstance
-      .GetPlayerAccountByUserIdByGame(idUser, gameId)
+      .GetSinglePlayerAccountById(playerAccountId)
       .subscribe(
         data => this.playerAccount = data,
         error => console.log(error),
         () => {
-          console.log('get One Player Account just PA', this.playerAccount[0].properties[0].stats);
+          console.log('get One Player Account just PAAAA', this.playerAccount["properties"][0].stats);
 
         }
       );

@@ -84,9 +84,7 @@ export class Step2TeamComponent implements OnInit {
             this.status = status;
             this.errorMessage = errorMessage;
             this.infoMessage = infoMessage;
-
-
-            // this.router.navigate(['team/create-team/step4-team']);
+            
           }
           else {
             this.status = status;

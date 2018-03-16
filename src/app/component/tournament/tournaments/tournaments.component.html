@@ -1,3 +1,72 @@
-<p>
-  tournaments works!
-</p>
+<div id="global">
+  <div class="container">
+    <div id="globalSearch" >
+
+      <div *ngIf="games" class="form-group row ">
+        <li>
+          <input #selector type="radio" checked class="checkboxGame" name="group" id="AllGame" (change)="checkFilter(AllGame)" (change)="getAllTournaments()" (change)="selector.checked"/>
+          <label for="AllGame">
+            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/allgame.png" alt="All Game Checked" >
+            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/allgame.png" alt="All Game" >
+          </label>
+        </li>
+        <li *ngFor="let game of games">
+          <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game._id)" (change)="getAllTournamentsByDiscipline(game.id_toornament)" (change)="selector.checked"/>
+          <label for="{{game._id}}">
+            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          </label>
+        </li>
+      </div>
+
+      <div id="search">
+        <div>
+          <form (ngSubmit)="onSubmit($event)" id="searchBar">
+            <input id="insideBar" type="text" placeholder="Rechercher des tournois">
+          </form>
+        </div>
+        <div>
+          <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
+        </div>
+      </div>
+    </div>
+
+    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+  <ul>
+    <div *ngFor="let disc of disciplines"><li>{{disc.id}}</li></div>
+  </ul>
+    <table *ngIf="tournaments" class="tournamentTable">
+      <tr *ngFor="let tournament of tournaments">
+
+        <div class="divGameIconTournament">
+          <img *ngIf="tournament.discipline === 'rainbowsix_siege'" src="../../../../../assets/images/hexa_game/5a61e8d69fe0d61c36c54253.png" class="tournamentGameIcon">
+          <img *ngIf="tournament.discipline === 'counterstrike_go'" src="../../../../../assets/images/hexa_game/569104a0417130681bcf1586.png" class="tournamentGameIcon">
+          <img *ngIf="tournament.discipline === 'leagueoflegends'" src="../../../../../assets/images/hexa_game/586f56f5b9fde402faa33fdc.png" class="tournamentGameIcon">
+
+        </div>
+
+        <div class="toutSaufImage">
+
+          <div class="tournamentName">
+            {{tournament.name}}
+          </div>
+
+          <div class="tournamentDate">
+            {{tournament.date_start}}
+          </div>
+
+          <div class="tournamentPlayerNumber">
+            {{tournament.size}} Joueurs
+          </div>
+
+          <div class="tournamentIsOpen">
+            {{tournament.status}}
+          </div>
+        </div>
+        <app-blue-separation-bar-small class="blueBar"></app-blue-separation-bar-small>
+
+      </tr>
+
+    </table>
+  </div>
+</div>
