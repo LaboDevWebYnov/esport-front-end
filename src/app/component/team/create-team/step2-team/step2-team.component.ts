@@ -84,7 +84,7 @@ export class Step2TeamComponent implements OnInit {
             this.status = status;
             this.errorMessage = errorMessage;
             this.infoMessage = infoMessage;
-            
+
           }
           else {
             this.status = status;

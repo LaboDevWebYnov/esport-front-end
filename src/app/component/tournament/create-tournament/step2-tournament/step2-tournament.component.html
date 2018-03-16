@@ -20,24 +20,24 @@
 
       <form (ngSubmit)="onSubmit($event)" #step1Form="ngForm" class="form-inline">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="x-large">
               Type de participants* :
             </div>
             <div>
               <label>
-                <input type="radio" class="select" value="team" name="participantType">
+                <input type="radio" class="select" value="team" name="participantType" (change)="checkSoloTeam('team')">
                 Equipes
               </label>
             </div>
             <div>
               <label>
-                <input type="radio" class="select" value="solo" name="participantType">
+                <input type="radio" class="select" value="solo" name="participantType" (change)="checkSoloTeam('solo')">
                 Joueurs
               </label>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <div class="x-large">
               Nombre de participants* :
             </div>
@@ -55,7 +55,7 @@
           </div>
           <div id="test">
             <li *ngFor="let game of games">
-              <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="selector.checked" value="counterstrike_go"/>
+              <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="checkFilter(game.id_toornament)" (change)="selector.checked" value="counterstrike_go"/>
               <label for="{{game._id}}" class="gameName">
                 <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" value="counterstrike_go">
                 <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" value="counterstrike_go" >

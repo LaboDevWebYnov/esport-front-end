@@ -14,6 +14,8 @@ export class Step2TournamentComponent implements OnInit {
 
   private games: Object;
   private nombres;
+  private idToornament: any;
+  private soloOrTeam: any;
   localStorage: CoolLocalStorage;
 
   constructor(private gameServiceInstance: GameService,
@@ -43,13 +45,23 @@ export class Step2TournamentComponent implements OnInit {
       );
   }
 
+  public checkFilter(gameIdFiltered: string)
+  {
+    this.idToornament = gameIdFiltered;
+  }
+  public checkSoloTeam(soloOrTeam: string)
+  {
+    this.soloOrTeam = soloOrTeam;
+  }
+
   onSubmit(event) {
 
     let tournoi;
     let name = this.localStorage.getItem('tooName');
-    let participant_type = event.target[0].value;
+    let participant_type = this.soloOrTeam;
     let size = event.target[2].value;
-    let discipline = event.target[3].value;
+    let discipline = this.idToornament;
+
 
     /*params['organisation'] = this.localStorage.getItem('tooOrganizer');
     params['website'] = this.localStorage.getItem('tooUrl');
@@ -59,10 +71,10 @@ export class Step2TournamentComponent implements OnInit {
       .subscribe(
         data => tournoi = data,
         error => console.log(error),
-        () => {console.log('insert tournoi', tournoi)}
+        () => {/*console.log('insert tournoi', tournoi)*/}
       );
 
     //this.router.navigate(['home']);
-  };
+    };
 
 }
