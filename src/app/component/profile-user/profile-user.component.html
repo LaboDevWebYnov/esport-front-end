@@ -29,6 +29,7 @@
         <li (click)="changeOnglet($event, 'statistics')" class="tablinks">STATISTIQUES</li>
         <li (click)="changeOnglet($event, 'parameters')" class="tablinks">PARAMETRES</li>
       </ul>
+
     </div>
   </div>
 </div>
@@ -38,7 +39,7 @@
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
     <app-user-social></app-user-social>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
-    <app-user-games></app-user-games>
+    <app-user-games [master]="master"></app-user-games>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
     <app-user-results></app-user-results>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>

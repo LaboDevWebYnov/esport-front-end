@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
 @Injectable()
 
+
 export class ToornamentService {
 
   private actionUrl: string;
@@ -100,6 +101,12 @@ export class ToornamentService {
   };
 
   // Tournaments
+  public addTournament = (discipline,name,size,participant_type,userId): Observable<any> => {
+    console.log(this.actionUrl);
+    return this._http.post(this.actionUrl + 'tournaments/addTournament/' + userId, {discipline: discipline, name: name, size: size, participant_type: participant_type})
+      .map(response => response);
+  };
+
   public getTournaments = (params): Observable<any> => {
     console.log(this.actionUrl);
     return this._http.get(this.generateUrlFromParam(this.actionUrl + 'getTournaments', params))

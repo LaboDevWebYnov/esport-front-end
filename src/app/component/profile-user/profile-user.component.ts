@@ -13,6 +13,7 @@ export class ProfileUserComponent implements OnInit {
 
   localStorage: CoolLocalStorage;
   private userGetById: Object;
+  master = 'Master';
 
   constructor(private userServiceInstance: UserService,
               localStorage: CoolLocalStorage) {this.localStorage = localStorage;}

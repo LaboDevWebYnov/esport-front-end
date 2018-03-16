@@ -18,12 +18,13 @@ img {
 
 .imgDetails{
   display: flex;
-  margin-top: -4em;
+  margin-top: -3em;
 
 }
 
 .PlayerName{
   font-size: 80px;
+  margin-top: -35%;
 }
 
 .AllStats{
@@ -57,5 +58,53 @@ canvas {
   height: 75px !important;
   margin: auto;
 
+}
+
+.subMenu{
+  z-index:2;
+  margin-top:-63px;
+  width:100%;
+  height: 40px;
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+ul.tab {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.tab li {
+  display: inline-block;
+  text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 2px;
+  text-decoration: none;
+  font-family: Rhanoll;
+  font-size: 20px;
+}
+
+ul.tab li:hover{
+  border-bottom:2px solid #0071bc;
+  cursor:pointer;
+}
+.active
+{
+  color: #0071bc;
+  border-bottom: 2px solid #0071bc;
+}
+
+
+.content{
+  margin-top:40px;
+}
+
+#statistics, #membres, #parameters{
+  display:none;
 }
 

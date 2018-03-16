@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router, ParamMap} from "@angular/router";
 import {PlayerAccountService} from "../../../shared/services/player-account.service";
 import {CoolLocalStorage} from "angular2-cool-storage";
 import {GameService} from "../../../shared/services/game.service";
-
+import 'rxjs/add/operator/switchMap';
 import {AddNewPlayerAccount} from "../../../shared/models/utils/create-player-account-object";
 import {Game} from "../../../shared/models/game";
+import {PlayerAccount} from "../../../shared/models/player-account";
 import {Configuration} from "shared/app.constants";
 
 
@@ -15,28 +16,43 @@ import {Configuration} from "shared/app.constants";
   styleUrls: ['./profile-player-account.component.css'],
   providers: [PlayerAccountService, Configuration,GameService]
 })
-export class ProfilePlayerAccountComponent implements OnInit {
+export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
 
-  playerAccount: Object;
+  playerAccount: PlayerAccount;
+  playerAccountAll: Object;
   gameId: string;
-
+  login: string;
   localStorage: CoolLocalStorage;
   private userGames: Object;
   private games: Object;
   private selectedGame: String;
   divForms = [];
   private response: Object;
+  private playerAccountId;
+  private sub: any;
 
   constructor(private gameServiceInstance: GameService,
               private playerAccountServiceInstance: PlayerAccountService, private route: ActivatedRoute,
               private router: Router,localStorage: CoolLocalStorage) { this.localStorage = localStorage}
 
   ngOnInit() {
-    let id = this.localStorage.getItem('userId');
-    this.gameId = this.route.snapshot.params['gameId'];
-    console.log(this.gameId);
-    this.getPlayerAccount(id, this.gameId);
 
+    this.sub = this.route.params.subscribe(params => {
+      this.playerAccountId = params['playerAccountId'];
+      let id = this.localStorage.getItem('userId');
+      this.getPlayerAccountById(this.playerAccountId,(gameId: string,login: string) => {
+        this.gameId = gameId;
+        this.login = login;
+        console.log(this.gameId);
+        this.localStorage.setItem('gameId',this.gameId);
+        this.getPlayerAccount(id,this.gameId);
+        this.getGames();
+      });
+    });
+  }
+  ngOnDestroy()
+  {
+    this.sub.unsubscribe();
   }
 
   public gotoProfile($event) : void {
@@ -45,13 +61,13 @@ export class ProfilePlayerAccountComponent implements OnInit {
     this.openAddPlayerModal();
   }
 
-  public goToOther($event) : void {
-    console.log($event);
-    this.router.navigate(['/player-account/'+$event+'']);
+  public goToOther(event: string) : void {
+    console.log(event);
+    this.router.navigate(['player-account/', event]);
   }
 
   public openSelectGameModal() :void{
-    (<HTMLElement>document.getElementById("selectGameModal")).style.display = "block";
+    (<HTMLElement>document.getElementById("addPlayerAccountModal")).style.display = "block";
   }
 
   public closeSelectGameModal() :void{
@@ -91,19 +107,17 @@ export class ProfilePlayerAccountComponent implements OnInit {
 
   }
 
-  private getGames(callback): any {
+  private getGames(): any {
     this.gameServiceInstance
       .GetAllGames()
       .subscribe(
         data => this.games = data,
-        error => {
-          console.log(error),
-            callback(null, error.message)
-        },
+        error => console.log(error),
         () => {
-          //console.log('Add player account complete', this.games);
-          callback(this.games, null);
+          console.log('get One Player Account just PA', this.games);
+
         }
+
       );
   }
 
@@ -254,17 +268,31 @@ export class ProfilePlayerAccountComponent implements OnInit {
 
 
 
-  private getPlayerAccount(idUser: string, gameId: string): void {
+  private getPlayerAccountById = (playerAccountId: string, callback): any => {
     this.playerAccountServiceInstance
-      .GetPlayerAccountByUserIdByGame(idUser, gameId)
+      .GetSinglePlayerAccountById(playerAccountId)
       .subscribe(
-        data => this.playerAccount = data,
-        error => console.log(error),
+        data => {this.playerAccount = data},
+        error => {console.log(error)},
         () => {
-          console.log('get One Player Account just gay', this.playerAccount);
+          callback(this.playerAccount.game._id, this.playerAccount.login);
 
         }
       );
-  }
 
-}
+
+  };
+  private getPlayerAccount(userId: string, gameId: string): void {
+    this.playerAccountServiceInstance
+      .GetPlayerAccountByUserIdByGame(userId, gameId)
+      .subscribe(
+        data => this.playerAccountAll = data,
+        error => console.log(error),
+        () => {
+          console.log('get all the fucking pa', this.playerAccountAll);
+
+        }
+      );
+
+
+  }}
