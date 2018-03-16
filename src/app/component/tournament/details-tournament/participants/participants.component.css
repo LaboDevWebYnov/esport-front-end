@@ -13,6 +13,8 @@
   margin: 6px 20px;
   display: flex;
   align-items: center;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 .participants__item__country {
   height: 30px;
