@@ -290,3 +290,8 @@ li img:hover{
   text-align: center;
   font-size: 35px;
 }
+
+.tournamentDetailLink{
+  transition: color 0.2s;
+
+}
