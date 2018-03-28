@@ -74,6 +74,16 @@ export class Step2TournamentComponent implements OnInit {
       );
 
     //this.router.navigate(['home']);
+
+      let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
+      modal.style.display = "flex";
     };
 
+  public goDetails(){
+    this.router.navigate(['home']);
+  }
+
+  public invite(){
+    this.router.navigate(['home']);
+  }
 }
