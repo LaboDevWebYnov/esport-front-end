@@ -19,8 +19,6 @@
             <p>{{toornamentObj.name}}</p>
           </h2>
         </ng-template>
-      <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
-      <!--id="provenance"-->
         <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
       </div>
      <div class="col-md-4">
@@ -51,7 +49,10 @@
 </div>
 
 <div class="content">
+
+<app-informations *ngIf="toornamentObj" [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
 </div>
-<app-informations [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
-<app-matches></app-matches>
-<app-participants></app-participants>
+
+<app-informations class="displayNone" *ngIf="toornamentObj" [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
+<app-matches class="displayNone"></app-matches>
+<app-participants class="displayNone"></app-participants>

@@ -19,7 +19,11 @@ export class PlayerAccountBannerComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.gameId = this.game_id ? this.game_id : this.localStorage.getItem('gameId');
+
+
+
 
     console.log("Game id : " + this.gameId);
     switch (this.gameId)

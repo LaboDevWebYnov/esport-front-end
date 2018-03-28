@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { CoolLocalStorage } from 'angular2-cool-storage';
 import { Configuration } from '../../../../shared/app.constants';
 import { ToornamentService } from '../../../../shared/services/toornament.service';
@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./details-tournament.component.css'],
   providers: [Configuration, ToornamentService],
 })
-export class DetailsTournamentComponent implements OnInit {
+export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
 
   loclaStorage: CoolLocalStorage;
   game_id = "5a61e8d69fe0d61c36c54253";
@@ -48,12 +48,12 @@ export class DetailsTournamentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tournamentId = this.route.snapshot.params['toornamentId']
+    this.tournamentId = this.route.snapshot.params['toornamentId'];
     this.getParticipantsByToornaments(this.tournamentId);
-    document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML
   }
 
-  ngAfterContentInit(){
+  ngAfterViewChecked(){
+    // document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
   private getParticipantsByToornaments(tournamentid: string)
@@ -68,3 +68,4 @@ export class DetailsTournamentComponent implements OnInit {
       );
   }
 }
+
