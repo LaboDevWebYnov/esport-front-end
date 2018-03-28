@@ -1,10 +1,21 @@
 <div id="participants">
-  <div class="participants">
-    <div class="participants__item" *ngFor="let participant of participants">
-      <!--<img class="participants__item__country" src="../../../../../assets/images/{{participant.coutry}}.png"/>-->
-      <p class="participants__item__pseudo">{{participant.name}}</p>
-      <img *ngIf="participant.logo != ''; else elseBlock" class="participants__item__logo" src="{{participant.logo}}" alt="{{participant.pseudo}} logo">
-      <ng-template #elseBlock><img src="../../../../../assets/images/hexapic_profil.png" class="participants__item__logo" alt="{{participant.pseudo}} logo"></ng-template>
+  <div class="ensemble">
+
+    <div class="title">Liste des participants</div>
+    <div *ngIf="participants">
+    <div class="participants" *ngIf="participants.length > 0;">
+      <div class="participants__item" *ngFor="let participant of participants">
+        <!--<img class="participants__item__country" src="../../../../../assets/images/{{participant.coutry}}.png"/>-->
+        <p class="participants__item__pseudo">{{participant.name}}</p>
+        <img *ngIf="participant.logo != ''; else elseBlock" class="participants__item__logo" src="{{participant.logo}}" alt="{{participant.pseudo}} logo">
+        <ng-template #elseBlock><img src="../../../../../assets/images/hexapic_profil.png" class="participants__item__logo" alt="{{participant.pseudo}} logo"></ng-template>
+      </div>
+    </div>
+    <div *ngIf="participants.length == 0" class="row noParticipants">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 noParticipantsMessage">Il n'y pas de participants pour le moment</div>
+      <div class="col-md-4"></div>
+    </div>
     </div>
   </div>
 </div>

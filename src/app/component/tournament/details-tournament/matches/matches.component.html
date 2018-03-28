@@ -2,6 +2,7 @@
   <div class="ensemble">
 
     <div class="title">Liste des Matchs</div>
+    <div *ngIf="matchesObj">
     <div class="containerMatch" *ngIf="matchesObj[0].status == 'completed'">
       <div *ngFor="let match of matchesObj" class="oneMatch">
         <div class="match" *ngIf="match.status == 'completed'">
@@ -26,5 +27,6 @@
       <div class="col-md-4"></div>
     </div>
 
+  </div>
   </div>
 </div>
