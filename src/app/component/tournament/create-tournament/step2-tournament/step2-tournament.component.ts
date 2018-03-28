@@ -16,7 +16,6 @@ export class Step2TournamentComponent implements OnInit {
   private nombres;
   private idToornament: any;
   private soloOrTeam: any;
-  private tournoi;
   localStorage: CoolLocalStorage;
 
   constructor(private gameServiceInstance: GameService,
@@ -66,12 +65,13 @@ export class Step2TournamentComponent implements OnInit {
     params['website'] = this.localStorage.getItem('tooUrl');
     params['full_name'] = this.localStorage.getItem('tooDescription');*/
 
+    let tournoi;
     this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
       .subscribe(
-        data => this.tournoi = data,
+        data => tournoi = data,
         error => console.log(error),
         () => {
-          console.log(this.tournoi);
+          this.localStorage.setItem('tooId', JSON.parse(tournoi).id  );
           let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
           modal.style.display = "flex";
         }
@@ -79,7 +79,7 @@ export class Step2TournamentComponent implements OnInit {
   };
 
   public goDetails(){
-    this.router.navigate(['events/detail/1309051935825371136']);
+    this.router.navigate(['events/detail/' + this.localStorage.getItem('tooId')]);
   }
 
   public openInvite(clicked){
@@ -97,7 +97,7 @@ export class Step2TournamentComponent implements OnInit {
     let pseudo = input.value;
 
     let participant;
-    this.toornament.addParticipantByTournamentId('1309051935825371136', pseudo).subscribe(
+    this.toornament.addParticipantByTournamentId(this.localStorage.getItem('tooId'), pseudo).subscribe(
       data => participant = data,
       error => console.log(error),
       () => {
