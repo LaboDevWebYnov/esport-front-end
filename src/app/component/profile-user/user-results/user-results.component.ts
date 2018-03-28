@@ -41,6 +41,7 @@ export class UserResultsComponent implements OnInit {
       this.RatioLabels[r] = [];
       this.RatioData[r] = [];
       tabResponse[r] = [];
+      console.log("lol"+playerAccount[r]['properties'][0]);
       if(playerAccount[r].game._id == "569104a0417130681bcf1586"){//csgo
         this.RatioLabels[r].push("wins");
         this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['total_matches_won']);
@@ -48,12 +49,23 @@ export class UserResultsComponent implements OnInit {
         this.RatioLabels[r].push("losses");
         this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['total_matches_played'] - playerAccount[r]['properties'][0]['stats']['total_matches_won']);
       }
-      if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
+      if(playerAccount[r].game._id == "5a61e8d69fe0d61c36c54253"){//R6SIEGE
         this.RatioLabels[r].push("wins");
-        this.RatioData[r].push(playerAccount[r]['properties'][0]['infos']['wins']);
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['player']['stats']['casual']['wins']);
 
         this.RatioLabels[r].push("losses");
-        this.RatioData[r].push(playerAccount[r]['properties'][0]['infos']['losses']);
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['stats']['player']['stats']['casual']['losses']);
+      }
+      if(playerAccount[r].game._id == "586f56f5b9fde402faa33fdc"){//lol
+
+
+
+        this.RatioLabels[r].push("wins");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['league'][0]['wins']);
+
+        this.RatioLabels[r].push("losses");
+        this.RatioData[r].push(playerAccount[r]['properties'][0]['league'][0]['losses']);
+
       }
     }
     this.isPropertyLoaded = true;

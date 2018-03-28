@@ -29,7 +29,7 @@
         <div id="search" class="col-md-8 align-self-center">
           <div id="contentSearchForm">
             <form (ngSubmit)="onSubmit($event)" id="searchBar">
-              <input id="insideBar" type="text" placeholder="Rechercher une actualité">
+              <input id="insideBar" type="text" placeholder="Rechercher une actualité" value="lol">
             </form>
           </div>
           <div>
@@ -47,7 +47,7 @@
 
   <div class="container"> <!-- container -->
     <div class="row">
-      <div *ngIf="news">
+      <div *ngIf="news && !searchedNews">
 
         <div class="col-md-6 col-lg-6 jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
@@ -101,6 +101,38 @@
 
       </div>
     </div>
+      <div *ngIf="searchedNews">
+
+
+<div class="box-container">
+          <div class="box-item"  *ngFor="let a of searchedNews.ign.articles, let i=index">
+
+            <div class="news_item__meta">
+                <a href="{{a.url}}" target="_blank">
+                  <div class="box-post">
+                  <span class="label label-success" style="padding: 10px;">
+                    <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
+                  </span>
+                    <h1 class="post-title">
+                      <a href="{{a.url}}" target="_blank">
+                        {{a.description}}
+                      </a>
+                    </h1>
+                    <span class="meta">
+                    <span *ngIf="a.publishedAt"> {{a.publishedAt}}</span>
+                  </span>
+                  </div>
+                  <div class="image_container">
+                  <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
+                  </div>
+                </a>
+            </div>
+
+          </div>
+</div>
+
+
+      </div>
   </div> <!-- /container -->
 
 </div>
