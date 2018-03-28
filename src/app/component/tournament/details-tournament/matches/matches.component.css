@@ -3,10 +3,6 @@
   color:white;
 }
 
-#matches {
-  display: none;
-}
-
 .ensemble{
   margin-top: 50px;
   width: 70%;
@@ -43,12 +39,8 @@
   margin-bottom: 50px;
 }
 
-.containerMatchPass{
-  display:flex;
-  flex-wrap: wrap;
-}
 
-.oneOldMatch{
+.oneMatch{
   flex: 1 0 25%;
   max-width: 25%;
   margin: 20px;
@@ -74,3 +66,12 @@
   font-size: 40px;
 }
 
+.noMatchMessage{
+  text-align: center;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color : darkred;
+  margin-bottom : 20px;
+
+  border: 1px rgba(255, 255, 255, 0.4) solid;
+}

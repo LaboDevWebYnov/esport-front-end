@@ -24,4 +24,10 @@ export class NewsService {
       .map(response => response);
   };
 
+  public GetNewsByLikeName = (query: string): Observable<any> => {
+    console.log(this.actionUrl);
+    return this._http.get(this.actionUrl + 'news/'+ query +'/newsSearch')
+      .map(response => response);
+  };
+
 }

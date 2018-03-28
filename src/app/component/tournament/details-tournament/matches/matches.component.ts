@@ -1,9 +1,14 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { ToornamentService } from '../../../../../shared/services/toornament.service';
+import {ActivatedRoute} from "@angular/router";
+import * as _ from 'lodash';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.css']
+  styleUrls: ['./matches.component.css'],
+  providers: [ToornamentService],
 })
 export class MatchesComponent implements OnInit {
 
@@ -16,34 +21,6 @@ export class MatchesComponent implements OnInit {
     {
       joueur1 : "Clément",
       joueur2 : "Maxence",
-    },
-    {
-      joueur1 : "Jade",
-      joueur2 : "Gauthier",
-    },
-    {
-      joueur1 : "Florian",
-      joueur2 : "Jean-Eude DeLarue",
-    },
-    {
-      joueur1 : "Sylvain",
-      joueur2 : "Alexandre",
-    },
-    {
-      joueur1 : "Clément",
-      joueur2 : "Maxence",
-    },
-    {
-      joueur1 : "Jade",
-      joueur2 : "Gauthier",
-    },
-    {
-      joueur1 : "Florian",
-      joueur2 : "Jean-Eude DeLarue",
-    },
-    {
-      joueur1 : "Florian",
-      joueur2 : "Jean-Eude DeLarue",
     },
 
   ];
@@ -61,58 +38,29 @@ export class MatchesComponent implements OnInit {
       joueur2 : "Maxence",
       score2 : "0"
     },
-    {
-      joueur1 : "Jade",
-      score1 : "2",
-      joueur2 : "Gauthier",
-      score2 : "1"
-    },
-    {
-      joueur1 : "Florian",
-      score1 : "6",
-      joueur2 : "Jean-Eude DeLarue",
-      score2 : "2"
-    },
-    {
-      joueur1 : "Sylvain",
-      score1 :"1",
-      joueur2 : "Alexandre",
-      score2 : "7",
-    },
-    {
-      joueur1 : "Clément",
-      score1 : "8",
-      joueur2 : "Maxence",
-      score2 : "3",
-    },
-    {
-      joueur1 : "Jade",
-      score1 : "3",
-      joueur2 : "Gauthier",
-      score2 : "5",
-    },
-    {
-      joueur1 : "Florian",
-      score1 : "4",
-      joueur2 : "Jean-Eude DeLarue",
-      score2 : "3",
-    },
-    {
-      joueur1 : "Florian",
-      score1 : "8",
-      joueur2 : "Jean-Eude DeLarue",
-      score2 : "2",
-    },
 
   ];
 
-  constructor() { }
+  public matchesObj : object;
+  tournamentId : string;
+
+  constructor(private route: ActivatedRoute, private toornamentService: ToornamentService) { }
 
   ngOnInit() {
+    this.tournamentId = this.route.snapshot.params['toornamentId'];
+    this.getMatchesByTournament(this.tournamentId);
 
   }
-  /*ngAfterContentInit(){
-    document.querySelector('.containerMatch').removeAttribute('_ngcontent-c8')
-  }*/
+
+  private getMatchesByTournament(tournamentid : string){
+    this.toornamentService.getMatchesByTournament(tournamentid, [])
+      .subscribe(
+        data => this.matchesObj = data,
+        error => console.log(error),
+        () => {
+          console.log("on a get les matches", this.matchesObj)
+        }
+      );
+  }
 
 }

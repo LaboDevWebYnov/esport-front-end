@@ -87,9 +87,20 @@
     <div class="bluebar">
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
+    <div id="invit">
+      <div>
+      </div>
+      <form>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudonyme">
+        <button type="submit" (click)="invite()" class="myButton pers"><img src="../../../../../assets/images/logo-profil3.png"></button>
+      </form>
+      <div *ngFor="let pseudo of pseudos">
+        {{ pseudo }}
+      </div>
+    </div>
     <div class="containerBtn">
       <button type="submit" (click)="goDetails()" class="myButton">Accéder aux détails</button>
-      <button type="submit" (click)="invite()" class="myButton">Envoyer des invitations</button>
+      <button type="submit" (click)="openInvite()" class="myButton">Envoyer des invitations</button>
     </div>
   </div>
 </div>

@@ -154,9 +154,10 @@ private playerAccountId;
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.RatioLabels[playerAccountNumber].push("wins");
-      this.RatioData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['wins']);
+      this.RatioData[playerAccountNumber].push(playerAccount['properties'][0]['league'][0]['wins']);
+
       this.RatioLabels[playerAccountNumber].push("losses");
-      this.RatioData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['losses']);
+      this.RatioData[playerAccountNumber].push(playerAccount['properties'][0]['league'][0]['losses']);
     }
     this.playerAccountProperty[playerAccountNumber].isRatioLoaded = true;
   }
@@ -173,11 +174,11 @@ private playerAccountId;
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.statsLabels[playerAccountNumber].push("deaths");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_deaths']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_deaths']);
       this.statsLabels[playerAccountNumber].push("kills");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_kills']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_kills']);
       this.statsLabels[playerAccountNumber].push("assists");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_assists']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_assists']);
     }
 
     this.playerAccountProperty[playerAccountNumber].isStatsLoaded = true;

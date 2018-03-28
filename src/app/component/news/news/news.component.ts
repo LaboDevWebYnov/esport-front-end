@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from "../../../../shared/services/news.service";
 import {Configuration} from "../../../../shared/app.constants";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 
 
 @Component({
@@ -12,24 +13,48 @@ import {Configuration} from "../../../../shared/app.constants";
 })
 export class NewsComponent implements OnInit {
   private news: Object;
+  private searchedNews: Object;
   public isFilteredGameId: any;
-  private
 
-  constructor(private newsServiceInstance: NewsService
-  ) { }
 
-  ngOnInit() {
-    this.getNews();
+  constructor(private newsServiceInstance: NewsService,private route: ActivatedRoute,
+              private router: Router,
+  ) {
 
 
   }
 
+  ngOnInit() {
 
+    //this.getNews();
+
+this.getNews();
+
+  }
 
 
   public checkFilter(gameIdFiltered: string)
   {
     this.isFilteredGameId = gameIdFiltered;
+  }
+  private onSubmit(event) :void {
+
+    console.log(event.target[0].value.length);
+    console.log(this.news);
+      this.newsServiceInstance
+        .GetNewsByLikeName(event.target[0].value)
+        .subscribe(
+          data => this.searchedNews = data,
+          error => console.log(error),
+          () => {
+            console.log('get all searched news complete', this.searchedNews);
+
+          }
+        );
+
+
+
+
   }
 
   private getNews(): void {
@@ -40,6 +65,18 @@ export class NewsComponent implements OnInit {
         error => console.log(error),
         () => {
           console.log('get all news complete', this.news);
+
+        }
+      );
+  }
+  private getNewsSearch(query: string): void {
+    this.newsServiceInstance
+      .GetNewsByLikeName(query)
+      .subscribe(
+        data => this.news = data,
+        error => console.log(error),
+        () => {
+          console.log('get all searched news complete', this.news);
 
         }
       );

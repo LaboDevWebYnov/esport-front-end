@@ -152,12 +152,42 @@ li img:hover{
 .jasgrid{
   padding:10px;
 }
+.box-container{
+  display: flex;
+  flex-wrap: wrap;
+}
 .box-item {
   float: left;
   opacity: 1;
   overflow: hidden;
   position: relative;
-  margin-bottom: 22px;
+  padding: 15px;
+
+flex:1 0 50%;
+}
+
+.news .news_item__meta span{
+  display: flex;
+  align-items: center;
+}
+.news .news_item__meta span i{
+  margin-right: 3px;
+}
+.news .news__item .image_container{
+  width: 100%;
+  max-height: 13vw;
+  overflow: hidden;
+}
+.image_container{
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  overflow:hidden;
+}
+.news .news__item .post-title{
+  font-size: 22px;
+  height: 50px;
+  overflow: hidden;
 }
 
 .box-item img {

@@ -1,6 +1,3 @@
-#participants {
-  display: none;
-}
 .participants {
   display: flex;
   /*justify-content: space-around;*/
@@ -18,8 +15,8 @@
   align-items: center;
   border: 1px solid white;
   border-radius: 10px;
-  flex: 1 0 30%;
-  max-width: 30%;
+  flex: 1 0 27%;
+  max-width: 27%;
 }
 .participants__item__country {
   height: 30px;
@@ -29,9 +26,42 @@
   padding: 3px 7px;
   font-size: 37px;
   margin: 0;
+  width: 100%;
 }
 .participants__item__logo {
-  height: 55px;
-  width: auto;
+  height: auto;
+  width: 55px;
   border-radius: 55px;
+  margin-right: 10px;
+}
+
+.noParticipants{
+  display: flex;
+  /*justify-content: space-around;*/
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.noParticipantsMessage{
+  text-align: center;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color : darkred;
+  margin-bottom : 20px;
+
+  border: 1px rgba(255, 255, 255, 0.4) solid;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+
+.ensemble{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
