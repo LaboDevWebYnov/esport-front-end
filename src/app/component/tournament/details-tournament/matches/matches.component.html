@@ -1,40 +1,30 @@
 <div id="matches">
   <div class="ensemble">
-    <div class="title">Matchs à venir</div>
-    <div class="containerMatch">
-    <div *ngFor=" let match of matchIncome" class="oneMatchContent">
 
-      <div class="match">
-        <div class="joueur">
-          {{match.joueur1}}
-        </div>
-        <div class="vs">VS</div>
-        <div class="joueur">
-          {{match.joueur2}}
-        </div>
-      </div>
-
-    </div>
-    </div>
-    <div class="title">Matchs terminés</div>
-    <div class="containerMatchPass">
-      <div *ngFor="let oldMatch of matchPass" class="oneOldMatch">
-
-        <div class="match">
+    <div class="title">Liste des Matchs</div>
+    <div class="containerMatch" *ngIf="matchesObj[0].status == 'completed'">
+      <div *ngFor="let match of matchesObj" class="oneMatch">
+        <div class="match" *ngIf="match.status == 'completed'">
 
           <div class="oldPlayer">
-            <div class="player">{{oldMatch.joueur1}}</div>
-            <div class="score">{{oldMatch.score1}}</div>
+            <div class="player">{{match.opponents[0].participant.name}}</div>
+            <div class="score">{{match.opponents[0].score}}</div>
           </div>
           <div class="vs">VS</div>
           <div class="oldPlayer">
-            <div class="player">{{oldMatch.joueur2}}</div>
-            <div class="score">{{oldMatch.score2}}</div>
+            <div class="player">{{match.opponents[1].participant.name}}</div>
+            <div class="score">{{match.opponents[1].score}}</div>
           </div>
 
         </div>
 
       </div>
     </div>
+    <div *ngIf="matchesObj[0].status != 'completed'" class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 noMatchMessage">Les resultats des matchs ne sont pas disponibles pour le moment</div>
+      <div class="col-md-4"></div>
+    </div>
+
   </div>
 </div>

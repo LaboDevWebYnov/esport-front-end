@@ -48,7 +48,7 @@ export class DetailsTournamentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tournamentId = this.route.snapshot.params['toornamentId']
+    this.tournamentId = this.route.snapshot.params['toornamentId'];
     this.getParticipantsByToornaments(this.tournamentId);
     document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML
   }
@@ -68,3 +68,4 @@ export class DetailsTournamentComponent implements OnInit {
       );
   }
 }
+
