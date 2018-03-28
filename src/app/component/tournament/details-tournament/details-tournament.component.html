@@ -10,19 +10,13 @@
     <div class="row col-md-10" *ngIf="toornamentObj">
       <div class="col-md-4 text-info">
         <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
-          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag" *ngIf="toornamentObj.country; else elseBlockCountry">
-          <ng-template #elseBlockCountry>
-            <i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; "class="fas fa-globe"></i>
-          </ng-template>
-          {{toornamentObj.name}}
+          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
+          <p>{{toornamentObj.name}}</p>
         </h2>
         <ng-template #elseBlock>
           <h2 class="nameTournament-long">
-            <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag" *ngIf="toornamentObj.country; else elseBlockCountry">
-            <ng-template #elseBlockCountry>
-              <i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; "class="fas fa-globe"></i>
-            </ng-template>
-            {{toornamentObj.name}}
+            <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
+            <p>{{toornamentObj.name}}</p>
           </h2>
         </ng-template>
         <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>

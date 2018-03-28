@@ -230,7 +230,7 @@ li{
 .game{
   margin-top:15px;
 }
-#test{
+#containerGame{
   display: flex;
   justify-content: space-around;
   width:100%;
@@ -315,6 +315,56 @@ li{
   float: right;
 }
 
+#globalmodal {
+  display: flex;
+  justify-content: center;
+  background: blue;
+  width:100%;
+  height: 300px;
+}
+
+#modal {
+  font-size:25px;
+  align-self: center;
+  background: black;
+  border:1px solid grey;
+  padding: 20px;
+}
+#modal div{
+
+  text-align: center;
+}
+
+#globalmodal {
+  z-index: 1;
+  top:0px;
+  position:fixed;
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.containerBtn, .bluebar{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+#invit{
+  display: none;
+}
+#invit form{
+  text-align: left;
+  display: block;
+}
+#invit img {
+  height:22px;
+}
+#invit  input{
+  background: black;
+}
 
 /*BUTTON*/
 .myButton {
@@ -355,4 +405,8 @@ li{
 .myButton:active {
   position:relative;
   top:1px;
+}
+
+.pers{
+  width:100px;
 }

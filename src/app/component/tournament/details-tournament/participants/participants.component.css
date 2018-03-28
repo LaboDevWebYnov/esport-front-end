@@ -1,17 +1,22 @@
 .participants {
   display: flex;
-  justify-content: space-around;
+  /*justify-content: space-around;*/
   flex-wrap: wrap;
   margin-top: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 .participants__item {
   display: flex;
-  max-width: 100%;
+  /*max-width: 100%;*/
   margin: 6px 20px;
   display: flex;
   align-items: center;
   border: 1px solid white;
   border-radius: 10px;
+  flex: 1 0 30%;
+  max-width: 30%;
 }
 .participants__item__country {
   height: 30px;

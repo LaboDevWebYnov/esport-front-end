@@ -15,16 +15,27 @@
     </div>
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
-    <form (ngSubmit)="onSubmit($event)"   class="form-inline">
-      <div *ngIf="games" class="form-group row ">
-        <li *ngFor="let game of games" class="game">
+    <form (ngSubmit)="onSubmit($event)" class="form-inline">
+      <div *ngIf="games" class="containerGame">
+        <li *ngFor="let game of games">
           <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="selector.checked"/>
-          <label for="{{game._id}}">
-            <img *ngIf="selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
-            <img *ngIf="!selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          <label for="{{game._id}}" class="gameName">
+            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+            {{game.name}}
           </label>
         </li>
       </div>
+
+      <!--<div *ngIf="games" class="form-group row ">
+        <li *ngFor="let game of games" class="game">
+          <input #selector type="radio" class="checkboxGame" name="group" id="{{game._id}}" (change)="selector.checked"/>
+          <label for="{{game._id}}">
+            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          </label>
+        </li>
+      </div>-->
 
       <div class="form-group row align-items-end">
         <div class="col-md-6"></div>
