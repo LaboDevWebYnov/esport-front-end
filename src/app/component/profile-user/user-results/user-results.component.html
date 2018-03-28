@@ -8,7 +8,7 @@
       </div>
 
       <ul>
-        <li *ngFor="let game of userGames; let i = index;">
+        <li *ngFor="let game of playerAccountGetByUserId; let i = index;">
           <div style="display: block">
             <div *ngIf="isPropertyLoaded">
               <canvas baseChart
@@ -21,7 +21,7 @@
               </canvas>
             </div>
           </div>
-          <h2 style="margin-top:10px;"><a href="/player-account/{{game._id}}">{{game.name}}</a></h2>
+          <h2 style="margin-top:10px;"><a href="/player-account/{{game._id}}">{{game.login}}</a></h2>
         </li>
       </ul>
       <div  style="margin-bottom:-7px;">

@@ -18,7 +18,13 @@ export class PlayerAccountBannerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gameId = this.game_id ? this.game_id : this.route.snapshot.params['gameId'];
+
+
+    this.gameId = this.game_id ? this.game_id : this.localStorage.getItem('gameId');
+
+
+
+
     console.log("Game id : " + this.gameId);
     switch (this.gameId)
     {
@@ -29,7 +35,7 @@ export class PlayerAccountBannerComponent implements OnInit {
                 this.bannerName = "banner-dota-01";
                 break;
       case '586f56f5b9fde402faa33fdc' :
-                this.bannerName = "banner-LOL-01";
+                this.bannerName = "banner-586f56f5b9fde402faa33fdc";
                 break;
       case '583d85afe26ea010b06b801b' :
                 this.bannerName = "banner-overwatch-01";

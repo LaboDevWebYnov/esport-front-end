@@ -16,6 +16,7 @@ export class Step2TournamentComponent implements OnInit {
   private nombres;
   private idToornament: any;
   private soloOrTeam: any;
+  private tournoi;
   localStorage: CoolLocalStorage;
 
   constructor(private gameServiceInstance: GameService,
@@ -56,7 +57,6 @@ export class Step2TournamentComponent implements OnInit {
 
   onSubmit(event) {
 
-    let tournoi;
     let name = this.localStorage.getItem('tooName');
     let participant_type = this.soloOrTeam;
     let size = event.target[2].value;
@@ -68,22 +68,44 @@ export class Step2TournamentComponent implements OnInit {
 
     this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
       .subscribe(
-        data => tournoi = data,
+        data => this.tournoi = data,
         error => console.log(error),
-        () => {/*console.log('insert tournoi', tournoi)*/}
+        () => {
+          console.log(this.tournoi);
+          let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
+          modal.style.display = "flex";
+        }
       );
-
-    //this.router.navigate(['home']);
-
-      let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
-      modal.style.display = "flex";
-    };
+  };
 
   public goDetails(){
-    this.router.navigate(['home']);
+    this.router.navigate(['events/detail/1309051935825371136']);
+  }
+
+  public openInvite(clicked){
+    let invit = (<HTMLInputElement>document.getElementById("invit"));
+    if(clicked){
+      invit.style.display = "none";
+    }
+    else {
+      invit.style.display = "block";
+    }
   }
 
   public invite(){
-    this.router.navigate(['home']);
+    let input = (<HTMLInputElement>document.getElementById("pseudo"));
+    let pseudo = input.value;
+
+    let participant;
+    this.toornament.addParticipantByTournamentId('1309051935825371136', pseudo).subscribe(
+      data => participant = data,
+      error => console.log(error),
+      () => {
+        let list = (<HTMLElement>document.getElementById("listPlayers"));
+        let div = document.createElement('div');
+        div.textContent = pseudo;
+        list.appendChild(div);
+      }
+    );
   }
 }

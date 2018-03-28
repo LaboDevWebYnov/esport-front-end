@@ -46,7 +46,6 @@ export class TournamentsComponent implements OnInit {
   private getAllTournamentsByDiscipline(toornamentGameId): void {
     console.log(toornamentGameId);
     if(toornamentGameId) {
-      this.params["country"] = "FR";
       this.params["discipline"] = toornamentGameId;
     }
     this.ToornamentServiceInstance
@@ -61,7 +60,8 @@ export class TournamentsComponent implements OnInit {
   }
 
   private getAllTournaments(): void {
-
+    this.params["country"] = "FR";
+    this.params["discipline"] = "";
 
     this.ToornamentServiceInstance
       .getTournaments(this.params)
@@ -74,8 +74,19 @@ export class TournamentsComponent implements OnInit {
       );
   }
 
-  private click(): void{
-    console.log("ca clique");
-  }
+  private onSubmit(event): void{
+    this.params["name"] = event.target[0].value;
 
+    console.log('get tournaments by PREsearch', this.tournaments);
+
+    this.ToornamentServiceInstance
+      .getTournaments(this.params)
+      .subscribe(
+        data => this.tournaments = data,
+        error => console.log(error),
+        () => {
+          console.log('get tournaments by search', this.tournaments);
+        }
+      );
+  }
 }

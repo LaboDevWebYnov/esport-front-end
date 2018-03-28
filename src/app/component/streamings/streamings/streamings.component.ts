@@ -31,10 +31,12 @@ export class StreamingsComponent implements OnInit {
     this.isFilteredGameId = gameIdFiltered;
   }
 
-  public onChangeSearchStream(event) {
-    console.log(event.target.value);
-    if(event.target.value.length > 0)
-      this.getStreamByLikeName(event.target.value);
+  public onSubmit(event) {
+    console.log(event.target);
+    console.log(event.target[0].value);
+    if(event.target[0].value.length > 0)
+      this.getStreamByLikeName(event.target[0].value);
+
     else
       this.searchStream = null;
   }

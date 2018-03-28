@@ -16,6 +16,9 @@ h2{
   text-align: center;
 }
 
+p{
+  margin : 0;
+}
 
 .avatar {
   z-index: 3;
@@ -89,4 +92,7 @@ ul.tab li:hover{
 .nameTournament{
   display: flex;
   align-items: center;
+}
+.displayNone{
+  display: none;
 }

@@ -324,12 +324,15 @@ li{
 }
 
 #modal {
-  text-align: center;
   font-size:25px;
   align-self: center;
   background: black;
   border:1px solid grey;
   padding: 20px;
+}
+#modal div{
+
+  text-align: center;
 }
 
 #globalmodal {
@@ -348,6 +351,23 @@ li{
   justify-content: space-around;
   flex-wrap: wrap;
 
+}
+#invit{
+  display: none;
+}
+#invit form{
+  text-align: left;
+  display: block;
+}
+#invit img {
+  height:22px;
+}
+#invit  input{
+  background: black;
+}
+#listPlayers{
+  max-height: 170px;
+  overflow:auto;
 }
 
 /*BUTTON*/
@@ -389,4 +409,8 @@ li{
 .myButton:active {
   position:relative;
   top:1px;
+}
+
+.pers{
+  width:100px;
 }

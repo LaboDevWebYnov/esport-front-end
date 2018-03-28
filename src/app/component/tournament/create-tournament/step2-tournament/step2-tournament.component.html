@@ -32,7 +32,7 @@
             </div>
             <div>
               <label>
-                <input type="radio" class="select" value="solo" name="participantType" (change)="checkSoloTeam('solo')">
+                <input type="radio" class="select" value="solo" name="participantType" (change)="checkSoloTeam('single')">
                 Joueurs
               </label>
             </div>
@@ -87,9 +87,20 @@
     <div class="bluebar">
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
+    <div id="invit">
+      <div>
+      </div>
+      <form>
+        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudonyme">
+        <button type="submit" (click)="invite()" class="myButton pers"><img src="../../../../../assets/images/logo-profil3.png"></button>
+      </form>
+      <div id="listPlayers"></div>
+    </div>
     <div class="containerBtn">
       <button type="submit" (click)="goDetails()" class="myButton">Accéder aux détails</button>
-      <button type="submit" (click)="invite()" class="myButton">Envoyer des invitations</button>
+      <button class="myButton" (click)="openInvite(clicked)" [ngClass]="{'btn-add': !clicked, 'btn-remove': clicked}" (click)="clicked = !clicked">
+        {{clicked ? 'Fermer les invitations' : 'Envoyer des invitations'}}
+      </button>
     </div>
   </div>
 </div>
