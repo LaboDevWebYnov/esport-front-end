@@ -88,3 +88,6 @@ ul.tab li:hover{
 .nameTournament{
   display: flex;
 }
+.displayNone{
+  display: none;
+}

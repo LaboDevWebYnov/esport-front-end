@@ -18,6 +18,7 @@ export class PlayerAccountBannerComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.game_id)
     this.gameId = this.game_id ? this.game_id : this.route.snapshot.params['gameId'];
     console.log("Game id : " + this.gameId);
     switch (this.gameId)
