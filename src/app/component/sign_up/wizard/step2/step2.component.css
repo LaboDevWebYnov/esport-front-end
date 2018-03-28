@@ -63,7 +63,7 @@ li{
 }
 
 li img{
-  max-height: 150px;
+  max-height: 130px;
 }
 li img:hover{
   cursor:pointer;
@@ -89,6 +89,22 @@ form {
 .how-it-works {
   background: #f5f5fa;
   padding-bottom: 30px;
+}
+
+.containerGame{
+  display: flex;
+  justify-content: space-around;
+  width:100%;
+  flex-wrap: wrap;
+  /*align-items: center;*/
+}
+
+.gameName{
+  text-align: center;
+  color: white;
+  margin-top:0.2em;
+  font-family: Rhanoll;
+  font-weight:unset;
 }
 
 .board{

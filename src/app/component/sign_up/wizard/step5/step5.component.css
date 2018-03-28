@@ -273,6 +273,12 @@ span.round-tabs.five{
   max-width:90%;
   float: right;
 }
+.test{
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width:100%;
+}
 
 /*BUTTON*/
 .myButton {
@@ -286,7 +292,7 @@ span.round-tabs.five{
   border:1px solid black;
   color:white;
   font-size: 20px;
-  display:block;
+  display:inline-block;
   cursor:pointer;
   padding:2px 28px;
   text-decoration:none;

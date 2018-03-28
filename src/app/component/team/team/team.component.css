@@ -164,6 +164,7 @@ h1{
 .global a:hover{
   color:#0071bc;
   text-decoration: none;
+  transition:color 0.2s ease-in-out;
 }
 .global h2{
   font-size: 30px;

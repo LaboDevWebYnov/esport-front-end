@@ -13,7 +13,7 @@
   <div *ngIf="verifiedCodeTemp == 'VERIFIED'" id="verified">
     <h2>Renseignez vos <font style="color:#0071bc;">comptes de jeux</font></h2>
     <div class="description">
-      Ces informations servirons à récupérer vos statistique de jeux et vous proposer une expèrience personnalisée.
+      Ces informations servirons à récupérer vos statistiques de jeux et vous proposer une expèrience personnalisée.
     </div>
 
     <div class="row">
@@ -26,15 +26,15 @@
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
       <div class="form-group" >
-        <!--<div class="col-sm-10" *ngIf="divForms">-->
-          <!--<div *ngFor="let form of divForms" [innerHTML]="divForms[0]">-->
-          <!--</div>-->
-        <!--</div>-->
-        <div class="row" *ngIf="divForms">
-          <div *ngFor="let form of divForms;let i = index;" class="col-md-6">
+        <div *ngIf="divForms">
+          <div *ngFor="let form of divForms;let i = index;" class="row">
+            <div class="col-md-6">
               <p>{{form.gameName}}</p>
               <input class="form-control col-sm-6" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
-              <button (click)='createPlayerAccount(i)' class="myButton">Valider</button><br>
+            </div>
+            <div class="col-md-6">
+              <button (click)='createPlayerAccount(i)' class="myButton">Valider</button>
+            </div>
           </div>
         </div>
 
@@ -48,9 +48,6 @@
               </div>
             </form>
           </div>
-          <!--<div class="col-md-3">
-            <button type="submit" class="myButton">SUIVANT</button>
-          </div>-->
         </div>
       </div>
   </div>

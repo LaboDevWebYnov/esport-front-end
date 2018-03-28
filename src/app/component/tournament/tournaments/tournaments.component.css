@@ -14,7 +14,6 @@
 #globalSearch{
   overflow-x: hidden;
   margin-top:50px;
-  text-align: center;
 }
 #link{
   cursor: pointer;
@@ -293,5 +292,20 @@ li img:hover{
 
 .tournamentDetailLink{
   transition: color 0.2s;
+  text-decoration: none;
+}
 
+#globalSearch .form-group {
+  width: 100%;
+  margin-left: unset;
+  text-align: center;
+}
+.searchAndCreateTournament{
+  display: flex;
+}
+
+.createTournamentLogo{
+  display: block;
+  margin: auto;
+  margin-right: 0;
 }
