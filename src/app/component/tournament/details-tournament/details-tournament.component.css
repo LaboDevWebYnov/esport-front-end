@@ -93,3 +93,6 @@ ul.tab li:hover{
   display: flex;
   align-items: center;
 }
+.displayNone{
+  display: none;
+}

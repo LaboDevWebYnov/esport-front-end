@@ -16,6 +16,7 @@ export class Step2TournamentComponent implements OnInit {
   private nombres;
   private idToornament: any;
   private soloOrTeam: any;
+  private pseudos;
   localStorage: CoolLocalStorage;
 
   constructor(private gameServiceInstance: GameService,
@@ -62,19 +63,35 @@ export class Step2TournamentComponent implements OnInit {
     let size = event.target[2].value;
     let discipline = this.idToornament;
 
-
     /*params['organisation'] = this.localStorage.getItem('tooOrganizer');
     params['website'] = this.localStorage.getItem('tooUrl');
     params['full_name'] = this.localStorage.getItem('tooDescription');*/
 
-    this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
+    /*this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
       .subscribe(
         data => tournoi = data,
         error => console.log(error),
-        () => {/*console.log('insert tournoi', tournoi)*/}
-      );
+        () => {/*console.log('insert tournoi', tournoi)*//*}
+      );*/
 
     //this.router.navigate(['home']);
-    };
 
+    let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
+    modal.style.display = "flex";
+  };
+
+  public goDetails(){
+    this.router.navigate(['home']);
+  }
+
+  public openInvite(){
+    let invit = (<HTMLInputElement>document.getElementById("invit"));
+    invit.style.display = "block";
+  }
+
+  public invite(){
+    let input = (<HTMLInputElement>document.getElementById("pseudo"));
+
+
+  }
 }

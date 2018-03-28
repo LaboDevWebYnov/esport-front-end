@@ -13,7 +13,7 @@
     <h2>Selectionnez vos <font style="color:#0071bc;">jeux favoris</font></h2>
     <!--<p>Les informations ont été enregistrées. <br>Veuillez sélectionner les jeux par lesquels vous êtes intéréssés.</p>-->
     <div class="description">
-      .
+
     </div>
 
     <div class="row">
@@ -27,13 +27,13 @@
 
 
     <form (ngSubmit)="onSubmit($event)" #step0Form="ngForm" class="form-group">
-
-      <div *ngIf="games" class="form-group row ">
+      <div *ngIf="games" class="containerGame">
         <li *ngFor="let game of games">
           <input #selector type="checkbox" class="checkboxGame" name="{{game.name}}" id="{{game._id}}" (change)="selector.checked"/>
-          <label for="{{game._id}}">
-            <img *ngIf="selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
-            <img *ngIf="!selector.checked" class="logoGame" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+          <label for="{{game._id}}" class="gameName">
+            <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
+            <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
+            {{game.name}}
           </label>
         </li>
       </div>
