@@ -254,15 +254,6 @@ span.round-tabs.five{
   float: right;
 }
 
-.checkboxGame{
-  display: none;
-}
-li img{
-  max-height: 150px;
-}
-li img:hover{
-  cursor:pointer;
-}
 .game{
   list-style-type: none;
   display: inline-block;
@@ -270,6 +261,24 @@ li img:hover{
   height:180px;
   padding:15px 10px;
   margin:0 auto;
+}
+li{
+  list-style-type: none;
+  display: inline-block;
+  width:195px;
+  height:180px;
+  padding:15px 10px;
+  margin:0 auto;
+}
+
+li img{
+  max-height: 130px;
+}
+li img:hover{
+  cursor:pointer;
+}
+.checkboxGame{
+  display: none;
 }
 
 
@@ -296,6 +305,21 @@ h1{
   margin-bottom: 10px;
 }
 
+.containerGame{
+  display: flex;
+  justify-content: space-around;
+  width:100%;
+  flex-wrap: wrap;
+  /*align-items: center;*/
+}
+
+.gameName{
+  text-align: center;
+  color: white;
+  margin-top:0.2em;
+  font-family: Rhanoll;
+  font-weight:unset;
+}
 /*BUTTON*/
 .myButton {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
@@ -336,3 +360,4 @@ h1{
   position:relative;
   top:1px;
 }
+

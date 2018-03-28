@@ -62,7 +62,6 @@ export class Step2TournamentComponent implements OnInit {
     let size = event.target[2].value;
     let discipline = this.idToornament;
 
-
     /*params['organisation'] = this.localStorage.getItem('tooOrganizer');
     params['website'] = this.localStorage.getItem('tooUrl');
     params['full_name'] = this.localStorage.getItem('tooDescription');*/
@@ -75,6 +74,16 @@ export class Step2TournamentComponent implements OnInit {
       );
 
     //this.router.navigate(['home']);
+
+      let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
+      modal.style.display = "flex";
     };
 
+  public goDetails(){
+    this.router.navigate(['home']);
+  }
+
+  public invite(){
+    this.router.navigate(['home']);
+  }
 }

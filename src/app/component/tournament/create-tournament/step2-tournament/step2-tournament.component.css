@@ -230,7 +230,7 @@ li{
 .game{
   margin-top:15px;
 }
-#test{
+#containerGame{
   display: flex;
   justify-content: space-around;
   width:100%;
@@ -315,6 +315,40 @@ li{
   float: right;
 }
 
+#globalmodal {
+  display: flex;
+  justify-content: center;
+  background: blue;
+  width:100%;
+  height: 300px;
+}
+
+#modal {
+  text-align: center;
+  font-size:25px;
+  align-self: center;
+  background: black;
+  border:1px solid grey;
+  padding: 20px;
+}
+
+#globalmodal {
+  z-index: 1;
+  top:0px;
+  position:fixed;
+  width:100%;
+  height:100%;
+  display: none;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.containerBtn, .bluebar{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
 
 /*BUTTON*/
 .myButton {
