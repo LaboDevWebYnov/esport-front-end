@@ -19,7 +19,30 @@
         </table>
       </div>
     </div>
-    <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
+    <input type="button" class="myButton" (click)="openAddFriendsModal()" value="Ajouter des amis"/>
+    <div id="openAddFriendsModal" class="modal">
+      <div class="modal-content">
+        <span class="cross" (click)="closeAddFriendsModal()" title="Fermer">&times;</span>
+        <div class="container">
+          <div class="col-sm-12 row">
+            <h2>Ajouter des amis</h2>
+
+              <br><br>
+
+              <input class="form-control col-sm-6" type='text'  >
+              <button (ngSubmit)='addingFriends($event)' class="btn btn-default submitButton">Valider</button><br>
+
+          </div>
+          <form (ngSubmit)="onSubmit()">
+            <div class="col-sm-12 btnContainer">
+              <button class="myButton" type="button" (click)="closeAddFriendsModal()">Annuler</button>
+              <button id="AddFriendsSubmitButton" class="myButton" disable="true">Confirmer</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="col-sm-12 col-md-6 col-lg-4 bloc">
