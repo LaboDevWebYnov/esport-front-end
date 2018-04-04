@@ -138,9 +138,9 @@ ul.tab li:hover{
 }
 
 .hexagon1 {
-  width: 240px;/*680*/
-  height: 120px;
+  width: 220px;/*680*/
+  height: 110px;
   margin: 0 0 0 -80px;
-  margin-top: 10px;
-  margin-left: -40px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }

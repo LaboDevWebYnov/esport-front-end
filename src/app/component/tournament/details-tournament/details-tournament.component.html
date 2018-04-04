@@ -7,39 +7,10 @@
     <div class="col-md-2 avatar">
       <div _ngcontent-c10="" class="hexagon hexagon1">
         <div _ngcontent-c10="" class="hexagon-in1">
-          <div _ngcontent-c10="" class="hexagon-in2" [ngStyle]="{'background-image': getUrl(toornamentObj.logo.logo_large)}"></div>
-        </div>
-      </div>
-      <ng-template #elseBlock>
-        <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
-      </ng-template>
-    </div>
-    <div class="row col-md-10">
-      <div class="col-md-4 text-info">
-        <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
-          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
-          <p>{{toornamentObj.name}}</p>
-        </h2>
-        <ng-template #elseBlock>
-          <h2 class="nameTournament-long">
-            <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
-            <p>{{toornamentObj.name}}</p>
-          </h2>
-          <ng-template #elseBlock>
-            <h2 class="nameTournament-long">
-              <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
-              <p>{{toornamentObj.name}}</p>
-            </h2>
+          <div _ngcontent-c10="" class="hexagon-in2" *ngIf="toornamentObj.logo != null; else elseblockpic" [ngStyle]="{'background-image': getUrl(toornamentObj.logo.logo_large)}"></div>
+          <ng-template #elseblockpic>
+            <div _ngcontent-c10="" class="hexagon-in2"></div>
           </ng-template>
-          <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
-        </div>
-       <div class="col-md-4">
-         <h2>By {{toornamentObj.organization}}</h2>
-         <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
-        </div>
-        <div class="col-md-4">
-          <h2>Nombre de participants :</h2>
-          <h2> {{participants.length}}/{{toornamentObj.size}}</h2>
         </div>
       </div>
     </div>
