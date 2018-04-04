@@ -1,9 +1,16 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3" id="friendContent">
-    <h1>Mes Amis</h1>
-    <ul id="friendList">
-      <li *ngFor="let item of myFriends" (click)="JoinRoom(item.username)">{{item.username}}</li>
+    <h1>Mes chats</h1>
+    <form (submit)="OnNewChatClick()">
+      <input id="friendAddChat" class="inputGray" type="text" placeholder="ami" required>
+      <button class="myButton">Ajouter</button>
+    </form>
+    <ul class="convList">
+      <li *ngFor="let item of myConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
+    </ul>
+    <ul class="convList">
+      <li *ngFor="let item of otherConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
     </ul>
   </div>
   <div class="col-md-7" id="chat">
@@ -11,11 +18,15 @@
       <h1 id="titleChat">{{roomName}}</h1>
     </div>
     <div class="row pre-scrollable" id="messagesDiv">
-      <ul id="messages"></ul>
+      <ul id="messages">
+        <li *ngFor="let item of currentChat">{{item.autor + " : " + item.content}}</li>
+      </ul>
     </div>
     <div class="row">
       <div class="col-md-8">
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"/>
+        <p hidden="{{isTyping}}">{{typingUser}} est entrain d'écrire</p>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
+        onfocus="" onblur=""/>
       </div>
       <div class="col-md-4">
         <button type="button" class="btn btn-light btn-lg" (click)="SendMessage()">Send</button>
