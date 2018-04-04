@@ -28,6 +28,7 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
 
   public toornamentObj: object;
   public toornamentCountry: string;
+  public participants: object;
   tournamentId: string;
 
   public changeOnglet(event, option): void {
@@ -49,6 +50,8 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.tournamentId = this.route.snapshot.params['toornamentId'];
+    this.getInformationsByToornaments(this.tournamentId);
+    this.tournamentId = this.route.snapshot.params['tournamentId'];
     this.getParticipantsByToornaments(this.tournamentId);
   }
 
@@ -56,7 +59,7 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
     // document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
-  private getParticipantsByToornaments(tournamentid: string)
+  private getInformationsByToornaments(tournamentid: string)
   {
     this.toornamentService.getTournamentById(tournamentid)
       .subscribe(
@@ -67,5 +70,18 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
         }
       );
   }
+
+  private getParticipantsByToornaments(tournamentid: string)
+  {
+    this.toornamentService.getParticipantsByTournament(tournamentid, [])
+      .subscribe(
+        data => this.participants = data,
+        error => console.log(error),
+        () => {
+          console.log("on a get les participant", this.participants);
+        }
+      );
+  }
+
 }
 
