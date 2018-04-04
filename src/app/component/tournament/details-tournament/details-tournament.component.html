@@ -3,11 +3,18 @@
 </div>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 <div class="container">
-  <div class="row profil-banner">
+  <div class="row profil-banner" *ngIf="toornamentObj">
     <div class="col-md-2 avatar">
-      <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+      <div _ngcontent-c10="" class="hexagon hexagon1" *ngIf="toornamentObj.logo.logo_large != null; else elseblock">
+        <div _ngcontent-c10="" class="hexagon-in1">
+          <div _ngcontent-c10="" class="hexagon-in2"></div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+      </ng-template>
     </div>
-    <div class="row col-md-10" *ngIf="toornamentObj">
+    <div class="row col-md-10">
       <div class="col-md-4 text-info">
         <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
           <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
