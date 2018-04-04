@@ -20,6 +20,8 @@ export class ContactComponent implements OnInit {
   message = '';
   roomName = "";
   currentChat: any;
+  isTyping = true;
+  typingUser = "";
 
   constructor(public chatService: ChatService, public localStorage: CoolLocalStorage) {
     this.FindMyConvs();
@@ -28,9 +30,21 @@ export class ContactComponent implements OnInit {
     this.socket.on('return-chat-message', function(msg){
       console.log('chat message', msg);
 
-      var li=document.createElement("li");
+      let li=document.createElement("li");
       li.appendChild(document.createTextNode(msg.username + ' : ' + msg.content));
       document.getElementById("messages").appendChild(li);
+    });
+
+    this.socket.on('typing', function(data){
+      console.log(data.username + "typing");
+      this.isTyping = false;
+      this.typingUser = data.username;
+    });
+
+    this.socket.on('stop-typing', function(data){
+      console.log(data.username + "stop typing");
+      this.isTyping = true;
+      this.typingUser = "";
     });
   }
 
@@ -116,6 +130,14 @@ export class ContactComponent implements OnInit {
           console.log('Get convs where i am: ', this.otherConvs);
         }
       );
+  }
+
+  OnTyping(){
+    this.socket.emit("typing");
+  }
+
+  OnStopTyping(){
+    this.socket.emit("stop-typing");
   }
 
 }

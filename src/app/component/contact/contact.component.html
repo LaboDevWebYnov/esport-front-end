@@ -24,7 +24,9 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"/>
+        <p hidden="{{isTyping}}">{{typingUser}} est entrain d'écrire</p>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
+        onfocus="" onblur=""/>
       </div>
       <div class="col-md-4">
         <button type="button" class="btn btn-light btn-lg" (click)="SendMessage()">Send</button>
