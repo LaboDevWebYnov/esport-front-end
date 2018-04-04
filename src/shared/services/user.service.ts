@@ -76,7 +76,7 @@ export class UserService {
   };
   public AddFriends = (Variable: string, Friends: string): Observable<any> => {
     let JsonBody = JSON.stringify(Variable);
-    return this._http.post(this.actionUrl + 'user/'+ Variable+'/addFriends/'+Friends,  { headers: this.headers })
+    return this._http.put(this.actionUrl + 'user/'+ Variable+'/addFriends/'+Friends,  { headers: this.headers })
       .map((response => response));
   };
 

@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   selector: 'app-informations',
   templateUrl: './informations.component.html',
   styleUrls: ['./informations.component.css'],
-  roviders: [Configuration, ToornamentService],
+  providers: [Configuration, ToornamentService],
 })
 export class InformationsComponent implements OnInit {
   @Input('prize') prize: string;

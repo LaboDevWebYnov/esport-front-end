@@ -29,8 +29,11 @@
 
               <br><br>
 
-              <input class="form-control col-sm-6" type='text'  >
-              <button (ngSubmit)='addingFriends($event)' class="btn btn-default submitButton">Valider</button><br>
+            <form (ngSubmit)="addingFriends($event)" id="searchBar">
+              <input id="insideBar" class="form-control col-sm-6" type="text" placeholder="Add friends">
+              <button type="submit" class="btn btn-default submitButton">Valider</button><br>
+            </form>
+
 
           </div>
           <form (ngSubmit)="onSubmit()">
