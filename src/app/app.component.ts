@@ -17,7 +17,7 @@ export class AppComponent {
 
   constructor(public userService: UserService, public localStorage: CoolLocalStorage){
     // if(this.localStorage.getItem('userId') != null)
-    //   this.loginSocketIO();
+       //this.loginSocketIO();
 
   }
 

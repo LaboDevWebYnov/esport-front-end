@@ -3,31 +3,33 @@
 </div>
 <app-blue-separation-bar-small></app-blue-separation-bar-small>
 <div class="container">
-  <div class="row profil-banner">
-    <div class="col-md-2 avatar">
-      <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
-    </div>
-    <div class="row col-md-10" *ngIf="toornamentObj">
-      <div class="col-md-4 text-info">
-        <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
-          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
-          <p>{{toornamentObj.name}}</p>
-        </h2>
-        <ng-template #elseBlock>
-          <h2 class="nameTournament-long">
+  <div *ngIf="participants">
+    <div class="row profil-banner">
+      <div class="col-md-2 avatar">
+        <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+      </div>
+      <div class="row col-md-10" *ngIf="toornamentObj">
+        <div class="col-md-4 text-info">
+          <h2 class="nameTournament" *ngIf = "toornamentObj.name.length <= 19; else elseBlock">
             <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
             <p>{{toornamentObj.name}}</p>
           </h2>
-        </ng-template>
-        <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
-      </div>
-     <div class="col-md-4">
-       <h2>By {{toornamentObj.organization}}</h2>
-       <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
-      </div>
-      <div class="col-md-4">
-        <h2>Nombre de participants :</h2>
-        <h2> {{tournament.PlaceLoked}}/{{toornamentObj.size}}</h2>
+          <ng-template #elseBlock>
+            <h2 class="nameTournament-long">
+              <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
+              <p>{{toornamentObj.name}}</p>
+            </h2>
+          </ng-template>
+          <h2>{{toornamentObj.platforms[0]}} {{toornamentObj.discipline}}</h2>
+        </div>
+       <div class="col-md-4">
+         <h2>By {{toornamentObj.organization}}</h2>
+         <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
+        </div>
+        <div class="col-md-4">
+          <h2>Nombre de participants :</h2>
+          <h2> {{participants.length}}/{{toornamentObj.size}}</h2>
+        </div>
       </div>
     </div>
   </div>
