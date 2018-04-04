@@ -1,13 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Configuration } from '../../../../../shared/app.constants';
 import { CoolLocalStorage } from 'angular2-cool-storage';
+import { ToornamentService } from '../../../../../shared/services/toornament.service';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
   selector: 'app-informations',
   templateUrl: './informations.component.html',
   styleUrls: ['./informations.component.css'],
-  providers: [Configuration]
+  roviders: [Configuration, ToornamentService],
 })
 export class InformationsComponent implements OnInit {
   @Input('prize') prize: string;
@@ -27,9 +29,42 @@ export class InformationsComponent implements OnInit {
     Cash: "2 000 000 €"
   };
 
-  constructor() { }
+  public toornamentObj: object;
+  public toornamentCountry: string;
+  public participants: object;
+  tournamentId: string;
+
+
+  constructor(private route: ActivatedRoute, private toornamentService: ToornamentService) { }
 
   ngOnInit() {
+    this.tournamentId = this.route.snapshot.params['toornamentId'];
+    this.getInformationsByToornaments(this.tournamentId);
+    this.tournamentId = this.route.snapshot.params['toornamentId'];
+    this.getParticipantsByToornaments(this.tournamentId);
   }
 
+  private getInformationsByToornaments(tournamentid: string)
+  {
+    this.toornamentService.getTournamentById(tournamentid)
+      .subscribe(
+        data => this.toornamentObj = data,
+        error => console.log(error),
+        () => {
+          console.log("on a get le tournois", this.toornamentObj);
+        }
+      );
+  }
+
+  private getParticipantsByToornaments(tournamentid: string)
+  {
+    this.toornamentService.getParticipantsByTournament(tournamentid, [])
+      .subscribe(
+        data => this.participants = data,
+        error => console.log(error),
+        () => {
+          console.log("on a get les participant", this.participants);
+        }
+      );
+  }
 }
