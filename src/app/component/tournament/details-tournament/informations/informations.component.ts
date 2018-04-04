@@ -70,6 +70,16 @@ export class InformationsComponent implements OnInit {
       );
   }
 
+  public dateConvertor (date: string) {
+    let dateFormat = new Date(date)
+
+    let day = dateFormat.getDate() < 10 ? "0" + dateFormat.getDate() : dateFormat.getDate()
+    let month = dateFormat.getMonth() < 10 ? "0" + dateFormat.getMonth() : dateFormat.getMonth()
+
+    var newDate = day + "/" + month + "/" + dateFormat.getFullYear()
+    return newDate
+  }
+
   public findPlateformLogo (plateformString: String) {
     switch (plateformString) {
       case "pc": {
