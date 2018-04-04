@@ -33,8 +33,7 @@
 </div>
 
 <div class="content">
-
-<app-informations *ngIf="toornamentObj" [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
+  <app-informations *ngIf="toornamentObj" [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
 </div>
 
 <app-informations class="displayNone" *ngIf="toornamentObj" [prize]="toornamentObj.prize" [rules]="toornamentObj.rules" [description]="toornamentObj.description"></app-informations>
