@@ -26,9 +26,7 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
     PlaceLoked: "12",
   };
 
-  public toornamentObj: object;
-  public toornamentCountry: string;
-  tournamentId: string;
+
 
   public changeOnglet(event, option): void {
 
@@ -48,24 +46,14 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.tournamentId = this.route.snapshot.params['toornamentId'];
-    this.getParticipantsByToornaments(this.tournamentId);
+
   }
 
   ngAfterViewChecked(){
     // document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
   }
 
-  private getParticipantsByToornaments(tournamentid: string)
-  {
-    this.toornamentService.getTournamentById(tournamentid)
-      .subscribe(
-        data => this.toornamentObj = data,
-        error => console.log(error),
-        () => {
-          console.log("on a get le tournois", this.toornamentObj);
-        }
-      );
-  }
+
+
 }
 
