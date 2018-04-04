@@ -45,10 +45,4 @@ export class ChatService {
     return this._http.post(this.actionUrl + 'chat/add', {user1: user1, user2: user2})
       .map(response => response);
   };
-
-  public addMessage = (autor: string, content: string, chatId: string): Observable<any> => {
-    console.log(this.actionUrl);
-    return this._http.post(this.actionUrl + 'chat/add', {autor: autor, content: content, chat_id: chatId})
-      .map(response => response);
-  };
 }
