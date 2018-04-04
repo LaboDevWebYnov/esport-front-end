@@ -281,6 +281,10 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
       {
         path: 'events/create/step2',
         component: Step2TournamentComponent
+      },
+      {
+        path: 'message',
+        component: Step3TournamentComponent
       }
     ])
   ],
