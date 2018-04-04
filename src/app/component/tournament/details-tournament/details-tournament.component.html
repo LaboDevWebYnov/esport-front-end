@@ -5,9 +5,9 @@
 <div class="container">
   <div class="row profil-banner" *ngIf="toornamentObj">
     <div class="col-md-2 avatar">
-      <div _ngcontent-c10="" class="hexagon hexagon1" *ngIf="toornamentObj.logo.logo_large != null; else elseblock">
+      <div _ngcontent-c10="" class="hexagon hexagon1">
         <div _ngcontent-c10="" class="hexagon-in1">
-          <div _ngcontent-c10="" class="hexagon-in2"></div>
+          <div _ngcontent-c10="" class="hexagon-in2" [ngStyle]="{'background-image': getUrl(toornamentObj.logo.logo_large)}"></div>
         </div>
       </div>
       <ng-template #elseBlock>

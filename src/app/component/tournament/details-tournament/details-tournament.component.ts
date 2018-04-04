@@ -50,9 +50,6 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.tournamentId = this.route.snapshot.params['toornamentId'];
     this.getParticipantsByToornaments(this.tournamentId);
-    if (document.querySelector('.hexagon-in2')) {
-      document.querySelector('.hexagon-in2').style.backgroundImage = this.toornamentObj ? "url('" + this.toornamentObj.logo.logo_large + "')" : ""
-    }
   }
 
   ngAfterViewChecked(){
@@ -69,6 +66,10 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
           console.log("on a get le tournois", this.toornamentObj);
         }
       );
+  }
+
+  public getUrl(url: String) {
+    return "url('" + url + "')"
   }
 }
 
