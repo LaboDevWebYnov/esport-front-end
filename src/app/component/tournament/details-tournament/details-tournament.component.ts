@@ -56,7 +56,7 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(){
-    // document.querySelector('.content').innerHTML = document.getElementById("informations").innerHTML;
+
   }
 
   private getInformationsByToornaments(tournamentid: string)
@@ -83,5 +83,8 @@ export class DetailsTournamentComponent implements OnInit, AfterViewChecked {
       );
   }
 
+  public getUrl(url: String) {
+    return "url('" + url + "')"
+  }
 }
 
