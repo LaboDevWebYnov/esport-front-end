@@ -80,6 +80,7 @@ import { ParticipantsComponent } from './component/tournament/details-tournament
 import { MatchesComponent } from './component/tournament/details-tournament/matches/matches.component';
 
 import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
+import { MessageComponent } from './component/message/message.component';
 
 
 
@@ -156,6 +157,7 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
     InformationsComponent,
     ParticipantsComponent,
     MatchesComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
