@@ -43,8 +43,9 @@ import { Step5Component } from './component/sign_up/wizard/step5/step5.component
 import { Step6Component } from './component/sign_up/wizard/step6/step6.component';
 import { Step7Component } from './component/sign_up/wizard/step7/step7.component';
 import { LogoutComponent } from './component/auth/logout/logout.component';
-import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
-import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
+import { BlueSeparationBarComponent } from './component/blue_bar/blue-separation-bar/blue-separation-bar.component';
+import { VerticalBlueSeparationComponent } from './component/blue_bar/vertical-blue-separation/vertical-blue-separation.component';
+import { BlueSeparationBarSmallComponent } from './component/blue_bar/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { ProfilePlayerAccountComponent } from './component/profile-player-account/profile-player-account.component';
 import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
@@ -123,6 +124,7 @@ import { MessageComponent } from './component/message/message.component';
     LogoutComponent,
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
+    VerticalBlueSeparationComponent,
     TeamComponent,
     ProfilePlayerAccountComponent,
     PlayerAccountBannerComponent,
@@ -286,7 +288,7 @@ import { MessageComponent } from './component/message/message.component';
       },
       {
         path: 'message',
-        component: Step3TournamentComponent
+        component: MessageComponent
       }
     ])
   ],
