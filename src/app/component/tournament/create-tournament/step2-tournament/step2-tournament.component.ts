@@ -16,7 +16,6 @@ export class Step2TournamentComponent implements OnInit {
   private nombres;
   private idToornament: any;
   private soloOrTeam: any;
-  private pseudos;
   localStorage: CoolLocalStorage;
 
   constructor(private gameServiceInstance: GameService,
@@ -57,7 +56,6 @@ export class Step2TournamentComponent implements OnInit {
 
   onSubmit(event) {
 
-    let tournoi;
     let name = this.localStorage.getItem('tooName');
     let participant_type = this.soloOrTeam;
     let size = event.target[2].value;
@@ -67,31 +65,47 @@ export class Step2TournamentComponent implements OnInit {
     params['website'] = this.localStorage.getItem('tooUrl');
     params['full_name'] = this.localStorage.getItem('tooDescription');*/
 
-    /*this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
+    let tournoi;
+    this.toornament.addTournament(discipline, name, size, participant_type, this.localStorage.getItem('userId'))
       .subscribe(
         data => tournoi = data,
         error => console.log(error),
-        () => {/*console.log('insert tournoi', tournoi)*//*}
-      );*/
-
-    //this.router.navigate(['home']);
-
-    let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
-    modal.style.display = "flex";
+        () => {
+          this.localStorage.setItem('tooId', JSON.parse(tournoi).id  );
+          let modal = (<HTMLInputElement>document.getElementById("globalmodal"));
+          modal.style.display = "flex";
+        }
+      );
   };
 
   public goDetails(){
-    this.router.navigate(['home']);
+    this.router.navigate(['events/detail/' + this.localStorage.getItem('tooId')]);
   }
 
-  public openInvite(){
+  public openInvite(clicked){
     let invit = (<HTMLInputElement>document.getElementById("invit"));
-    invit.style.display = "block";
+    if(clicked){
+      invit.style.display = "none";
+    }
+    else {
+      invit.style.display = "block";
+    }
   }
 
   public invite(){
     let input = (<HTMLInputElement>document.getElementById("pseudo"));
+    let pseudo = input.value;
 
-
+    let participant;
+    this.toornament.addParticipantByTournamentId(this.localStorage.getItem('tooId'), pseudo).subscribe(
+      data => participant = data,
+      error => console.log(error),
+      () => {
+        let list = (<HTMLElement>document.getElementById("listPlayers"));
+        let div = document.createElement('div');
+        div.textContent = pseudo;
+        list.appendChild(div);
+      }
+    );
   }
 }

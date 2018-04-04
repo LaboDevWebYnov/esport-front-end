@@ -30,8 +30,9 @@
             <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
           </div>
         </div>
-
-        <img _ngcontent-c4="" class="createTournamentLogo" src="../../../../assets/images/picto_creer_team_sansdescrp.png">
+        <a class="createTournamentLogo" href="/events/create/step1">
+          <img _ngcontent-c4="" src="../../../../assets/images/picto_creer_team_sansdescrp.png">
+        </a>
       </div>
     </div>
 
@@ -46,7 +47,7 @@
           <img *ngIf="tournament.discipline === 'rainbowsix_siege'" src="../../../../../assets/images/hexa_game/5a61e8d69fe0d61c36c54253.png" class="tournamentGameIcon">
           <img *ngIf="tournament.discipline === 'counterstrike_go'" src="../../../../../assets/images/hexa_game/569104a0417130681bcf1586.png" class="tournamentGameIcon">
           <img *ngIf="tournament.discipline === 'leagueoflegends'" src="../../../../../assets/images/hexa_game/586f56f5b9fde402faa33fdc.png" class="tournamentGameIcon">
-
+          <img *ngIf="tournament.discipline != 'rainbowsix_siege' && tournament.discipline != 'counterstrike_go' && tournament.discipline != 'leagueoflegends'" src="../../../../../assets/images/hexa_game/allgame.png" class="tournamentGameIcon">
         </div>
 
         <div class="toutSaufImage">

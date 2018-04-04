@@ -190,4 +190,10 @@ export class ToornamentService {
     return this._http.get(this.actionUrl + 'tournaments/' + idTournament + '/participants/' + idParticipant)
       .map(response => response);
   };
+
+  public addParticipantByTournamentId = (idTournament: string, pseudo: string): Observable<any> => {
+    console.log(this.actionUrl);
+    return this._http.post(this.actionUrl + 'tournaments/' + idTournament + '/addparticipant?name=' + pseudo, { tournament_id: idTournament, name: pseudo })
+      .map(response => response);
+  };
 }
