@@ -17,7 +17,7 @@ export class UserSocialComponent implements OnInit {
   private teams: Object;
   public myTeamTab;
   localStorage: CoolLocalStorage;
-
+private friends: Object;
   private currentUser: Object
 
   constructor(private teamServiceInstance: TeamService,
@@ -50,6 +50,23 @@ export class UserSocialComponent implements OnInit {
       );
 
   }
+  addingFriends(event){
+    console.log(event);
+    var id = this.localStorage.getItem('userId');
+    var friendId = event.target[0].value;
+    this.addFriends(id, friendId);
+  }
+  public openAddFriendsModal() :void{
+    (<HTMLElement>document.getElementById("openAddFriendsModal")).style.display = "block";
+  }
+
+  public closeAddFriendsModal() :void{
+    for(let i = 0; i < document.getElementsByClassName("checkboxGameSelection").length; i++)
+    {
+      (<HTMLInputElement>document.getElementsByClassName("checkboxGameSelection")[i]).checked = false;
+    }
+    (<HTMLElement>document.getElementById("openAddFriendsModal")).style.display = "none";
+  }
 
   public searchMyTeams(id:string, callback):void{
     this.teamServiceInstance
@@ -62,6 +79,20 @@ export class UserSocialComponent implements OnInit {
         },
         () => {
           callback(200, null, this.teams);
+        }
+      );
+  }
+  public addFriends(id:string, friends:string):void{
+    this.userServiceInstance
+      .AddFriends(id,friends)
+      .subscribe(
+        data =>  this.friends = data ,
+        error =>{
+          console.log(error);
+
+        },
+        () => {
+          console.log('get One Player Account just PA', this.friends);
         }
       );
   }

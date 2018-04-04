@@ -16,17 +16,22 @@
         </div>
       </div>
       <div class="tournamentPlayerCount" *ngIf="participants">
-        <div class="title">Number of Participants :</div>
+        <p class="title">Number of Participants :</p>
         <div class="Text">
+          <i class="fas fa-user" style="font-family: 'Font Awesome 5 Free'"></i>
           {{participants.length}}/{{toornamentObj.size}}
         </div>
+      </div>
+      <div class="plateformTournament" *ngIf="toornamentObj.platforms">
+        <p class="title">Plateforms : </p>
+        <div *ngFor="let platform of toornamentObj.platforms" class="plateformTournament__item" [innerHtml]="findPlateformLogo(platform)"></div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="tournamentDate">
         <div class="title">Date :</div>
         <div class="Text">
-          <h2><i style="font: normal normal normal 14px/1 FontAwesome; font-size: xx-large; " class="fa fa-calendar" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
+          <h2><i style="font-family: 'Font Awesome 5 Free'" class="fas fa-calendar-alt" aria-hidden="true"></i> {{toornamentObj.date_start}}</h2>
         </div>
       </div>
       <div class="tournamentOrganizator">
