@@ -14,6 +14,7 @@ import {ChatService} from '../../../shared/services/chat.service';
 })
 export class ContactComponent implements OnInit {
 
+  private username: string;
   myConvs: any;
   otherConvs: any;
   socket = io.connect('http://localhost:3100');
@@ -50,6 +51,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     document.getElementById("chat").style.visibility = "hidden";
+    this.username = this.localStorage.getItem("username");
   }
 
   FindMyConvs() {

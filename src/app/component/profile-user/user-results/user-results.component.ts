@@ -4,6 +4,7 @@ import {PlayerAccountService} from "../../../../shared/services/player-account.s
 import {Game} from "../../../../shared/models/game";
 import {CoolLocalStorage} from "angular2-cool-storage";
 import {Configuration} from "../../../../shared/app.constants";
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-user-results',
@@ -20,8 +21,9 @@ export class UserResultsComponent implements OnInit {
 
   constructor(private playerAccountServiceInstance: PlayerAccountService,
               private gameServiceInstance: GameService,
-              localStorage: CoolLocalStorage) {
+              localStorage: CoolLocalStorage ,  private router: Router ) {
     this.localStorage = localStorage;
+
   }
 
   // Doughnut
@@ -145,6 +147,11 @@ export class UserResultsComponent implements OnInit {
       });
     });
 
+  }
+  link(playerAccountId,gameId){
+
+    this.localStorage.setItem('gameId', gameId);
+    this.router.navigate(['player-account/'+playerAccountId]);
   }
 
 }
