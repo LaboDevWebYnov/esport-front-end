@@ -82,6 +82,13 @@ import { MatchesComponent } from './component/tournament/details-tournament/matc
 
 import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
 import { MessageComponent } from './component/message/message.component';
+import { HomeConnectedComponent } from './component/home_connected/home-connected/home-connected.component';
+import { HeaderConnectedComponent } from './component/home_connected/header-connected/header-connected.component';
+import { TournoisConnectedComponent } from './component/home_connected/tournois-connected/tournois-connected.component';
+import { FriendsConnectedComponent } from './component/home_connected/friends-connected/friends-connected.component';
+import { FeedConnectedComponent } from './component/home_connected/feed-connected/feed-connected.component';
+import { TeamConnectedComponent } from './component/home_connected/team-connected/team-connected.component';
+import { PlayerAccountConnectedComponent } from './component/home_connected/player-account-connected/player-account-connected.component';
 
 
 
@@ -160,6 +167,13 @@ import { MessageComponent } from './component/message/message.component';
     ParticipantsComponent,
     MatchesComponent,
     MessageComponent,
+    HomeConnectedComponent,
+    HeaderConnectedComponent,
+    TournoisConnectedComponent,
+    FriendsConnectedComponent,
+    FeedConnectedComponent,
+    TeamConnectedComponent,
+    PlayerAccountConnectedComponent,
   ],
   imports: [
     BrowserModule,
@@ -289,6 +303,10 @@ import { MessageComponent } from './component/message/message.component';
       {
         path: 'message',
         component: MessageComponent
+      },
+      {
+        path: 'home-connected',
+        component: HomeConnectedComponent
       }
     ])
   ],
