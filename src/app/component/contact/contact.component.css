@@ -4,6 +4,8 @@
 }
 
 .convList{
+  overflow: scroll;
+  height: 10vh;
   font-size: 15px;
   text-decoration: none;
 }

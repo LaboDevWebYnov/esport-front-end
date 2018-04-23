@@ -38,11 +38,8 @@ export class ChatService {
 
   public addChat = (user2: string): Observable<any> => {
     var user1 = localStorage.getItem("username");
-    console.log("user1", user1);
-    console.log("user2", user2);
-
     console.log(this.actionUrl);
-    return this._http.post(this.actionUrl + 'chat/add', {user1: user1, user2: user2})
+    return this._http.post(this.actionUrl + 'chat/add', { user1: user1, user2: user2 })
       .map(response => response);
   };
 }

@@ -23,10 +23,12 @@ export class ContactComponent implements OnInit {
   currentChat: any;
   isTyping = true;
   typingUser = "";
+  myFriends: any;
 
-  constructor(public chatService: ChatService, public localStorage: CoolLocalStorage) {
+  constructor(private chatService: ChatService, private localStorage: CoolLocalStorage, private userService: UserService) {
     this.FindMyConvs();
     this.FindOtherConvs();
+    this.GetMyFriends();
 
     this.socket.on('return-chat-message', function(msg){
       console.log('chat message', msg);
@@ -140,6 +142,25 @@ export class ContactComponent implements OnInit {
 
   OnStopTyping(){
     this.socket.emit("stop-typing");
+  }
+
+  GetMyFriends(){
+    this.userService.GetSingleUserById(this.localStorage.getItem('userId'))
+      .subscribe(
+        data => {
+          this.myFriends = data.friends;
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          console.log('Get friends : ', this.myFriends);
+        }
+      );
+  }
+
+  CreateConv(friend){
+    this.chatService.addChat(friend.username);
   }
 
 }

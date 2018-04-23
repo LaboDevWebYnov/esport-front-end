@@ -17,21 +17,13 @@
         </div>
 
         <div class="row contentMessage"><!--Message-->
-
-            <div class="date">
-
-
-
-                <ul id="messages">
-                  <div *ngFor="let item of currentChat">
-                  <li *ngIf="item.autor != username" class="col-md-11 message">{{item.autor + " : " + item.content}}</li>
-                    <li *ngIf="item.autor == username" class="col-md-11 owned">{{item.autor + " : " + item.content}}</li>
-                  </div>
-                </ul>
-
-
-
-
+          <div>
+            <ul id="messages">
+              <div *ngFor="let item of currentChat">
+                <li *ngIf="item.autor != username" class="col-md-11 message">{{item.autor + " : " + item.content}}</li>
+                <li *ngIf="item.autor == username" class="col-md-11 owned">{{item.autor + " : " + item.content}}</li>
+              </div>
+            </ul>
           </div>
          <!-- <div class="date" *ngFor="let message of messages">
             <div class="col-md-11 offset-md-1 day">
@@ -224,6 +216,17 @@
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="contentFriends">
             <div>
+              <ul>
+                <div *ngFor="let item of myFriends">
+                  <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="CreateConv(item)">
+                  <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+                </div>
+              </ul>
+            </div>
+
+
+
+            <!--<div>
               <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto">
               <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
             </div>
@@ -273,7 +276,7 @@
             <div>
               <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto">
               <img src="../../../../../assets/images/hexagon_deconnecte.png" class="friendStatus">
-            </div>
+            </div>-->
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
         </div>
