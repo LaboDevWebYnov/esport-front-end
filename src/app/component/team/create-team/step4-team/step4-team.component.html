@@ -2,7 +2,7 @@
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
   <div id="global">
-    <h2>Création de <font style="color:#0071bc;">votre équipe</font></h2>
+    <h1>Création de <font style="color:#0071bc;">votre équipe</font></h1>
     <div class="description">
        Invitez vos amis à vous rejoindre !
     </div>
@@ -20,7 +20,7 @@
       <div class="form-group row">
 
         <div class="col-sm-6">
-          <h3>Ajouter un ami :</h3>
+          <h2>Envoyer une invitation :</h2>
           <input  class="form-control" id="playerAccount" name="playerAccount" placeholder="Pseudonyme de Jeu">
           <input  class="form-control" id="role" name="playerAccount" placeholder="Rôle du joueur">
           <div class="row">
@@ -36,10 +36,10 @@
           <div *ngIf="status == false" class="alert alert-danger" style="font-size:x-large;color:black;">
             Le joueur n'a pus être ajouté, réessayez !
           </div>
-
         </div>
-        <div class="col-sm-6 description">
-          <h3>Joueurs de l'équipe :</h3>
+
+        <div class="col-sm-6" style="vertical-align: text-top;">
+          <h2>Joueurs de l'équipe :</h2>
           <div id="listPlayers">
             <div *ngFor="let player of players">{{player.login}}</div>
           </div>
