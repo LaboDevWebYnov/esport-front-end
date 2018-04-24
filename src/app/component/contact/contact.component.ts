@@ -119,20 +119,18 @@ export class ContactComponent implements OnInit {
     this.message="";
   }
 
-  OnNewChatClick(){
-    let friendToAdd = (<HTMLInputElement>document.getElementById("friendAddChat")).value;
+  OnNewChatClick(friend){
+    let friendToAdd = friend.username;
 
     this.chatService.addChat(friendToAdd)
       .subscribe(
         data => {
-          this.myConvs = data;
+          console.log(data);
         },
         error => {
           console.log(error);
         },
-        () => {
-          console.log('Get convs where i am: ', this.otherConvs);
-        }
+        () => {}
       );
   }
 
@@ -160,7 +158,16 @@ export class ContactComponent implements OnInit {
   }
 
   CreateConv(friend){
-    this.chatService.addChat(friend.username);
+    this.chatService.addChat(friend.username)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        },
+        () => {}
+      );
   }
 
 }

@@ -3,11 +3,9 @@
   color: white;
 }
 
-.convList{
-  overflow: scroll;
-  height: 10vh;
-  font-size: 15px;
-  text-decoration: none;
+.sideList{
+  font-size: 20px;
+  list-style: none;
 }
 
 #chat{
@@ -15,6 +13,7 @@
 }
 
 #messages{
+  margin-left: 5%;
   color: white;
   font-size: 15px;
   list-style: none;
@@ -72,8 +71,7 @@
   margin-top: -73px;
 }
 .userName{
-  font-size:25px;
-  position: relative;
+  font-size:40px;
   top: -65px;
 }
 .verticalBar{
@@ -86,8 +84,9 @@
   color:grey;
 }
 .contentMessage{
+  margin-top: 90px;
   overflow: scroll;
-  height: 55vh;
+  height: 110vh !important;
 }
 .message{
   padding-left:30px;
@@ -132,6 +131,9 @@
   margin-bottom: -15px;
   padding-left:30px;
   padding-right:30px;
+  font-size: 20px;
+  height: 150px;
+  overflow: scroll;
 }
 .addBtn{
   height:18px;
@@ -151,7 +153,7 @@
   padding-left:10px;
 }
 .contentFriends{
-  height: 190px;
+  height: 150px;
   overflow: scroll;
   display: flex;
   justify-content: space-around;
@@ -233,4 +235,21 @@
 .myButton:active {
   position:relative;
   top:1px;
+}
+
+#profilIcon {
+  margin-top: 60px;
+  margin-left: -9%;
+  position: absolute;
+  z-index: 10;
+}
+
+.userName {
+  height: 100px;
+  font-size: 26px;
+}
+
+#headMessageList {
+  margin-top: 120px;
+  height: 2px;
 }
