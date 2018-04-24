@@ -2,7 +2,7 @@
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
   <div id="global">
-    <h2>Création de <font style="color:#0071bc;">votre équipe</font></h2>
+    <h1>Création de <font style="color:#0071bc;">votre équipe</font></h1>
     <div class="description">
       Pour quel jeu souhaitez-vous créer votre équipe ?
     </div>
@@ -22,8 +22,10 @@
           <label for="{{game._id}}" class="gameName">
             <img *ngIf="selector.checked" src="../../../../../assets/images/hexa_game/checked/{{game._id}}.png" alt="{{game.name}}" >
             <img *ngIf="!selector.checked" src="../../../../../assets/images/hexa_game/{{game._id}}.png" alt="{{game.name}}" >
-            {{game.name}}
           </label>
+          <div class="name">
+            {{game.name}}
+          </div>
         </li>
       </div>
 

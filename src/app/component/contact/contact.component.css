@@ -29,7 +29,7 @@
 }
 .inputGray
 {
-  background-color: #333333;
+  background-color: rgba(29,29,29,0.8);
   border-bottom: solid 1px #8C8C8C;
   font-family: "Rhanoll";
   font-size: 22px;
@@ -40,7 +40,10 @@
   padding-left: 1%;
   padding-right: 1%;
 }
-
+.input-message input {
+  background-color: rgba(29,29,29,0.5);
+  padding: 5px ;
+}
 *{
   font-family: Rhanoll;
   color:white;
@@ -51,6 +54,8 @@
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  position: fixed;
+  width: 100%;
 }
 
 .container{
@@ -86,8 +91,11 @@
   color:grey;
 }
 .contentMessage{
-  overflow: scroll;
+  overflow: hidden;
   height: 55vh;
+}
+.contentMessage:hover{
+  overflow: auto;
 }
 .message{
   padding-left:30px;
@@ -123,11 +131,13 @@
   text-align: center;
   font-size:20px;
   margin-top:-12px;
-  margin-bottom: -15px;
+  margin-bottom: -6px;
   padding:5px;
+  padding-top: 10px;
 }
 .content{
   padding:10px;
+  font-size:20px;
   margin-top: -12px;
   margin-bottom: -15px;
   padding-left:30px;
@@ -152,12 +162,16 @@
 }
 .contentFriends{
   height: 190px;
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
   margin-top: -10px;
-  margin-bottom: -13px;
+  margin-bottom: -6px;
   flex-wrap: wrap;
+}
+
+.contentFriends:hover{
+  overflow: auto;
 }
 .friends{
 }
