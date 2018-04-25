@@ -121,20 +121,36 @@ export class ContactComponent implements OnInit {
 
   OnNewChatClick(friend){
     let friendToAdd = friend.username;
+    var alreadyExist = false;
 
-    this.chatService.addChat(friendToAdd)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.JoinRoom(data._id,this.localStorage.getItem('username'),friend.username);
-          this.FindMyConvs();
-          this.FindOtherConvs();
-        },
-        error => {
-          console.log(error);
-        },
-        () => {}
-      );
+    this.myConvs.forEach(item => {
+      if(item.user1 == this.localStorage.getItem('username') && item.user2 == friendToAdd){
+        alreadyExist = true;
+        this.JoinRoom(item._id, item.user1, item.user2);
+      }
+    });
+    this.otherConvs.forEach(item => {
+      if(item.user1 == friendToAdd && item.user2 == this.localStorage.getItem('username')){
+        alreadyExist = true;
+        this.JoinRoom(item._id, item.user1, item.user2);
+      }
+    });
+
+    if(!alreadyExist){
+      this.chatService.addChat(friendToAdd)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.JoinRoom(data._id,this.localStorage.getItem('username'),friend.username);
+            this.FindMyConvs();
+            this.FindOtherConvs();
+          },
+          error => {
+            console.log(error);
+          },
+          () => {}
+        );
+    }
   }
 
   OnTyping(){
@@ -159,18 +175,4 @@ export class ContactComponent implements OnInit {
         }
       );
   }
-
-  CreateConv(friend){
-    this.chatService.addChat(friend.username)
-      .subscribe(
-        data => {
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        },
-        () => {}
-      );
-  }
-
 }

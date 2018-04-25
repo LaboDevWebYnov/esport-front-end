@@ -90,6 +90,7 @@
           <div class="content">
             <ul class="sideList">
               <li *ngFor="let item of myConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
+              <li *ngFor="let item of otherConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
             </ul>
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
