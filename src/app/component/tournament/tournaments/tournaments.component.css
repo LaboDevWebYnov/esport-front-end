@@ -306,6 +306,43 @@ li img:hover{
 
 .createTournamentLogo{
   display: block;
-  margin: auto;
-  margin-right: 0;
+  margin: 0 0 0 auto;
 }
+
+.featuredTournamentDiv{
+  display: block;
+  margin: 0 0 0 auto;
+  font-size:26px;
+  height:fit-content;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+
+.featuredTournamentForm{
+  text-align: center;
+}
+
+.featuredTournamentCheckbox{
+  min-width:25px;
+  height:25px;
+  vertical-align: middle;
+
+}
+
+.featuredTournamentButton{
+
+  vertical-align: middle;
+}
+
+
+
+/*------------ Featured tournament button ------------*/
+
+
+
+/* Hide default HTML checkbox
+.switch input {display:none;} */
+
+
+/*------------ Fin featured tournament button ------------*/

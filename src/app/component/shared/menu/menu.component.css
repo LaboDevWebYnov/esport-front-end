@@ -5,23 +5,69 @@ nav {
   width: 100%;
 }
 
-nav ul#menu{
-  padding: 0px;
-  background-color: black;
-  text-align: center;
-  margin-top: 0px;
-  float: right;
-  width: 100%;
-}
-
 nav li{
-  display: inline-block;
+  display: inline-flex;
   height: 40px;
   margin: 0px;
   padding: 0px;
   text-align: center;
   line-height: 40px;
-  float: right;
+}
+
+nav li a{
+  text-decoration: none;
+  font-family: Rhanoll;
+  text-transform: uppercase;
+  color:white;
+}
+
+#menu{
+  text-align: right;
+
+  margin-right: 10vw;
+  padding-left: 0;
+  font-size:40px;
+}
+
+#menu .menu_letter2, #menu .menu_icon2{
+  margin: 0 0.3em;
+}
+
+.menu_icon2{
+  font-size:30px;
+}
+
+.menuPage a:hover{
+  color: #0071bc;
+  transition: color 0.2s;
+}
+nav li a.activePage{
+    color: #0071bc;
+}
+
+/*nav {
+  z-index: 10;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+nav ul#menu{
+  padding: 0px;
+  background-color: black;
+  text-align: center;
+  margin-top: 0px;
+  text-ali: right;
+  width: 100%;
+}
+
+nav li{
+  display: inline-flex;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  line-height: 40px;
 }
 nav li.menu_letter {
   font-size: x-large;
@@ -29,8 +75,8 @@ nav li.menu_letter {
 }
 
 nav li.menu_icon {
-   width: 20px;
-   margin-top: 2px;
+  width: 20px;
+  margin-top: 2px;
 }
 
 nav li.menu_icon.right_side_menu {
@@ -44,6 +90,6 @@ nav li a{
   font-family: Rhanoll;
   text-transform: uppercase;
 }
-
+*/
 
 

@@ -13,7 +13,7 @@ import {Configuration} from '../shared/app.constants';
 })
 export class AppComponent {
   title = 'app works!';
-  socket = io('http://localhost:3000');
+  socket = io('http://localhost:3100');
 
   constructor(public userService: UserService, public localStorage: CoolLocalStorage){
     // if(this.localStorage.getItem('userId') != null)

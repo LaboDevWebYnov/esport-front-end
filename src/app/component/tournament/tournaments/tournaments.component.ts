@@ -76,8 +76,9 @@ export class TournamentsComponent implements OnInit {
 
   private onSubmit(event): void{
     this.params["name"] = event.target[0].value;
+    var tournois = null;
 
-    console.log('get tournaments by PREsearch', this.tournaments);
+    // console.log('get tournaments by PREsearch', this.tournaments);
 
     this.ToornamentServiceInstance
       .getTournaments(this.params)
@@ -88,5 +89,29 @@ export class TournamentsComponent implements OnInit {
           console.log('get tournaments by search', this.tournaments);
         }
       );
+
+  }
+
+  private isFeatured(event): void{
+    //console.log(event.target.checked);
+    this.params["featured"] = event.target.checked;
+    console.log("coucou " + this.params["featured"]);
+
+    if(event.target.checked){
+      this.params["featured"] = 1;
+    }
+    else{
+      this.params["featured"] = 0;
+    }
+
+    this.ToornamentServiceInstance
+      .getTournaments(this.params)
+      .subscribe(
+        data => this.tournaments = data,
+        error => console.log(error),
+        () => {
+          console.log('get tournaments by search', this.tournaments);
+      }
+    );
   }
 }
