@@ -1,8 +1,12 @@
 <div class="container-fluid">
   <div class="col-sm-12 col-md-6 col-lg-4 bloc">
     <h1>MES <font style="color:#0071bc;">AMIS</font></h1>
+
     <div class="content-section">
       <div *ngIf="currentUser">
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
         <table  class="amis">
           <div *ngFor="let currentFriend of currentUser.friends" class="amis"><tr class="amis">
             <div style="position:absolute;margin-top:-6px;width:350px;">
@@ -19,6 +23,10 @@
         </table>
       </div>
     </div>
+    <div style="position:absolute;margin-top:-6px;width:350px;margin-left:70px">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    </div>
+
     <input type="button" class="myButton" (click)="openAddFriendsModal()" value="Ajouter des amis"/>
     <div id="openAddFriendsModal" class="modal">
       <div class="modal-content">
@@ -50,6 +58,9 @@
 
   <div class="col-sm-12 col-md-6 col-lg-4 bloc">
     <h1>MES <font style="color:#0071bc;">TEAMS</font></h1>
+    <div style="position:absolute;margin-top:-6px;width:350px;margin-left:70px">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
+    </div>
     <div class="content-section">
 
       <!--Boucle team-->
@@ -71,19 +82,21 @@
           </div>
         </div>
       </div>
-      <div style="position:absolute;margin-top:-6px;width:350px;">
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
-      </div>
-
+    </div>
+    <div style="position:absolute;margin-top:-6px;width:350px;margin-left:70px">
+      <app-blue-separation-bar-small></app-blue-separation-bar-small>
     </div>
     <a href="/team" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>
   </div>
+
 
   <div class="col-md-12 col-lg-4 bloc">
     <h1>RESEAUX <font style="color:#0071bc;">SOCIAUX</font></h1>
     <div class="content-section">
       <table>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
         <tr>
           <td>
             <i class="fa fa-facebook fa-3x" aria-hidden="true" style="margin-left:8px;"></i>
@@ -92,25 +105,31 @@
             <a class="fatFont" href="">Facebook</a>
           </td>
         </tr>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
         <tr>
           <td>
-            <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-3x" aria-hidden="true" style="margin-left:8px;"></i>
           </td>
           <td>
             <a class="fatFont" href="">Twitter</a>
           </td>
         </tr>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
         <tr>
           <td>
-            <i class="fa fa-twitch fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-twitch fa-3x" aria-hidden="true" style="text-align: center;"></i>
           </td>
           <td>
             <a class="fatFont" href="">Twitch</a>
           </td>
         </tr>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
         <tr>
           <td>
             <i class="fa fa-youtube fa-3x" aria-hidden="true" style="margin-left:5px;"></i>
@@ -119,7 +138,9 @@
             <a class="fatFont" href="">Youtube</a>
           </td>
         </tr>
-        <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        <div style="position:absolute;margin-top:-6px;width:350px;">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
       </table>
     </div>
     <a href="/profile" class="myButton">AFFICHER <font style="color:#0071bc;">PLUS</font></a>

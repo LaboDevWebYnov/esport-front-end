@@ -4,17 +4,19 @@
   <img class="imageHeader" src="../../../../assets/images/banner-csgo-01.png">
   <!--<img class="imageHeader" src="../../../../assets/images/banner-{{response.game._id}}.png">-->
 </div>
-<app-blue-separation-bar-small></app-blue-separation-bar-small>
+<div classe="blue-bar">
+  <app-blue-separation-bar-small></app-blue-separation-bar-small>
+</div>
 <div *ngIf="userGetById" class="container">
   <div class="row profil-banner">
     <div class="col-md-2 avatar">
       <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
     </div>
-    <div class="col-md-10">
-      <h1><img src="../../../../assets/images/FR.png" id="flag">{{userGetById.username}}</h1>
+    <div class="col-md-10 infoUser">
+      <h1>{{userGetById.username}}</h1>
       <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
       <!--id="provenance"-->
-      <h3>{{userGetById.firstname}} {{userGetById.lastname}}</h3>
+      <h3><img src="../../../../assets/images/FR.png" id="flag">{{userGetById.firstname}} {{userGetById.lastname}}</h3>
     </div>
   </div>
 </div>
@@ -47,7 +49,7 @@
   </div>
 
   <div id="statistics" class="content">
-    Prochainement les statistics !
+    Prochainement les statistiques !
   </div>
 
   <div id="parameters" class="content">
