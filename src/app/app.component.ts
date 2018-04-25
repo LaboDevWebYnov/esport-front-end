@@ -13,11 +13,11 @@ import {Configuration} from '../shared/app.constants';
 })
 export class AppComponent {
   title = 'app works!';
-  socket = io('http://localhost:3100');
+  socket = io.connect('http://localhost:3100');
 
   constructor(public userService: UserService, public localStorage: CoolLocalStorage){
-    // if(this.localStorage.getItem('userId') != null)
-    //   this.loginSocketIO();
+     if(this.localStorage.getItem('userId') != null)
+       this.loginSocketIO();
 
   }
 
@@ -35,7 +35,7 @@ export class AppComponent {
           console.log(error);
         },
         () => {
-          console.log('Get user: ', myUser);
+          console.log('Socket log in: ', myUser);
         }
       );
   }

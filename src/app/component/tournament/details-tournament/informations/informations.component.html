@@ -1,6 +1,52 @@
-<div id="informations">
+<div id="informations" *ngIf="toornamentObj">
 
-  <div class="row ensemble">
+  <div class="row general">
+    <div class="col-md-6">
+      <div class="tournamentName">
+        <div class="title">Name :</div>
+        <div class="Text">
+          <img src="../../../../assets/images/toornament_flag/{{toornamentObj.country}}.png" id="flag">
+          {{toornamentObj.name}}
+        </div>
+      </div>
+      <div class="tournamentDiscipline">
+        <div class="title">Games :</div>
+        <div class="Text">
+          {{toornamentObj.discipline}}
+        </div>
+      </div>
+      <div class="tournamentPlayerCount" *ngIf="participants">
+        <p class="title">Number of Participants :</p>
+        <div class="Text tournamentPlayerCount__text">
+
+          {{participants.length}}/{{toornamentObj.size}}
+          <i class="fas fa-user" style="font-family: 'Font Awesome 5 Free'"></i>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="tournamentDate">
+        <div class="title">Date :</div>
+        <div class="Text">
+          <h2><i style="font-family: 'Font Awesome 5 Free'" class="fas fa-calendar-alt" aria-hidden="true"></i> {{dateConvertor(toornamentObj.date_start)}}</h2>
+        </div>
+      </div>
+      <div class="plateformTournament" *ngIf="toornamentObj.platforms">
+        <p class="title">Plateforms : </p>
+        <div class="plateformTournament__item-container">
+          <div *ngFor="let platform of toornamentObj.platforms" class="plateformTournament__item" [innerHtml]="findPlateformLogo(platform)"></div>
+        </div>
+      </div>
+      <div class="tournamentOrganizator">
+        <div class="title">Organized</div>
+        <div class="Text">By {{toornamentObj.organization}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row details">
     <div class="col-md-6">
       <div class="Description">
         <h1 class="title">Tournament Description :</h1>
@@ -16,12 +62,6 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="Eliminations">
-        <h1 class="title">Eliminations :</h1>
-        <div class="Text">
-          qualification : {{tournamentInfo.BO1}}, semi-final and final : {{tournamentInfo.BO3}}
-        </div>
-      </div>
       <div class="CashPrize">
         <h1 class="title">Cash Prize :</h1>
         <div class="Text" *ngIf="prize">{{prize}}</div>

@@ -1,0 +1,193 @@
+*{
+  font-family: Rhanoll;
+  color:white;
+}
+#global {
+  background: url("../../../assets/images/font-overwatch.png");
+  min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container{
+  margin-top:50px;
+}
+.profilPrincip{
+  max-height: 125px;
+}
+.entete{
+  margin-top: 120px;
+}
+.entete div{
+  margin-left:30px;
+  display: inline-block;
+  position:relative;
+  z-index: 1;
+}
+.entete img{
+  margin-top: -73px;
+}
+.userName{
+  font-size:25px;
+  position: relative;
+  top: -65px;
+}
+.verticalBar{
+  position: absolute;
+  top: 70px;
+}
+
+.day, .hour{
+  text-align: center;
+  color:grey;
+}
+.contentMessage{
+  overflow: scroll;
+  height: 55vh;
+}
+.message{
+  padding-left:30px;
+  padding-right:30px;
+  font-size:20px;
+}
+.message span{
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 10px;
+}
+.owned, .owned span{
+  color:#0071bc;
+  text-align: right;
+}
+.sendBtn{
+  height:18px;
+}
+.arrowDown{
+  width:25px;
+  position: absolute;
+  margin-top: 10px;
+  left: 20%;
+}
+
+.second{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height:90vh;
+}
+.title{
+  text-align: center;
+  font-size:20px;
+  margin-top:-12px;
+  margin-bottom: -15px;
+  padding:5px;
+}
+.content{
+  padding:10px;
+  margin-top: -12px;
+  margin-bottom: -15px;
+  padding-left:30px;
+  padding-right:30px;
+}
+.addBtn{
+  height:18px;
+  padding-left:15px;
+  margin-top: -5px;
+}
+.addBtn:hover, .arrowDown:hover{
+  cursor: pointer;
+}
+.addBtn:active{
+  position:relative;
+  top:1px;
+}
+.content>div:hover{
+  color:#0071bc;
+  cursor: pointer;
+  padding-left:10px;
+}
+.contentFriends{
+  height: 190px;
+  overflow: scroll;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -10px;
+  margin-bottom: -13px;
+  flex-wrap: wrap;
+}
+.friends{
+}
+.gradientBlue{
+  background: -webkit-linear-gradient(left, rgba(21,50,69,0), rgba(21,50,69,1), rgba(21,50,69,0)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(21,50,69,0), rgba(21,50,69,1), rgba(21,50,69,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(21,50,69,0), rgba(21,50,69,1), rgba(21,50,69,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(21,50,69,0), rgba(21,50,69,1), rgba(21,50,69,0)); /* Standard syntax */
+}
+.contentFriends>div{
+  width:92px;
+  height: 90px;
+}
+.friendPicto{
+  margin-top:10px;
+  height:80px;
+  padding:5px;
+  position:relative;
+}
+.friendStatus{
+  margin-top:10px;
+  height:15px;
+  position: relative;
+  top:-90px;
+  left:57px;
+}
+.form-control {
+  margin-top: 15px;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid gray;
+  color: #bdbdbd !important;
+  font-family: Rhanoll;
+  font-size: x-large;
+  border:none;
+  border-bottom: 1px solid gray;
+  background: rgba(29,29,29,0.8);
+}
+
+/*BUTTON*/
+.myButton {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #40403f), color-stop(1, #21211f));
+  background:-moz-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-webkit-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-o-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:-ms-linear-gradient(top, #40403f 5%, #21211f 100%);
+  background:linear-gradient(to bottom, #40403f 5%, #21211f 100%);
+  background-color:#40403f;
+  border:1px solid black;
+  color:white;
+  font-size: 20px;
+  display:block;
+  cursor:pointer;
+  padding:2px 28px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #21211f;
+  /*margin-top: 280px;*/
+  margin-top: 15px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.myButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #21211f), color-stop(1, #40403f));
+  background:-moz-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-webkit-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-o-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:-ms-linear-gradient(top, #21211f 5%, #40403f 100%);
+  background:linear-gradient(to bottom, #21211f 5%, #40403f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#21211f', endColorstr='#40403f',GradientType=0);
+  background-color:#21211f;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}

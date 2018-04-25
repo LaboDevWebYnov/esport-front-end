@@ -1,26 +1,119 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-3" id="friendContent">
-    <h1>Mes Amis</h1>
-    <ul id="friendList">
-      <li *ngFor="let item of myFriends" (click)="JoinRoom(item.username)">{{item.username}}</li>
-    </ul>
-  </div>
-  <div class="col-md-7" id="chat">
-    <div class="row">
-      <h1 id="titleChat">{{roomName}}</h1>
-    </div>
-    <div class="row pre-scrollable" id="messagesDiv">
-      <ul id="messages"></ul>
-    </div>
+<div id="global">
+  <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"/>
+        <div class="row" id="profilIcon">
+          <div class="col-md-6">
+            <img src="../../../../../assets/images/hexapic_profil.png" class="profilPrincip">
+          </div>
+          <div class="col-md-6">
+            <div class="userName">{{roomName}}</div>
+          </div>
+        </div>
+        <div class="row" id="headMessageList">
+          <div class="col-md-12">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="verticalBar col-md-1">
+            <app-vertical-blue-separation></app-vertical-blue-separation>
+          </div>
+          <div class="col-md-11 contentMessage"><!--Message-->
+            <div class="row">
+              <ul class="col-md-12" id="messages">
+                <div *ngFor="let item of currentChat">
+                  <li *ngIf="item.autor != username" class="col-md-11 message">
+                    <div>
+                      {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
+                    </div>
+                    <div>
+                      {{item.content}}
+                    </div>
+                  </li>
+                  <li *ngIf="item.autor == username" class="col-md-11 owned">
+                    <div>
+                      {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
+                    </div>
+                    <div>
+                      {{item.content}}
+                    </div>
+                  </li>
+                  <div class="col-md-6">
+                    <app-blue-separation-bar-small></app-blue-separation-bar-small>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="offset-md-1 row">
+              <div class="input-message col-md-10">
+                <p hidden="{{isTyping}}">{{typingUser}} est entrain d'écrire</p>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
+                       onfocus="" onblur=""/>
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="myButton" (click)="SendMessage()"><img src="../../../../../assets/images/send.png" class="sendBtn"></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <button type="button" class="btn btn-light btn-lg" (click)="SendMessage()">Send</button>
-      </div>
+      <div class="col-md-4 row second">
+        <div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="title gradientBlue">
+            <img src="../../../../../assets/images/arrow.png" class="arrowDown">
+            GROUPES
+            <img src="../../../../../assets/images/icon-add.png" class="addBtn">
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="content">
+            <ul class="sideList">
+              <li>Team 1</li>
+              <li>Team 2</li>
+              <li>Team 3</li>
+              <li>Team 4</li>
+            </ul>
+
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
+
+        <div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="title gradientBlue">
+            <img src="../../../../../assets/images/arrow.png" class="arrowDown">
+            CONVERSATIONS
+            <img src="../../../../../assets/images/icon-add.png" class="addBtn">
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="content">
+            <ul class="sideList">
+              <li *ngFor="let item of myConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
+            </ul>
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
+
+        <div class="friends">
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="title gradientBlue">
+            AMIS
+            <img src="../../../../../assets/images/icon-add.png" class="addBtn">
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          <div class="contentFriends">
+            <div>
+              <ul>
+                <div *ngFor="let item of myFriends">
+                  <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
+                  <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+                </div>
+              </ul>
+            </div>
+          </div>
+          <app-blue-separation-bar-small></app-blue-separation-bar-small>
+        </div>
     </div>
   </div>
-  <div class="col-md-1"></div>
 </div>

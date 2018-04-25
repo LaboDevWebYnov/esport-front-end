@@ -21,7 +21,7 @@
               </canvas>
             </div>
           </div>
-          <h2 style="margin-top:10px;"><a href="/player-account/{{game._id}}">{{game.login}}</a></h2>
+          <h2 style="margin-top:10px;"><button (click)="link(game._id,game.gameId)">{{game.login}}</button></h2>
         </li>
       </ul>
       <div  style="margin-bottom:-7px;">

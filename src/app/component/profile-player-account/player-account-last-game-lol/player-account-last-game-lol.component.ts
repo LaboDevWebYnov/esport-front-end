@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {CoolLocalStorage} from "angular2-cool-storage";
 
 @Component({
   selector: 'app-player-account-last-game-lol',
@@ -9,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class PlayerAccountLastGameLolComponent implements OnInit {
   gameId: string;
+  localStorage: CoolLocalStorage;
 
   public lastMatch = [{
     teamName:"No Name",
@@ -37,10 +39,11 @@ export class PlayerAccountLastGameLolComponent implements OnInit {
   }];
 
   constructor(private route: ActivatedRoute,
-              private router: Router,) { }
+              private router: Router,localStorage: CoolLocalStorage) {this.localStorage = localStorage; }
 
   ngOnInit() {
-    this.gameId = this.route.snapshot.params['gameId'];
+    this.gameId = this.localStorage.getItem('gameId')
+
     console.log(this.gameId);
   }
 

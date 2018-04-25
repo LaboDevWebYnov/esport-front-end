@@ -3,12 +3,14 @@
   color:white;
 }
 
+
+
 .title{
   color: dodgerblue;
   font-size: xx-large;
 }
 
-.ensemble{
+.details{
   margin-top: 50px;
   width: 70%;
   margin-left: auto;
@@ -18,4 +20,37 @@
 
 .Text{
   font-size: 25px;
+  display: flex;
+}
+
+.general{
+  margin-top: 50px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#flag{
+  margin-top:-8px;
+  height:22px;
+  margin-right:10px;
+}
+
+.plateformTournament__item{
+  font-size : large;
+  margin-left: 10px;
+}
+
+.plateformTournament__item-container{
+  display: flex
+}
+
+.tournamentPlayerCount__text{
+  display: flex;
+  align-items: center;
+}
+
+.fa-user{
+  font-size: 10px;
+  margin-left: 10px;
 }

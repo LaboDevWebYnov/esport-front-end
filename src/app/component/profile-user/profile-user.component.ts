@@ -19,6 +19,7 @@ export class ProfileUserComponent implements OnInit {
               localStorage: CoolLocalStorage) {this.localStorage = localStorage;}
 
   ngOnInit() {
+    this.localStorage.removeItem('gameId');
     let id = this.localStorage.getItem('userId');
     this.getItemUserById(id);
   }

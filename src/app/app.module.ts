@@ -43,8 +43,9 @@ import { Step5Component } from './component/sign_up/wizard/step5/step5.component
 import { Step6Component } from './component/sign_up/wizard/step6/step6.component';
 import { Step7Component } from './component/sign_up/wizard/step7/step7.component';
 import { LogoutComponent } from './component/auth/logout/logout.component';
-import { BlueSeparationBarComponent } from './component/profile-user/blue-separation-bar/blue-separation-bar.component';
-import { BlueSeparationBarSmallComponent } from './component/sign_up/blue-separation-bar-small/blue-separation-bar-small.component';
+import { BlueSeparationBarComponent } from './component/blue_bar/blue-separation-bar/blue-separation-bar.component';
+import { VerticalBlueSeparationComponent } from './component/blue_bar/vertical-blue-separation/vertical-blue-separation.component';
+import { BlueSeparationBarSmallComponent } from './component/blue_bar/blue-separation-bar-small/blue-separation-bar-small.component';
 import { TeamComponent } from './component/team/team/team.component';
 import { ProfilePlayerAccountComponent } from './component/profile-player-account/profile-player-account.component';
 import { PlayerAccountBannerComponent } from './component/profile-player-account/player-account-banner/player-account-banner.component';
@@ -80,6 +81,14 @@ import { ParticipantsComponent } from './component/tournament/details-tournament
 import { MatchesComponent } from './component/tournament/details-tournament/matches/matches.component';
 
 import {TournamentsComponent} from './component/tournament/tournaments/tournaments.component';
+import { MessageComponent } from './component/message/message.component';
+import { HomeConnectedComponent } from './component/home_connected/home-connected/home-connected.component';
+import { HeaderConnectedComponent } from './component/home_connected/header-connected/header-connected.component';
+import { TournoisConnectedComponent } from './component/home_connected/tournois-connected/tournois-connected.component';
+import { FriendsConnectedComponent } from './component/home_connected/friends-connected/friends-connected.component';
+import { FeedConnectedComponent } from './component/home_connected/feed-connected/feed-connected.component';
+import { TeamConnectedComponent } from './component/home_connected/team-connected/team-connected.component';
+import { PlayerAccountConnectedComponent } from './component/home_connected/player-account-connected/player-account-connected.component';
 
 
 
@@ -122,6 +131,7 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
     LogoutComponent,
     BlueSeparationBarComponent,
     BlueSeparationBarSmallComponent,
+    VerticalBlueSeparationComponent,
     TeamComponent,
     ProfilePlayerAccountComponent,
     PlayerAccountBannerComponent,
@@ -156,6 +166,14 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
     InformationsComponent,
     ParticipantsComponent,
     MatchesComponent,
+    MessageComponent,
+    HomeConnectedComponent,
+    HeaderConnectedComponent,
+    TournoisConnectedComponent,
+    FriendsConnectedComponent,
+    FeedConnectedComponent,
+    TeamConnectedComponent,
+    PlayerAccountConnectedComponent,
   ],
   imports: [
     BrowserModule,
@@ -281,6 +299,14 @@ import {TournamentsComponent} from './component/tournament/tournaments/tournamen
       {
         path: 'events/create/step2',
         component: Step2TournamentComponent
+      },
+      {
+        path: 'message',
+        component: MessageComponent
+      },
+      {
+        path: 'home-connected',
+        component: HomeConnectedComponent
       }
     ])
   ],

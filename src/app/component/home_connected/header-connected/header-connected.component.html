@@ -1,0 +1,15 @@
+<app-slider-home></app-slider-home>
+<app-blue-separation-bar-small></app-blue-separation-bar-small>
+<div *ngIf="userGetById" class="container">
+  <div class="row profil-banner">
+    <div class="col-md-2 avatar">
+      <img src="../../../../assets/images/hexapic_profil.png" class="img-profile">
+    </div>
+    <div class="col-md-10">
+      <h1><img src="../../../../assets/images/FR.png" id="flag">{{userGetById.username}}</h1>
+      <!--<h1><img src="../../../../assets/images/{{userGetById.country}}.png" id="flag">{{userGetById.username}}</h1>
+      <!--id="provenance"-->
+      <h3>{{userGetById.firstname}} {{userGetById.lastname}}</h3>
+    </div>
+  </div>
+</div>

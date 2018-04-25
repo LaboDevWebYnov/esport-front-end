@@ -36,6 +36,8 @@ export class ProfilePlayerAccountComponent implements OnInit, OnDestroy {
               private router: Router,localStorage: CoolLocalStorage) { this.localStorage = localStorage}
 
   ngOnInit() {
+it
+    this.gameId = this.localStorage.getItem('gameId');
     this.sub = this.route.params.subscribe(params => {
       this.playerAccountId = params['playerAccountId'];
       let id = this.localStorage.getItem('userId');
