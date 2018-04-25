@@ -126,6 +126,9 @@ export class ContactComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.JoinRoom(data._id,this.localStorage.getItem('username'),friend.username);
+          this.FindMyConvs();
+          this.FindOtherConvs();
         },
         error => {
           console.log(error);

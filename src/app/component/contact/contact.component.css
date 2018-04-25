@@ -137,12 +137,10 @@
 .content{
   padding:10px;
   font-size:20px;
-  margin-top: -12px;
-  margin-bottom: -15px;
   padding-left:30px;
   padding-right:30px;
   font-size: 20px;
-  height: 150px;
+  height: 130px;
   overflow: scroll;
 }
 .addBtn{
