@@ -30,6 +30,15 @@
             <input  id="searchIcon" form="searchBar" type="image" src="../../../../assets/images/Ppicto_recherche.png">
           </div>
         </div>
+        <div class="featuredTournamentDiv">
+          <form class="featuredTournamentForm">
+            <label class="featuredTournamentButton">
+              <input (change)="isFeatured($event)" class="featuredTournamentCheckbox" type="checkbox">
+            </label>
+          </form>
+          <span class="featuredTournamentText">Featured tournaments</span>
+
+        </div>
         <a class="createTournamentLogo" href="/events/create/step1">
           <img _ngcontent-c4="" src="../../../../assets/images/picto_creer_team_sansdescrp.png">
         </a>
@@ -37,9 +46,7 @@
     </div>
 
     <app-blue-separation-bar-small></app-blue-separation-bar-small>
-  <ul>
-    <div *ngFor="let disc of disciplines"><li>{{disc.id}}</li></div>
-  </ul>
+
     <table *ngIf="tournaments" class="tournamentTable">
       <tr *ngFor="let tournament of tournaments">
 
@@ -47,7 +54,9 @@
           <img *ngIf="tournament.discipline === 'rainbowsix_siege'" src="../../../../../assets/images/hexa_game/5a61e8d69fe0d61c36c54253.png" class="tournamentGameIcon">
           <img *ngIf="tournament.discipline === 'counterstrike_go'" src="../../../../../assets/images/hexa_game/569104a0417130681bcf1586.png" class="tournamentGameIcon">
           <img *ngIf="tournament.discipline === 'leagueoflegends'" src="../../../../../assets/images/hexa_game/586f56f5b9fde402faa33fdc.png" class="tournamentGameIcon">
-          <img *ngIf="tournament.discipline != 'rainbowsix_siege' && tournament.discipline != 'counterstrike_go' && tournament.discipline != 'leagueoflegends'" src="../../../../../assets/images/hexa_game/allgame.png" class="tournamentGameIcon">
+          <img *ngIf="tournament.discipline === 'overwatch'" src="../../../../../assets/images/hexa_game/583d85afe26ea010b06b801b.png" class="tournamentGameIcon">
+          <img *ngIf="tournament.discipline === 'rocketleague'" src="../../../../../assets/images/hexa_game/586f56bfb9fde402faa33fdb.png" class="tournamentGameIcon">
+          <img *ngIf="tournament.discipline != 'rainbowsix_siege' && tournament.discipline != 'counterstrike_go' && tournament.discipline != 'leagueoflegends' && tournament.discipline != 'overwatch' && tournament.discipline != 'rocketleague'" src="../../../../../assets/images/hexa_game/allgame.png" class="tournamentGameIcon">
         </div>
 
         <div class="toutSaufImage">
