@@ -40,6 +40,7 @@
   padding-right: 1%;
 }
 .input-message input {
+  width: 95%;
   background-color: rgba(29,29,29,0.5);
   padding: 5px ;
 }
@@ -53,8 +54,8 @@
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  position: fixed;
-  width: 100%;
+ /* position: fixed;
+  width: 100%;*/
 }
 
 .container{
@@ -78,6 +79,7 @@
 .userName{
   font-size:40px;
   top: -65px;
+  min-height: 1px;
 }
 .verticalBar{
   position: absolute;
@@ -89,9 +91,8 @@
   color:grey;
 }
 .contentMessage{
-  margin-top: 90px;
-  overflow: scroll;
-  height: 110vh !important;
+  overflow: hidden;
+  height: 55vh !important;
 }
 .contentMessage:hover{
   overflow: auto;
@@ -141,7 +142,10 @@
   padding-right:30px;
   font-size: 20px;
   height: 130px;
-  overflow: scroll;
+  overflow: hidden;
+}
+.content:hover{
+  overflow: auto;
 }
 .addBtn{
   height:18px;
@@ -162,7 +166,7 @@
 }
 .contentFriends{
   height: 150px;
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
   margin-top: -10px;
