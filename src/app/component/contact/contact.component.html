@@ -13,21 +13,6 @@
           </div>
         </div>
 
-
-        <!--<div class="row" id="profilIcon">
-          <div class="col-md-6">
-            <img src="../../../../../assets/images/hexapic_profil.png" class="profilPrincip">
-          </div>
-          <div class="col-md-6">
-            <div class="userName"></div>
-          </div>
-        </div>
-        <div class="row" id="headMessageList">
-          <div class="col-md-12">
-            <app-blue-separation-bar-small></app-blue-separation-bar-small>
-          </div>
-        </div>-->
-
           <div class="verticalBar offset-md-1">
             <app-vertical-blue-separation></app-vertical-blue-separation>
           </div>
@@ -114,20 +99,20 @@
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="contentFriends">
-             <div *ngFor="let item of myFriends">
+<!--             <div *ngFor="let item of myFriends" class="">
                <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
                <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
                <div class="friendName">{{item.username}}</div>
-             </div>
+             </div>-->
 
-              <!--<ul class="contentFriends_list">
+              <ul class="contentFriends_list">
                 <div class="itemFriends" *ngFor="let item of myFriends">
                   <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
                   <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
-                  <span class="userName">{{item.username}}</span>
+                  <p class="userName">{{item.username}}</p>
 
                 </div>
-              </ul>-->
+              </ul>
 
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
