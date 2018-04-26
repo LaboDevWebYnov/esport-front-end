@@ -158,5 +158,25 @@ table tbody tr{
   color: white;
   text-decoration: none;
 }
+#insideBar{
+  width: 200px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: -5px;
+}
 
+#addButton{
+  font-size: 20px;
+  background-color: dodgerblue;
+  color: white;
+  margin-top: -5px;
+  max-height: 33px;
+}
 
+.cross:hover{
+  cursor: pointer;
+}
+
+.cross{
+  width: 3%;
+}

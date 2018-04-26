@@ -178,10 +178,13 @@
   width:100%;
   display:flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 10px;
+  overflow-y: scroll;
 }
 .itemFriends{
-  max-width: 30%;
-  margin:2%;
+  width: 70px;
+  margin: 13px;
 }
 .friendName{
   position: relative;
@@ -205,17 +208,17 @@
   height: 90px;
 }
 .friendPicto{
-  margin-top:10px;
-  height:80px;
+  margin-top: -15px;
+  height:auto;
+  width: 100%;
   padding:5px;
   position:relative;
 }
 .friendStatus{
-  margin-top:10px;
+  width: auto;
   height:15px;
   position: relative;
-  top:-90px;
-  left:57px;
+  margin-left: 60px;
 }
 .form-control {
   margin-top: 15px;
@@ -276,7 +279,8 @@
 }
 
 .userName {
-  height: 100px;
+  width: 100%;
+  text-align: center;
   font-size: 26px;
 }
 
