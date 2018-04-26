@@ -2,62 +2,72 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <div class="row" id="profilIcon">
+
+        <div class="entete row">
+          <span style="width:  100%;">
+            <app-blue-separation-bar-small></app-blue-separation-bar-small>
+          </span>
+          <div class="offset-md-1 col-md-11" style="margin-bottom: -150px">
+            <img src="../../../../../assets/images/hexapic_profil.png" class="profilPrincip">
+            <div class="userName">{{roomName}}</div>
+          </div>
+        </div>
+
+
+        <!--<div class="row" id="profilIcon">
           <div class="col-md-6">
             <img src="../../../../../assets/images/hexapic_profil.png" class="profilPrincip">
           </div>
           <div class="col-md-6">
-            <div class="userName">{{roomName}}</div>
+            <div class="userName"></div>
           </div>
         </div>
         <div class="row" id="headMessageList">
           <div class="col-md-12">
             <app-blue-separation-bar-small></app-blue-separation-bar-small>
           </div>
-        </div>
-        <div class="row">
-          <div class="verticalBar col-md-1">
+        </div>-->
+
+          <div class="verticalBar offset-md-1">
             <app-vertical-blue-separation></app-vertical-blue-separation>
           </div>
-          <div class="col-md-11 contentMessage"><!--Message-->
-            <div class="row">
-              <ul class="col-md-12" id="messages">
-                <div *ngFor="let item of currentChat">
-                  <li *ngIf="item.autor != username" class="col-md-11 message">
-                    <div>
-                      {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
-                    </div>
-                    <div>
-                      {{item.content}}
-                    </div>
-                  </li>
-                  <li *ngIf="item.autor == username" class="col-md-11 owned">
-                    <div>
-                      {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
-                    </div>
-                    <div>
-                      {{item.content}}
-                    </div>
-                  </li>
-                  <div class="col-md-6">
-                    <app-blue-separation-bar-small></app-blue-separation-bar-small>
-                  </div>
+
+          <div class="row contentMessage offset-md-1"><!--Message-->
+            <div class="col-12" *ngFor="let item of currentChat">
+              <div *ngIf="item.autor != username" class="message">
+                <div>
+                  {{item.created_at | date: 'dd/mm/yyyy'}}: {{item.autor}}
                 </div>
-              </ul>
-            </div>
-            <div class="offset-md-1 row">
-              <div class="input-message col-md-10">
-                <p hidden="{{isTyping}}">{{typingUser}} est entrain d'écrire</p>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
-                       onfocus="" onblur=""/>
+                <div>
+                  {{item.content}}
+                </div>
               </div>
-              <div class="col-md-2">
-                <button type="button" class="myButton" (click)="SendMessage()"><img src="../../../../../assets/images/send.png" class="sendBtn"></button>
+              <div *ngIf="item.autor == username" class="message owned">
+                <div>
+                  {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
+                </div>
+                <div>
+                  {{item.content}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="offset-md-1 row"><!--Recherche-->
+             <div class="input-message col-md-10">
+               <p hidden="{{isTyping}}">{{typingUser}} est entrain d'écrire</p>
+               <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
+                      onfocus="" onblur=""/>
+             </div>
+             <div class="col-md-2">
+               <button type="button" class="myButton" (click)="SendMessage()"><img src="../../../../../assets/images/send.png" class="sendBtn"></button>
+             </div>
+          </div>
       </div>
+
       <div class="col-md-4 row second">
         <div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
@@ -104,15 +114,20 @@
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="contentFriends">
+             <div *ngFor="let item of myFriends">
+               <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
+               <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+               <div class="friendName">{{item.username}}</div>
+             </div>
 
-              <ul class="contentFriends_list">
+              <!--<ul class="contentFriends_list">
                 <div class="itemFriends" *ngFor="let item of myFriends">
                   <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
                   <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
                   <span class="userName">{{item.username}}</span>
 
                 </div>
-              </ul>
+              </ul>-->
 
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
