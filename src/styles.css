@@ -12,3 +12,35 @@ body{
 .signupRoad{
   background: #1d1d1b;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1073B9;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1073B9;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #1073B9;
+}
+::-webkit-scrollbar-track {
+  background: none;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: none;
+}
+::-webkit-scrollbar-track:active {
+  background: none;
+}
+::-webkit-scrollbar-corner {
+  background: rgb(50, 50, 50);
+}

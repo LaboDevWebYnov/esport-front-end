@@ -46,11 +46,12 @@ h3{
 .img-profile{
   max-height:150px;
   max-width:150px;
+  margin-top: 10px;
 }
 
 .imageHeader{
   width: 100%;
-  margin-top:50px;
+  margin-top:60px;
 }
 
 .subMenu{
@@ -60,7 +61,9 @@ h3{
   height: 40px;
   background:black;
 }
-
+.blue-bar{
+  margin-top: 10px;
+}
 ul.tab {
   list-style-type: none;
   margin: 0;

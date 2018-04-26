@@ -174,11 +174,11 @@ private playerAccountId;
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.statsLabels[playerAccountNumber].push("deaths");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_deaths']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.deaths);
       this.statsLabels[playerAccountNumber].push("kills");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_kills']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.kills);
       this.statsLabels[playerAccountNumber].push("assists");
-      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties'][0]['kda']['total_assists']);
+      this.statsData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.assist);
     }
 
     this.playerAccountProperty[playerAccountNumber].isStatsLoaded = true;
@@ -197,13 +197,13 @@ private playerAccountId;
     }
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
       this.activityLabels[playerAccountNumber].push("Number Of Double Kills");
-      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_double_kills']);
+      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.doubleKills);
       this.activityLabels[playerAccountNumber].push("Number Of Triple Kills");
-      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_triple_kills']);
+      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.tripleKills);
       this.activityLabels[playerAccountNumber].push("Number Of Quadra Kills");
-      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_quadra_kills']);
+      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.quadraKills);
       this.activityLabels[playerAccountNumber].push("Number Of Penta Kills");
-      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_penta_kills']);
+      this.activityData[playerAccountNumber].push(this.playerAccountGetByUserId['properties']["0"].lastMatchsInfos["0"].player_stats.stats.pentaKills);
     }
     this.playerAccountProperty[playerAccountNumber].isActivityLoaded = true;
   }
@@ -232,7 +232,7 @@ private getAvatarPlayerAccount(playerAccountNumber: number): any{
       return String(Math.floor(win / played * 100));
     }
     else if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
-      winRate = this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['win_ratio'];
+      winRate = this.playerAccountGetByUserId['properties'][0]['league'][0]['wins']/this.playerAccountGetByUserId['properties'][0]['league'][0]['losses'];
       return String(Math.floor(winRate * 100));
     }
     return null;
@@ -278,7 +278,7 @@ private getAvatarPlayerAccount(playerAccountNumber: number): any{
   private getRankLOL(playerAccountNumber: number): any {
     let rank;
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
-      rank = this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['league'];
+      rank = this.playerAccountGetByUserId['properties']["0"].league["0"].tier+ ' ' +this.playerAccountGetByUserId['properties']["0"].league["0"].rank;
       return rank;
     }
     return null;
@@ -286,21 +286,21 @@ private getAvatarPlayerAccount(playerAccountNumber: number): any{
 
   private getLeaguePointLOL(playerAccountNumber: number): any {
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
-      return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['league_point'];
+      return this.playerAccountGetByUserId['properties']["0"].league["0"].leaguePoints;
     }
     return null;
   }
 
   private getLeagueNameLOL(playerAccountNumber: number): any {
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
-      return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['infos']['league_point'];
+      return this.playerAccountGetByUserId['properties']["0"].league["0"].leagueName;
     }
     return null;
   }
 
   private getTotalMinionKillsLOL(playerAccountNumber: number): any {
     if (this.gameId == "586f56f5b9fde402faa33fdc") {//lol
-      return this.playerAccountGetByUserId[playerAccountNumber]['properties'][0]['kda']['total_minions_kills'];
+      return this.playerAccountGetByUserId['properties']["0"].league["0"].leagueName;
     }
     return null;
   }

@@ -56,7 +56,9 @@
   position:relative;
 }
 
-
+.newsLabel{
+  background-color: #0071bc;
+}
 #insideBar{
   background-color: rgba(29,29,29,0.8);
   font-size: 30px;

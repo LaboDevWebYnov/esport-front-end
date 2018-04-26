@@ -65,12 +65,8 @@
         <div class="addPlayerAccountContainer" *ngFor="let form of divForms;let i = index;">
           <br>
           <p>{{form.gameName}}</p>
-          <div class="row">
-          <input class="form-control col-md-6" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
-          </div>
-          <div class="row">
-          <button (click)='createPlayerAccount(i)' id="AddPlayerAccountBtn{{i}}" class="btn btn-default submitButton">Valider</button>
-          </div>
+          <input class="form-control col-md-6 addPlayerAccountForm" type='text' id='playerAccount{{i}}' placeholder='{{form.placeHolder}}'>
+          <button (click)='createPlayerAccount(i)' id="AddPlayerAccountBtn{{i}}" class="btn btn-default submitButton validBtn">Valider</button>
           <br>
         </div>
       </div>
