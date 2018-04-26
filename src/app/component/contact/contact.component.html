@@ -107,10 +107,9 @@
 
               <ul class="contentFriends_list">
                 <div class="itemFriends" *ngFor="let item of myFriends">
-
+                  <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
                   <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
                   <span class="userName">{{item.username}}</span>
-                  <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
 
                 </div>
               </ul>
