@@ -1,4 +1,5 @@
-<div class="container signupRoad">
+<div id="global">
+<div class="container">
   <app-blue-separation-bar-small></app-blue-separation-bar-small>
   <h1>Création de <font style="color:#0071bc;">Tournois</font></h1>
 
@@ -19,8 +20,8 @@
       <app-blue-separation-bar-small></app-blue-separation-bar-small>
 
       <form (ngSubmit)="onSubmit($event)" #step1Form="ngForm" class="form-inline">
-        <div class="row">
-          <div class="col-sm-6">
+        <div class="row col-12">
+          <div class="col-6">
             <div class="x-large">
               Type de participants* :
             </div>
@@ -37,7 +38,7 @@
               </label>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-6">
             <div class="x-large">
               Nombre de participants* :
             </div>
@@ -103,4 +104,5 @@
       </button>
     </div>
   </div>
+</div>
 </div>

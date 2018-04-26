@@ -1,3 +1,13 @@
+#global {
+  background: url("../../../../../assets/images/font-lol.png");
+  min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container{
+  padding-top: 15vh;
+}
 div {
   font-family: Rhanoll;
   color:white;
@@ -223,7 +233,6 @@ span.round-tabs.five{
 }
 .form-control {
   width: 100%;
-  background: #1d1d1b;
   border:none;
   border-bottom: 1px solid gray;
   color: #bdbdbd !important;
@@ -231,7 +240,7 @@ span.round-tabs.five{
   font-size: x-large;
   border:none;
   border-bottom: 1px solid gray;
-  background: #1d1d1b;
+  background: rgba(0,0,0,0);
 }
 
 .form-group {
@@ -252,6 +261,9 @@ span.round-tabs.five{
 }
 .condition input{
   display: inline-block;
+}
+.form-control input{
+  background: yellow;
 }
 .condition p{
   margin-left:25px;
