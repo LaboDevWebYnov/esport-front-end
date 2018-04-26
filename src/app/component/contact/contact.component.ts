@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit {
   message = '';
   roomName = "";
   currentChat: any;
-  isTyping = true;
+  isTyping = false;
   typingUser = "";
   myFriends: any;
   showGroup: boolean;
@@ -149,12 +149,14 @@ export class ContactComponent implements OnInit {
   }
 
   SendMessage(){
-    let data = {
-      username: this.myUsername,
-      message: this.message
-    };
-    this.socket.emit('chat-message', data);
-    this.message="";
+    if(this.message != ""){
+      let data = {
+        username: this.myUsername,
+        message: this.message
+      };
+      this.socket.emit('chat-message', data);
+      this.message="";
+    }
   }
 
   OnNewChatClick(friend){
