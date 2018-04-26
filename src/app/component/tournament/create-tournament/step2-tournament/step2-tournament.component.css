@@ -1,3 +1,13 @@
+#global {
+  background: url("../../../../../assets/images/font-lol.png");
+  min-height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container{
+  padding-top: 15vh;
+}
 .x-large{
   font-size: x-large;
 }
@@ -194,11 +204,17 @@ span.round-tabs.five{
   margin-right: 15px;
   margin-left: 15px;
 }
-
+label{
+  font-size: 20px;
+}
+.form-inline label{
+  justify-content: left;
+}
 #nbrPartic{
   margin-top:15px;
   width:150px;
   color:black;
+  font-size: 20px;
 }
 
 /*Sélecteur de jeu*/

@@ -35,7 +35,7 @@
 
           <div class="offset-md-1 row"><!--Recherche-->
              <div class="input-message col-md-10">
-               <p *ngIf="!isTyping">{{typingUser}} est entrain d'écrire</p>
+               <p id="typing" *ngIf="isTyping">{{typingUser}} est entrain d'écrire</p>
                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
                       (focus)="OnTyping()" (blur)="OnStopTyping()"/>
              </div>
@@ -58,7 +58,6 @@
             <ul class="sideList">
               <li *ngFor="let item of myTeams">{{item.name}}</li>
             </ul>
-
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
         </div>
