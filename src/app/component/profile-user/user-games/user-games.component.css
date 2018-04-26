@@ -188,11 +188,23 @@ li img:hover{
   float: right;
 }
 
-.form-control {
-  width: 80% !important;
+.addPlayerAccountForm{
+  width: 300px;
+  font-size: 20px;
 }
 
-.btn {
-  margin-top: 3px !important;
-  margin-left: 20px;
+.validBtn{
+  font-size: 20px;
+  background-color: dodgerblue;
+  color: white;
+  max-height: 33px;
+  margin-left: 0;
+}
+
+.cross:hover{
+  cursor: pointer;
+}
+
+.cross{
+  width: 3%;
 }
