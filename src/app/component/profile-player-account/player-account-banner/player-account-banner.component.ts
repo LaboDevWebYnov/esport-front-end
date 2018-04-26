@@ -21,6 +21,7 @@ export class PlayerAccountBannerComponent implements OnInit {
 
 
     this.gameId = this.game_id ? this.game_id : this.localStorage.getItem('gameId');
+    this.gameId = "586f56f5b9fde402faa33fdc";
 
 
 

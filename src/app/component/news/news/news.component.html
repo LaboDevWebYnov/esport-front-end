@@ -51,11 +51,14 @@
 
         <div class="col-md-6 col-lg-6 jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
+            <div *ngIf="a.urlToImage">
+
+
             <div *ngIf="a.source.name == 'Polygon'">
             <div class="box-item">
               <a href="{{a.url}}" target="_blank">
                 <div class="box-post">
-                  <span class="label label-success" style="padding: 10px;">
+                  <span class="label newsLabel" style="padding: 10px;">
                     <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
                   </span>
                   <h1 class="post-title">
@@ -64,7 +67,7 @@
                     </a>
                   </h1>
                   <span class="meta">
-                    <span *ngIf="a.publishedAt"> {{a.publishedAt}}</span>
+                    <span *ngIf="a.publishedAt"> {{a.publishedAt | date : 'dd/MM/yyyy'}}</span>
                   </span>
                 </div>
                 <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
@@ -72,15 +75,17 @@
             </div>
           </div>
         </div>
+          </div>
         </div>
 
         <div class="col-md-6 col-lg-6 jasgrid">
           <div *ngFor="let a of news.ign.articles, let i=index">
+            <div *ngIf="a.urlToImage">
             <div *ngIf="a.source.name == 'IGN'">
             <div class="box-item">
               <a href="{{a.url}}" target="_blank">
                 <div class="box-post">
-                  <span class="label label-success" style="padding: 10px;">
+                  <span class="label newsLabel" style="padding: 10px;">
                     <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
                   </span>
                   <h1 class="post-title">
@@ -89,13 +94,13 @@
                     </a>
                   </h1>
                   <span class="meta">
-                     <span *ngIf="a.publishedAt"> {{a.publishedAt}}</span>
+                     <span *ngIf="a.publishedAt"> {{a.publishedAt | date : 'dd/MM/yyyy'}}</span>
                   </span>
                 </div>
                 <img src="{{a.urlToImage}}" alt="Photo de l'article" class="">
               </a>
             </div>
-
+            </div>
           </div>
         </div>
 
@@ -110,7 +115,7 @@
             <div class="news_item__meta">
                 <a href="{{a.url}}" target="_blank">
                   <div class="box-post">
-                  <span class="label label-success" style="padding: 10px;">
+                  <span class="label newsLabel" style="padding: 10px;">
                     <a rel="tag" style="font-size: 25px;">{{a.source.name}}</a>
                   </span>
                     <h1 class="post-title">
