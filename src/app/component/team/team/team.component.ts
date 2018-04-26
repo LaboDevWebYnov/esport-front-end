@@ -127,7 +127,7 @@ export class TeamComponent implements OnInit {
         data =>  this.teams = data ,
         error =>{
           console.log(error);
-          callback(401, JSON.parse(error._body).error, null);
+          callback(401, (error._body).error, null);
         },
         () => {
           callback(200, null, this.teams);

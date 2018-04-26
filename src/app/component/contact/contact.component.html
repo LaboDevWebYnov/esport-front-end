@@ -115,9 +115,21 @@
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="contentFriends">
              <div *ngFor="let item of myFriends">
-                <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
-                <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+               <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
+               <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+               <div class="friendName">{{item.username}}</div>
              </div>
+
+              <!--<ul class="contentFriends_list">
+                <div class="itemFriends" *ngFor="let item of myFriends">
+
+                  <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
+                  <span class="userName">{{item.username}}</span>
+                  <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
+
+                </div>
+              </ul>-->
+
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
         </div>

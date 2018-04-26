@@ -172,8 +172,23 @@
   margin-top: -10px;
   margin-bottom: -6px;
   flex-wrap: wrap;
-}
 
+}
+.contentFriends_list{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+}
+.itemFriends{
+  max-width: 30%;
+  margin:2%;
+}
+.friendName{
+  position: relative;
+  font-size: 18px;
+  margin-top: -15px;
+  text-align: center;
+}
 .contentFriends:hover{
   overflow: auto;
 }
