@@ -14,22 +14,26 @@ export class MenuComponent implements OnInit {
 
   constructor(localStorage: CoolLocalStorage) {
     this.localStorage = localStorage;
+    console.log("local storage:");
+    console.log(this.localStorage);
 
   }
 
   ngOnInit() {
       this.isConnectedMenu = this.localStorage.getItem('isConnected');
-      console.log("Connecté???? " + this.isConnectedMenu);
   }
 
   public clicked(event, option): void{
-
-    let menuOnglets = document.getElementsByClassName("menuPage");
-    _.each(menuOnglets, function (link) {
-      link.className = 'menuPage'
-    })
-
-    event.path[0].className = 'menuPage activePage';
-
+    var activeOnglet = document.getElementsByClassName("activePage");
+    activeOnglet[0].classList.remove("activePage");
+    if(option === "userImage"){
+      event.path[0].className = "fa fa-user activePage";
+    }
+    else if(option === "messageImage"){
+      event .path[0].className = 'fa fa-envelope activePage';
+    }
+    else{
+      event.path[0].className = 'menuPage menu_letter2 activePage';
+    }
   }
 }

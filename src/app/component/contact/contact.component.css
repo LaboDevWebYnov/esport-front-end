@@ -40,6 +40,7 @@
   padding-right: 1%;
 }
 .input-message input {
+  width: 95%;
   background-color: rgba(29,29,29,0.5);
   padding: 5px ;
 }
@@ -53,8 +54,8 @@
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  position: fixed;
-  width: 100%;
+ /* position: fixed;
+  width: 100%;*/
 }
 
 .container{
@@ -78,6 +79,7 @@
 .userName{
   font-size:40px;
   top: -65px;
+  min-height: 1px;
 }
 .verticalBar{
   position: absolute;
@@ -89,9 +91,8 @@
   color:grey;
 }
 .contentMessage{
-  margin-top: 90px;
-  overflow: scroll;
-  height: 110vh !important;
+  overflow: hidden;
+  height: 55vh !important;
 }
 .contentMessage:hover{
   overflow: auto;
@@ -142,7 +143,10 @@
   padding-right:30px;
   font-size: 20px;
   height: 130px;
-  overflow: scroll;
+  overflow: hidden;
+}
+.content:hover{
+  overflow: auto;
 }
 .addBtn{
   height:18px;
@@ -163,14 +167,32 @@
 }
 .contentFriends{
   height: 150px;
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
   margin-top: -10px;
   margin-bottom: -6px;
   flex-wrap: wrap;
-}
 
+}
+.contentFriends_list{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 10px;
+  overflow-y: scroll;
+}
+.itemFriends{
+  width: 70px;
+  margin: 13px;
+}
+.friendName{
+  position: relative;
+  font-size: 18px;
+  margin-top: -15px;
+  text-align: center;
+}
 .contentFriends:hover{
   overflow: auto;
 }
@@ -187,17 +209,17 @@
   height: 90px;
 }
 .friendPicto{
-  margin-top:10px;
-  height:80px;
+  margin-top: -15px;
+  height:auto;
+  width: 100%;
   padding:5px;
   position:relative;
 }
 .friendStatus{
-  margin-top:10px;
+  width: auto;
   height:15px;
   position: relative;
-  top:-90px;
-  left:57px;
+  margin-left: 60px;
 }
 .form-control {
   margin-top: 15px;
@@ -258,7 +280,8 @@
 }
 
 .userName {
-  height: 100px;
+  width: 100%;
+  text-align: center;
   font-size: 26px;
 }
 

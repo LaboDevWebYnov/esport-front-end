@@ -18,7 +18,6 @@ nav li a{
   text-decoration: none;
   font-family: Rhanoll;
   text-transform: uppercase;
-  color:white;
 }
 
 #menu{
@@ -26,23 +25,24 @@ nav li a{
 
   margin-right: 10vw;
   padding-left: 0;
-  font-size:40px;
+  font-size:30px;
 }
 
-#menu .menu_letter2, #menu .menu_icon2{
+.menuPage{
   margin: 0 0.3em;
+  color:white;
 }
 
 .menu_icon2{
   font-size:30px;
 }
 
-.menuPage a:hover{
+.menuPage:hover{
   color: #0071bc;
   transition: color 0.2s;
 }
-nav li a.activePage{
-    color: #0071bc;
+.activePage{
+  color: #0071bc;
 }
 
 /*nav {
@@ -91,5 +91,3 @@ nav li a{
   text-transform: uppercase;
 }
 */
-
-

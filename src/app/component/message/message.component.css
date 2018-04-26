@@ -28,11 +28,6 @@
 .entete img{
   margin-top: -73px;
 }
-.userName{
-  font-size:25px;
-  position: relative;
-  top: -65px;
-}
 .verticalBar{
   position: absolute;
   top: 70px;
@@ -43,7 +38,7 @@
   color:grey;
 }
 .contentMessage{
-  overflow: scroll;
+  overflow-y: scroll;
   height: 55vh;
 }
 .message{
@@ -109,7 +104,7 @@
 }
 .contentFriends{
   height: 190px;
-  overflow: scroll;
+  overflow-y: scroll;
   display: flex;
   justify-content: space-around;
   margin-top: -10px;
@@ -127,19 +122,6 @@
 .contentFriends>div{
   width:92px;
   height: 90px;
-}
-.friendPicto{
-  margin-top:10px;
-  height:80px;
-  padding:5px;
-  position:relative;
-}
-.friendStatus{
-  margin-top:10px;
-  height:15px;
-  position: relative;
-  top:-90px;
-  left:57px;
 }
 .form-control {
   margin-top: 15px;
