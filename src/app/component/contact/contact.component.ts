@@ -5,12 +5,13 @@ import {forEach} from '@angular/router/src/utils/collection';
 import {Configuration} from '../../../shared/app.constants';
 import * as io from 'socket.io-client';
 import {ChatService} from '../../../shared/services/chat.service';
+import {TeamService} from '../../../shared/services/team.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  providers: [ChatService,Configuration]
+  providers: [ChatService,Configuration,UserService,TeamService]
 })
 export class ContactComponent implements OnInit {
 
@@ -26,14 +27,18 @@ export class ContactComponent implements OnInit {
   myFriends: any;
   showGroup: boolean;
   showConv: boolean;
+  myTeams: any;
+  myUserId = this.localStorage.getItem('userId');
+  myUsername = this.localStorage.getItem('username');
 
-  constructor(private chatService: ChatService, private localStorage: CoolLocalStorage, private userService: UserService) {
+  constructor(private chatService: ChatService, private localStorage: CoolLocalStorage, private userService: UserService, private teamService: TeamService) {
     this.FindMyConvs();
     this.FindOtherConvs();
     this.GetMyFriends();
     this.showGroup = true;
     this.showConv = true;
     let thisAlt = this;
+    this.FindMyTeam();
 
     this.socket.on('return-chat-message', function(msg){
       console.log('chat message', msg);
@@ -51,9 +56,21 @@ export class ContactComponent implements OnInit {
       thisAlt.typingUser = data.username;
     });
 
-    this.socket.on('stop-typing', function(data){
+    this.socket.on('stop-typing', function(data) {
       console.log(data.username + "stop typing");
       thisAlt.isTyping = true;
+      thisAlt.typingUser = "";
+    });
+
+    this.socket.on('return-typing', function(data){
+      console.log("typing", data);
+      thisAlt.isTyping = true;
+      thisAlt.typingUser = data.username;
+    });
+
+    this.socket.on('return-stop-typing', function(data){
+      console.log("stop typing", data);
+      thisAlt.isTyping = false;
       thisAlt.typingUser = "";
     });
   }
@@ -63,7 +80,7 @@ export class ContactComponent implements OnInit {
   }
 
   FindMyConvs() {
-    this.chatService.getChatByUser1(this.localStorage.getItem('username'))
+    this.chatService.getChatByUser1(this.myUsername)
       .subscribe(
         data => {
           this.myConvs = data;
@@ -78,7 +95,7 @@ export class ContactComponent implements OnInit {
   }
 
   FindOtherConvs() {
-    this.chatService.getChatByUser2(this.localStorage.getItem('username'))
+    this.chatService.getChatByUser2(this.myUsername)
       .subscribe(
         data => {
           this.otherConvs = data;
@@ -92,6 +109,21 @@ export class ContactComponent implements OnInit {
       );
   }
 
+  FindMyTeam(){
+    this.teamService.GetTeamsByUserId(this.myUserId)
+      .subscribe(
+      data => {
+        this.myTeams = data;
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        console.log('Get teams where i am: ', this.myTeams);
+      }
+    );
+  }
+
   JoinRoom(chatId, user1, user2){
     this.roomName = user1 + " / " + user2;
 
@@ -99,7 +131,7 @@ export class ContactComponent implements OnInit {
 
     let data = {
       room: chatId,
-      username: localStorage.getItem('username')
+      username: this.myUsername
     };
     this.socket.emit('join-room', data);
 
@@ -118,7 +150,7 @@ export class ContactComponent implements OnInit {
 
   SendMessage(){
     let data = {
-      username: localStorage.getItem('username'),
+      username: this.myUsername,
       message: this.message
     };
     this.socket.emit('chat-message', data);
@@ -130,13 +162,13 @@ export class ContactComponent implements OnInit {
     var alreadyExist = false;
 
     this.myConvs.forEach(item => {
-      if(item.user1 == this.localStorage.getItem('username') && item.user2 == friendToAdd){
+      if(item.user1 == this.myUsername && item.user2 == friendToAdd){
         alreadyExist = true;
         this.JoinRoom(item._id, item.user1, item.user2);
       }
     });
     this.otherConvs.forEach(item => {
-      if(item.user1 == friendToAdd && item.user2 == this.localStorage.getItem('username')){
+      if(item.user1 == friendToAdd && item.user2 == this.myUsername){
         alreadyExist = true;
         this.JoinRoom(item._id, item.user1, item.user2);
       }
@@ -147,7 +179,7 @@ export class ContactComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
-            this.JoinRoom(data._id,this.localStorage.getItem('username'),friend.username);
+            this.JoinRoom(data._id,this.myUsername,friend.username);
             this.FindMyConvs();
             this.FindOtherConvs();
           },
@@ -186,7 +218,7 @@ export class ContactComponent implements OnInit {
   }
 
   GetMyFriends(){
-    this.userService.GetSingleUserById(this.localStorage.getItem('userId'))
+    this.userService.GetSingleUserById(this.myUserId)
       .subscribe(
         data => {
           this.myFriends = data.friends;

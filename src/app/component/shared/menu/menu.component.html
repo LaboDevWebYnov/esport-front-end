@@ -15,7 +15,7 @@
 
   <ul id="menu">
     <li class="">
-      <a class="activePage menuPage menu_letter2" (click)="clicked($event)" routerLink="/">Home</a>
+      <a class="activePage menuPage menu_letter2 home" (click)="clicked($event)" routerLink="/">Accueil</a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'" >
       <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/news">Actualites</a>
@@ -24,24 +24,24 @@
       <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/streamings">Streaming</a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'">
-      <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/team">Team</a>
+      <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/team">Equipes</a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'">
       <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/events">Tournois</a>
     </li>
     <li *ngIf="!isConnectedMenu">
-      <a (click)="clicked($event)" class="menupage menu_letter" routerLink="/auth">Log In/Sign Up</a>
+      <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/auth">Connexion/Inscription</a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'">
-      <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/logout">Log Out</a>
+      <a (click)="clicked($event)" class="menuPage menu_letter2" routerLink="/logout">Deconnexion</a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'">
-      <a (click)="clicked($event)" class="menuPage menu_icon2" routerLink="/profile">
+      <a (click)="clicked($event, 'userImage')" class="menuPage menu_icon2" routerLink="/profile">
         <i class="fa fa-user" aria-hidden="true"></i>
       </a>
     </li>
     <li *ngIf="isConnectedMenu == 'true'">
-      <a (click)="clicked($event)" class="menuPage menu_icon2" routerLink="/contact">
+      <a (click)="clicked($event, 'messageImage')" class="menuPage menu_icon2" routerLink="/contact">
         <i class="fa fa-envelope" aria-hidden="true"></i>
       </a>
     </li>
