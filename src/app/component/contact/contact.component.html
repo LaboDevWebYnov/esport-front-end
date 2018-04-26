@@ -99,21 +99,13 @@
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="contentFriends">
-<!--             <div *ngFor="let item of myFriends" class="">
-               <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
-               <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
-               <div class="friendName">{{item.username}}</div>
-             </div>-->
-
               <ul class="contentFriends_list">
                 <div class="itemFriends" *ngFor="let item of myFriends">
                   <img src="../../../../../assets/images/hexagon_connecte.png" class="friendStatus">
                   <img src="../../../../../assets/images/hexapic_profil.png" class="friendPicto" (click)="OnNewChatClick(item)">
                   <p class="userName">{{item.username}}</p>
-
                 </div>
               </ul>
-
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
         </div>

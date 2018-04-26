@@ -8,14 +8,16 @@
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
         </div>
         <table  class="amis">
-          <div *ngFor="let currentFriend of currentUser.friends" class="amis"><tr class="amis">
-            <div style="position:absolute;margin-top:-6px;width:350px;">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
-            </div>
-            <td *ngIf="currentFriend.active"> <img class="hexa_connect" src="../../../../../assets/images/hexagon_connecte.png/" alt=""> </td>
-            <td *ngIf="currentFriend.active==false"> <img class="hexa_connect" src="../../../../../assets/images/hexagon_deconnecte.png/" alt=""> </td>
-            <td><a href="profile" class="friend"> {{currentFriend.username}}</a></td>
-            <td class="droite">Connecté </td></tr>
+          <div *ngFor="let currentFriend of currentUser.friends" class="amis">
+            <tr class="amis">
+              <div style="position:absolute;margin-top:-6px;width:350px;">
+                <app-blue-separation-bar-small></app-blue-separation-bar-small>
+              </div>
+              <td *ngIf="currentFriend.active"> <img class="hexa_connect" src="../../../../../assets/images/hexagon_connecte.png/" alt=""> </td>
+              <td *ngIf="currentFriend.active==false"> <img class="hexa_connect" src="../../../../../assets/images/hexagon_deconnecte.png/" alt=""> </td>
+              <td><a href="profile" class="friend"> {{currentFriend.username}}</a></td>
+              <td class="droite">Connecté </td>
+            </tr>
             <div style="position:absolute;margin-top:-6px;width:350px;">
               <app-blue-separation-bar-small></app-blue-separation-bar-small>
             </div>
@@ -35,7 +37,7 @@
           <div class="col-sm-12 row addFriendPopUp">
             <h2>Ajouter des amis</h2>
 
-              <br><br>
+            <br><br>
 
             <form (ngSubmit)="addingFriends($event)" id="searchBar">
               <input id="insideBar" class="form-control col-sm-6" type="text" placeholder="Add friends">
