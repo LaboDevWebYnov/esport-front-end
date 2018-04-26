@@ -125,6 +125,7 @@
   flex-direction:column;
   justify-content: space-between;
   height:90vh;
+  margin-top: 20px;
 }
 .title{
   text-align: center;
