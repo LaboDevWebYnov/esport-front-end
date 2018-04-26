@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit {
   message = '';
   roomName = "";
   currentChat: any;
-  isTyping = true;
+  isTyping = false;
   typingUser = "";
   myFriends: any;
   showGroup: boolean;
