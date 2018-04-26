@@ -14,8 +14,6 @@ export class MenuComponent implements OnInit {
 
   constructor(localStorage: CoolLocalStorage) {
     this.localStorage = localStorage;
-    console.log("local storage:");
-    console.log(this.localStorage);
 
   }
 
@@ -30,7 +28,7 @@ export class MenuComponent implements OnInit {
       event.path[0].className = "fa fa-user activePage";
     }
     else if(option === "messageImage"){
-      event .path[0].className = 'fa fa-envelope activePage';
+      event.path[0].className = 'fa fa-envelope activePage';
     }
     else{
       event.path[0].className = 'menuPage menu_letter2 activePage';
