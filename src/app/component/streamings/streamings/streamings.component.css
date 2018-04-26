@@ -15,6 +15,9 @@
   margin-top:50px;
   text-align: center;
 }
+.newsLabel{
+  background-color: #0071bc;
+}
 #link{
   cursor: pointer;
 }
