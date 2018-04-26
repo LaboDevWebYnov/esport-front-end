@@ -7,56 +7,54 @@
           <span style="width:  100%;">
             <app-blue-separation-bar-small></app-blue-separation-bar-small>
           </span>
-          <div class="offset-md-1 col-md-11" style="margin-bottom: -150px">
+          <div class="offset-md-1 col-md-11">
             <img src="../../../../../assets/images/hexapic_profil.png" class="profilPrincip">
-            <div class="userName">{{roomName}}</div>
+            <div class="user">{{roomName}}</div>
           </div>
         </div>
-        <div class="verticalBar">
-          <app-vertical-blue-separation></app-vertical-blue-separation>
-        </div>
-        <div class="row contentMessage offset-md-1"><!--Message-->
-          <div class="col-12" *ngFor="let item of currentChat">
-            <div *ngIf="item.autor != username" class="message">
-              <div>
-                {{item.created_at | date: 'dd/MM/yyyy'}}: {{item.autor}}
+
+
+          <div class="verticalBar offset-md-1">
+            <app-vertical-blue-separation></app-vertical-blue-separation>
+          </div>
+
+          <div class="row contentMessage" id="contentMess"><!--Message-->
+            <div class="col-12" *ngFor="let item of currentChat">
+              <div class="col-md-1 hour">
+                {{item.created_at | date: 'H:mm'}}
               </div>
-              <div>
+              <div *ngIf="item.autor != username" class="col-md-11 message">
                 {{item.content}}
               </div>
-            </div>
-            <div *ngIf="item.autor == username" class="message owned">
-              <div>
-                {{item.created_at | date: 'dd/mm/yyyy'}} : {{item.autor}}
-              </div>
-              <div>
+              <div *ngIf="item.autor == username" class="col-md-11 message owned">
                 {{item.content}}
               </div>
-            </div>
-            <div class="col-md-6">
-              <app-blue-separation-bar-small></app-blue-separation-bar-small>
+
             </div>
           </div>
-        </div>
-        <div class="col-md-12 row">
-          <div class="input-message col-md-10">
-            <p *ngIf="!isTyping">{{typingUser}} est entrain d'écrire</p>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
-                   (focus)="OnTyping()" (blur)="OnStopTyping()"/>
+
+          <div class="offset-md-1 row"><!--Recherche-->
+             <div class="input-message col-md-10">
+               <p *ngIf="!isTyping">{{typingUser}} est entrain d'écrire</p>
+               <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autocomplete="off" [(ngModel)]="message"
+                      (focus)="OnTyping()" (blur)="OnStopTyping()"/>
+             </div>
+             <div class="col-md-2">
+               <button type="button" class="myButton" (click)="SendMessage()"><img src="../../../../../assets/images/send.png" class="sendBtn"></button>
+             </div>
           </div>
         </div>
-      </div>
 
       <div class="col-md-4 row second">
         <div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="title gradientBlue">
-            <img src="../../../../../assets/images/arrow.png" class="arrowDown">
+            <img (click)="HideGroup()" src="../../../../../assets/images/arrow.png" class="arrowDown">
             GROUPES
             <img src="../../../../../assets/images/icon-add.png" class="addBtn">
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
-          <div class="content">
+          <div *ngIf="showGroup" class="content">
             <ul class="sideList">
               <li *ngFor="let item of myTeams">{{item.name}}</li>
             </ul>
@@ -68,12 +66,12 @@
         <div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
           <div class="title gradientBlue">
-            <img src="../../../../../assets/images/arrow.png" class="arrowDown">
+            <img (click)="HideConv()" src="../../../../../assets/images/arrow.png" class="arrowDown">
             CONVERSATIONS
             <img src="../../../../../assets/images/icon-add.png" class="addBtn">
           </div>
           <app-blue-separation-bar-small></app-blue-separation-bar-small>
-          <div class="content">
+          <div *ngIf="showConv" class="content">
             <ul class="sideList">
               <li *ngFor="let item of myConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>
               <li *ngFor="let item of otherConvs" (click)="JoinRoom(item._id, item.user1, item.user2)">{{item.user1 + " / " + item.user2}}</li>

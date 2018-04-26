@@ -4,10 +4,12 @@
 }
 
 .sideList{
-  font-size: 20px;
+  font-size: 25px;
   list-style: none;
 }
-
+.sideList li:hover{
+  cursor: pointer;
+}
 #chat{
   margin-top: 150px;
 }
@@ -41,7 +43,7 @@
 }
 .input-message input {
   width: 95%;
-  background-color: rgba(29,29,29,0.5);
+  background-color: rgba(29,29,29,1);
   padding: 5px ;
 }
 *{
@@ -76,7 +78,7 @@
 .entete img{
   margin-top: -73px;
 }
-.userName{
+.user{
   font-size:40px;
   top: -65px;
   min-height: 1px;
@@ -89,18 +91,20 @@
 .day, .hour{
   text-align: center;
   color:grey;
+  font-size: 20px;
 }
 .contentMessage{
   overflow: hidden;
-  height: 55vh !important;
+  height: 50vh !important;
 }
 .contentMessage:hover{
   overflow: auto;
 }
 .message{
+  display: block;
   padding-left:30px;
   padding-right:30px;
-  font-size:20px;
+  font-size:30px;
 }
 .message span{
   padding-left:20px;
@@ -138,7 +142,7 @@
 }
 .content{
   padding:10px;
-  font-size:20px;
+  font-size:25px;
   padding-left:30px;
   padding-right:30px;
   font-size: 20px;

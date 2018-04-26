@@ -15,7 +15,7 @@ import {TeamService} from '../../../shared/services/team.service';
 })
 export class ContactComponent implements OnInit {
 
-  private username: string;
+  username: string;
   myConvs: any;
   otherConvs: any;
   socket = io.connect('http://localhost:3100');
@@ -25,6 +25,8 @@ export class ContactComponent implements OnInit {
   isTyping = true;
   typingUser = "";
   myFriends: any;
+  showGroup: boolean;
+  showConv: boolean;
   myTeams: any;
   myUserId = this.localStorage.getItem('userId');
   myUsername = this.localStorage.getItem('username');
@@ -33,32 +35,48 @@ export class ContactComponent implements OnInit {
     this.FindMyConvs();
     this.FindOtherConvs();
     this.GetMyFriends();
+    this.showGroup = true;
+    this.showConv = true;
+    let thisAlt = this;
     this.FindMyTeam();
 
     this.socket.on('return-chat-message', function(msg){
       console.log('chat message', msg);
 
-      let li=document.createElement("li");
-      li.appendChild(document.createTextNode(msg.username + ' : ' + msg.content));
-      document.getElementById("messages").appendChild(li);
+      /*let div = document.createElement("div");
+      div.appendChild(document.createTextNode(msg.username + ' : ' + msg.content));
+      document.getElementById("test").appendChild(div);*/
+      thisAlt.currentChat.push(msg);
+
+    });
+
+    this.socket.on('typing', function(data){
+      console.log(data.username + "typing");
+      thisAlt.isTyping = false;
+      thisAlt.typingUser = data.username;
+    });
+
+    this.socket.on('stop-typing', function(data) {
+      console.log(data.username + "stop typing");
+      thisAlt.isTyping = true;
+      thisAlt.typingUser = "";
     });
 
     this.socket.on('return-typing', function(data){
       console.log("typing", data);
-      this.isTyping = true;
-      this.typingUser = data.username;
+      thisAlt.isTyping = true;
+      thisAlt.typingUser = data.username;
     });
 
     this.socket.on('return-stop-typing', function(data){
       console.log("stop typing", data);
-      this.isTyping = false;
-      this.typingUser = "";
+      thisAlt.isTyping = false;
+      thisAlt.typingUser = "";
     });
   }
 
   ngOnInit() {
-    document.getElementById("chat").style.visibility = "hidden";
-    this.username = this.myUsername;
+    this.username = this.localStorage.getItem("username");
   }
 
   FindMyConvs() {
@@ -109,6 +127,8 @@ export class ContactComponent implements OnInit {
   JoinRoom(chatId, user1, user2){
     this.roomName = user1 + " / " + user2;
 
+
+
     let data = {
       room: chatId,
       username: this.myUsername
@@ -126,8 +146,6 @@ export class ContactComponent implements OnInit {
         console.log('Get current messages: ', this.currentChat);
       }
     );
-
-    document.getElementById("chat").style.visibility = 'visible';
   }
 
   SendMessage(){
@@ -170,6 +188,24 @@ export class ContactComponent implements OnInit {
           },
           () => {}
         );
+    }
+  }
+
+  HideGroup() {
+    if(this.showGroup == false){
+      this.showGroup = true;
+    }
+    else{
+      this.showGroup = false;
+    }
+  }
+
+  HideConv() {
+    if(this.showConv == false){
+      this.showConv = true;
+    }
+    else{
+      this.showConv = false;
     }
   }
 
